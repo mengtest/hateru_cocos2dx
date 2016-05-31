@@ -1,0 +1,82 @@
+//
+//  LocationGetResponseEntity.cpp
+//  hateru
+//
+//  Created by HaraKazunari on 2016/03/22.
+//
+//
+
+#include "LocationGetResponseEntity.h"
+
+/**
+ *  マッピング
+ *
+ *  @param object JSONオブジェクト
+ *
+ *  @return マッピング可否
+ */
+bool LocationGetMetaDetailResponseEntity::mapping(picojson::object &object) {
+	if (object["userCode"].is<std::string>()) {
+		userCode = object["userCode"].get<std::string>();
+	} else {
+		return false;
+	}
+	if (object["userName"].is<std::string>()) {
+		userName = object["userName"].get<std::string>();
+	} else {
+		return false;
+	}
+	if (object["message"].is<std::string>()) {
+		message = object["message"].get<std::string>();
+	} else {
+		return false;
+	}
+	if (object["mapIndex"].is<double>()) {
+		mapIndex = (int32_t)object["mapIndex"].get<double>();
+	} else {
+		return false;
+	}
+	if (object["x"].is<double>()) {
+		x = (int32_t)object["x"].get<double>();
+	} else {
+		return false;
+	}
+	if (object["y"].is<double>()) {
+		y = (int32_t)object["y"].get<double>();
+	} else {
+		return false;
+	}
+	if (object["otherInfos"].is<std::string>()) {
+		otherInfos = object["otherInfos"].get<std::string>();
+	} else {
+		return false;
+	}
+	return true;
+}
+
+/**
+ *  マッピング
+ *
+ *  @param object JSONオブジェクト
+ *
+ *  @return マッピング可否
+ */
+bool LocationGetMetaResponseEntity::mapping(picojson::object &object) {
+	if (object["locations"].is<picojson::array>()) {
+		locations.clear();
+		auto locationArray = object["locations"].get<picojson::array>();
+		for (picojson::array::iterator it = locationArray.begin(); it != locationArray.end(); it++) {
+			picojson::object& location = it->get<picojson::object>();
+			LocationGetMetaDetailResponseEntity locationEntity;
+			auto isSuccess = locationEntity.mapping(location);
+			if (!isSuccess) {
+				return false;
+			}
+			locations.push_back(locationEntity);
+		}
+	} else {
+		return false;
+	}
+	return true;
+}
+
