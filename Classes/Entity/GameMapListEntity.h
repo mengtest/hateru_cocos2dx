@@ -10,10 +10,14 @@
 #define GameMapListEntity_h
 
 #include "BaseGameEntity.h"
+#include "GameMapEntity.h"
 
 /// マップリストEntity
 class GameMapListEntity final: public BaseGameEntity {
 public:
+	
+	/// マップリスト
+	vector<GameMapEntity> maps;
 	
 private:
 };

@@ -15,6 +15,11 @@
 class GameStatusEntity final: public BaseGameEntity {
 public:
 	
+	/// ステータス種別
+	STATUS_TYPE status;
+	/// 変化値
+	int32_t value;
+	
 private:
 };
 

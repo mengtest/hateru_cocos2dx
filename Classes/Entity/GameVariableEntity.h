@@ -15,6 +15,13 @@
 class GameVariableEntity final: public BaseGameEntity {
 public:
 	
+	/// 名前
+	string name;
+	/// 初期値
+	int32_t initValue;
+	/// 説明
+	string guide;
+	
 private:
 };
 

@@ -7,3 +7,13 @@
 //
 
 #include "GameVariableChangeEntity.h"
+
+/**
+ *  値の整合性チェック
+ *
+ *  @return 生合成チェック可否
+ */
+bool GameVariableChangeEntity::isValid() {
+	
+	return true;
+}

@@ -10,6 +10,7 @@
 #define BaseGameEntity_h
 
 #include "cocos2d.h"
+#include "GameConst.h"
 
 USING_NS_CC;
 using namespace std;

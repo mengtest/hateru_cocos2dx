@@ -15,6 +15,20 @@
 class GameVariableChangeEntity final: public BaseGameEntity {
 public:
 	
+	/// 変数名
+	string variableName;
+	/// 式
+	VARIABLE_ZG_TYPE expression;
+	/// 値
+	int32_t value;
+
+	/**
+	 *  値の整合性チェック
+	 *
+	 *  @return 生合成チェック可否
+	 */
+	bool isValid();
+	
 private:
 };
 
