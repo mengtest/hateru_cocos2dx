@@ -14,7 +14,7 @@
  *
  *  @return URL
  */
-std::string LocationGetFetcher::url() {
+string LocationGetFetcher::url() {
 	return UrlConst::domainName + "/location_get";
 }
 

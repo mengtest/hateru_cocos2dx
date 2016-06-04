@@ -13,6 +13,7 @@
 #include "picojson.h"
 
 USING_NS_CC;
+using namespace std;
 
 /// ベースステータスレスポンスEntity
 class BaseStatusResponseEntity final: public Ref {
@@ -21,7 +22,7 @@ public:
 	/// コード
 	int code;
 	/// メッセージ
-	std::string message;
+	string message;
 	
 	/**
 	 *  マッピング

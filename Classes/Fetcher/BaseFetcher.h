@@ -16,6 +16,7 @@
 #include "BaseResponseEntity.h"
 
 USING_NS_CC;
+using namespace std;
 
 /// ベースフェッチャ
 template <class T_REQUEST, class T_RESPONSE>
@@ -24,9 +25,9 @@ public:
 
 	/// 成功ハンドラ
 	template <class T_RESPONSE_U>
-	using successHandler = std::function<void(T_RESPONSE_U responseEntity)>;
+	using successHandler = function<void(T_RESPONSE_U responseEntity)>;
 	/// 失敗ハンドラ
-	using failureHandler = std::function<void(void)>;
+	using failureHandler = function<void(void)>;
 
 	/**
 	 *  リクエストスタート
@@ -50,7 +51,7 @@ public:
 	 *
 	 *  @return URL
 	 */
-	virtual std::string url() = 0;
+	virtual string url() = 0;
 	
 	/**
 	 *  エラーチェック

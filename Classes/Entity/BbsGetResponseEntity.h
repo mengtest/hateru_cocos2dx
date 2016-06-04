@@ -16,17 +16,17 @@ class BbsGetDetailResponseEntity final: public Ref {
 public:
 	
 	/// ユーザコード
-	std::string userCode;
+	string userCode;
 	/// ユーザ名
-	std::string userName;
+	string userName;
 	/// メッセージコード
-	std::string messageCode;
+	string messageCode;
 	/// メッセージタイプ
-	std::string messageType;
+	string messageType;
 	/// メッセージデータ
-	std::string messageData;
+	string messageData;
 	/// 追加日時
-	std::string createAt;
+	string createAt;
 	
 	/**
 	 *  マッピング
@@ -43,9 +43,9 @@ class BbsGetMetaResponseEntity final: public Ref {
 public:
 	
 	/// 掲示板コード
-	std::string bbsCode;
+	string bbsCode;
 	/// メッセージ
-	std::vector<BbsGetDetailResponseEntity> messages;
+	vector<BbsGetDetailResponseEntity> messages;
 	
 	/**
 	 *  マッピング

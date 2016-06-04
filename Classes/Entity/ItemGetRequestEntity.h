@@ -16,11 +16,11 @@ class ItemGetParamsRequestEntity final: public Ref {
 public:
 	
 	/// 交換相手ユーザコード
-	std::string userCode;
+	string userCode;
 	/// 交換トークン
-	std::string exchangeToken;
+	string exchangeToken;
 	/// 交換パスワード
-	std::string password;
+	string password;
 	
 	/**
 	 *  シリアライズ

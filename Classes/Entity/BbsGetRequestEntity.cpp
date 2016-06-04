@@ -14,7 +14,7 @@
  *  @param object JSONオブジェクト
  */
 void BbsGetParamsRequestEntity::serialize(picojson::object &object) {
-	object.insert(std::make_pair("bbsCode", picojson::value(bbsCode)));
-	object.insert(std::make_pair("offset", picojson::value((double)offset)));
-	object.insert(std::make_pair("count", picojson::value((double)count)));
+	object.insert(make_pair("bbsCode", picojson::value(bbsCode)));
+	object.insert(make_pair("offset", picojson::value((double)offset)));
+	object.insert(make_pair("count", picojson::value((double)count)));
 }

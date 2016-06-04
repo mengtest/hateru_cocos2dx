@@ -9,4 +9,4 @@
 #include "UrlConst.h"
 
 /// ドメイン名
-const std::string UrlConst::domainName = "http://nikuqx.com/hateru";
+const string UrlConst::domainName = "http://nikuqx.com/hateru";

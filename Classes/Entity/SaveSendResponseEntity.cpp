@@ -16,8 +16,8 @@
  *  @return マッピング可否
  */
 bool SaveSendMetaResponseEntity::mapping(picojson::object &object) {
-	if (object["saveToken"].is<std::string>()) {
-		saveToken = object["saveToken"].get<std::string>();
+	if (object["saveToken"].is<string>()) {
+		saveToken = object["saveToken"].get<string>();
 	} else {
 		return false;
 	}

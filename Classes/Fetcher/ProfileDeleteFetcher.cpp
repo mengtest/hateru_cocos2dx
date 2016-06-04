@@ -14,7 +14,7 @@
  *
  *  @return URL
  */
-std::string ProfileDeleteFetcher::url() {
+string ProfileDeleteFetcher::url() {
 	return UrlConst::domainName + "/profile_delete";
 }
 

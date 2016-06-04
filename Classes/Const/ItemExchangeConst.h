@@ -11,14 +11,16 @@
 
 #include <stdio.h>
 
+using namespace std;
+
 /// レイヤーの基底クラス
 class ItemExchangeConst final {
 public:
 	
 	/// 交換タイプ 交換
-	static const std::string exchangeTypeExchange;
+	static const string exchangeTypeExchange;
 	/// 交換タイプ 譲渡
-	static const std::string exchangeTypeTransfer;
+	static const string exchangeTypeTransfer;
 	
 private:
 	

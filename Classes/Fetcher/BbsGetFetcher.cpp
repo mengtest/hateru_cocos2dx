@@ -14,7 +14,7 @@
  *
  *  @return URL
  */
-std::string BbsGetFetcher::url() {
+string BbsGetFetcher::url() {
 	return UrlConst::domainName + "/bbs_get";
 }
 

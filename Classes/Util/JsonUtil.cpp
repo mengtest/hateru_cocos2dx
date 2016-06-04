@@ -15,11 +15,11 @@
  *  @param error     エラー
  *  @param response  HTTPレスポンス
  */
-void JsonUtil::jsonParse(picojson::value *jsonValue, std::string *error, network::HttpResponse *response) {
+void JsonUtil::jsonParse(picojson::value *jsonValue, string *error, network::HttpResponse *response) {
 
 	// データ取得
-	std::vector<char> *buff = response->getResponseData();
-	std::string::size_type jsonSize = buff->size();
+	vector<char> *buff = response->getResponseData();
+	string::size_type jsonSize = buff->size();
 	char *jsonBuff = (char*)malloc(jsonSize + 1);
 	memset(jsonBuff,0x00,jsonSize + 1);
 	for(int i = 0;i < jsonSize;i++){

@@ -14,7 +14,7 @@
  *
  *  @return URL
  */
-std::string ItemInfoGetFetcher::url() {
+string ItemInfoGetFetcher::url() {
 	return UrlConst::domainName + "/item_info_get";
 }
 

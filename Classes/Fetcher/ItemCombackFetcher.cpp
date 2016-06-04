@@ -14,7 +14,7 @@
  *
  *  @return URL
  */
-std::string ItemCombackFetcher::url() {
+string ItemCombackFetcher::url() {
 	return UrlConst::domainName + "/item_comeback";
 }
 

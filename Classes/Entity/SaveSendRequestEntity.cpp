@@ -14,5 +14,5 @@
  *  @param object JSONオブジェクト
  */
 void SaveSendParamsRequestEntity::serialize(picojson::object &object) {
-	object.insert(std::make_pair("saveData", picojson::value(saveData)));
+	object.insert(make_pair("saveData", picojson::value(saveData)));
 }

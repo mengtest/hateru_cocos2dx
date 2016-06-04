@@ -17,7 +17,7 @@ class UserCodeGetMetaResponseEntity final: public Ref {
 public:
 	
 	/// ユーザコード
-	std::string userCode;
+	string userCode;
 	
 	/**
 	 *  マッピング

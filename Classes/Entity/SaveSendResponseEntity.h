@@ -16,7 +16,7 @@ class SaveSendMetaResponseEntity final: public Ref {
 public:
 	
 	/// セーブトークン
-	std::string saveToken;
+	string saveToken;
 	
 	/**
 	 *  マッピング

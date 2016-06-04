@@ -16,8 +16,8 @@
  *  @return マッピング可否
  */
 bool ItemSendMetaResponseEntity::mapping(picojson::object &object) {
-	if (object["exchangeToken"].is<std::string>()) {
-		exchangeToken = object["exchangeToken"].get<std::string>();
+	if (object["exchangeToken"].is<string>()) {
+		exchangeToken = object["exchangeToken"].get<string>();
 	} else {
 		return false;
 	}

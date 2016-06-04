@@ -16,11 +16,11 @@ class LocationGetMetaDetailResponseEntity final: public Ref {
 public:
 	
 	/// 位置情報群
-	std::string userCode;
+	string userCode;
 	/// 位置情報群
-	std::string userName;
+	string userName;
 	/// 位置情報群
-	std::string message;
+	string message;
 	/// 位置情報群
 	int32_t mapIndex;
 	/// 位置情報群
@@ -28,7 +28,7 @@ public:
 	/// 位置情報群
 	int32_t y;
 	/// 位置情報群
-	std::string otherInfos;
+	string otherInfos;
 	
 	/**
 	 *  マッピング
@@ -45,7 +45,7 @@ class LocationGetMetaResponseEntity final: public Ref {
 public:
 	
 	/// 位置情報群
-	std::vector<LocationGetMetaDetailResponseEntity> locations;
+	vector<LocationGetMetaDetailResponseEntity> locations;
 	
 	/**
 	 *  マッピング

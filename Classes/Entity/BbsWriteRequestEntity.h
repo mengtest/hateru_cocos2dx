@@ -16,13 +16,13 @@ class BbsWriteParamsRequestEntity final: public Ref {
 public:
 	
 	/// 掲示板コード
-	std::string bbsCode;
+	string bbsCode;
 	/// メッセージコード
-	std::string messageCode;
+	string messageCode;
 	/// メッセージタイプ
-	std::string messageType;
+	string messageType;
 	/// メッセージデータ
-	std::string messageData;
+	string messageData;
 	
 	/**
 	 *  シリアライズ

@@ -18,7 +18,7 @@ public:
 	/// アイテム種類
 	int32_t itemKindIndex;
 	/// 所持アイテムコード
-	std::string itemCode;
+	string itemCode;
 	
 	/**
 	 *  マッピング

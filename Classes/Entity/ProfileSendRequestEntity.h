@@ -16,7 +16,7 @@ class ProfileSendParamsRequestEntity final: public Ref {
 public:
 	
 	/// プロフィールデータ
-	std::string profileData;
+	string profileData;
 	
 	/**
 	 *  シリアライズ

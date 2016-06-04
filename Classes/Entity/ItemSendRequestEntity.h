@@ -18,13 +18,13 @@ public:
 	/// アイテム種類
 	int32_t itemKindIndex;
 	/// 所持アイテムコード
-	std::string itemCode;
+	string itemCode;
 	/// 交換希望アイテム種別
 	int32_t hopeItemKindIndex;
 	/// 交換相手ユーザコード
-	std::string partnerUserCode;
+	string partnerUserCode;
 	/// 交換パスワード
-	std::string password;
+	string password;
 
 	/**
 	 *  シリアライズ

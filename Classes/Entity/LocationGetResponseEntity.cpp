@@ -16,18 +16,18 @@
  *  @return マッピング可否
  */
 bool LocationGetMetaDetailResponseEntity::mapping(picojson::object &object) {
-	if (object["userCode"].is<std::string>()) {
-		userCode = object["userCode"].get<std::string>();
+	if (object["userCode"].is<string>()) {
+		userCode = object["userCode"].get<string>();
 	} else {
 		return false;
 	}
-	if (object["userName"].is<std::string>()) {
-		userName = object["userName"].get<std::string>();
+	if (object["userName"].is<string>()) {
+		userName = object["userName"].get<string>();
 	} else {
 		return false;
 	}
-	if (object["message"].is<std::string>()) {
-		message = object["message"].get<std::string>();
+	if (object["message"].is<string>()) {
+		message = object["message"].get<string>();
 	} else {
 		return false;
 	}
@@ -46,8 +46,8 @@ bool LocationGetMetaDetailResponseEntity::mapping(picojson::object &object) {
 	} else {
 		return false;
 	}
-	if (object["otherInfos"].is<std::string>()) {
-		otherInfos = object["otherInfos"].get<std::string>();
+	if (object["otherInfos"].is<string>()) {
+		otherInfos = object["otherInfos"].get<string>();
 	} else {
 		return false;
 	}

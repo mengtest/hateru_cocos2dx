@@ -16,18 +16,18 @@
  *  @return マッピング可否
  */
 bool CharaGetMetaResponseEntity::mapping(picojson::object &object) {
-	if (object["userCode"].is<std::string>()) {
-		userCode = object["userCode"].get<std::string>();
+	if (object["userCode"].is<string>()) {
+		userCode = object["userCode"].get<string>();
 	} else {
 		return false;
 	}
-	if (object["userName"].is<std::string>()) {
-		userName = object["userName"].get<std::string>();
+	if (object["userName"].is<string>()) {
+		userName = object["userName"].get<string>();
 	} else {
 		return false;
 	}
-	if (object["statusData"].is<std::string>()) {
-		statusData = object["statusData"].get<std::string>();
+	if (object["statusData"].is<string>()) {
+		statusData = object["statusData"].get<string>();
 	} else {
 		return false;
 	}

@@ -13,23 +13,24 @@
 #include "picojson.h"
 
 USING_NS_CC;
+using namespace std;
 
 /// ベースステータスリクエストEntity
 class BaseStatusRequestEntity final: public Ref {
 public:
 	
 	/// アプリトークン
-	std::string appToken;
+	string appToken;
 	/// アプリバージョン
-	std::string appVersion;
+	string appVersion;
 	/// プラットフォーム
-	std::string platform;
+	string platform;
 	/// ユーザコード
-	std::string userCode;
+	string userCode;
 	/// ユーザ名
-	std::string userName;
+	string userName;
 	/// アクセストークン
-	std::string accessToken;
+	string accessToken;
 	
 	/**
 	 *  シリアライズ

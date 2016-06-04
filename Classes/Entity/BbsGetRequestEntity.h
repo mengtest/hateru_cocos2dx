@@ -15,7 +15,7 @@
 class BbsGetParamsRequestEntity final: public Ref {
 public:
 	/// 掲示板コード
-	std::string bbsCode;
+	string bbsCode;
 	/// 取得オフセット
 	int32_t offset;
 	/// 取得カウント

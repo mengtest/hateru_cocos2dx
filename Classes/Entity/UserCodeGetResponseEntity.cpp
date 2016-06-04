@@ -16,8 +16,8 @@
  *  @return マッピング可否
  */
 bool UserCodeGetMetaResponseEntity::mapping(picojson::object &object) {
-	if (object["userCode"].is<std::string>()) {
-		userCode = object["userCode"].get<std::string>();
+	if (object["userCode"].is<string>()) {
+		userCode = object["userCode"].get<string>();
 	} else {
 		return false;
 	}

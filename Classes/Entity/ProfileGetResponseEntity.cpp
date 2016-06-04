@@ -16,18 +16,18 @@
  *  @return マッピング可否
  */
 bool ProfileGetMetaResponseEntity::mapping(picojson::object &object) {
-	if (object["userCode"].is<std::string>()) {
-		userCode = object["userCode"].get<std::string>();
+	if (object["userCode"].is<string>()) {
+		userCode = object["userCode"].get<string>();
 	} else {
 		return false;
 	}
-	if (object["userName"].is<std::string>()) {
-		userName = object["userName"].get<std::string>();
+	if (object["userName"].is<string>()) {
+		userName = object["userName"].get<string>();
 	} else {
 		return false;
 	}
-	if (object["profileData"].is<std::string>()) {
-		profileData = object["profileData"].get<std::string>();
+	if (object["profileData"].is<string>()) {
+		profileData = object["profileData"].get<string>();
 	} else {
 		return false;
 	}

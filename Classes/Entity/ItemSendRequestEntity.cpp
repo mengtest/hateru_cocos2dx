@@ -14,9 +14,9 @@
  *  @param object JSONオブジェクト
  */
 void ItemSendParamsRequestEntity::serialize(picojson::object &object) {
-	object.insert(std::make_pair("itemKindIndex", picojson::value((double)itemKindIndex)));
-	object.insert(std::make_pair("itemCode", picojson::value(itemCode)));
-	object.insert(std::make_pair("hopeItemKindIndex", picojson::value((double)hopeItemKindIndex)));
-	object.insert(std::make_pair("partnerUserCode", picojson::value(partnerUserCode)));
-	object.insert(std::make_pair("password", picojson::value(password)));
+	object.insert(make_pair("itemKindIndex", picojson::value((double)itemKindIndex)));
+	object.insert(make_pair("itemCode", picojson::value(itemCode)));
+	object.insert(make_pair("hopeItemKindIndex", picojson::value((double)hopeItemKindIndex)));
+	object.insert(make_pair("partnerUserCode", picojson::value(partnerUserCode)));
+	object.insert(make_pair("password", picojson::value(password)));
 }

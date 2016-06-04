@@ -16,11 +16,11 @@ class ProfileGetMetaResponseEntity final: public Ref {
 public:
 	
 	/// ユーザコード
-	std::string userCode;
+	string userCode;
 	/// ユーザ名
-	std::string userName;
+	string userName;
 	/// プロフィールデータ
-	std::string profileData;
+	string profileData;
 	
 	/**
 	 *  マッピング

@@ -16,7 +16,7 @@ class CharaSendParamsRequestEntity final: public Ref {
 public:
 	
 	/// ステータスデータ
-	std::string statusData;
+	string statusData;
 	
 	/**
 	 *  シリアライズ

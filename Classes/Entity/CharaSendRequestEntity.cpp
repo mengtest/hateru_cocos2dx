@@ -14,5 +14,5 @@
  *  @param object JSONオブジェクト
  */
 void CharaSendParamsRequestEntity::serialize(picojson::object &object) {
-	object.insert(std::make_pair("statusData", picojson::value(statusData)));
+	object.insert(make_pair("statusData", picojson::value(statusData)));
 }

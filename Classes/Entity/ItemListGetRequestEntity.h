@@ -16,7 +16,7 @@ class ItemListGetParamsRequestEntity final: public Ref {
 public:
 	
 	/// 交換タイプ
-	std::string exchangeType;
+	string exchangeType;
 	/// アイテム種類
 	int32_t itemKindIndex;
 	/// 希望アイテム種類

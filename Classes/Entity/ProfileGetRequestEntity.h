@@ -16,7 +16,7 @@ class ProfileGetParamsRequestEntity final: public Ref {
 public:
 	
 	/// ユーザコード
-	std::string userCode;
+	string userCode;
 	
 	/**
 	 *  シリアライズ

@@ -14,7 +14,7 @@
  *
  *  @return URL
  */
-std::string TokenGetFetcher::url() {
+string TokenGetFetcher::url() {
 	return UrlConst::domainName + "/token_get";
 }
 

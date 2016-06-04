@@ -14,5 +14,5 @@
  *  @param object JSONオブジェクト
  */
 void ProfileGetParamsRequestEntity::serialize(picojson::object &object) {
-	object.insert(std::make_pair("userCode", picojson::value(userCode)));
+	object.insert(make_pair("userCode", picojson::value(userCode)));
 }

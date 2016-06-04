@@ -14,7 +14,7 @@
  *
  *  @return URL
  */
-std::string SaveGetFetcher::url() {
+string SaveGetFetcher::url() {
 	return UrlConst::domainName + "/save_get";
 }
 

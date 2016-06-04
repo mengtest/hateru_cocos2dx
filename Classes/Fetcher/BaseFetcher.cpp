@@ -34,7 +34,7 @@ void BaseFetcher<T_REQUEST, T_RESPONSE>::startRequest(T_REQUEST requestEntity, s
 	picojson::object object;
 	requestEntity.serialize(&object);
 	picojson::value val(object);
-	std::string postData = val.serialize();
+	string postData = val.serialize();
 	request->setRequestData(postData.c_str(), postData.length());
 	
 	// 通信開始
@@ -102,10 +102,10 @@ bool BaseFetcher<T_REQUEST, T_RESPONSE>::isValid(network::HttpResponse *response
 template <class T_REQUEST, class T_RESPONSE>
 bool BaseFetcher<T_REQUEST, T_RESPONSE>::jsonParse(picojson::value *jsonValue, network::HttpResponse *response) {
 	// JSON変換
-	std::string error;
+	string error;
 	JsonUtil::jsonParse(jsonValue, &error, response);
 	if(!error.empty()){
-		std::cout << error;
+		cout << error;
 		return false;
 	}
 	return true;

@@ -16,7 +16,7 @@ class SaveGetMetaResponseEntity final: public Ref {
 public:
 	
 	/// セーブデータ
-	std::string saveData;
+	string saveData;
 	
 	/**
 	 *  マッピング

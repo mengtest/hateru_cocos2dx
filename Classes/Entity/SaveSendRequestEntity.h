@@ -16,7 +16,7 @@ class SaveSendParamsRequestEntity final: public Ref {
 public:
 	
 	/// セーブデータ
-	std::string saveData;
+	string saveData;
 	
 	/**
 	 *  シリアライズ

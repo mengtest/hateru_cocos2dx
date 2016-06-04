@@ -18,11 +18,11 @@ void BaseRequestEntity<T_PARAMS>::serialize(picojson::object &object) {
 	// ステータス
 	picojson::object statusObject;
 	status.serialize(statusObject);
-	object.insert(std::make_pair("status", picojson::value(statusObject)));
+	object.insert(make_pair("status", picojson::value(statusObject)));
 	// パラメータ
 	picojson::object paramObject;
 	params.serialize(paramObject);
-	object.insert(std::make_pair("params", picojson::value(paramObject)));
+	object.insert(make_pair("params", picojson::value(paramObject)));
 }
 
 /**
@@ -31,10 +31,10 @@ void BaseRequestEntity<T_PARAMS>::serialize(picojson::object &object) {
  *  @param object JSONオブジェクト
  */
 void BaseStatusRequestEntity::serialize(picojson::object &object) {
-	object.insert(std::make_pair("appToken", picojson::value(appToken)));
-	object.insert(std::make_pair("appVersion", picojson::value(appVersion)));
-	object.insert(std::make_pair("platform", picojson::value(platform)));
-	object.insert(std::make_pair("userCode", picojson::value(userCode)));
-	object.insert(std::make_pair("userName", picojson::value(userName)));
-	object.insert(std::make_pair("accessToken", picojson::value(accessToken)));
+	object.insert(make_pair("appToken", picojson::value(appToken)));
+	object.insert(make_pair("appVersion", picojson::value(appVersion)));
+	object.insert(make_pair("platform", picojson::value(platform)));
+	object.insert(make_pair("userCode", picojson::value(userCode)));
+	object.insert(make_pair("userName", picojson::value(userName)));
+	object.insert(make_pair("accessToken", picojson::value(accessToken)));
 }

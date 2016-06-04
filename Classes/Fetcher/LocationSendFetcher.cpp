@@ -14,7 +14,7 @@
  *
  *  @return URL
  */
-std::string LocationSendFetcher::url() {
+string LocationSendFetcher::url() {
 	return UrlConst::domainName + "/location_send";
 }
 

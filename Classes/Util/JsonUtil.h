@@ -14,6 +14,7 @@
 #include "network/HttpClient.h"
 
 USING_NS_CC;
+using namespace std;
 
 /// JSONユーティリティ
 class JsonUtil final: public Ref {
@@ -26,7 +27,7 @@ public:
 	 *  @param error     エラー
 	 *  @param response  HTTPレスポンス
 	 */
-	static void jsonParse(picojson::value *jsonValue, std::string *error, network::HttpResponse *response);
+	static void jsonParse(picojson::value *jsonValue, string *error, network::HttpResponse *response);
 	
 private:
 	

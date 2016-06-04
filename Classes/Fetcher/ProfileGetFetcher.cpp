@@ -14,7 +14,7 @@
  *
  *  @return URL
  */
-std::string ProfileGetFetcher::url() {
+string ProfileGetFetcher::url() {
 	return UrlConst::domainName + "/profile_get";
 }
 

@@ -43,8 +43,8 @@ bool BaseStatusResponseEntity::mapping(picojson::object &object) {
 	} else {
 		return false;
 	}
-	if (object["message"].is<std::string>()) {
-		message = object["message"].get<std::string>();
+	if (object["message"].is<string>()) {
+		message = object["message"].get<string>();
 	}
 	return true;
 }

@@ -16,7 +16,7 @@ class ItemSendMetaResponseEntity final: public Ref {
 public:
 	
 	/// 交換トークン
-	std::string exchangeToken;
+	string exchangeToken;
 	
 	/**
 	 *  マッピング

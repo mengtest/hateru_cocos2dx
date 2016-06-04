@@ -16,9 +16,9 @@ class ItemInfoGetParamsRequestEntity final: public Ref {
 public:
 	
 	/// ユーザコード
-	std::string userCode;
+	string userCode;
 	/// 交換トークン
-	std::string exchangeToken;
+	string exchangeToken;
 	
 	/**
 	 *  シリアライズ

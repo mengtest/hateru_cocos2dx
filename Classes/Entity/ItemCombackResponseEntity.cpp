@@ -21,8 +21,8 @@ bool ItemCombackMetaResponseEntity::mapping(picojson::object &object) {
 	} else {
 		return false;
 	}
-	if (object["itemCode"].is<std::string>()) {
-		itemCode = object["itemCode"].get<std::string>();
+	if (object["itemCode"].is<string>()) {
+		itemCode = object["itemCode"].get<string>();
 	} else {
 		return false;
 	}

@@ -11,12 +11,14 @@
 
 #include <stdio.h>
 
+using namespace std;
+
 /// レイヤーの基底クラス
 class UrlConst final {
 public:
 
 	/// ドメイン名
-	static const std::string domainName;
+	static const string domainName;
 	
 private:
 

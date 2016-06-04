@@ -14,7 +14,7 @@
  *
  *  @return URL
  */
-std::string BbsWriteFetcher::url() {
+string BbsWriteFetcher::url() {
 	return UrlConst::domainName + "/bbs_write";
 }
 

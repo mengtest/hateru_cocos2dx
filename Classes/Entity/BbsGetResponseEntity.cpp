@@ -16,33 +16,33 @@
  *  @return マッピング可否
  */
 bool BbsGetDetailResponseEntity::mapping(picojson::object &object) {
-	if (object["userCode"].is<std::string>()) {
-		userCode = object["userCode"].get<std::string>();
+	if (object["userCode"].is<string>()) {
+		userCode = object["userCode"].get<string>();
 	} else {
 		return false;
 	}
-	if (object["userName"].is<std::string>()) {
-		userName = object["userName"].get<std::string>();
+	if (object["userName"].is<string>()) {
+		userName = object["userName"].get<string>();
 	} else {
 		return false;
 	}
-	if (object["messageCode"].is<std::string>()) {
-		messageCode = object["messageCode"].get<std::string>();
+	if (object["messageCode"].is<string>()) {
+		messageCode = object["messageCode"].get<string>();
 	} else {
 		return false;
 	}
-	if (object["messageType"].is<std::string>()) {
-		messageType = object["messageType"].get<std::string>();
+	if (object["messageType"].is<string>()) {
+		messageType = object["messageType"].get<string>();
 	} else {
 		return false;
 	}
-	if (object["messageData"].is<std::string>()) {
-		messageType = object["messageData"].get<std::string>();
+	if (object["messageData"].is<string>()) {
+		messageType = object["messageData"].get<string>();
 	} else {
 		return false;
 	}
-	if (object["createAt"].is<std::string>()) {
-		createAt = object["createAt"].get<std::string>();
+	if (object["createAt"].is<string>()) {
+		createAt = object["createAt"].get<string>();
 	} else {
 		return false;
 	}

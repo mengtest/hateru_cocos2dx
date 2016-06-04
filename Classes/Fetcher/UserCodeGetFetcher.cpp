@@ -14,7 +14,7 @@
  *
  *  @return URL
  */
-std::string UserCodeGetFetcher::url() {
+string UserCodeGetFetcher::url() {
 	return UrlConst::domainName + "/user_code_get";
 }
 

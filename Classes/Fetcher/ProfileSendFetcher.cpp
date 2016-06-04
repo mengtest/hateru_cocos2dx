@@ -14,7 +14,7 @@
  *
  *  @return URL
  */
-std::string ProfileSendFetcher::url() {
+string ProfileSendFetcher::url() {
 	return UrlConst::domainName + "/profile_send";
 }
 

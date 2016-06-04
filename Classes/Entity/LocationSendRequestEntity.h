@@ -16,7 +16,7 @@ class LocationSendParamsRequestEntity final: public Ref {
 public:
 	
 	/// メッセージ
-	std::string message;
+	string message;
 	/// マップインデックス
 	int32_t mapIndex;
 	/// X座標
@@ -24,7 +24,7 @@ public:
 	/// Y座標
 	int32_t y;
 	/// その他情報
-	std::string otherInfos;
+	string otherInfos;
 	
 	/**
 	 *  シリアライズ

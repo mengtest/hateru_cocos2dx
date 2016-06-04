@@ -16,8 +16,8 @@
  *  @return マッピング可否
  */
 bool TokenGetMetaResponseEntity::mapping(picojson::object &object) {
-	if (object["accessToken"].is<std::string>()) {
-		accessToken = object["accessToken"].get<std::string>();
+	if (object["accessToken"].is<string>()) {
+		accessToken = object["accessToken"].get<string>();
 	} else {
 		return false;
 	}

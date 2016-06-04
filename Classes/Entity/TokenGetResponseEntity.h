@@ -17,7 +17,7 @@ class TokenGetMetaResponseEntity final: public Ref {
 public:
 	
 	/// トークン
-	std::string accessToken;
+	string accessToken;
 	
 	/**
 	 *  マッピング

@@ -14,7 +14,7 @@
  *
  *  @return URL
  */
-std::string CharaDeleteFetcher::url() {
+string CharaDeleteFetcher::url() {
 	return UrlConst::domainName + "/chara_delete";
 }
 

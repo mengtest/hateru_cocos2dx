@@ -16,7 +16,7 @@ class SaveGetParamsRequestEntity final: public Ref {
 public:
 	
 	/// セーブトークン
-	std::string saveToken;
+	string saveToken;
 	
 	/**
 	 *  シリアライズ

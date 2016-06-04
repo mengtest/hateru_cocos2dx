@@ -14,7 +14,7 @@
  *
  *  @return URL
  */
-std::string CharaSendFetcher::url() {
+string CharaSendFetcher::url() {
 	return UrlConst::domainName + "/chara_send";
 }
 

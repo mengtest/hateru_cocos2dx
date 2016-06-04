@@ -22,7 +22,7 @@ public:
 	 *
 	 *  @return URL
 	 */
-	std::string url();
+	string url();
 	
 private:
 	

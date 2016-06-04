@@ -18,11 +18,11 @@ public:
 	/// アイテム種類
 	int32_t itemKindIndex;
 	/// アイテムコード
-	std::string itemCode;
+	string itemCode;
 	/// 交換希望アイテム種類
 	int32_t hopeItemKindIndex;
 	/// 交換ステータス
-	std::string exchangeStatus;
+	string exchangeStatus;
 	/// パスワードあり
 	bool hasPassowrd;
 	

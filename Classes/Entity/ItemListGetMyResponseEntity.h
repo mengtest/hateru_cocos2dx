@@ -17,7 +17,7 @@ class ItemListGetMyMetaResponseEntity final: public Ref {
 public:
 	
 	/// アイテム情報
-	std::vector<ItemInfoGetMetaResponseEntity> items;
+	vector<ItemInfoGetMetaResponseEntity> items;
 	
 	/**
 	 *  マッピング
