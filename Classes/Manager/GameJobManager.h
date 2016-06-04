@@ -17,11 +17,11 @@ class GameJobManager final: BaseManager {
 public:
 	
 	/**
-	 *  変数読み込み
+	 *  読み込み
 	 *
-	 *  @return 変数群
+	 *  @return 取得データ
 	 */
-	static map<string, GameJobManager> &load();
+	static map<string, GameJobEntity> load();
 	
 private:
 	

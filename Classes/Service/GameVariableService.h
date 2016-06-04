@@ -23,6 +23,15 @@ public:
 	 */
 	static GameVariableService &getInstance();
 	
+	/**
+	 *  名前よりデータ取得
+	 *
+	 *  @param name 名前
+	 *
+	 *  @return 対象データ (なし:nullptr)
+	 */
+	GameVariableEntity *data(const string name);
+	
 private:
 
 	/// 変数

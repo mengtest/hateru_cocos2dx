@@ -9,12 +9,14 @@
 #include "GameVariableManager.h"
 
 /**
- *  変数読み込み
+ *  読み込み
  *
- *  @return 変数群
+ *  @return 取得データ
  */
-//map<string, GameVariableEntity> &GameVariableManager::load() {
-//	
-//	// ファイルデータ取得
+map<string, GameVariableEntity> GameVariableManager::load() {
+	
+	// ファイルデータ取得
 //	auto fileData = FileUtils::getInstance()->getDataFromFile("");
-//}
+
+	return map<string, GameVariableEntity>();
+}

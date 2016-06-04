@@ -7,3 +7,20 @@
 //
 
 #include "GameMainService.h"
+
+/**
+ *  コンストラクタ
+ */
+GameMainService::GameMainService() {
+	
+}
+
+/**
+ *  インスタンス取得
+ *
+ *  @return インスタンス
+ */
+GameMainService &GameMainService::getInstance() {
+	static GameMainService instance;
+	return instance;
+}

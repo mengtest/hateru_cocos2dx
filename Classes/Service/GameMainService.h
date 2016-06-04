@@ -15,13 +15,23 @@
 /// ゲームメインサービス
 class GameMainService final: BaseService {
 public:
-
 	
-	
+	/**
+	 *  インスタンス取得
+	 *
+	 *  @return インスタンス
+	 */
+	static GameMainService &getInstance();
 	
 private:
 	
+	/// ゲーム情報
+	GameInfoEntity gameInfo;
 	
+	/**
+	 *  コンストラクタ
+	 */
+	GameMainService();
 	
 };
 

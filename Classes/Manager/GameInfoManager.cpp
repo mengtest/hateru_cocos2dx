@@ -7,3 +7,16 @@
 //
 
 #include "GameInfoManager.h"
+
+/**
+ *  読み込み
+ *
+ *  @return 取得データ
+ */
+GameInfoEntity GameInfoManager::load() {
+	
+	// ファイルデータ取得
+	//	auto fileData = FileUtils::getInstance()->getDataFromFile("");
+	
+	return GameInfoEntity();
+}

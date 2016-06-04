@@ -23,6 +23,15 @@ public:
 	 */
 	static GameSkillService &getInstance();
 	
+	/**
+	 *  名前よりデータ取得
+	 *
+	 *  @param name 名前
+	 *
+	 *  @return 対象データ (なし:nullptr)
+	 */
+	GameSkillEntity *data(const string name);
+
 private:
 	
 	/// スキル

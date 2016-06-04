@@ -17,11 +17,11 @@ class GameItemManager final: BaseManager {
 public:
 	
 	/**
-	 *  変数読み込み
+	 *  読み込み
 	 *
-	 *  @return 変数群
+	 *  @return 取得データ
 	 */
-	static map<string, GameItemManager> &load();
+	static map<string, GameItemEntity> load();
 	
 private:
 	

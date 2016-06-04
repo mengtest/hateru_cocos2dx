@@ -23,6 +23,15 @@ public:
 	 */
 	static GameJobService &getInstance();
 	
+	/**
+	 *  名前よりデータ取得
+	 *
+	 *  @param name 名前
+	 *
+	 *  @return 対象データ (なし:nullptr)
+	 */
+	GameJobEntity *data(const string name);
+	
 private:
 	
 	/// 職業

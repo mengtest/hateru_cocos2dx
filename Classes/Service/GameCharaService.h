@@ -23,6 +23,15 @@ public:
 	 */
 	static GameCharaService &getInstance();
 	
+	/**
+	 *  名前よりデータ取得
+	 *
+	 *  @param name 名前
+	 *
+	 *  @return 対象データ (なし:nullptr)
+	 */
+	GameCharaEntity *data(const string name);
+	
 private:
 	
 	/// キャラリスト

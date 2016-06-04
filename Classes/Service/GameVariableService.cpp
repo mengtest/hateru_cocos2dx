@@ -7,12 +7,14 @@
 //
 
 #include "GameVariableService.h"
+#include "GameVariableManager.h"
 
 /**
  *  コンストラクタ
  */
 GameVariableService::GameVariableService() {
-	
+	// 読み込み
+	variables = GameVariableManager::load();
 }
 
 /**
@@ -25,4 +27,17 @@ GameVariableService &GameVariableService::getInstance() {
 	return instance;
 }
 
+/**
+ *  名前よりデータ取得
+ *
+ *  @param name 名前
+ *
+ *  @return 対象データ (なし:nullptr)
+ */
+GameVariableEntity *GameVariableService::data(const string name) {
+	if (variables.find(name) == variables.end()) {
+		return nullptr;
+	}
+	return &variables[name];
+}
 
