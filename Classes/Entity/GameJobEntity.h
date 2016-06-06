@@ -18,8 +18,10 @@ public:
 	
 	/// 名前
 	string name;
-	/// クリティカル
-	int32_t critical;
+	/// 会心率
+	int32_t criticalRate;
+	/// 命中率
+	int32_t hitRate;
 	/// レベルアップ時のステータス
 	int32_t addStatuses[ADDSTATUS_TYPE_EXP + 1][MAX_LEVEL + 1];
 	/// 会得スキル情報

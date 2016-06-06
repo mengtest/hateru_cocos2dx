@@ -17,30 +17,16 @@ class GameMapService final: BaseService {
 public:
 	
 	/**
-	 *  インスタンス取得
+	 *  コンストラクタ
 	 *
-	 *  @return インスタンス
+	 *  @param name マップ名
 	 */
-	static GameMapService &getInstance();
-	
-	/**
-	 *  名前よりデータ取得
-	 *
-	 *  @param name 名前
-	 *
-	 *  @return 対象データ (なし:nullptr)
-	 */
-	GameMapEntity *data(const string name);
+	GameMapService(const string name);
 	
 private:
 	
-	/// キャラリスト
-	map<string, GameMapEntity> maps;
-	
-	/**
-	 *  コンストラクタ
-	 */
-	GameMapService();
+	/// マップ
+	GameMapEntity map;
 	
 };
 

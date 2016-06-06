@@ -44,8 +44,8 @@ public:
 	/// マップチップ情報
 	vector<GameMapChipEntity> mapChips;
 	/// イベント情報
-	vector<GameMapEventEntity> events;
-	
+	map<string, GameMapEventEntity> events;
+
 private:
 };
 

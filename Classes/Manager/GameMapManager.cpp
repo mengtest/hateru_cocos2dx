@@ -11,12 +11,14 @@
 /**
  *  読み込み
  *
+ *  @param name マップ名
+ *
  *  @return 取得データ
  */
-map<string, GameMapEntity> GameMapManager::load() {
-	
+GameMapEntity GameMapManager::load(const string name) {
+
 	// ファイルデータ取得
 	//	auto fileData = FileUtils::getInstance()->getDataFromFile("");
 	
-	return map<string, GameMapEntity>();
+	return GameMapEntity();
 }

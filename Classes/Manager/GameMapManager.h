@@ -19,9 +19,11 @@ public:
 	/**
 	 *  読み込み
 	 *
+	 *  @param name マップ名
+	 *
 	 *  @return 取得データ
 	 */
-	static map<string, GameMapEntity> load();
+	static GameMapEntity load(const string name);
 	
 private:
 	
