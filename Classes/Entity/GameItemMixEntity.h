@@ -15,8 +15,8 @@
 class GameItemMixEntity final: public BaseGameEntity {
 public:
 	
-	/// アイテム名
-	string itemName;
+	/// アイテムID
+	int32_t itemId;
 	/// 個数
 	int32_t value;
 	

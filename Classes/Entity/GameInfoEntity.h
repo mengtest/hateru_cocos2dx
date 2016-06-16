@@ -19,28 +19,30 @@ public:
 	int32_t initMoney;
 	/// 初期所持金
 	string moneyUnit;
-	/// 初期マップ
-	string initMapName;
+	/// 初期マップID
+	string initMapId;
 	/// 初期X座標
 	int32_t initX;
 	/// 初期Y座標
 	int32_t initY;
-	/// 初期メンバー名
-	vector<string> initMemberNemes;
-	/// 船キャラ名
-	string shipCharaName;
-	/// 飛行船キャラ名
-	string flyShipCharaName;
-	/// 船サウンド名
-	string shipSoundName;
-	/// 飛行船サウンド名
-	string flyShipSoundName;
-	/// 宿屋サウンド名
-	string innSoundName;
-	/// レベルアップサウンド名
-	string levelUpSoundName;
-	/// 戦闘終了サウンド名
-	string battleEndSoundName;
+	/// 初期メンバーID
+	vector<int32_t> initMemberIds;
+	/// 船キャラID
+	int32_t shipCharaId;
+	/// 飛行船キャラID
+	int32_t flyShipCharaId;
+	/// 船サウンドID
+	int32_t shipSoundId;
+	/// 飛行船サウンドID
+	int32_t flyShipSoundId;
+	/// 宿屋サウンドID
+	int32_t innSoundId;
+	/// レベルアップサウンドID
+	int32_t levelUpSoundId;
+	/// 戦闘終了サウンドID
+	int32_t battleEndSoundId;
+	
+	static GameInfoEntity convertData(const char *data);
 	
 private:
 };

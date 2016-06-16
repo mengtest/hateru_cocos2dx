@@ -30,14 +30,14 @@ GameVariableService &GameVariableService::getInstance() {
 /**
  *  名前よりデータ取得
  *
- *  @param name 名前
+ *  @param id ID
  *
  *  @return 対象データ (なし:nullptr)
  */
-GameVariableEntity *GameVariableService::data(const string name) {
-	if (variables.find(name) == variables.end()) {
+GameVariableEntity *GameVariableService::data(int32_t id) {
+	if (variables.find(id) == variables.end()) {
 		return nullptr;
 	}
-	return &variables[name];
+	return &variables[id];
 }
 

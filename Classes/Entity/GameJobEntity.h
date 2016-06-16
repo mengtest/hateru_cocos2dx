@@ -16,6 +16,8 @@
 class GameJobEntity final: public BaseGameEntity {
 public:
 	
+	/// ID
+	int32_t id;
 	/// 名前
 	string name;
 	/// 会心率

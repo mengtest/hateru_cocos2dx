@@ -15,14 +15,16 @@
 class GameCharaEntity final: public BaseGameEntity {
 public:
 	
+	/// ID
+	int32_t id;
 	/// 名前
 	string name;
-	/// 初期職業名
-	string initJobName;
+	/// 初期職業ID
+	int32_t initJobId;
 	/// 画像
-	vector<string> images;
+	vector<int32_t> images;
 	/// 初期アイテム
-	vector<string> initItems;
+	vector<int32_t> initItems;
 	
 private:
 };

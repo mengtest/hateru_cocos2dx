@@ -24,18 +24,18 @@ public:
 	static GameVariableService &getInstance();
 	
 	/**
-	 *  名前よりデータ取得
+	 *  IDよりデータ取得
 	 *
-	 *  @param name 名前
+	 *  @param id ID
 	 *
 	 *  @return 対象データ (なし:nullptr)
 	 */
-	GameVariableEntity *data(const string name);
+	GameVariableEntity *data(int32_t id);
 	
 private:
 
 	/// 変数
-	map<string, GameVariableEntity> variables;
+	map<int32_t, GameVariableEntity> variables;
 	
 	/**
 	 *  コンストラクタ

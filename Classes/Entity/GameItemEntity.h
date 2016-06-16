@@ -18,6 +18,8 @@
 class GameItemEntity final: public BaseGameEntity {
 public:
 	
+	/// ID
+	int32_t id;
 	/// 名前
 	string name;
 	/// 種類
@@ -31,17 +33,17 @@ public:
 	/// 使用回数
 	int32_t useCount;
 	/// 使用時、特殊技能と同一効果になる nilは無効
-	string useSkillName;
+	string useSkillId;
 	/// 状態治療
 	CONDITION_TYPE conditionTreatment;
 	/// 変化ステータス
 	vector<GameStatusEntity> changeStatus;
 	/// 装備可能職業
-	vector<string> equipmentJobName;
+	vector<bool> equipmentJobs;
 	/// 追加特技
-	string addSkillName;
+	string addSkillId;
 	/// 変更職業
-	string changeJobName;
+	string changeJobId;
 	/// 調合<GameItemMixEntity>
 	vector<GameItemMixEntity> mixings;
 	/// 表示コメント

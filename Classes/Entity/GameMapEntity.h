@@ -17,6 +17,8 @@
 class GameMapEntity final: public BaseGameEntity {
 public:
 	
+	/// ID
+	int32_t id;
 	/// マップ名
 	string name;
 	/// 幅
@@ -28,7 +30,7 @@ public:
 	/// 背景色
 	int32_t backgroundColor;
 	/// 背景画像
-	string backgroundImageName;
+	int32_t backgroundImageId;
 	/// サウンド
 	string soundName;
 	/// テレポート可不可
@@ -36,11 +38,11 @@ public:
 	/// エスケープ可不可
 	bool isUseEscape;
 	/// 背景マップチップグループ名
-	string backgroundMapChpGpName;
+	int32_t backgroundMapChpGpId;
 	/// 上マップチップグループ名
-	string upMapChpGpName;
+	int32_t upMapChpGpId;
 	/// 下マップチップグループ名
-	string downMapChpGpName;
+	int32_t downMapChpGpId;
 	/// マップチップ情報
 	vector<GameMapChipEntity> mapChips;
 	/// イベント情報

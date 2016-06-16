@@ -13,10 +13,10 @@
  *
  *  @return 取得データ
  */
-map<string, GameVariableEntity> GameVariableManager::load() {
+map<int32_t, GameVariableEntity> GameVariableManager::load() {
 	
 	// ファイルデータ取得
 //	auto fileData = FileUtils::getInstance()->getDataFromFile("");
 
-	return map<string, GameVariableEntity>();
+	return map<int32_t, GameVariableEntity>();
 }

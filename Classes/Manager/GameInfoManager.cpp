@@ -16,7 +16,7 @@
 GameInfoEntity GameInfoManager::load() {
 	
 	// ファイルデータ取得
-	//	auto fileData = FileUtils::getInstance()->getDataFromFile("");
+	auto fileData = FileUtils::getInstance()->getDataFromFile("");
 	
 	return GameInfoEntity();
 }

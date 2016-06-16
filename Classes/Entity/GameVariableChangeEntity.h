@@ -16,7 +16,7 @@ class GameVariableChangeEntity final: public BaseGameEntity {
 public:
 	
 	/// 変数名
-	string variableName;
+	int32_t variableId;
 	/// 式
 	VARIABLE_ZG_TYPE expression;
 	/// 値
