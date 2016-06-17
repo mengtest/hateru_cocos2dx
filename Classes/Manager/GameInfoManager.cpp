@@ -18,8 +18,8 @@
 GameInfoEntity GameInfoManager::load() {
 	
 	// ファイルデータ取得
-	auto fileName = FileConst::resGamePath + "Game.nmp";
-	auto fileData = FileUtils::getInstance()->getDataFromFile(fileName);
+	auto filePath = FileConst::resGamePath + "Game.nmp";
+	auto fileData = FileUtils::getInstance()->getDataFromFile(filePath);
 	
 	auto entity = GameInfoEntity::convertData(fileData.getBytes());
 	

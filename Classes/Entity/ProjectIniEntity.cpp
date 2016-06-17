@@ -42,10 +42,7 @@ ProjectIniEntity ProjectIniEntity::convertData(const unsigned char *data, size_t
 	auto entity = ProjectIniEntity();
 
 	// 文字に変換
-	char *buff = (char*)malloc(len + 1);
-	memset(buff, 0x00, len + 1);
-	memcpy(buff, data, len);
-	string inStr = buff;
+	string inStr = StringUtil::copyBuff(data, len);
 	
 	// 分割
 	string paramName = "";

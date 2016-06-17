@@ -34,3 +34,20 @@ void StringUtil::split(vector<string> &result, const string &inStr, const string
 		pos = p + delim.size();
 	}
 }
+
+/**
+ *  バッファから文字列作成
+ *
+ *  @param data データ
+ *  @param len  データ長
+ *
+ *  @return コピー後文字列
+ */
+string StringUtil::copyBuff(const unsigned char *data, size_t len) {
+	char *buff = (char*)malloc(len + 1);
+	memset(buff, 0x00, len + 1);
+	memcpy(buff, data, len);
+	string inStr = buff;
+	free(buff);
+	return inStr;
+}

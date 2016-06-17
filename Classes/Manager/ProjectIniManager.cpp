@@ -18,8 +18,8 @@
 ProjectIniEntity ProjectIniManager::load() {
 	
 	// ファイルデータ取得
-	auto fileName = FileConst::resGamePath + "Project.ini";
-	auto fileData = FileUtils::getInstance()->getDataFromFile(fileName);
+	auto filePath = FileConst::resGamePath + "Project.ini";
+	auto fileData = FileUtils::getInstance()->getDataFromFile(filePath);
 	
 	auto entity = ProjectIniEntity::convertData(fileData.getBytes(), (size_t)fileData.getSize());
 	

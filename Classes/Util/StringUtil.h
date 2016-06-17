@@ -26,6 +26,16 @@ public:
 	 */
 	static void split(vector<string> &result, const string &inStr, const string &delimiter);
 	
+	/**
+	 *  バッファから文字列作成
+	 *
+	 *  @param data データ
+	 *  @param len  データ長
+	 *
+	 *  @return コピー後文字列
+	 */
+	static string copyBuff(const unsigned char *data, size_t len);
+	
 private:
 	
 	/**
