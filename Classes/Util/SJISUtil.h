@@ -9,13 +9,12 @@
 #ifndef SJISUtil_h
 #define SJISUtil_h
 
-#include "cocos2d.h"
+#include <stdio.h>
 
-USING_NS_CC;
 using namespace std;
 
 /// SJISユーティリティ
-class SJISUtil final: public Ref {
+class SJISUtil final {
 public:
 	
 	/**
@@ -30,6 +29,15 @@ public:
 	
 private:
 	
+	/**
+	 *  コンストラクタ
+	 */
+	SJISUtil() {}
+	
+	/**
+	 *  デストラクタ
+	 */
+	~SJISUtil() {}
 };
 
 #endif /* SJISUtil_h */

@@ -27,8 +27,13 @@ private:
 	/**
 	 *  コンストラクタ
 	 */
-	ItemExchangeConst(){};
+	ItemExchangeConst() {}
 	
+	/**
+	 *  デストラクタ
+	 */
+	~ItemExchangeConst() {}
+
 };
 
 #endif /* ItemExchangeConst_h */

@@ -25,8 +25,12 @@ private:
 	/**
 	 *  コンストラクタ
 	 */
-	UrlConst();
+	UrlConst() {}
 	
+	/**
+	 *  デストラクタ
+	 */
+	~UrlConst() {}
 };
 
 #endif /* UrlConst_h */

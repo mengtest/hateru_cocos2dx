@@ -25,8 +25,12 @@ private:
 	/**
 	 *  コンストラクタ
 	 */
-	FileConst(){};
+	FileConst() {}
 	
+	/**
+	 *  デストラクタ
+	 */
+	~FileConst() {}
 };
 
 #endif /* FileConst_h */
