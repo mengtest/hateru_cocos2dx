@@ -13,7 +13,7 @@
 
 using namespace std;
 
-/// レイヤーの基底クラス
+/// アイテム交換定数
 class ItemExchangeConst final {
 public:
 	
@@ -27,7 +27,7 @@ private:
 	/**
 	 *  コンストラクタ
 	 */
-	ItemExchangeConst();
+	ItemExchangeConst(){};
 	
 };
 

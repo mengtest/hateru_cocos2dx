@@ -8,6 +8,8 @@
 
 #include "GameInfoManager.h"
 
+#include "FileConst.h"
+
 /**
  *  読み込み
  *
@@ -16,7 +18,10 @@
 GameInfoEntity GameInfoManager::load() {
 	
 	// ファイルデータ取得
-	auto fileData = FileUtils::getInstance()->getDataFromFile("");
+	auto fileName = FileConst::resGamePath + "Game.nmp";
+	auto fileData = FileUtils::getInstance()->getDataFromFile(fileName);
 	
-	return GameInfoEntity();
+	auto entity = GameInfoEntity::convertData(fileData.getBytes());
+	
+	return entity;
 }

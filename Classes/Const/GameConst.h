@@ -172,4 +172,7 @@ typedef enum {
 	VARIABLE_ZG_TYPE_SUB,			///	減
 } VARIABLE_ZG_TYPE;
 
+/// 初期メンバーカウント
+#define INIT_MEMBER_COUNT 3
+
 #endif /* GameConst_h */
