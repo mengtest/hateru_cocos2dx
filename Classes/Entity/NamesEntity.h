@@ -12,7 +12,7 @@
 #include "BaseGameEntity.h"
 
 /// 名前リストEntity
-class NamesEntity final: public BaseGameEntity {
+class NamesEntity: public BaseGameEntity {
 public:
 	
 	/// 名前リスト

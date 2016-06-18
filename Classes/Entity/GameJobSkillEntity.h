@@ -18,7 +18,7 @@ public:
 	/// 会得レベル
 	int32_t level;
 	/// 特殊技能名
-	string skillName;
+	int32_t skillId;
 	
 private:
 };

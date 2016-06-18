@@ -33,7 +33,6 @@ NamesEntity NamesEntity::convertData(const unsigned char *data, size_t len) {
 		if (it->length() <= 0) {
 			continue;
 		}
-//		auto utf8Str = SJISUtil::convertUTF8((unsigned char *)it->c_str(), it->length());
 		entity.names.push_back(*it);
 	}
 	

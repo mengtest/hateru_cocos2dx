@@ -33,4 +33,4 @@ NamesEntity NamesManager::load(const string &fileName) {
 	auto entity = NamesEntity::convertData(fileData.getBytes(), (size_t)fileData.getSize());
 	
 	return entity;
-}
+}	

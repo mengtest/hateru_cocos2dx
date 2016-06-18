@@ -25,11 +25,20 @@ public:
 	/// 命中率
 	int32_t hitRate;
 	/// レベルアップ時のステータス
-	int32_t addStatuses[ADDSTATUS_TYPE_EXP + 1][MAX_LEVEL + 1];
+	int32_t statuses[ADDSTATUS_TYPE_EXP + 1][MAX_LEVEL + 1];
 	/// 会得スキル情報
-	vector<GameJobSkillEntity> getSkills;
+	vector<GameJobSkillEntity> skills;
 	/// コメント
 	string comment;
+	
+	/**
+	 *  バイナリデータよりEntity作成
+	 *
+	 *  @param data バイナリデータ
+	 *
+	 *  @return Entity
+	 */
+	static GameJobEntity convertData(const unsigned char *data);
 	
 private:
 };
