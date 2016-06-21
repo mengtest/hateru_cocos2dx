@@ -34,12 +34,8 @@ const string ProjectIniEntity::typeSound = "[SoundList]";
  *
  *  @param data バイナリデータ
  *  @param len  データ長
- *
- *  @return Entity
  */
-ProjectIniEntity ProjectIniEntity::convertData(const unsigned char *data, size_t len) {
-
-	auto entity = ProjectIniEntity();
+void ProjectIniEntity::convertData(const unsigned char *data, size_t len) {
 
 	// 文字に変換
 	string inStr = StringUtil::copyBuff(data, len);
@@ -52,12 +48,10 @@ ProjectIniEntity ProjectIniEntity::convertData(const unsigned char *data, size_t
 		vector<string> params;
 		StringUtil::split(params, *it, "=");
 		if (params.size() == 2) {
-			entity.counts[paramName] = atoi(params[1].c_str());
+			counts[paramName] = atoi(params[1].c_str());
 		} else {
 			paramName = *it;
-			entity.counts[paramName] = 0;
+			counts[paramName] = 0;
 		}
 	}
-	
-	return entity;
 }

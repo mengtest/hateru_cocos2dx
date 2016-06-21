@@ -10,6 +10,7 @@
 
 #include "GameConst.h"
 #include "SJISUtil.h"
+#include "StringUtil.h"
 
 /**
  *  バイナリデータよりEntity作成
@@ -24,7 +25,7 @@ GameJobEntity GameJobEntity::convertData(const unsigned char *data) {
 	auto entity = GameJobEntity();
 	
 	// 名前
-	entity.name = SJISUtil::convertUTF8(&data[dataIndex], 16);
+	entity.name = StringUtil::trim(SJISUtil::convertUTF8(&data[dataIndex], 16));
 	dataIndex += 16;
 	// 必殺率
 	entity.criticalRate = (int32_t)data[dataIndex];
@@ -33,16 +34,16 @@ GameJobEntity GameJobEntity::convertData(const unsigned char *data) {
 	entity.hitRate = (int32_t)data[dataIndex];
 	dataIndex += 1;
 	// ステータス
-	for (auto i = 0; i <= ADDSTATUS_TYPE_EXP; i++) {
-		for (auto j = 0; j <= MAX_LEVEL; j++) {
+	for (int i = ADDSTATUS_TYPE_MAXHP; i <= ADDSTATUS_TYPE_EXP; i++) {
+		for (auto lv = 0; lv < MAX_LEVEL; lv++) {
 			if (i == ADDSTATUS_TYPE_EXP) {
-				entity.statuses[i][j] = (int32_t)data[dataIndex] * 0x100 + (int32_t)data[dataIndex + 1];
+				entity.statuses[i][lv] = (int32_t)data[dataIndex] * 0x100 + (int32_t)data[dataIndex + 1];
 				dataIndex += 2;
 			} else {
-				if (j == 0) {
-					entity.statuses[i][j] = (int32_t)data[dataIndex];
+				if (lv == 0) {
+					entity.statuses[i][lv] = (int32_t)data[dataIndex];
 				} else {
-					entity.statuses[i][j] = entity.statuses[i][j - 1] + (int32_t)data[dataIndex];
+					entity.statuses[i][lv] = entity.statuses[i][lv - 1] + (int32_t)data[dataIndex];
 				}
 				dataIndex += 1;
 			}

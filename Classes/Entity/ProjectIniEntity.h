@@ -42,10 +42,8 @@ public:
 	 *
 	 *  @param data バイナリデータ
 	 *  @param len  データ長
-	 *
-	 *  @return Entity
 	 */
-	static ProjectIniEntity convertData(const unsigned char *data, size_t len);
+	void convertData(const unsigned char *data, size_t len);
 	
 private:
 };

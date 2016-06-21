@@ -36,6 +36,16 @@ public:
 	 */
 	static string copyBuff(const unsigned char *data, size_t len);
 	
+	/**
+	 *  余白削除
+	 *
+	 *  @param string            文字
+	 *  @param trimCharacterList 削除対象リスト
+	 *
+	 *  @return 変換後文字
+	 */
+	static string trim(const string& string, const char* trimCharacterList = " \t\v\r\n");
+	
 private:
 	
 	/**

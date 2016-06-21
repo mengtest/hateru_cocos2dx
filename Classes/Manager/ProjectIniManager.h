@@ -34,6 +34,14 @@ private:
 	 *  デストラクタ
 	 */
 	~ProjectIniManager() {}
+	
+	/**
+	 *  Project.ini読み込み
+	 *
+	 *  @param ProjectIniEntity 設定Entity
+	 */
+//	void loadProjectIni(ProjectIniEntity &entity);
+
 };
 
 #endif /* ProjectIniManager_h */

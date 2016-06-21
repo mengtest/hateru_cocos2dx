@@ -14,7 +14,7 @@
  */
 GameJobService::GameJobService() {
 	// 読み込み
-	jobs = GameJobManager::load();
+//	jobs = GameJobManager::load();
 }
 
 /**

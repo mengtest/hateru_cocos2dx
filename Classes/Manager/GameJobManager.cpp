@@ -8,15 +8,33 @@
 
 #include "GameJobManager.h"
 
+#include <iostream>
+#include <iomanip>
+
+#include "FileConst.h"
+#include "ProjectIniManager.h"
+
 /**
  *  読み込み
  *
  *  @return 取得データ
  */
-map<string, GameJobEntity> GameJobManager::load() {
+map<int32_t, GameJobEntity> GameJobManager::load() {
+
+	auto projectIniEntity = ProjectIniManager::load();
+	auto jobs = map<int32_t, GameJobEntity>();
 	
-	// ファイルデータ取得
-	//	auto fileData = FileUtils::getInstance()->getDataFromFile("");
+	for (auto i = 0;i < projectIniEntity.counts[ProjectIniEntity::typeJob];i++) {
+		// ファイルデータ取得
+		ostringstream ostr;
+		ostr << "Job" << setfill('0') << setw(3) << i << ".nmp";
+		auto filePath = FileConst::resGamePath + ostr.str();
+		auto fileData = FileUtils::getInstance()->getDataFromFile(filePath);
+		
+		auto entity = GameJobEntity::convertData(fileData.getBytes());
+		
+		jobs[i] = entity;
+	}
 	
-	return map<string, GameJobEntity>();
+	return jobs;
 }

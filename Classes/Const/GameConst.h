@@ -127,10 +127,11 @@ typedef enum {
 
 /// レベルアップ時のステータスタイプ
 typedef enum {
-	ADDSTATUS_TYPE_MAXHP    =    0,	/// 最大HP
+	ADDSTATUS_TYPE_MAXHP = 0,		/// 最大HP
 	ADDSTATUS_TYPE_MAXMP,			/// 最大MP
-	ADDSTATUS_TYPE_ATTACK_NORMAL,	/// 攻撃力(総合)
-	ADDSTATUS_TYPE_DEFENCE_NORMAL,	/// 防御力(総合)
+	ADDSTATUS_TYPE_ATTACK,			/// 攻撃力
+	ADDSTATUS_TYPE_MENTAL,			/// 精神力
+	ADDSTATUS_TYPE_DEFENCE,			/// 防御力
 	ADDSTATUS_TYPE_SPEED,			/// スピード
 	ADDSTATUS_TYPE_EXP,				/// レベルアップ経験値
 } ADDSTATUS_TYPE;
