@@ -28,12 +28,12 @@ string SJISUtil::convertUTF8(const unsigned char *buff, const size_t buffLen) {
 	memcpy(inputBuff, buff, inputLen);
 	char *inputBuffPoint = inputBuff;
 	
-	size_t outputLen = buffLen * 2;
+	size_t outputLen = buffLen * 3;
 	char *outputBuff = (char *)malloc(outputLen + 1);
 	memset(outputBuff, 0x00, outputLen + 1);
 	char *outputBuffPoint = outputBuff;
 	
-	auto iConv = iconv_open("UTF-8", "Shift_JIS");
+	auto iConv = iconv_open("UTF-8", "cp932");
 	auto ret = iconv(iConv, &inputBuffPoint, &inputLen, &outputBuffPoint, &outputLen);
 	if (ret != (size_t)-1) {
 		if (outputLen == 0) {

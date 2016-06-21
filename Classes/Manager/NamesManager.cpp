@@ -16,6 +16,8 @@ const string NamesManager::typeChipGroup = "ChipGpList.nmp";
 const string NamesManager::typeMap = "MapList.nmp";
 /// サウンド
 const string NamesManager::typeSound = "SoundList.nmp";
+/// 変数
+const string NamesManager::typeVariable = "NumList.nmp";
 
 /**
  *  読み込み

@@ -23,6 +23,16 @@ public:
 	int32_t initValue;
 	/// 説明
 	string guide;
+
+	/**
+	 *  バイナリデータよりEntity作成
+	 *
+	 *  @param data バイナリデータ
+	 *  @param name 名前
+	 *
+	 *  @return Entity
+	 */
+	static GameVariableEntity convertData(const unsigned char *data, const string &name);
 	
 private:
 };

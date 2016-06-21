@@ -8,6 +8,10 @@
 
 #include "GameVariableManager.h"
 
+#include "FileConst.h"
+#include "ProjectIniManager.h"
+#include "NamesManager.h"
+
 /**
  *  読み込み
  *
@@ -15,8 +19,24 @@
  */
 map<int32_t, GameVariableEntity> GameVariableManager::load() {
 	
-	// ファイルデータ取得
-//	auto fileData = FileUtils::getInstance()->getDataFromFile("");
+	// 数を取得
+	auto projectIniEntity = ProjectIniManager::load();
+	// 名前リスト取得
+	auto namesEntity = NamesManager::load(NamesManager::typeVariable);
+	
+	auto variables = map<int32_t, GameVariableEntity>();
 
-	return map<int32_t, GameVariableEntity>();
+	// ファイルデータ取得
+	auto filePath = FileConst::resGamePath + "NumData.nmp";
+	auto fileData = FileUtils::getInstance()->getDataFromFile(filePath);
+	unsigned char *data = fileData.getBytes();
+
+	for (auto i = 0;i < projectIniEntity.counts[ProjectIniEntity::typeVariable];i++) {
+		
+		auto entity = GameVariableEntity::convertData(&data[i], namesEntity.names[i]);
+		
+		variables[i] = entity;
+	}
+	
+	return variables;
 }

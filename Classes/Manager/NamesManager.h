@@ -22,6 +22,8 @@ public:
 	static const string typeMap;
 	/// サウンド
 	static const string typeSound;
+	/// 変数
+	static const string typeVariable;
 	
 	/**
 	 *  読み込み
