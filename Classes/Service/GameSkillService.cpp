@@ -34,7 +34,7 @@ GameSkillService &GameSkillService::getInstance() {
  *
  *  @return 対象データ (なし:nullptr)
  */
-GameSkillEntity *GameSkillService::data(const string name) {
+GameSkillEntity *GameSkillService::data(const int32_t name) {
 	if (skills.find(name) == skills.end()) {
 		return nullptr;
 	}

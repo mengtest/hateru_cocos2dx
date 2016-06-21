@@ -8,15 +8,33 @@
 
 #include "GameSkillManager.h"
 
+#include <iostream>
+#include <iomanip>
+
+#include "FileConst.h"
+#include "ProjectIniManager.h"
+
 /**
  *  読み込み
  *
  *  @return 取得データ
  */
-map<string, GameSkillEntity> GameSkillManager::load() {
+map<int32_t, GameSkillEntity> GameSkillManager::load() {
 	
-	// ファイルデータ取得
-	//	auto fileData = FileUtils::getInstance()->getDataFromFile("");
+	auto projectIniEntity = ProjectIniManager::load();
+	auto skills = map<int32_t, GameSkillEntity>();
 	
-	return map<string, GameSkillEntity>();
+	for (auto i = 0;i < projectIniEntity.counts[ProjectIniEntity::typeSkill];i++) {
+		// ファイルデータ取得
+		ostringstream ostr;
+		ostr << "Waza" << setfill('0') << setw(3) << i << ".nmp";
+		auto filePath = FileConst::resGamePath + ostr.str();
+		auto fileData = FileUtils::getInstance()->getDataFromFile(filePath);
+		
+		auto entity = GameSkillEntity::convertData(fileData.getBytes());
+		
+		skills[i] = entity;
+	}
+	
+	return skills;
 }

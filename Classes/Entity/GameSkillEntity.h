@@ -17,8 +17,6 @@
 class GameSkillEntity final: public BaseGameEntity {
 public:
 	
-	/// ID
-	int32_t id;
 	/// 名前
 	string name;
 	/// 種別
@@ -34,9 +32,18 @@ public:
 	/// 状態変化
 	CONDITION_TYPE changeCondition;
 	/// 変数変化
-	map<string, GameVariableChangeEntity> changeVariables;
+	GameVariableChangeEntity changeVariable;
 	/// コメント
 	string comment;
+	
+	/**
+	 *  バイナリデータよりEntity作成
+	 *
+	 *  @param data バイナリデータ
+	 *
+	 *  @return Entity
+	 */
+	static GameSkillEntity convertData(const unsigned char *data);
 	
 private:
 };

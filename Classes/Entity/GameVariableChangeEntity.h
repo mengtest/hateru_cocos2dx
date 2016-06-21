@@ -15,7 +15,7 @@
 class GameVariableChangeEntity final: public BaseGameEntity {
 public:
 	
-	/// 変数名
+	/// 変数Id
 	int32_t variableId;
 	/// 式
 	VARIABLE_ZG_TYPE expression;
@@ -28,6 +28,13 @@ public:
 	 *  @return 生合成チェック可否
 	 */
 	bool isValid();
+	
+	/**
+	 *  バイナリデータよりEntity作成
+	 *
+	 *  @param data      バイナリデータ
+	 */
+	void convertData(const unsigned char *data);
 	
 private:
 };
