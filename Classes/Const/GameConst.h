@@ -60,6 +60,16 @@ typedef enum {
 	CONDITION_TYPE_PARRAY,		/// 麻痺
 } CONDITION_TYPE;
 
+/// 攻撃属性
+typedef enum {
+	ATTACK_ATTRIBUTE_TYPE_NOTHING	=	0,	/// なし
+	ATTACK_ATTRIBUTE_TYPE_BLOW,				/// 打撃
+	ATTACK_ATTRIBUTE_TYPE_FIRE,				/// 炎
+	ATTACK_ATTRIBUTE_TYPE_ICE,				/// 氷
+	ATTACK_ATTRIBUTE_TYPE_THUNDER,			/// 雷
+	ATTACK_ATTRIBUTE_TYPE_POISON,			/// 毒
+} ATTACK_ATTRIBUTE_TYPE;
+
 #pragma mark - マップ
 
 /// 地図端制御タイプ
@@ -163,6 +173,13 @@ typedef enum {
 	SKILL_TYPE_ESCAPE,				/// エスケープ
 	SKILL_TYPE_MAP,					/// 地図
 } SKILL_TYPE;
+
+/// 効果範囲
+typedef enum {
+	EFFECT_RANGE_TYPE_USER	=	0,	/// 使用者
+	EFFECT_RANGE_TYPE_SINGLE,		/// 単体
+	EFFECT_RANGE_TYPE_ALL,			/// 全員
+} EFFECT_RANGE_TYPE;
 
 #pragma mark - 変数
 
