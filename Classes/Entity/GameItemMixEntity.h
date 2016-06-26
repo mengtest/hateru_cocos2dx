@@ -20,6 +20,15 @@ public:
 	/// 個数
 	int32_t value;
 	
+	/**
+	 *  バイナリデータよりEntity作成
+	 *
+	 *  @param data      バイナリデータ
+	 *
+	 *  @return Entity
+	 */
+	static GameItemMixEntity convertData(const unsigned char *data);
+	
 private:
 };
 

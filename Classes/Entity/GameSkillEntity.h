@@ -10,7 +10,6 @@
 #define GameSkillEntity_h
 
 #include "BaseGameEntity.h"
-#include "GameStatusEntity.h"
 #include "GameVariableChangeEntity.h"
 
 /// スキルEntity

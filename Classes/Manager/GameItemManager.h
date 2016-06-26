@@ -21,7 +21,7 @@ public:
 	 *
 	 *  @return 取得データ
 	 */
-	static map<string, GameItemEntity> load();
+	static map<int32_t, GameItemEntity> load();
 	
 private:
 	

@@ -14,7 +14,7 @@
  */
 GameItemService::GameItemService() {
 	// 読み込み
-	items = GameItemManager::load();
+//	items = GameItemManager::load();
 }
 
 /**

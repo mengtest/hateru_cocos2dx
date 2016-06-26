@@ -163,6 +163,26 @@ typedef enum {
 	ITEM_TYPE_SKILL,				/// 特技追加
 } ITEM_TYPE;
 
+/// アイテム種別
+typedef enum {
+	ITEM_STATUS_TYPE_NOTHING = 0,	/// 影響なし
+	ITEM_STATUS_TYPE_HP,			/// 最大HPに影響
+	ITEM_STATUS_TYPE_MP,			/// 最大MPに影響
+	ITEM_STATUS_TYPE_ATTACK,		/// 攻撃力に影響
+	ITEM_STATUS_TYPE_MENTAL,		/// 精神力に影響
+	ITEM_STATUS_TYPE_DEFENCE,		/// 防御力に影響
+	ITEM_STATUS_TYPE_SPEED,			/// 機敏性に影響
+	ITEM_STATUS_TYPE_FIRE,			/// 炎耐性に影響
+	ITEM_STATUS_TYPE_ICE,			/// 氷耐性に影響
+	ITEM_STATUS_TYPE_THUNDER,		/// 雷耐性に影響
+	ITEM_STATUS_TYPE_POISON,		/// 毒耐性に影響
+	ITEM_STATUS_TYPE_HITCOUNT,		/// ヒット回数
+	ITEM_STATUS_TYPE_FAME,			/// 名声
+	ITEM_STATUS_TYPE_MORAL,			/// 道徳心
+	ITEM_STATUS_TYPE_HITRATE,		/// 命中率
+	ITEM_STATUS_TYPE_CRITICALRATE,	/// 必殺率
+} ITEM_STATUS_TYPE;
+
 #pragma mark - 特殊技能
 
 /// 特殊技能種別
