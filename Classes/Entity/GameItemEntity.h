@@ -42,8 +42,6 @@ public:
 	int32_t imageId;
 	/// 調合<GameItemMixEntity>
 	vector<GameItemMixEntity> mixings;
-	/// 追加特技
-	int32_t addSkillId;
 	/// 装備可能職業
 	vector<bool> equipmentJobs;
 	/// 変更職業

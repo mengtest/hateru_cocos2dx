@@ -14,7 +14,7 @@
  */
 GameCharaService::GameCharaService() {
 	// 読み込み
-	charas = GameCharaManager::load();
+//	charas = GameCharaManager::load();
 }
 
 /**

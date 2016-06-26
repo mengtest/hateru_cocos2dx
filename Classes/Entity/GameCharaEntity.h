@@ -22,9 +22,18 @@ public:
 	/// 初期職業ID
 	int32_t initJobId;
 	/// 画像
-	vector<int32_t> images;
+	vector<int32_t> imageIds;
 	/// 初期アイテム
-	vector<int32_t> initItems;
+	vector<int32_t> initItemIds;
+	
+	/**
+	 *  バイナリデータよりEntity作成
+	 *
+	 *  @param data バイナリデータ
+	 *
+	 *  @return Entity
+	 */
+	static GameCharaEntity convertData(const unsigned char *data);
 	
 private:
 };

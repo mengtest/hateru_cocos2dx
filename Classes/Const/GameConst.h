@@ -163,7 +163,7 @@ typedef enum {
 	ITEM_TYPE_SKILL,				/// 特技追加
 } ITEM_TYPE;
 
-/// アイテム種別
+/// アイテムステータス種別
 typedef enum {
 	ITEM_STATUS_TYPE_NOTHING = 0,	/// 影響なし
 	ITEM_STATUS_TYPE_HP,			/// 最大HPに影響

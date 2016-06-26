@@ -66,8 +66,7 @@ GameItemEntity GameItemEntity::convertData(const unsigned char *data) {
 		entity.mixings.push_back(GameItemMixEntity::convertData(&data[dataIndex]));
 		dataIndex += 2;
 	}
-	// 追加特技
-	entity.addSkillId = (int32_t)data[dataIndex];
+	// ？
 	dataIndex += 1;
 	// 装備可能職業指定
 	for (auto i = 0;i < projectIniEntity.counts[ProjectIniEntity::typeJob];i++) {

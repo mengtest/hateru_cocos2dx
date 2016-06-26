@@ -24,7 +24,7 @@ map<int32_t, GameItemEntity> GameItemManager::load() {
 	auto projectIniEntity = ProjectIniManager::load();
 	auto items = map<int32_t, GameItemEntity>();
 	
-	for (auto i = 0;i < projectIniEntity.counts[ProjectIniEntity::typeSkill];i++) {
+	for (auto i = 0;i < projectIniEntity.counts[ProjectIniEntity::typeItem];i++) {
 		// ファイルデータ取得
 		ostringstream ostr;
 		ostr << "Item" << setfill('0') << setw(3) << i << ".nmp";
