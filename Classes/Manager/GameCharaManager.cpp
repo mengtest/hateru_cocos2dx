@@ -31,7 +31,7 @@ map<int32_t, GameCharaEntity> GameCharaManager::load() {
 		auto filePath = FileConst::resGamePath + ostr.str();
 		auto fileData = FileUtils::getInstance()->getDataFromFile(filePath);
 		
-		auto entity = GameCharaEntity::convertData(fileData.getBytes());
+		auto entity = GameCharaEntity::createEntity(fileData.getBytes());
 		
 		charas[i] = entity;
 	}

@@ -20,6 +20,22 @@ public:
 	/// 特殊技能名
 	int32_t skillId;
 	
+	/**
+	 *  バイナリデータよりEntity作成
+	 *
+	 *  @param data バイナリデータ
+	 */
+	void convertData(const unsigned char *data);
+	
+	/**
+	 *  バイナリデータよりEntity作成
+	 *
+	 *  @param data バイナリデータ
+	 *
+	 *  @return Entity
+	 */
+	static GameJobSkillEntity createEntity(const unsigned char *data);
+	
 private:
 };
 

@@ -41,7 +41,14 @@ public:
 	int32_t levelUpSoundId;
 	/// 戦闘終了サウンドID
 	int32_t battleEndSoundId;
-	
+
+	/**
+	 *  バイナリデータよりEntity作成
+	 *
+	 *  @param data バイナリデータ
+	 */
+	void convertData(const unsigned char *data);
+
 	/**
 	 *  バイナリデータよりEntity作成
 	 *
@@ -49,7 +56,7 @@ public:
 	 *
 	 *  @return Entity
 	 */
-	static GameInfoEntity convertData(const unsigned char *data);
+	static GameInfoEntity createEntity(const unsigned char *data);
 	
 private:
 };

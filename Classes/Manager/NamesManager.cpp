@@ -32,7 +32,7 @@ NamesEntity NamesManager::load(const string &fileName) {
 	auto filePath = FileConst::resGamePath + fileName;
 	auto fileData = FileUtils::getInstance()->getDataFromFile(filePath);
 	
-	auto entity = NamesEntity::convertData(fileData.getBytes(), (size_t)fileData.getSize());
+	auto entity = NamesEntity::createEntity(fileData.getBytes(), (size_t)fileData.getSize());
 	
 	return entity;
 }	

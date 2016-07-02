@@ -31,7 +31,7 @@ map<int32_t, GameJobEntity> GameJobManager::load() {
 		auto filePath = FileConst::resGamePath + ostr.str();
 		auto fileData = FileUtils::getInstance()->getDataFromFile(filePath);
 		
-		auto entity = GameJobEntity::convertData(fileData.getBytes());
+		auto entity = GameJobEntity::createEntity(fileData.getBytes());
 		
 		jobs[i] = entity;
 	}

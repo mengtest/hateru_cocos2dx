@@ -37,3 +37,16 @@ void GameVariableChangeEntity::convertData(const unsigned char *data) {
 	value = (int32_t)data[dataIndex];
 	dataIndex += 1;
 }
+
+/**
+ *  バイナリデータよりEntity作成
+ *
+ *  @param data バイナリデータ
+ *
+ *  @return Entity
+ */
+GameVariableChangeEntity GameVariableChangeEntity::createEntity(const unsigned char *data) {
+	auto entity = GameVariableChangeEntity();
+	entity.convertData(data);
+	return entity;
+}

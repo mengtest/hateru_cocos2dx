@@ -31,7 +31,7 @@ map<int32_t, GameEnemyEntity> GameEnemyManager::load() {
 		auto filePath = FileConst::resGamePath + ostr.str();
 		auto fileData = FileUtils::getInstance()->getDataFromFile(filePath);
 		
-		auto entity = GameEnemyEntity::convertData(fileData.getBytes());
+		auto entity = GameEnemyEntity::createEntity(fileData.getBytes());
 		
 		enemies[i] = entity;
 	}

@@ -33,10 +33,17 @@ public:
 	 *  バイナリデータよりEntity作成
 	 *
 	 *  @param data バイナリデータ
+	 */
+	void convertData(const unsigned char *data);
+	
+	/**
+	 *  バイナリデータよりEntity作成
+	 *
+	 *  @param data バイナリデータ
 	 *
 	 *  @return Entity
 	 */
-	static GameJobEntity convertData(const unsigned char *data);
+	static GameJobEntity createEntity(const unsigned char *data);
 	
 private:
 };

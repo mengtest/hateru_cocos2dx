@@ -28,10 +28,17 @@ public:
 	 *  バイナリデータよりEntity作成
 	 *
 	 *  @param data バイナリデータ
+	 */
+	void convertData(const unsigned char *data);
+	
+	/**
+	 *  バイナリデータよりEntity作成
+	 *
+	 *  @param data バイナリデータ
 	 *
 	 *  @return Entity
 	 */
-	static GameCharaEntity convertData(const unsigned char *data);
+	static GameCharaEntity createEntity(const unsigned char *data);
 	
 private:
 };

@@ -12,20 +12,28 @@
  *  バイナリデータよりEntity作成
  *
  *  @param data      バイナリデータ
+ */
+void GameItemMixEntity::convertData(const unsigned char *data) {
+	
+	auto dataIndex = 0;
+	
+	// アイテムID
+	itemId = (int32_t)data[dataIndex];
+	dataIndex += 1;
+	// 値
+	value = (int32_t)data[dataIndex];
+	dataIndex += 1;
+}
+
+/**
+ *  バイナリデータよりEntity作成
+ *
+ *  @param data      バイナリデータ
  *
  *  @return Entity
  */
-GameItemMixEntity GameItemMixEntity::convertData(const unsigned char *data) {
-	
-	auto dataIndex = 0;
+GameItemMixEntity GameItemMixEntity::createEntity(const unsigned char *data) {
 	auto entity = GameItemMixEntity();
-	
-	// アイテムID
-	entity.itemId = (int32_t)data[dataIndex];
-	dataIndex += 1;
-	// 値
-	entity.value = (int32_t)data[dataIndex];
-	dataIndex += 1;
-	
+	entity.convertData(data);
 	return entity;
 }

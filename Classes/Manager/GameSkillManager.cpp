@@ -31,7 +31,7 @@ map<int32_t, GameSkillEntity> GameSkillManager::load() {
 		auto filePath = FileConst::resGamePath + ostr.str();
 		auto fileData = FileUtils::getInstance()->getDataFromFile(filePath);
 		
-		auto entity = GameSkillEntity::convertData(fileData.getBytes());
+		auto entity = GameSkillEntity::createEntity(fileData.getBytes());
 		
 		skills[i] = entity;
 	}

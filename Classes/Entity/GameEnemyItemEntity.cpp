@@ -27,3 +27,16 @@ void GameEnemyItemEntity::convertData(const unsigned char *data) {
 	itemId = (int32_t)data[dataIndex];
 	dataIndex += 1;
 }
+
+/**
+ *  バイナリデータよりEntity作成
+ *
+ *  @param data バイナリデータ
+ *
+ *  @return Entity
+ */
+GameEnemyItemEntity GameEnemyItemEntity::createEntity(const unsigned char *data) {
+	auto entity = GameEnemyItemEntity();
+	entity.convertData(data);
+	return entity;
+}

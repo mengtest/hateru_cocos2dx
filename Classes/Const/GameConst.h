@@ -72,6 +72,12 @@ typedef enum {
 
 #pragma mark - マップ
 
+/// マップタイプ
+typedef enum {
+	MAP_TYPE_NORMAL			=	0,	/// 通常
+	MAP_TYPE_AUTO					/// 自動
+} MAP_TYPE;
+
 /// 地図端制御タイプ
 typedef enum {
 	MAP_END_TYPE_NONE		=	0,	/// 制御なし
@@ -212,5 +218,8 @@ typedef enum {
 
 /// 初期メンバーカウント
 #define INIT_MEMBER_COUNT 3
+
+/// マップチップ最大数
+#define MAPCHIP_VALUE_MAX 63
 
 #endif /* GameConst_h */

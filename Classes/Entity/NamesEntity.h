@@ -17,7 +17,15 @@ public:
 	
 	/// 名前リスト
 	vector<string> names;
-	
+
+	/**
+	 *  バイナリデータよりEntity作成
+	 *
+	 *  @param data バイナリデータ
+	 *  @param len  データ長
+	 */
+	void convertData(const unsigned char *data, size_t len);
+
 	/**
 	 *  バイナリデータよりEntity作成
 	 *
@@ -26,7 +34,7 @@ public:
 	 *
 	 *  @return Entity
 	 */
-	static NamesEntity convertData(const unsigned char *data, size_t len);
+	static NamesEntity createEntity(const unsigned char *data, size_t len);
 	
 private:
 };

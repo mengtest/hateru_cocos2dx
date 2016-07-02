@@ -57,10 +57,17 @@ public:
 	 *  バイナリデータよりEntity作成
 	 *
 	 *  @param data バイナリデータ
+	 */
+	void convertData(const unsigned char *data);
+	
+	/**
+	 *  バイナリデータよりEntity作成
+	 *
+	 *  @param data バイナリデータ
 	 *
 	 *  @return Entity
 	 */
-	static GameItemEntity convertData(const unsigned char *data);
+	static GameItemEntity createEntity(const unsigned char *data);
 	
 private:
 };

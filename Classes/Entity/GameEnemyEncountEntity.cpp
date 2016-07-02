@@ -12,29 +12,37 @@
  *  バイナリデータよりEntity作成
  *
  *  @param data バイナリデータ
+ */
+void GameEnemyEncountEntity::convertData(const unsigned char *data) {
+	
+	auto dataIndex = 0;
+	
+	// マップ
+	mapId = (int32_t)data[dataIndex];
+	dataIndex += 1;
+	// X
+	x = (int32_t)data[dataIndex];
+	dataIndex += 1;
+	// Y
+	y = (int32_t)data[dataIndex];
+	dataIndex += 1;
+	// 幅
+	width = (int32_t)data[dataIndex];
+	dataIndex += 1;
+	// 高さ
+	height = (int32_t)data[dataIndex];
+	dataIndex += 1;
+}
+
+/**
+ *  バイナリデータよりEntity作成
+ *
+ *  @param data バイナリデータ
  *
  *  @return Entity
  */
-GameEnemyEncountEntity GameEnemyEncountEntity::convertData(const unsigned char *data) {
-
-	auto dataIndex = 0;
+GameEnemyEncountEntity GameEnemyEncountEntity::createEntity(const unsigned char *data) {
 	auto entity = GameEnemyEncountEntity();
-	
-	// マップ
-	entity.mapId = (int32_t)data[dataIndex];
-	dataIndex += 1;
-	// X
-	entity.x = (int32_t)data[dataIndex];
-	dataIndex += 1;
-	// Y
-	entity.y = (int32_t)data[dataIndex];
-	dataIndex += 1;
-	// 幅
-	entity.width = (int32_t)data[dataIndex];
-	dataIndex += 1;
-	// 高さ
-	entity.height = (int32_t)data[dataIndex];
-	dataIndex += 1;
-	
+	entity.convertData(data);
 	return entity;
 }

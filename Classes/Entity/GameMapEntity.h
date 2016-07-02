@@ -17,10 +17,10 @@
 class GameMapEntity final: public BaseGameEntity {
 public:
 	
-	/// ID
-	int32_t id;
 	/// マップ名
 	string name;
+	/// マップタイプ
+	MAP_TYPE mapType;
 	/// 幅
 	int32_t width;
 	/// 高さ
@@ -48,6 +48,22 @@ public:
 	/// イベント情報
 	map<string, GameMapEventEntity> events;
 
+	/**
+	 *  バイナリデータよりEntity作成
+	 *
+	 *  @param data バイナリデータ
+	 */
+	void convertData(const unsigned char *data);
+	
+	/**
+	 *  バイナリデータよりEntity作成
+	 *
+	 *  @param data バイナリデータ
+	 *
+	 *  @return Entity
+	 */
+	static GameMapEntity createEntity(const unsigned char *data);
+	
 private:
 };
 

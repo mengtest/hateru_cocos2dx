@@ -31,7 +31,7 @@ map<int32_t, GameItemEntity> GameItemManager::load() {
 		auto filePath = FileConst::resGamePath + ostr.str();
 		auto fileData = FileUtils::getInstance()->getDataFromFile(filePath);
 		
-		auto entity = GameItemEntity::convertData(fileData.getBytes());
+		auto entity = GameItemEntity::createEntity(fileData.getBytes());
 		
 		items[i] = entity;
 	}

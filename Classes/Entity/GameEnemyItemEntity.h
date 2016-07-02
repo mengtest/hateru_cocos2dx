@@ -29,6 +29,15 @@ public:
 	 */
 	void convertData(const unsigned char *data);
 	
+	/**
+	 *  バイナリデータよりEntity作成
+	 *
+	 *  @param data バイナリデータ
+	 *
+	 *  @return Entity
+	 */
+	static GameEnemyItemEntity createEntity(const unsigned char *data);
+	
 private:
 };
 
