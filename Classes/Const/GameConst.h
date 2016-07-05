@@ -80,10 +80,10 @@ typedef enum {
 
 /// 地図端制御タイプ
 typedef enum {
-	MAP_END_TYPE_NONE		=	0,	/// 制御なし
-	MAP_END_TYPE_FIXTATION,			/// 固定
-	MAP_END_TYPE_LOOP,				/// ループ
-} MAP_END_TYPE;
+	MAP_LOOP_TYPE_NONE		=	0,	/// 制御なし
+	MAP_LOOP_TYPE_FIXTATION,		/// 固定
+	MAP_LOOP_TYPE_LOOP,				/// ループ
+} MAP_LOOP_TYPE;
 
 #pragma mark - イベント
 

@@ -31,51 +31,49 @@ void GameMapEntity::convertData(const unsigned char *data) {
 	height = (int32_t)data[dataIndex];
 	dataIndex += 1;
 	// 背景チップ
-	height = (int32_t)data[dataIndex];
+	backgroundImageId = (int32_t)data[dataIndex];
 	dataIndex += 1;
 	// 画面制御
-	
+	mapEndType = (MAP_LOOP_TYPE)data[dataIndex];
 	dataIndex += 1;
 	// 下マップチップ
-	
+	downMapChpGpId = (int32_t)data[dataIndex];
 	dataIndex += 1;
 	// 読み飛ばし
 	for (auto i = 0;i < MAPCHIP_VALUE_MAX;i++) {
-		
 		dataIndex += 1;
 	}
 	// 上マップチップ
-	
+	upMapChpGpId = (int32_t)data[dataIndex];
 	dataIndex += 1;
 	// 読み飛ばし
 	for (auto i = 0;i < MAPCHIP_VALUE_MAX;i++) {
-		
 		dataIndex += 1;
 	}
 	// 色の書込み
-	
+	backgroundColor = (int32_t)data[dataIndex] * 0x10000 + (int32_t)data[dataIndex + 1] * 0x100 + (int32_t)data[dataIndex + 2];
 	dataIndex += 3;
 	// 出現率
-	
+	enemyEncountRate = (int32_t)data[dataIndex];
 	dataIndex += 1;
 	// テレポート/エスケープ
-	
+	isUseTeleport = (data[dataIndex] & 0x10) != 0;
+	isUseEscape = (data[dataIndex] & 0x1) != 0;
 	dataIndex += 1;
 	// サウンド
-	
+	soundId = (int32_t)data[dataIndex];
 	dataIndex += 1;
 	// 戦闘音楽
-	
+	battleSoundId = (int32_t)data[dataIndex];
 	dataIndex += 1;
 	// 戦闘背景
-	
+	battleBackgroundImageId = (int32_t)data[dataIndex];
 	dataIndex += 1;
 	if (mapType == MAP_TYPE_NORMAL) {
 		// 通常マップ
 		for (auto y = 0;y < height;y++) {
 			for (auto x = 0;x < width;x++) {
-				
-				
+				mapChips.push_back(GameMapChipEntity::createEntity(&data[dataIndex]));
 				dataIndex += 3;
 			}
 		}

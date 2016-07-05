@@ -11,6 +11,7 @@
 
 #include "BaseGameEntity.h"
 #include "GameMapChipEntity.h"
+#include "GameMapAutoEntity.h"
 #include "GameMapEventEntity.h"
 
 /// マップEntity
@@ -25,26 +26,32 @@ public:
 	int32_t width;
 	/// 高さ
 	int32_t height;
-	/// マップ端制御
-	MAP_END_TYPE mapEndType;
-	/// 背景色
-	int32_t backgroundColor;
 	/// 背景画像
 	int32_t backgroundImageId;
-	/// サウンド
-	string soundName;
+	/// 画面制御
+	MAP_LOOP_TYPE mapEndType;
+	/// 上マップチップグループID
+	int32_t upMapChpGpId;
+	/// 下マップチップグループID
+	int32_t downMapChpGpId;
+	/// 背景色
+	int32_t backgroundColor;
+	/// 出現率
+	int32_t enemyEncountRate;
 	/// テレポート可不可
 	bool isUseTeleport;
 	/// エスケープ可不可
 	bool isUseEscape;
-	/// 背景マップチップグループ名
-	int32_t backgroundMapChpGpId;
-	/// 上マップチップグループ名
-	int32_t upMapChpGpId;
-	/// 下マップチップグループ名
-	int32_t downMapChpGpId;
+	/// サウンド
+	int32_t soundId;
+	/// 戦闘音楽
+	int32_t battleSoundId;
+	/// 戦闘背景
+	int32_t battleBackgroundImageId;
 	/// マップチップ情報
 	vector<GameMapChipEntity> mapChips;
+	/// 自動マップ情報
+	GameMapAutoEntity autoMap;
 	/// イベント情報
 	map<string, GameMapEventEntity> events;
 
