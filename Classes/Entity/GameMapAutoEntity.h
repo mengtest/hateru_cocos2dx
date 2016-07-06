@@ -22,9 +22,9 @@ public:
 	/// 上チップID
 	vector<int32_t> upChipIds;
 	/// 敵情報
-	map<int32_t, int32_t> enemyIds;
+	vector<int32_t> enemyIds;
 	/// 宝情報
-	map<int32_t, int32_t> itemIds;
+	vector<int32_t> itemIds;
 	
 	/**
 	 *  バイナリデータよりEntity作成

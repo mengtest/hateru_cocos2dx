@@ -16,5 +16,5 @@
  */
 GameMapService::GameMapService(const string name) {
 	// 読み込み
-	map = GameMapManager::load(name);
+//	map = GameMapManager::load(name);
 }

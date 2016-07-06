@@ -15,12 +15,14 @@
  *  バイナリデータよりEntity作成
  *
  *  @param data バイナリデータ
+ *  @param name 名前
  */
-void GameMapEntity::convertData(const unsigned char *data) {
+void GameMapEntity::convertData(const unsigned char *data, const string &name) {
 	
 	auto dataIndex = 0;
 	
 	// 名前
+	this->name = name;
 	// 種類
 	mapType = (MAP_TYPE)data[dataIndex];
 	dataIndex += 1;
@@ -40,16 +42,12 @@ void GameMapEntity::convertData(const unsigned char *data) {
 	downMapChpGpId = (int32_t)data[dataIndex];
 	dataIndex += 1;
 	// 読み飛ばし
-	for (auto i = 0;i < MAPCHIP_VALUE_MAX;i++) {
-		dataIndex += 1;
-	}
+	dataIndex += MAPCHIP_VALUE_MAX;
 	// 上マップチップ
 	upMapChpGpId = (int32_t)data[dataIndex];
 	dataIndex += 1;
 	// 読み飛ばし
-	for (auto i = 0;i < MAPCHIP_VALUE_MAX;i++) {
-		dataIndex += 1;
-	}
+	dataIndex += MAPCHIP_VALUE_MAX;
 	// 色の書込み
 	backgroundColor = (int32_t)data[dataIndex] * 0x10000 + (int32_t)data[dataIndex + 1] * 0x100 + (int32_t)data[dataIndex + 2];
 	dataIndex += 3;
@@ -79,6 +77,7 @@ void GameMapEntity::convertData(const unsigned char *data) {
 		}
 	} else {
 		// 自動マップ
+		autoMap.convertData(&data[dataIndex]);
 	}
 }
 
@@ -86,11 +85,12 @@ void GameMapEntity::convertData(const unsigned char *data) {
  *  バイナリデータよりEntity作成
  *
  *  @param data バイナリデータ
+ *  @param name 名前
  *
  *  @return Entity
  */
-GameMapEntity GameMapEntity::createEntity(const unsigned char *data) {
+GameMapEntity GameMapEntity::createEntity(const unsigned char *data, const string &name) {
 	auto entity = GameMapEntity();
-	entity.convertData(data);
+	entity.convertData(data, name);
 	return entity;
 }

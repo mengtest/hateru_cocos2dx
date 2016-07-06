@@ -8,17 +8,31 @@
 
 #include "GameMapManager.h"
 
+#include <iostream>
+#include <iomanip>
+
+#include "FileConst.h"
+#include "NamesManager.h"
+
 /**
  *  読み込み
  *
- *  @param name マップ名
+ *  @param id マップId
  *
  *  @return 取得データ
  */
-GameMapEntity GameMapManager::load(const string name) {
+GameMapEntity GameMapManager::load(const int id) {
+
+	// 名前リスト取得
+	auto namesEntity = NamesManager::load(NamesManager::typeMap);
 
 	// ファイルデータ取得
-	//	auto fileData = FileUtils::getInstance()->getDataFromFile("");
+	ostringstream ostr;
+	ostr << "MapS" << setfill('0') << setw(3) << id << ".nmp";
+	auto filePath = FileConst::resGamePath + ostr.str();
+	auto fileData = FileUtils::getInstance()->getDataFromFile(filePath);
+	
+	auto entity = GameMapEntity::createEntity(fileData.getBytes(), namesEntity.names[id]);
 	
 	return GameMapEntity();
 }
