@@ -31,7 +31,7 @@ public:
 	/// 影響ステータス
 	int32_t changeStatus;
 	/// 攻撃属性
-	ATTACK_ATTRIBUTE_TYPE attackAttributeType;
+	AttackAttributeType attackAttributeType;
 	/// 状態変化
 	vector<bool> changeCondition;
 	/// 変数変化

@@ -45,7 +45,7 @@ void GameItemEntity::convertData(const unsigned char *data) {
 	useSkillId = (int32_t)data[dataIndex];
 	dataIndex += 1;
 	// 状態治療
-	conditionTreatment = (CONDITION_TYPE)data[dataIndex];
+	conditionTreatment = (ConditionType)data[dataIndex];
 	dataIndex += 1;
 	// ステータス
 	for (auto i = 0;i < 5;i++) {

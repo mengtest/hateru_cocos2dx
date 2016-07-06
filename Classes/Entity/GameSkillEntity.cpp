@@ -42,10 +42,10 @@ void GameSkillEntity::convertData(const unsigned char *data) {
 	changeStatus = (int32_t)data[dataIndex];
 	dataIndex += 1;
 	// 攻撃属性
-	attackAttributeType = (ATTACK_ATTRIBUTE_TYPE)data[dataIndex];
+	attackAttributeType = (AttackAttributeType)data[dataIndex];
 	dataIndex += 1;
 	// 状態変化
-	for (int i = CONDITION_TYPE_NONE;i <= CONDITION_TYPE_PARRAY;i++) {
+	for (int i = ConditionTypeNone;i <= ConditionTypeParray;i++) {
 		changeCondition.push_back((data[dataIndex] & (1 << (i - 1))) != 0);
 	}
 	dataIndex += 1;

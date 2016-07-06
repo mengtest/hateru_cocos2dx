@@ -35,7 +35,7 @@ public:
 	/// 使用時、特殊技能と同一効果になる nilは無効
 	int32_t useSkillId;
 	/// 状態治療
-	CONDITION_TYPE conditionTreatment;
+	ConditionType conditionTreatment;
 	/// 変化ステータス
 	vector<GameItemStatusEntity> changeStatus;
 	/// 画像ID

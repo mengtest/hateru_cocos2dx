@@ -25,7 +25,7 @@ public:
 	/// 命中率
 	int32_t hitRate;
 	/// レベルアップ時のステータス
-	int32_t statuses[ADDSTATUS_TYPE_EXP + 1][MAX_LEVEL];
+	int32_t statuses[AddStatusTypeEXP + 1][MAX_LEVEL];
 	/// 会得スキル情報
 	vector<GameJobSkillEntity> skills;
 	

@@ -15,7 +15,7 @@
 class GameMapChipGroupEntity final: public BaseGameEntity {
 public:
 	
-	/// マップ名
+	/// 名前
 	string name;
 	/// 画像Id
 	int32_t imageId[MAPCHIP_VALUE_MAX];

@@ -21,7 +21,7 @@ void GameMapEntity::convertData(const unsigned char *data, const string &name) {
 	// 名前
 	this->name = name;
 	// 種類
-	mapType = (MAP_TYPE)data[dataIndex];
+	mapType = (MapType)data[dataIndex];
 	dataIndex += 1;
 	// 幅
 	width = (int32_t)data[dataIndex];
@@ -33,7 +33,7 @@ void GameMapEntity::convertData(const unsigned char *data, const string &name) {
 	backgroundImageId = (int32_t)data[dataIndex];
 	dataIndex += 1;
 	// 画面制御
-	mapEndType = (MAP_LOOP_TYPE)data[dataIndex];
+	mapEndType = (MapLoopType)data[dataIndex];
 	dataIndex += 1;
 	// 下マップチップ
 	downMapChpGpId = (int32_t)data[dataIndex];
@@ -64,7 +64,7 @@ void GameMapEntity::convertData(const unsigned char *data, const string &name) {
 	// 戦闘背景
 	battleBackgroundImageId = (int32_t)data[dataIndex];
 	dataIndex += 1;
-	if (mapType == MAP_TYPE_NORMAL) {
+	if (mapType == MapTypeNormal) {
 		// 通常マップ
 		for (auto y = 0;y < height;y++) {
 			for (auto x = 0;x < width;x++) {

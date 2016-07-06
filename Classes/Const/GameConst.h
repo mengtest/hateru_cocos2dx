@@ -9,81 +9,42 @@
 #ifndef GameConst_h
 #define GameConst_h
 
-/// ステータス
-typedef enum{
-	STATUS_TYPE_LV			=	0,	/// レベル
-	STATUS_TYPE_MAXHP,				/// 最大HP
-	STATUS_TYPE_HP,					/// HP
-	STATUS_TYPE_MAXMP,				/// 最大MP
-	STATUS_TYPE_MP,					/// MP
-	STATUS_TYPE_ATTACK_NORMAL,		/// 攻撃力(総合)
-	STATUS_TYPE_ATTACK_FIRE,		/// 攻撃力(炎)
-	STATUS_TYPE_ATTACK_WATER,		/// 攻撃力(水)
-	STATUS_TYPE_ATTACK_EARTH,		/// 攻撃力(木)
-	STATUS_TYPE_ATTACK_SHINE,		/// 攻撃力(光)
-	STATUS_TYPE_ATTACK_DARK,		/// 攻撃力(闇)
-	STATUS_TYPE_DEFENCE_NORMAL,		/// 防御力(総合)
-	STATUS_TYPE_DEFENCE_FIRE,		/// 防御力(炎)
-	STATUS_TYPE_DEFENCE_WATER,		/// 防御力(水)
-	STATUS_TYPE_DEFENCE_EARTH,		/// 防御力(木)
-	STATUS_TYPE_DEFENCE_SHINE,		/// 防御力(光)
-	STATUS_TYPE_DEFENCE_DARK,		/// 防御力(闇)
-	STATUS_TYPE_SPEED,				/// スピード
-	STATUS_TYPE_EXP,				/// 経験値
-	STATUS_TYPE_CRITICAL,			/// クリティカル率
-	STATUS_TYPE_STATE,				/// 状態
-	STATUS_TYPE_MONEY,				/// 所持金
-	STATUS_TYPE_MORAL,				/// 道徳
-	STATUS_TYPE_POPULAR,			/// 知名度
-	STATUS_TYPE_FRIEND				/// フレンド
-} STATUS_TYPE;
-
-/// 属性
-typedef enum {
-	ATTRIBUTE_TYPE_NORMAL	=	0,	/// ノーマル
-	ATTRIBUTE_TYPE_FIRE	,			/// 火
-	ATTRIBUTE_TYPE_WATER,			/// 水
-	ATTRIBUTE_TYPE_EARTH,			/// 大地
-	ATTRIBUTE_TYPE_SHINE,			/// 光
-	ATTRIBUTE_TYPE_DARK,			/// 闇
-} ATTRIBUTE_TYPE;
-
 /// 状態治療
 typedef enum {
-	CONDITION_TYPE_NONE	=	0,	/// なし
-	CONDITION_TYPE_DIE,			/// 戦闘不能
-	CONDITION_TYPE_POISON,		/// 毒
-	CONDITION_TYPE_DARKNESS,	/// 暗闇
-	CONDITION_TYPE_SILENCE,		/// 沈黙
-	CONDITION_TYPE_CONFUSION,	/// 混乱
-	CONDITION_TYPE_SLEEP,		/// 睡眠
-	CONDITION_TYPE_PARRAY,		/// 麻痺
-} CONDITION_TYPE;
+	ConditionTypeNone	=	0,	/// なし
+	ConditionTypeDie,			/// 戦闘不能
+	ConditionTypePoison,		/// 毒
+	ConditionTypeDarkness,		/// 暗闇
+	ConditionTypeSilence,		/// 沈黙
+	ConditionTypeConfusion,		/// 混乱
+	ConditionTypeSleep,			/// 睡眠
+	ConditionTypeParray,		/// 麻痺
+} ConditionType;
 
 /// 攻撃属性
 typedef enum {
-	ATTACK_ATTRIBUTE_TYPE_NOTHING	=	0,	/// なし
-	ATTACK_ATTRIBUTE_TYPE_BLOW,				/// 打撃
-	ATTACK_ATTRIBUTE_TYPE_FIRE,				/// 炎
-	ATTACK_ATTRIBUTE_TYPE_ICE,				/// 氷
-	ATTACK_ATTRIBUTE_TYPE_THUNDER,			/// 雷
-	ATTACK_ATTRIBUTE_TYPE_POISON,			/// 毒
-} ATTACK_ATTRIBUTE_TYPE;
+	AttackAttributeTypeNone	=	0,	/// なし
+	AttackAttributeTypeBlow,		/// 打撃
+	AttackAttributeTypeFire,		/// 炎
+	AttackAttributeTypeIce,			/// 氷
+	AttackAttributeTypeThunder,		/// 雷
+	AttackAttributeTypePoison,		/// 毒
+} AttackAttributeType;
 
 #pragma mark - マップ
 
 /// マップタイプ
 typedef enum {
-	MAP_TYPE_NORMAL			=	0,	/// 通常
-	MAP_TYPE_AUTO					/// 自動
-} MAP_TYPE;
+	MapTypeNormal			=	0,	/// 通常
+	MapTypeAuto						/// 自動
+} MapType;
 
 /// 地図端制御タイプ
 typedef enum {
-	MAP_LOOP_TYPE_NONE		=	0,	/// 制御なし
-	MAP_LOOP_TYPE_FIXTATION,		/// 固定
-	MAP_LOOP_TYPE_LOOP,				/// ループ
-} MAP_LOOP_TYPE;
+	MapLoopTypeNone			=	0,	/// 制御なし
+	MapLoopTypeFixtation,			/// 固定
+	MapLoopTypeLoop,				/// ループ
+} MapLoopType;
 
 #pragma mark - イベント
 
@@ -143,14 +104,14 @@ typedef enum {
 
 /// レベルアップ時のステータスタイプ
 typedef enum {
-	ADDSTATUS_TYPE_MAXHP = 0,		/// 最大HP
-	ADDSTATUS_TYPE_MAXMP,			/// 最大MP
-	ADDSTATUS_TYPE_ATTACK,			/// 攻撃力
-	ADDSTATUS_TYPE_MENTAL,			/// 精神力
-	ADDSTATUS_TYPE_DEFENCE,			/// 防御力
-	ADDSTATUS_TYPE_SPEED,			/// スピード
-	ADDSTATUS_TYPE_EXP,				/// レベルアップ経験値
-} ADDSTATUS_TYPE;
+	AddStatusTypeMaxHP = 0,			/// 最大HP
+	AddStatusTypeMaxMP,				/// 最大MP
+	AddStatusTypeAttack,			/// 攻撃力
+	AddStatusTypeMental,			/// 精神力
+	AddStatusTypeDefence,			/// 防御力
+	AddStatusTypeSpeed,				/// スピード
+	AddStatusTypeEXP,				/// レベルアップ経験値
+} AddStatusType;
 
 #pragma mark - アイテム
 

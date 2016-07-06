@@ -21,7 +21,7 @@ public:
 	/// マップ名
 	string name;
 	/// マップタイプ
-	MAP_TYPE mapType;
+	MapType mapType;
 	/// 幅
 	int32_t width;
 	/// 高さ
@@ -29,7 +29,7 @@ public:
 	/// 背景画像
 	int32_t backgroundImageId;
 	/// 画面制御
-	MAP_LOOP_TYPE mapEndType;
+	MapLoopType mapEndType;
 	/// 上マップチップグループID
 	int32_t upMapChpGpId;
 	/// 下マップチップグループID
