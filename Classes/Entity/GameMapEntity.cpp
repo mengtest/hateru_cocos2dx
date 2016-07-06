@@ -8,9 +8,6 @@
 
 #include "GameMapEntity.h"
 
-#include "SJISUtil.h"
-#include "StringUtil.h"
-
 /**
  *  バイナリデータよりEntity作成
  *

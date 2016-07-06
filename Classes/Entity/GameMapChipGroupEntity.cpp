@@ -7,3 +7,36 @@
 //
 
 #include "GameMapChipGroupEntity.h"
+
+/**
+ *  バイナリデータよりEntity作成
+ *
+ *  @param data バイナリデータ
+ *  @param name 名前
+ */
+void GameMapChipGroupEntity::convertData(const unsigned char *data, const string &name) {
+	
+	auto dataIndex = 0;
+	
+	// 名前
+	this->name = name;
+	// 画像Id
+	for (auto i = 0;i < MAPCHIP_VALUE_MAX;i++) {
+		imageId[i] = (int32_t)data[dataIndex];
+		dataIndex += 1;
+	}
+}
+
+/**
+ *  バイナリデータよりEntity作成
+ *
+ *  @param data バイナリデータ
+ *  @param name 名前
+ *
+ *  @return Entity
+ */
+GameMapChipGroupEntity GameMapChipGroupEntity::createEntity(const unsigned char *data, const string &name) {
+	auto entity = GameMapChipGroupEntity();
+	entity.convertData(data, name);
+	return entity;
+}
