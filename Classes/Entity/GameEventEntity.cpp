@@ -1,12 +1,12 @@
 //
-//  GameMapEventEntity.cpp
+//  GameEventEntity.cpp
 //  hateru
 //
 //  Created by HaraKazunari on 2016/06/04.
 //
 //
 
-#include "GameMapEventEntity.h"
+#include "GameEventEntity.h"
 
 /**
  *  バイナリデータよりEntity作成
@@ -14,7 +14,7 @@
  *  @param data バイナリデータ
  *  @param name 名前
  */
-void GameMapEventEntity::convertData(const unsigned char *data, const string &name) {
+void GameEventEntity::convertData(const unsigned char *data, const string &name) {
 	
 	auto dataIndex = 0;
 	
@@ -76,8 +76,8 @@ void GameMapEventEntity::convertData(const unsigned char *data, const string &na
  *
  *  @return Entity
  */
-GameMapEventEntity GameMapEventEntity::createEntity(const unsigned char *data, const string &name) {
-	auto entity = GameMapEventEntity();
+GameEventEntity GameEventEntity::createEntity(const unsigned char *data, const string &name) {
+	auto entity = GameEventEntity();
 	entity.convertData(data, name);
 	return entity;
 }

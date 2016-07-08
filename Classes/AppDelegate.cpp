@@ -1,6 +1,10 @@
 #include "AppDelegate.h"
 #include "MainScene.h"
 
+#include "GameJobManager.h"
+#include "GameVariableManager.h"
+#include "GameMapChipGroupManager.h"
+
 USING_NS_CC;
 
 static cocos2d::Size designResolutionSize = cocos2d::Size(480, 320);
@@ -80,6 +84,10 @@ bool AppDelegate::applicationDidFinishLaunching() {
     // run
     director->runWithScene(scene);
 
+	GameJobManager::load();
+	GameVariableManager::load();
+	GameMapChipGroupManager::load();
+	
     return true;
 }
 

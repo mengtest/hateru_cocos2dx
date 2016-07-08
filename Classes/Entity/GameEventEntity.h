@@ -1,18 +1,18 @@
 //
-//  GameMapEventEntity.h
+//  GameEventEntity.h
 //  hateru
 //
 //  Created by HaraKazunari on 2016/06/04.
 //
 //
 
-#ifndef GameMapEventEntity_h
-#define GameMapEventEntity_h
+#ifndef GameEventEntity_h
+#define GameEventEntity_h
 
 #include "BaseGameEntity.h"
 
-/// マップチップイベントEntity
-class GameMapEventEntity final: public BaseGameEntity {
+/// マップイベントEntity
+class GameEventEntity final: public BaseGameEntity {
 public:
 	
 	/// 名前
@@ -37,9 +37,9 @@ public:
 	 *
 	 *  @return Entity
 	 */
-	static GameMapEventEntity createEntity(const unsigned char *data, const string &name);
+	static GameEventEntity createEntity(const unsigned char *data, const string &name);
 	
 private:
 };
 
-#endif /* GameMapEventEntity_h */
+#endif /* GameEventEntity_h */

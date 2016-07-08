@@ -19,11 +19,11 @@ public:
 	/// 名前
 	string name;
 	/// 種別
-	SKILL_TYPE skillType;
+	SkillType skillType;
 	/// 消費MP
 	int32_t costMP;
 	/// 効果範囲
-	EFFECT_RANGE_TYPE effectRange;
+	EffectRangeType effectRange;
 	/// 効果量
 	int32_t effectValue;
 	/// 成功率

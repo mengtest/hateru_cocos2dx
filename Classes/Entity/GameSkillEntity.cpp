@@ -24,13 +24,13 @@ void GameSkillEntity::convertData(const unsigned char *data) {
 	name = StringUtil::trim(SJISUtil::convertUTF8(&data[dataIndex], 16));
 	dataIndex += 16;
 	// 種別
-	skillType = (SKILL_TYPE)data[dataIndex];
+	skillType = (SkillType)data[dataIndex];
 	dataIndex += 1;
 	// 消費MP
 	costMP = (int32_t)data[dataIndex] * 0x100 + (int32_t)data[dataIndex + 1];
 	dataIndex += 2;
 	// 効果範囲
-	effectRange = (EFFECT_RANGE_TYPE)data[dataIndex];
+	effectRange = (EffectRangeType)data[dataIndex];
 	dataIndex += 1;
 	// 効果量
 	effectValue = (int32_t)data[dataIndex] * 0x100 + (int32_t)data[dataIndex + 1];

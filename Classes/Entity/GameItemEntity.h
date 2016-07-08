@@ -23,7 +23,7 @@ public:
 	/// 名前
 	string name;
 	/// 種類
-	ITEM_TYPE type;
+	ItemType type;
 	/// 買値
 	int32_t purchasePrice;
 	/// 売値

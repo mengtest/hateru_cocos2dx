@@ -12,7 +12,7 @@
 #include "BaseGameEntity.h"
 #include "GameMapChipEntity.h"
 #include "GameMapAutoEntity.h"
-#include "GameMapEventEntity.h"
+#include "GameEventEntity.h"
 
 /// マップEntity
 class GameMapEntity final: public BaseGameEntity {
@@ -53,7 +53,7 @@ public:
 	/// 自動マップ情報
 	GameMapAutoEntity autoMap;
 	/// イベント情報
-	map<string, GameMapEventEntity> events;
+	map<string, GameEventEntity> events;
 
 	/**
 	 *  バイナリデータよりEntity作成

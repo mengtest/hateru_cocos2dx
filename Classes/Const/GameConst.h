@@ -11,7 +11,7 @@
 
 /// 状態治療
 typedef enum {
-	ConditionTypeNone	=	0,	/// なし
+	ConditionTypeNone = 0,		/// なし
 	ConditionTypeDie,			/// 戦闘不能
 	ConditionTypePoison,		/// 毒
 	ConditionTypeDarkness,		/// 暗闇
@@ -23,7 +23,7 @@ typedef enum {
 
 /// 攻撃属性
 typedef enum {
-	AttackAttributeTypeNone	=	0,	/// なし
+	AttackAttributeTypeNone = 0,	/// なし
 	AttackAttributeTypeBlow,		/// 打撃
 	AttackAttributeTypeFire,		/// 炎
 	AttackAttributeTypeIce,			/// 氷
@@ -35,67 +35,103 @@ typedef enum {
 
 /// マップタイプ
 typedef enum {
-	MapTypeNormal			=	0,	/// 通常
+	MapTypeNormal = 0,				/// 通常
 	MapTypeAuto						/// 自動
 } MapType;
 
 /// 地図端制御タイプ
 typedef enum {
-	MapLoopTypeNone			=	0,	/// 制御なし
+	MapLoopTypeNone = 0,			/// 制御なし
 	MapLoopTypeFixtation,			/// 固定
 	MapLoopTypeLoop,				/// ループ
 } MapLoopType;
+
+/// 移動タイプ
+typedef enum {
+	MoveTypeWalk = 0,				/// 歩行
+	MoveTypeShip,					/// 船
+	MoveTypeFlyShip,				/// 飛行船
+} MoveType;
+
+/// 乗り物タイプ
+typedef enum {
+	VehicleTypeShip = 0,			/// 船
+	VehicleTypeFlyShip,				/// 飛行船
+} VehicleType;
+
+#pragma mark - 自動マップ
+
+/// 下チップタイプ
+typedef enum {
+	AutoMapDownChipTypeFloor = 1,	/// 床
+	AutoMapDownChipTypeWallShadow,	/// 壁(影有)
+	AutoMapDownChipTypeWall,		/// 壁(影無)
+} AutoMapDownChipType;
+
+/// 上チップタイプ
+typedef enum {
+	AutoMapUpChipTypeBelowStairs = 1,	/// 下階段
+	AutoMapUpChipTypeAboveStairs,		/// 上階段
+	AutoMapUpChipTypeChest,				/// 宝箱
+} AutoMapUpChipType;
+
+/// イベントタイプ
+typedef enum {
+	AutoMapEventTypeBelowStairs = 1,	/// 下階段
+	AutoMapEventTypeAboveStairs,		/// 上階段
+	AutoMapEventTypeChest,				/// 宝箱
+} AutoMapEventType;
 
 #pragma mark - イベント
 
 /// イベントタイプ
 typedef enum {
-	EVENT_TYPE_BUNSYO	=	0,		///	文章表示
-	EVENT_TYPE_HP_ZG	,			///	HP増減
-	EVENT_TYPE_MP_ZG	,			///	MP増減
-	EVENT_TYPE_KANE_ZG	,			///	所持金増減
-	EVENT_TYPE_EXP_ZG	,			///	経験値増減
-	EVENT_TYPE_ITEM_ZG	,			///	アイテム増減
-	EVENT_TYPE_NUM		,			///	変数操作
-	EVENT_TYPE_BGM		,			///	BGM変更
-	EVENT_TYPE_CHGCHIP	,			///	マップチップ変更
-	EVENT_TYPE_CHGCHARA	,			///	キャラ変更
-	EVENT_TYPE_IDO		,			///	場所移動
-	EVENT_TYPE_IF_NUM	,			///	変数分岐
-	EVENT_TYPE_SAVE		,			///	セーブ
-	EVENT_TYPE_DOGUYA	,			///	道具屋
-	EVENT_TYPE_YADOYA	,			///	宿屋
-	EVENT_TYPE_ADUKARIYA,			///	預り所
-	EVENT_TYPE_KYOKAI	,			///	教会
-	EVENT_TYPE_BATTLE	,			///	戦闘
-	EVENT_TYPE_TELEZG	,			///	テレポート位置増減
-	EVENT_TYPE_TELEKH	,			///	テレポート禁止変更
-	EVENT_TYPE_ESCAPEKH	,			///	エスケープ禁止変更
-	EVENT_TYPE_WIPE		,			///	ワイプ
-	EVENT_TYPE_MENBER	,			///	メンバー入替
-	EVENT_TYPE_ENDIF	,			///	変数分岐終了
-	EVENT_TYPE_SHOWIMG	,			///	画像表示
-	EVENT_TYPE_CHGJOB	,			///	職業変更
-	EVENT_TYPE_IF_STS	,			///	ステータス分岐
-	EVENT_TYPE_IF_ITEM	,			///	アイテム分岐
-	EVENT_TYPE_IF_WAZA	,			///	特殊技能分岐
-	EVENT_TYPE_ENERITU	,			///	敵出現率
-	EVENT_TYPE_ESCAPESAVE,			///	エスケープで戻る位置を保存
-	EVENT_TYPE_SETSHIP	,			///	船設定
-	EVENT_TYPE_EXIT		,			///	イベント終了
-	EVENT_TYPE_YESNO	,			///	YESNO選択
-	EVENT_TYPE_CHARAIDO	,			///	キャラ移動
-	EVENT_TYPE_SYUIDO	,			///	主人公移動
-	EVENT_TYPE_NORIORI	,			///	船乗降り
-	EVENT_TYPE_TYOGO	,			///	調合屋
-	EVENT_TYPE_IF_TIME	,			///	リアルタイム分岐
-	EVENT_TYPE_SAKABA	,			///	酒場
-	EVENT_TYPE_ITEMBAZA	,			///	バザー
-	EVENT_TYPE_BBS		,			///	掲示板
-	EVENT_TYPE_IF_TERM	,			///	機種判別
-	EVENT_TYPE_JINGLE	,			///	ジングル
-	EVENT_TYPE_RAND		,			///	乱数
-} EVENT_TYPE;
+	EventTypeMessage = 0,				///	メッセージ表示
+	EventTypeFluctuateHP	,			///	HP増減
+	EventTypeFluctuateMP	,			///	MP増減
+	EventTypeFluctuateGold	,			///	所持金増減
+	EventTypeFluctuateEXP	,			///	経験値増減
+	EventTypeFluctuateItem	,			///	アイテム増減
+	EventTypeOperateVariable,			///	変数操作
+	EventTypeChangeBGM		,			///	BGM変更
+	EventTypeChangeChip		,			///	マップチップ変更
+	EventTypeChangeUnit		,			///	キャラ変更
+	EventTypeMoveLocation	,			///	場所移動
+	EventTypeIfVariable		,			///	変数分岐
+	EventTypeSave			,			///	セーブ
+	EventTypeItemShop		,			///	道具屋
+	EventTypeINN			,			///	宿屋
+	EventTypeCloakroom		,			///	預り所
+	EventTypeChurch			,			///	教会
+	EventTypeBattle			,			///	戦闘
+	EventTypeFluctuateTeleport,			///	テレポート位置増減
+	EventTypeChangeTeleport	,			///	テレポート禁止変更
+	EventTypeChangeEscape	,			///	エスケープ禁止変更
+	EventTypeWipe			,			///	ワイプ
+	EventTypeExchangeUnit	,			///	メンバー入替
+	EventTypeEndIf			,			///	変数分岐終了
+	EventTypeShowImage		,			///	画像表示
+	EventTypeChangeJob		,			///	職業変更
+	EventTypeIfStatus		,			///	ステータス分岐
+	EventTypeIfItem			,			///	アイテム分岐
+	EventTypeIfSkill		,			///	特殊技能分岐
+	EventTypeEncountRate	,			///	敵出現率
+	EventTypeSaveEscapeLocation,		///	エスケープで戻る位置を保存
+	EventTypeSettingShip	,			///	船設定
+	EventTypeExit			,			///	イベント終了
+	EventTypeSelectYesNo	,			///	YESNO選択
+	EventTypeMoveMobUnit	,			///	キャラ移動
+	EventTypeMoveUnit		,			///	主人公移動
+	EventTypeGettingOnOff	,			///	船乗降り
+	EventTypeMixShop		,			///	調合屋
+	EventTypeIfTime			,			///	リアルタイム分岐
+	EventTypeBar			,			///	酒場
+	EventTypeItemBazaar		,			///	バザー
+	EventTypeBBS			,			///	掲示板
+	EventTypeIfTerminal		,			///	機種判別
+	EventTypeJingle			,			///	ジングル
+	EventTypeRandom			,			///	乱数
+} EventType;
 
 #pragma mark - 職業
 
@@ -117,56 +153,56 @@ typedef enum {
 
 /// アイテム種別
 typedef enum {
-	ITEM_TYPE_NORMAL	=	0,		/// 通常
-	ITEM_TYPE_WEAPON,				/// 武器
-	ITEM_TYPE_ARMAR,				/// 鎧
-	ITEM_TYPE_SHIELD,				/// 盾
-	ITEM_TYPE_HELM,					/// 兜
-	ITEM_TYPE_ACCESS,				/// 装飾品
-	ITEM_TYPE_RECOVERY,				/// 回復
-	ITEM_TYPE_SEED,					/// 種
-	ITEM_TYPE_MAP,					/// 地図
-	ITEM_TYPE_JOB,					/// 職業変更
-	ITEM_TYPE_SKILL,				/// 特技追加
-} ITEM_TYPE;
+	ItemTypeNormal	=	0,			/// 通常
+	ItemTypeWeapon,					/// 武器
+	ItemTypeArmar,					/// 鎧
+	ItemTypeShield,					/// 盾
+	ItemTypeHelm,					/// 兜
+	ItemTypeAccess,					/// 装飾品
+	ItemTypeRecovery,				/// 回復
+	ItemTypeSeed,					/// 種
+	ItemTypeMap,					/// 地図
+	ItemTypeJob,					/// 職業変更
+	ItemTypeSkill,					/// 特技追加
+} ItemType;
 
 /// アイテムステータス種別
 typedef enum {
-	ITEM_STATUS_TYPE_NOTHING = 0,	/// 影響なし
-	ITEM_STATUS_TYPE_HP,			/// 最大HPに影響
-	ITEM_STATUS_TYPE_MP,			/// 最大MPに影響
-	ITEM_STATUS_TYPE_ATTACK,		/// 攻撃力に影響
-	ITEM_STATUS_TYPE_MENTAL,		/// 精神力に影響
-	ITEM_STATUS_TYPE_DEFENCE,		/// 防御力に影響
-	ITEM_STATUS_TYPE_SPEED,			/// 機敏性に影響
-	ITEM_STATUS_TYPE_FIRE,			/// 炎耐性に影響
-	ITEM_STATUS_TYPE_ICE,			/// 氷耐性に影響
-	ITEM_STATUS_TYPE_THUNDER,		/// 雷耐性に影響
-	ITEM_STATUS_TYPE_POISON,		/// 毒耐性に影響
-	ITEM_STATUS_TYPE_HITCOUNT,		/// ヒット回数
-	ITEM_STATUS_TYPE_FAME,			/// 名声
-	ITEM_STATUS_TYPE_MORAL,			/// 道徳心
-	ITEM_STATUS_TYPE_HITRATE,		/// 命中率
-	ITEM_STATUS_TYPE_CRITICALRATE,	/// 必殺率
-} ITEM_STATUS_TYPE;
+	ItemStatusTypeNothing = 0,		/// 影響なし
+	ItemStatusTypeHP,				/// 最大HPに影響
+	ItemStatusTypeMP,				/// 最大MPに影響
+	ItemStatusTypeAttack,			/// 攻撃力に影響
+	ItemStatusTypeMental,			/// 精神力に影響
+	ItemStatusTypeDefence,			/// 防御力に影響
+	ItemStatusTypeSpeed,			/// 機敏性に影響
+	ItemStatusTypeFire,				/// 炎耐性に影響
+	ItemStatusTypeIce,				/// 氷耐性に影響
+	ItemStatusTypeThunder,			/// 雷耐性に影響
+	ItemStatusTypePoison,			/// 毒耐性に影響
+	ItemStatusTypeHitCount,			/// ヒット回数
+	ItemStatusTypeFame,				/// 名声
+	ItemStatusTypeMoral,			/// 道徳心
+	ItemStatusTypeHitRate,			/// 命中率
+	ItemStatusTypeCriticalRate,		/// 必殺率
+} ItemStatusType;
 
 #pragma mark - 特殊技能
 
 /// 特殊技能種別
 typedef enum {
-	SKILL_TYPE_ATTACK		=	0,	/// 攻撃
-	SKILL_TYPE_RECVARY,				/// 回復
-	SKILL_TYPE_TELEPORT,			/// テレポート
-	SKILL_TYPE_ESCAPE,				/// エスケープ
-	SKILL_TYPE_MAP,					/// 地図
-} SKILL_TYPE;
+	SkillTypeAttack		=	0,		/// 攻撃
+	SkillTypeRecvary,				/// 回復
+	SkillTypeTeleport,				/// テレポート
+	SkillTypeEscape,				/// エスケープ
+	SkillTypeMap,					/// 地図
+} SkillType;
 
 /// 効果範囲
 typedef enum {
-	EFFECT_RANGE_TYPE_USER	=	0,	/// 使用者
-	EFFECT_RANGE_TYPE_SINGLE,		/// 単体
-	EFFECT_RANGE_TYPE_ALL,			/// 全員
-} EFFECT_RANGE_TYPE;
+	EffectRangeTypeUser	=	0,		/// 使用者
+	EffectRangeTypeSingle,			/// 単体
+	EffectRangeTypeAll,				/// 全員
+} EffectRangeType;
 
 #pragma mark - 変数
 

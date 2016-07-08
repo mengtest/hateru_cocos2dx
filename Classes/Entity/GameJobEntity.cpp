@@ -31,9 +31,9 @@ void GameJobEntity::convertData(const unsigned char *data) {
 	hitRate = (int32_t)data[dataIndex];
 	dataIndex += 1;
 	// ステータス
-	for (int i = ADDSTATUS_TYPE_MAXHP; i <= ADDSTATUS_TYPE_EXP; i++) {
+	for (int i = AddStatusTypeMaxHP; i <= AddStatusTypeEXP; i++) {
 		for (auto lv = 0; lv < MAX_LEVEL; lv++) {
-			if (i == ADDSTATUS_TYPE_EXP) {
+			if (i == AddStatusTypeEXP) {
 				statuses[i][lv] = (int32_t)data[dataIndex] * 0x100 + (int32_t)data[dataIndex + 1];
 				dataIndex += 2;
 			} else {

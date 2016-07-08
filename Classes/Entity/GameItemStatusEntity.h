@@ -16,7 +16,7 @@ class GameItemStatusEntity final: public BaseGameEntity {
 public:
 	
 	/// ステータス種別
-	ITEM_STATUS_TYPE status;
+	ItemStatusType status;
 	/// 変化値
 	int32_t value;
 	

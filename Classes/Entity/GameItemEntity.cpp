@@ -27,7 +27,7 @@ void GameItemEntity::convertData(const unsigned char *data) {
 	name = StringUtil::trim(SJISUtil::convertUTF8(&data[dataIndex], 16));
 	dataIndex += 16;
 	// 種別
-	type = (ITEM_TYPE)data[dataIndex];
+	type = (ItemType)data[dataIndex];
 	dataIndex += 1;
 	// 買値
 	purchasePrice = (int32_t)data[dataIndex] * 0x100 + (int32_t)data[dataIndex + 1];
