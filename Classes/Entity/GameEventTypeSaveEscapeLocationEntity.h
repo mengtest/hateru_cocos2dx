@@ -12,8 +12,22 @@
 #include "GameEventBaseEntity.h"
 
 /// イベント エスケープで戻る位置を保存Entity
-class GameEventTypeSaveEscapeLocationEntity final: public GameEventBaseEntity {
+class GameEventTypeSaveEscapeLocationEntity final: public GameEventBaseEntity<GameEventTypeSaveEscapeLocationEntity> {
 public:
+	
+	/**
+	 *  バイナリサイズ取得
+	 *
+	 *  @return バイナリサイズ
+	 */
+	int binarySize();
+	
+	/**
+	 *  バイナリデータよりEntity作成
+	 *
+	 *  @param data バイナリデータ
+	 */
+	void convertData(const unsigned char *data);
 	
 private:
 };

@@ -12,8 +12,27 @@
 #include "GameEventBaseEntity.h"
 
 /// イベント アイテム増減Entity
-class GameEventFluctuateHPEntity final: public GameEventBaseEntity {
+class GameEventTypeFluctuateItemEntity final: public GameEventBaseEntity<GameEventTypeFluctuateItemEntity> {
 public:
+	
+	/// 増減タイプ
+	FluctuateType fluctuateType;
+	/// アイテムID
+	int32_t itemId;
+	
+	/**
+	 *  バイナリサイズ取得
+	 *
+	 *  @return バイナリサイズ
+	 */
+	int binarySize();
+	
+	/**
+	 *  バイナリデータよりEntity作成
+	 *
+	 *  @param data バイナリデータ
+	 */
+	void convertData(const unsigned char *data);
 	
 private:
 };

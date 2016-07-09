@@ -18,7 +18,7 @@ public:
 	/// 変数Id
 	int32_t variableId;
 	/// 式
-	VARIABLE_ZG_TYPE expression;
+	VariableOperateType operateType;
 	/// 値
 	int32_t value;
 

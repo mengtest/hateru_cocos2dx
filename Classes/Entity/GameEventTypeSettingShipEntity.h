@@ -12,8 +12,22 @@
 #include "GameEventBaseEntity.h"
 
 /// イベント 船設定Entity
-class GameEventTypeSettingShipEntity final: public GameEventBaseEntity {
+class GameEventTypeSettingShipEntity final: public GameEventBaseEntity<GameEventTypeSettingShipEntity> {
 public:
+	
+	/**
+	 *  バイナリサイズ取得
+	 *
+	 *  @return バイナリサイズ
+	 */
+	int binarySize();
+	
+	/**
+	 *  バイナリデータよりEntity作成
+	 *
+	 *  @param data バイナリデータ
+	 */
+	void convertData(const unsigned char *data);
 	
 private:
 };

@@ -6,4 +6,4 @@
 //
 //
 
-#include "GameEventFluctuateMPEntity.h"
+#include "GameEventTypeShowImageEntity.h"

@@ -133,6 +133,18 @@ typedef enum {
 	EventTypeRandom			,			///	乱数
 } EventType;
 
+/// 増減タイプ
+typedef enum {
+	FluctuateTypeIncrease = 0,			/// 増
+	FluctuateTypeDecline				/// 減
+} FluctuateType;
+
+/// サウンドフィールドタイプ
+typedef enum {
+	SoundFieldTypeMap = 0,				/// マップ
+	SoundFieldTypeBattle,				/// 戦闘
+} SoundFieldType;
+
 #pragma mark - 職業
 
 /// 最大レベル
@@ -208,10 +220,12 @@ typedef enum {
 
 /// 変数変化増減タイプ
 typedef enum {
-	VARIABLE_ZG_TYPE_EQUAL	=	0,	///	イコール
-	VARIABLE_ZG_TYPE_ADD,			///	増
-	VARIABLE_ZG_TYPE_SUB,			///	減
-} VARIABLE_ZG_TYPE;
+	VariableOperateTypeAssignment = 0,	///	代入
+	VariableOperateTypeIncrease,		///	増
+	VariableOperateTypeDecline,			///	減
+} VariableOperateType;
+
+#pragma mark - サウンド
 
 /// 初期メンバーカウント
 #define INIT_MEMBER_COUNT 3

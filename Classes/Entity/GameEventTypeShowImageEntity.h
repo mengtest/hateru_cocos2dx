@@ -12,8 +12,22 @@
 #include "GameEventBaseEntity.h"
 
 /// イベント 画像表示Entity
-class GameEventFluctuateHPEntity final: public GameEventBaseEntity {
+class GameEventTypeShowImageEntity final: public GameEventBaseEntity<GameEventTypeShowImageEntity> {
 public:
+	
+	/**
+	 *  バイナリサイズ取得
+	 *
+	 *  @return バイナリサイズ
+	 */
+	int binarySize();
+	
+	/**
+	 *  バイナリデータよりEntity作成
+	 *
+	 *  @param data バイナリデータ
+	 */
+	void convertData(const unsigned char *data);
 	
 private:
 };

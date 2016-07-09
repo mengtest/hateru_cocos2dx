@@ -12,8 +12,29 @@
 #include "GameEventBaseEntity.h"
 
 /// イベント BGM変更Entity
-class GameEventFluctuateHPEntity final: public GameEventBaseEntity {
+class GameEventTypeChangeBGMEntity final: public GameEventBaseEntity<GameEventTypeChangeBGMEntity> {
 public:
+	
+	/// 再生
+	bool play;
+	/// サウンドID
+	int32_t soundId;
+	/// マップ/戦闘
+	SoundFieldType fieldType;
+	
+	/**
+	 *  バイナリサイズ取得
+	 *
+	 *  @return バイナリサイズ
+	 */
+	int binarySize();
+	
+	/**
+	 *  バイナリデータよりEntity作成
+	 *
+	 *  @param data バイナリデータ
+	 */
+	void convertData(const unsigned char *data);
 	
 private:
 };

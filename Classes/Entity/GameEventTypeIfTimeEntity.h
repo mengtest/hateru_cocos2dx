@@ -12,8 +12,22 @@
 #include "GameEventBaseEntity.h"
 
 /// イベント リアルタイム分岐Entity
-class GameEventTypeIfTimeEntity final: public GameEventBaseEntity {
+class GameEventTypeIfTimeEntity final: public GameEventBaseEntity<GameEventTypeIfTimeEntity> {
 public:
+	
+	/**
+	 *  バイナリサイズ取得
+	 *
+	 *  @return バイナリサイズ
+	 */
+	int binarySize();
+	
+	/**
+	 *  バイナリデータよりEntity作成
+	 *
+	 *  @param data バイナリデータ
+	 */
+	void convertData(const unsigned char *data);
 	
 private:
 };

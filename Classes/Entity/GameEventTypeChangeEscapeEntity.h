@@ -12,8 +12,22 @@
 #include "GameEventBaseEntity.h"
 
 /// イベント エスケープ禁止変更Entity
-class GameEventFluctuateHPEntity final: public GameEventBaseEntity {
+class GameEventTypeChangeEscapeEntity final: public GameEventBaseEntity<GameEventTypeChangeEscapeEntity> {
 public:
+	
+	/**
+	 *  バイナリサイズ取得
+	 *
+	 *  @return バイナリサイズ
+	 */
+	int binarySize();
+	
+	/**
+	 *  バイナリデータよりEntity作成
+	 *
+	 *  @param data バイナリデータ
+	 */
+	void convertData(const unsigned char *data);
 	
 private:
 };

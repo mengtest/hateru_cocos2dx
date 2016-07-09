@@ -12,8 +12,22 @@
 #include "GameEventBaseEntity.h"
 
 /// イベント 変数分岐Entity
-class GameEventFluctuateHPEntity final: public GameEventBaseEntity {
+class GameEventTypeIfVariableEntity final: public GameEventBaseEntity<GameEventTypeIfVariableEntity> {
 public:
+	
+	/**
+	 *  バイナリサイズ取得
+	 *
+	 *  @return バイナリサイズ
+	 */
+	int binarySize();
+	
+	/**
+	 *  バイナリデータよりEntity作成
+	 *
+	 *  @param data バイナリデータ
+	 */
+	void convertData(const unsigned char *data);
 	
 private:
 };

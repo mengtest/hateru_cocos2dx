@@ -12,8 +12,22 @@
 #include "GameEventBaseEntity.h"
 
 /// イベント 機種判別Entity
-class GameEventTypeIfTerminalEntity final: public GameEventBaseEntity {
+class GameEventTypeIfTerminalEntity final: public GameEventBaseEntity<GameEventTypeIfTerminalEntity> {
 public:
+	
+	/**
+	 *  バイナリサイズ取得
+	 *
+	 *  @return バイナリサイズ
+	 */
+	int binarySize();
+	
+	/**
+	 *  バイナリデータよりEntity作成
+	 *
+	 *  @param data バイナリデータ
+	 */
+	void convertData(const unsigned char *data);
 	
 private:
 };

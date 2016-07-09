@@ -12,8 +12,22 @@
 #include "GameEventBaseEntity.h"
 
 /// イベント 掲示板Entity
-class GameEventTypeBBSEntity final: public GameEventBaseEntity {
+class GameEventTypeBBSEntity final: public GameEventBaseEntity<GameEventTypeBBSEntity> {
 public:
+	
+	/**
+	 *  バイナリサイズ取得
+	 *
+	 *  @return バイナリサイズ
+	 */
+	int binarySize();
+	
+	/**
+	 *  バイナリデータよりEntity作成
+	 *
+	 *  @param data バイナリデータ
+	 */
+	void convertData(const unsigned char *data);
 	
 private:
 };

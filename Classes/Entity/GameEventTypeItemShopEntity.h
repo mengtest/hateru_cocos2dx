@@ -12,8 +12,22 @@
 #include "GameEventBaseEntity.h"
 
 /// イベント 道具屋Entity
-class GameEventFluctuateHPEntity final: public GameEventBaseEntity {
+class GameEventTypeItemShopEntity final: public GameEventBaseEntity<GameEventTypeItemShopEntity> {
 public:
+	
+	/**
+	 *  バイナリサイズ取得
+	 *
+	 *  @return バイナリサイズ
+	 */
+	int binarySize();
+	
+	/**
+	 *  バイナリデータよりEntity作成
+	 *
+	 *  @param data バイナリデータ
+	 */
+	void convertData(const unsigned char *data);
 	
 private:
 };
