@@ -15,6 +15,11 @@
 class GameEventTypeINNEntity final: public GameEventBaseEntity<GameEventTypeINNEntity> {
 public:
 	
+	/// 値段
+	int32_t price;
+	/// 変数退避Id
+	int32_t variableId;
+	
 	/**
 	 *  バイナリサイズ取得
 	 *

@@ -145,6 +145,22 @@ typedef enum {
 	SoundFieldTypeBattle,				/// 戦闘
 } SoundFieldType;
 
+/// 分岐式
+typedef enum {
+	IfFormulaTypeEqual = 0,				/// ＝
+	IfFormulaTypeNotEqual,				/// ≠
+	IfFormulaTypeLessThan,				/// ＜
+	IfFormulaTypeGreaterThan,			/// ＞
+	IfFormulaTypeLessThanEqual,			/// ≦
+	IfFormulaTypeGreaterThanEqual,		/// ≧
+} IfFormulaType;
+
+typedef enum {
+	ExchangeUnitTypeRemove = 0,			/// 外す
+	ExchangeUnitTypeAdd,				/// 追加
+	ExchangeUnitTypeShift,				/// 入替
+} ExchangeUnitType;
+
 #pragma mark - 職業
 
 /// 最大レベル

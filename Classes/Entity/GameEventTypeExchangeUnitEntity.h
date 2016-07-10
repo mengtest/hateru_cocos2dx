@@ -15,6 +15,13 @@
 class GameEventTypeExchangeUnitEntity final: public GameEventBaseEntity<GameEventTypeExchangeUnitEntity> {
 public:
 	
+	/// 入替タイプ
+	ExchangeUnitType exchangeType;
+	/// 外すキャラId
+	int32_t removeCharaId;
+	/// 追加キャラId
+	int32_t addCharaId;
+	
 	/**
 	 *  バイナリサイズ取得
 	 *

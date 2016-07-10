@@ -15,6 +15,13 @@
 class GameEventTypeMoveLocationEntity final: public GameEventBaseEntity<GameEventTypeMoveLocationEntity> {
 public:
 	
+	/// マップID
+	int32_t mapId;
+	/// X座標
+	int32_t x;
+	/// Y座標
+	int32_t y;
+	
 	/**
 	 *  バイナリサイズ取得
 	 *

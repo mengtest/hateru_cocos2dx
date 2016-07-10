@@ -15,6 +15,19 @@
 class GameEventTypeFluctuateTeleportEntity final: public GameEventBaseEntity<GameEventTypeFluctuateTeleportEntity> {
 public:
 	
+	/// 削除フラグ
+	bool isRemove;
+	/// 表示名
+	string name;
+	/// 対象マップId
+	int32_t mapId;
+	/// マップId 歩行/船/飛行船
+	vector<int32_t> jumpMapIds;
+	/// X座標 歩行/船/飛行船
+	vector<int32_t> jumpXs;
+	/// Y座標 歩行/船/飛行船
+	vector<int32_t> jumpYs;
+	
 	/**
 	 *  バイナリサイズ取得
 	 *

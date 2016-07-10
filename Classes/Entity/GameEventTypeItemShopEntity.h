@@ -15,6 +15,9 @@
 class GameEventTypeItemShopEntity final: public GameEventBaseEntity<GameEventTypeItemShopEntity> {
 public:
 	
+	// 売りアイテムID
+	vector<int32_t> itemIds;
+	
 	/**
 	 *  バイナリサイズ取得
 	 *

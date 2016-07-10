@@ -15,6 +15,11 @@
 class GameEventTypeChangeUnitEntity final: public GameEventBaseEntity<GameEventTypeChangeUnitEntity> {
 public:
 	
+	/// 画像使用
+	bool isUseImage;
+	/// キャラID
+	int32_t charaId;
+	
 	/**
 	 *  バイナリサイズ取得
 	 *

@@ -15,6 +15,11 @@
 class GameEventTypeBattleEntity final: public GameEventBaseEntity<GameEventTypeBattleEntity> {
 public:
 	
+	/// 結果退避変数Id
+	int32_t variableId;
+	/// 敵Id
+	vector<int32_t> enemyIds;
+	
 	/**
 	 *  バイナリサイズ取得
 	 *

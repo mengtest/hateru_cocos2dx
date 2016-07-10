@@ -15,6 +15,9 @@
 class GameEventTypeChangeEscapeEntity final: public GameEventBaseEntity<GameEventTypeChangeEscapeEntity> {
 public:
 	
+	/// 有効/無効
+	bool isValid;
+	
 	/**
 	 *  バイナリサイズ取得
 	 *

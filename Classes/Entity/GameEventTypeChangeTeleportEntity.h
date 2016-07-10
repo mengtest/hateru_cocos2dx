@@ -15,6 +15,9 @@
 class GameEventTypeChangeTeleportEntity final: public GameEventBaseEntity<GameEventTypeChangeTeleportEntity> {
 public:
 	
+	/// 有効/無効
+	bool isValid;
+	
 	/**
 	 *  バイナリサイズ取得
 	 *

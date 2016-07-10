@@ -14,6 +14,21 @@
 /// イベント マップチップ変更Entity
 class GameEventTypeChangeChipEntity final: public GameEventBaseEntity<GameEventTypeChangeChipEntity> {
 public:
+
+	/// 通行禁止
+	bool isNotPassWalk;
+	/// 上チップ/下チップ
+	bool isUpChip;
+	/// チップID
+	int32_t chipId;
+	/// X座標
+	int32_t x;
+	/// Y座標
+	int32_t y;
+	/// 船通行禁止
+	bool isNotPassShip;
+	/// 飛行通行禁止
+	bool isNotPassFlyShip;
 	
 	/**
 	 *  バイナリサイズ取得

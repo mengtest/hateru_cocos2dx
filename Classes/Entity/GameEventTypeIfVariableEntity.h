@@ -15,6 +15,13 @@
 class GameEventTypeIfVariableEntity final: public GameEventBaseEntity<GameEventTypeIfVariableEntity> {
 public:
 	
+	/// 変数ID
+	int32_t variableId;
+	/// 式
+	IfFormulaType formulaType;
+	/// 値
+	int32_t value;
+	
 	/**
 	 *  バイナリサイズ取得
 	 *
