@@ -15,6 +15,15 @@
 class GameEventTypeIfItemEntity final: public GameEventBaseEntity<GameEventTypeIfItemEntity> {
 public:
 	
+	/// 参照キャラ (0:全て)
+	int32_t unitId;
+	/// 参照アイテム
+	int32_t itemId;
+	/// 式
+	IfFormulaType formulaType;
+	/// 値
+	int32_t value;
+	
 	/**
 	 *  バイナリサイズ取得
 	 *

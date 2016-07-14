@@ -21,14 +21,14 @@ public:
 	 *
 	 *  @return バイナリサイズ
 	 */
-	virtual int binarySize() = 0;
+	virtual int binarySize();
 	
 	/**
 	 *  バイナリデータよりEntity作成
 	 *
 	 *  @param data バイナリデータ
 	 */
-	virtual void convertData(const unsigned char *data) = 0;
+	virtual void convertData(const unsigned char *data);
 	
 	/**
 	 *  バイナリデータよりEntity作成

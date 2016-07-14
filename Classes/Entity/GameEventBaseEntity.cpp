@@ -8,6 +8,27 @@
 
 #include "GameEventBaseEntity.h"
 
+
+/**
+ *  バイナリサイズ取得
+ *
+ *  @return バイナリサイズ
+ */
+template <class T_ENTITY>
+int GameEventBaseEntity<T_ENTITY>::binarySize() {
+	return 0;
+}
+
+/**
+ *  バイナリデータよりEntity作成
+ *
+ *  @param data バイナリデータ
+ */
+template <class T_ENTITY>
+void GameEventBaseEntity<T_ENTITY>::convertData(const unsigned char *data) {
+	
+}
+
 /**
  *  バイナリデータよりEntity作成
  *

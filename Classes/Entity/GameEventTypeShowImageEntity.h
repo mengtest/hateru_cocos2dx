@@ -15,6 +15,11 @@
 class GameEventTypeShowImageEntity final: public GameEventBaseEntity<GameEventTypeShowImageEntity> {
 public:
 	
+	/// 表示/非表示
+	bool isShow;
+	/// 画像Id
+	int32_t imageId;
+	
 	/**
 	 *  バイナリサイズ取得
 	 *

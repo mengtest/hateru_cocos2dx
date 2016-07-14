@@ -9,6 +9,40 @@
 #ifndef GameConst_h
 #define GameConst_h
 
+/// ステータスタイプ
+typedef enum {
+	UnitStatusTypeLv = 0,		/// LV
+	UnitStatusTypeJob,			/// 職業
+	UnitStatusTypeHP,			/// HP
+	UnitStatusTypeMP,			/// MP
+	UnitStatusTypeMaxHP,		/// 最大HP
+	UnitStatusTypeMaxMP,		/// 最大MP
+	UnitStatusTypeAttack,		/// 攻撃力
+	UnitStatusTypeMental,		/// 精神力
+	UnitStatusTypeDefence,		/// 防御力
+	UnitStatusTypeSpeed,		/// 機敏さ
+	UnitStatusTypeEXP,			/// 経験値
+	UnitStatusTypeFame,			/// 名声
+	UnitStatusTypeMoral,		/// 道徳心
+	UnitStatusTypeHPEq,			/// 装備後HP
+	UnitStatusTypeMPEq,			/// 装備後MP
+	UnitStatusTypeAttackEq,		/// 装備後攻撃力
+	UnitStatusTypeMentalEq,		/// 装備後精神力
+	UnitStatusTypeDefenceEq,	/// 装備後防御力
+	UnitStatusTypeSpeedEq,		/// 装備後機敏さ
+	UnitStatusTypeFireEq,		/// 装備後炎耐性
+	UnitStatusTypeIceEq,		/// 装備後氷耐性
+	UnitStatusTypeThunderEq,	/// 装備後雷耐性
+	UnitStatusTypePoisonEq,		/// 装備後毒耐性
+	UnitStatusTypeNextEXP,		/// 次のレベルまでの経験値
+	UnitStatusTypeFameEq,		/// 装備後名声
+	UnitStatusTypeMoralEq,		/// 装備後道徳心
+	UnitStatusTypeHitRate,		/// 命中率
+	UnitStatusTypeCriticalRate,	/// 必殺率
+	UnitStatusTypeMoney,		/// 所持金(ステータス分岐用)
+	UnitStatusTypeDirection,	/// 方向(ステータス分岐用)
+} UnitStatusType;
+
 /// 状態治療
 typedef enum {
 	ConditionTypeNone = 0,		/// なし
@@ -63,9 +97,9 @@ typedef enum {
 
 /// 下チップタイプ
 typedef enum {
-	AutoMapDownChipTypeFloor = 1,	/// 床
-	AutoMapDownChipTypeWallShadow,	/// 壁(影有)
-	AutoMapDownChipTypeWall,		/// 壁(影無)
+	AutoMapDownChipTypeFloor = 1,		/// 床
+	AutoMapDownChipTypeWallShadow,		/// 壁(影有)
+	AutoMapDownChipTypeWall,			/// 壁(影無)
 } AutoMapDownChipType;
 
 /// 上チップタイプ

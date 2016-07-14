@@ -15,20 +15,6 @@
 class GameEventTypeChurchEntity final: public GameEventBaseEntity<GameEventTypeChurchEntity> {
 public:
 	
-	/**
-	 *  バイナリサイズ取得
-	 *
-	 *  @return バイナリサイズ
-	 */
-	int binarySize();
-	
-	/**
-	 *  バイナリデータよりEntity作成
-	 *
-	 *  @param data バイナリデータ
-	 */
-	void convertData(const unsigned char *data);
-	
 private:
 };
 

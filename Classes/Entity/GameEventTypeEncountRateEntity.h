@@ -15,6 +15,9 @@
 class GameEventTypeEncountRateEntity final: public GameEventBaseEntity<GameEventTypeEncountRateEntity> {
 public:
 	
+	/// 敵出現率
+	int32_t encoundRate;
+	
 	/**
 	 *  バイナリサイズ取得
 	 *

@@ -15,6 +15,13 @@
 class GameEventTypeIfSkillEntity final: public GameEventBaseEntity<GameEventTypeIfSkillEntity> {
 public:
 	
+	/// 参照キャラ
+	int32_t unitId;
+	/// 参照スキル
+	int32_t skillId;
+	/// 会得
+	bool isLearning;
+	
 	/**
 	 *  バイナリサイズ取得
 	 *

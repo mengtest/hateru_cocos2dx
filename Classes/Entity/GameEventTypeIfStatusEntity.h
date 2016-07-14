@@ -15,6 +15,15 @@
 class GameEventTypeIfStatusEntity final: public GameEventBaseEntity<GameEventTypeIfStatusEntity> {
 public:
 	
+	/// 参照キャラ
+	int32_t unitId;
+	/// 参照ステータス
+	UnitStatusType statusType;
+	/// 式
+	IfFormulaType formulaType;
+	/// 値
+	int32_t value;
+	
 	/**
 	 *  バイナリサイズ取得
 	 *
