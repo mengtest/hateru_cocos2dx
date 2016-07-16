@@ -15,6 +15,9 @@
 class GameEventTypeMoveMobUnitEntity final: public GameEventBaseEntity<GameEventTypeMoveMobUnitEntity> {
 public:
 	
+	/// 移動
+	vector<EventMoveType> moveTypes;
+	
 	/**
 	 *  バイナリサイズ取得
 	 *

@@ -15,6 +15,9 @@
 class GameEventTypeSelectYesNoEntity final: public GameEventBaseEntity<GameEventTypeSelectYesNoEntity> {
 public:
 	
+	/// 返却変数Id
+	int32_t variableId;
+	
 	/**
 	 *  バイナリサイズ取得
 	 *

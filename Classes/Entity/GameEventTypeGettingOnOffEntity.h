@@ -15,6 +15,11 @@
 class GameEventTypeGettingOnOffEntity final: public GameEventBaseEntity<GameEventTypeGettingOnOffEntity> {
 public:
 	
+	/// 乗り物タイプ
+	VehicleType vehicleType;
+	/// 乗り降り
+	bool isGetOff;
+	
 	/**
 	 *  バイナリサイズ取得
 	 *

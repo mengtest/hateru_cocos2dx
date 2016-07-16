@@ -15,6 +15,9 @@
 class GameEventTypeIfTimeEntity final: public GameEventBaseEntity<GameEventTypeIfTimeEntity> {
 public:
 	
+	/// 日時時間タイプ
+	vector<DateTimeType> dateTimeTypes;
+	
 	/**
 	 *  バイナリサイズ取得
 	 *

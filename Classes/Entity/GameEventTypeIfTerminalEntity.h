@@ -15,6 +15,8 @@
 class GameEventTypeIfTerminalEntity final: public GameEventBaseEntity<GameEventTypeIfTerminalEntity> {
 public:
 	
+	
+	
 	/**
 	 *  バイナリサイズ取得
 	 *

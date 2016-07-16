@@ -189,11 +189,37 @@ typedef enum {
 	IfFormulaTypeGreaterThanEqual,		/// ≧
 } IfFormulaType;
 
+/// メンバーチェンジタイプ
 typedef enum {
 	ExchangeUnitTypeRemove = 0,			/// 外す
 	ExchangeUnitTypeAdd,				/// 追加
 	ExchangeUnitTypeShift,				/// 入替
 } ExchangeUnitType;
+
+/// イベント移動タイプ
+typedef enum {
+	EventMoveTypeMoveUp = 0,			/// 上移動
+	EventMoveTypeMoveRight,				/// 右移動
+	EventMoveTypeMoveDown,				/// 下移動
+	EventMoveTypeMoveLeft,				/// 左移動
+	EventMoveTypeFaceUp,				/// 上向き
+	EventMoveTypeFaceRight,				/// 右向き
+	EventMoveTypeFaceDown,				/// 下向き
+	EventMoveTypeFaceLeft,				/// 左向き
+	EventMoveTypeLoop,					/// ループ
+	EventMoveTypeMoveCount,				/// 移動頻度
+} EventMoveType;
+
+/// 日時タイプ
+typedef enum {
+	DateTimeTypeMonth = 0,				/// 月
+	DateTimeTypeDay,					/// 日
+	DateTimeTypeHour,					/// 時
+	DateTimeTypeMinute,					/// 分
+	DateTimeTypeSecond,					/// 秒
+	DateTimeTypeWeek,					/// 週
+} DateTimeType;
+
 
 #pragma mark - 職業
 
