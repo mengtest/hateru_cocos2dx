@@ -228,14 +228,14 @@ typedef enum {
 	EventInitConditionTypeAuto,			/// 自動
 } EventInitConditionType;
 
-///// イベント移動タイプ
-//typedef enum {
-//	EventInitConditionTypeKey = 0,		/// キー
-//	EventInitConditionTypeLeave,		/// 離れたら
-//	EventInitConditionTypeTouch,		/// 触れたら
-//	EventInitConditionTypeAuto,			/// 自動
-//} EventMoveType;
-
+/// イベント詳細移動タイプ
+typedef enum {
+	EventDetailMoveTypeNoMove = 0,		/// 動かない
+	EventDetailMoveTypeRandom,			/// ランダム
+	EventDetailMoveTypeNear,			/// 主人公に近づく
+	EventDetailMoveTypeFar,				/// 主人公から離れる
+	EventDetailMoveTypeSet,				/// 詳細設定
+} EventDetailMoveType;
 
 
 #pragma mark - 職業

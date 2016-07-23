@@ -91,3 +91,22 @@ GameMapEntity GameMapEntity::createEntity(const unsigned char *data, const strin
 	entity.convertData(data, name);
 	return entity;
 }
+
+/**
+ *  バイナリデータよりEntity作成
+ *
+ *  @param data バイナリデータ
+ *  @param name 名前
+ */
+void GameMapEntity::convertEventData(const unsigned char *data) {
+	
+	auto dataIndex = 0;
+
+	// イベント数
+	int count = (int)data[dataIndex];
+	dataIndex += 1;
+	
+	for (auto i = 0;i < count;i++) {
+//		events
+	}
+}

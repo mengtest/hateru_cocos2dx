@@ -73,6 +73,13 @@ public:
 	 */
 	static GameMapEntity createEntity(const unsigned char *data, const string &name);
 	
+	/**
+	 *  バイナリデータよりイベントEntity作成
+	 *
+	 *  @param data バイナリデータ
+	 */
+	void convertEventData(const unsigned char *data);
+	
 private:
 };
 

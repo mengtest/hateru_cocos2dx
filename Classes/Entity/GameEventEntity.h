@@ -28,8 +28,16 @@ public:
 	int32_t value;
 	/// 開始条件
 	EventInitConditionType initConditionType;
-	
-	
+	/// 移動タイプ
+	EventDetailMoveType moveType;
+	/// 詳細移動
+	vector<EventMoveType> detailMoveTypes;
+	/// キャラ使用
+	bool isUseUnit;
+	/// キャラId
+	int32_t charaId;
+	/// イベントタイプ
+	vector<EventType> eventTypes;
 	/// イベント詳細
 	vector<GameEventBaseEntity> details;
 	
@@ -38,8 +46,10 @@ public:
 	 *
 	 *  @param data バイナリデータ
 	 *  @param name 名前
+	 *
+	 *  @return 使用したオフセット数
 	 */
-	void convertData(const unsigned char *data, const string &name);
+	int convertData(const unsigned char *data, const string &name);
 	
 	/**
 	 *  バイナリデータよりEntity作成
