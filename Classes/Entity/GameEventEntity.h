@@ -10,6 +10,7 @@
 #define GameEventEntity_h
 
 #include "BaseGameEntity.h"
+#include "GameEventBaseEntity.h"
 
 /// マップイベントEntity
 class GameEventEntity final: public BaseGameEntity {
@@ -19,7 +20,18 @@ public:
 	string name;
 	/// 変数による発火
 	bool isIgnitionVariable;
+	/// 変数
+	int32_t variableId;
+	/// 式
+	IfFormulaType formulaType;
+	/// 値
+	int32_t value;
+	/// 開始条件
+	EventInitConditionType initConditionType;
 	
+	
+	/// イベント詳細
+	vector<GameEventBaseEntity> details;
 	
 	/**
 	 *  バイナリデータよりEntity作成

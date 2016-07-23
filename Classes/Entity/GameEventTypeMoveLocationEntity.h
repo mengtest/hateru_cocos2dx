@@ -12,7 +12,7 @@
 #include "GameEventBaseEntity.h"
 
 /// イベント 場所移動Entity
-class GameEventTypeMoveLocationEntity final: public GameEventBaseEntity<GameEventTypeMoveLocationEntity> {
+class GameEventTypeMoveLocationEntity final: public GameEventBaseEntity {
 public:
 	
 	/// マップID

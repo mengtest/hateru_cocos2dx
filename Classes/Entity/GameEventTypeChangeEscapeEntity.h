@@ -12,7 +12,7 @@
 #include "GameEventBaseEntity.h"
 
 /// イベント エスケープ禁止変更Entity
-class GameEventTypeChangeEscapeEntity final: public GameEventBaseEntity<GameEventTypeChangeEscapeEntity> {
+class GameEventTypeChangeEscapeEntity final: public GameEventBaseEntity {
 public:
 	
 	/// 有効/無効

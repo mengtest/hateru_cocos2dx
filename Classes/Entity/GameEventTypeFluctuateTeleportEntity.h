@@ -12,7 +12,7 @@
 #include "GameEventBaseEntity.h"
 
 /// イベント テレポート位置増減Entity
-class GameEventTypeFluctuateTeleportEntity final: public GameEventBaseEntity<GameEventTypeFluctuateTeleportEntity> {
+class GameEventTypeFluctuateTeleportEntity final: public GameEventBaseEntity {
 public:
 	
 	/// 削除フラグ

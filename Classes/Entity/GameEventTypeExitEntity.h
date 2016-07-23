@@ -12,7 +12,7 @@
 #include "GameEventBaseEntity.h"
 
 /// イベント イベント終了Entity
-class GameEventTypeExitEntity final: public GameEventBaseEntity<GameEventTypeExitEntity> {
+class GameEventTypeExitEntity final: public GameEventBaseEntity {
 public:
 	
 private:

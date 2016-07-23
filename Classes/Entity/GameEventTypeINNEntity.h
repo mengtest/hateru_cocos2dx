@@ -12,7 +12,7 @@
 #include "GameEventBaseEntity.h"
 
 /// イベント 宿屋Entity
-class GameEventTypeINNEntity final: public GameEventBaseEntity<GameEventTypeINNEntity> {
+class GameEventTypeINNEntity final: public GameEventBaseEntity {
 public:
 	
 	/// 値段

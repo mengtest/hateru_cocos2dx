@@ -12,7 +12,7 @@
 #include "GameEventBaseEntity.h"
 
 /// イベント メンバー入替Entity
-class GameEventTypeExchangeUnitEntity final: public GameEventBaseEntity<GameEventTypeExchangeUnitEntity> {
+class GameEventTypeExchangeUnitEntity final: public GameEventBaseEntity {
 public:
 	
 	/// 入替タイプ

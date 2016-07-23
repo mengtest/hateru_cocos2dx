@@ -12,7 +12,7 @@
 #include "GameEventBaseEntity.h"
 
 /// イベント 変数分岐Entity
-class GameEventTypeIfVariableEntity final: public GameEventBaseEntity<GameEventTypeIfVariableEntity> {
+class GameEventTypeIfVariableEntity final: public GameEventBaseEntity {
 public:
 	
 	/// 変数ID

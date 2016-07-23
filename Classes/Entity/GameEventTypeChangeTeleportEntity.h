@@ -12,7 +12,7 @@
 #include "GameEventBaseEntity.h"
 
 /// イベント テレポート禁止変更Entity
-class GameEventTypeChangeTeleportEntity final: public GameEventBaseEntity<GameEventTypeChangeTeleportEntity> {
+class GameEventTypeChangeTeleportEntity final: public GameEventBaseEntity {
 public:
 	
 	/// 有効/無効

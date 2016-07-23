@@ -12,7 +12,7 @@
 #include "GameEventBaseEntity.h"
 
 /// イベント エスケープで戻る位置を保存Entity
-class GameEventTypeSaveEscapeLocationEntity final: public GameEventBaseEntity<GameEventTypeSaveEscapeLocationEntity> {
+class GameEventTypeSaveEscapeLocationEntity final: public GameEventBaseEntity {
 public:
 	
 private:

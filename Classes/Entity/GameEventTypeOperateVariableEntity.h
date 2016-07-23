@@ -12,7 +12,7 @@
 #include "GameEventBaseEntity.h"
 
 /// イベント 変数操作Entity
-class GameEventTypeOperateVariableEntity final: public GameEventBaseEntity<GameEventTypeOperateVariableEntity> {
+class GameEventTypeOperateVariableEntity final: public GameEventBaseEntity {
 public:
 	
 	/// 変数ID

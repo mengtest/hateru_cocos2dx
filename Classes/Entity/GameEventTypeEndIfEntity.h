@@ -12,7 +12,7 @@
 #include "GameEventBaseEntity.h"
 
 /// イベント 変数分岐終了Entity
-class GameEventTypeEndIfEntity final: public GameEventBaseEntity<GameEventTypeEndIfEntity> {
+class GameEventTypeEndIfEntity final: public GameEventBaseEntity {
 public:
 	
 private:

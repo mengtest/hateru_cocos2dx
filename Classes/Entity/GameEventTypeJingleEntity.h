@@ -12,8 +12,13 @@
 #include "GameEventBaseEntity.h"
 
 /// イベント ジングルEntity
-class GameEventTypeJingleEntity final: public GameEventBaseEntity<GameEventTypeJingleEntity> {
+class GameEventTypeJingleEntity final: public GameEventBaseEntity {
 public:
+	
+	/// サウンドId
+	int32_t soundId;
+	/// 再生が終わるまで待つ
+	bool isWait;
 	
 	/**
 	 *  バイナリサイズ取得

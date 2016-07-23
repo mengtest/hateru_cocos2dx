@@ -12,7 +12,7 @@
 #include "GameEventBaseEntity.h"
 
 /// イベント BGM変更Entity
-class GameEventTypeChangeBGMEntity final: public GameEventBaseEntity<GameEventTypeChangeBGMEntity> {
+class GameEventTypeChangeBGMEntity final: public GameEventBaseEntity {
 public:
 	
 	/// 再生

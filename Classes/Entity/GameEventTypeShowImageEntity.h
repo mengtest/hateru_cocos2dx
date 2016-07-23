@@ -12,7 +12,7 @@
 #include "GameEventBaseEntity.h"
 
 /// イベント 画像表示Entity
-class GameEventTypeShowImageEntity final: public GameEventBaseEntity<GameEventTypeShowImageEntity> {
+class GameEventTypeShowImageEntity final: public GameEventBaseEntity {
 public:
 	
 	/// 表示/非表示

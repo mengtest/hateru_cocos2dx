@@ -12,7 +12,7 @@
 #include "GameEventBaseEntity.h"
 
 /// イベント YESNO選択Entity
-class GameEventTypeSelectYesNoEntity final: public GameEventBaseEntity<GameEventTypeSelectYesNoEntity> {
+class GameEventTypeSelectYesNoEntity final: public GameEventBaseEntity {
 public:
 	
 	/// 返却変数Id

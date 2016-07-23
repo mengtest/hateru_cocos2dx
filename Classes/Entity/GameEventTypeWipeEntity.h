@@ -12,7 +12,7 @@
 #include "GameEventBaseEntity.h"
 
 /// イベント ワイプEntity
-class GameEventTypeWipeEntity final: public GameEventBaseEntity<GameEventTypeWipeEntity> {
+class GameEventTypeWipeEntity final: public GameEventBaseEntity {
 public:
 	
 	/**

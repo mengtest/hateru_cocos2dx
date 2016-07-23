@@ -12,7 +12,7 @@
 #include "GameEventBaseEntity.h"
 
 /// イベント リアルタイム分岐Entity
-class GameEventTypeIfTimeEntity final: public GameEventBaseEntity<GameEventTypeIfTimeEntity> {
+class GameEventTypeIfTimeEntity final: public GameEventBaseEntity {
 public:
 	
 	/// 日時時間タイプ

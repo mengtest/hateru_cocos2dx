@@ -12,7 +12,7 @@
 #include "GameEventBaseEntity.h"
 
 /// イベント 預り所Entity
-class GameEventTypeCloakroomEntity final: public GameEventBaseEntity<GameEventTypeCloakroomEntity> {
+class GameEventTypeCloakroomEntity final: public GameEventBaseEntity {
 public:
 	
 private:

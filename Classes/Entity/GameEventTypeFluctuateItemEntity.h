@@ -12,7 +12,7 @@
 #include "GameEventBaseEntity.h"
 
 /// イベント アイテム増減Entity
-class GameEventTypeFluctuateItemEntity final: public GameEventBaseEntity<GameEventTypeFluctuateItemEntity> {
+class GameEventTypeFluctuateItemEntity final: public GameEventBaseEntity {
 public:
 	
 	/// 増減タイプ

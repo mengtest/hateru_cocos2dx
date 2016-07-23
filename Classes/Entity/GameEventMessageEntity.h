@@ -12,7 +12,7 @@
 #include "GameEventBaseEntity.h"
 
 /// イベント メッセージ表示Entity
-class GameEventMessageEntity final: public GameEventBaseEntity<GameEventMessageEntity> {
+class GameEventMessageEntity final: public GameEventBaseEntity {
 public:
 	
 	/// メッセージ

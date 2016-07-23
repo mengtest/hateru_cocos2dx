@@ -12,7 +12,7 @@
 #include "GameEventBaseEntity.h"
 
 /// イベント 敵出現率Entity
-class GameEventTypeEncountRateEntity final: public GameEventBaseEntity<GameEventTypeEncountRateEntity> {
+class GameEventTypeEncountRateEntity final: public GameEventBaseEntity {
 public:
 	
 	/// 敵出現率

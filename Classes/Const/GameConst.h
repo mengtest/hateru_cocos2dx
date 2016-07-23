@@ -220,6 +220,23 @@ typedef enum {
 	DateTimeTypeWeek,					/// 週
 } DateTimeType;
 
+/// イベント開始タイプ
+typedef enum {
+	EventInitConditionTypeKey = 0,		/// キー
+	EventInitConditionTypeLeave,		/// 離れたら
+	EventInitConditionTypeTouch,		/// 触れたら
+	EventInitConditionTypeAuto,			/// 自動
+} EventInitConditionType;
+
+///// イベント移動タイプ
+//typedef enum {
+//	EventInitConditionTypeKey = 0,		/// キー
+//	EventInitConditionTypeLeave,		/// 離れたら
+//	EventInitConditionTypeTouch,		/// 触れたら
+//	EventInitConditionTypeAuto,			/// 自動
+//} EventMoveType;
+
+
 
 #pragma mark - 職業
 

@@ -12,7 +12,7 @@
 #include "GameEventBaseEntity.h"
 
 /// イベント 調合屋Entity
-class GameEventTypeMixShopEntity final: public GameEventBaseEntity<GameEventTypeMixShopEntity> {
+class GameEventTypeMixShopEntity final: public GameEventBaseEntity {
 public:
 	
 private:

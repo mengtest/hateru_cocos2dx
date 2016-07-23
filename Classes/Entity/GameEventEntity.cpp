@@ -64,6 +64,8 @@ void GameEventEntity::convertData(const unsigned char *data, const string &name)
 		}
 		// イベント詳細
 		for (auto j = 0;j < detailCount;j++) {
+			
+			
 		}
 	}
 }

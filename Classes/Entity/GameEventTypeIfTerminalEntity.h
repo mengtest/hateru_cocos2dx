@@ -12,10 +12,11 @@
 #include "GameEventBaseEntity.h"
 
 /// イベント 機種判別Entity
-class GameEventTypeIfTerminalEntity final: public GameEventBaseEntity<GameEventTypeIfTerminalEntity> {
+class GameEventTypeIfTerminalEntity final: public GameEventBaseEntity {
 public:
 	
-	
+	/// キャリアタイプ
+	int32_t careerType;
 	
 	/**
 	 *  バイナリサイズ取得

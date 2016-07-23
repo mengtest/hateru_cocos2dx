@@ -12,7 +12,7 @@
 #include "GameEventBaseEntity.h"
 
 /// イベント マップチップ変更Entity
-class GameEventTypeChangeChipEntity final: public GameEventBaseEntity<GameEventTypeChangeChipEntity> {
+class GameEventTypeChangeChipEntity final: public GameEventBaseEntity {
 public:
 
 	/// 通行禁止

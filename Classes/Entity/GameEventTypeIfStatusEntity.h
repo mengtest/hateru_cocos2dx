@@ -12,7 +12,7 @@
 #include "GameEventBaseEntity.h"
 
 /// イベント ステータス分岐Entity
-class GameEventTypeIfStatusEntity final: public GameEventBaseEntity<GameEventTypeIfStatusEntity> {
+class GameEventTypeIfStatusEntity final: public GameEventBaseEntity {
 public:
 	
 	/// 参照キャラ

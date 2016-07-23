@@ -12,7 +12,7 @@
 #include "GameEventBaseEntity.h"
 
 /// イベント 経験値増減Entity
-class GameEventTypeFluctuateEXPEntity final: public GameEventBaseEntity<GameEventTypeFluctuateEXPEntity> {
+class GameEventTypeFluctuateEXPEntity final: public GameEventBaseEntity {
 public:
 	
 	/// 対象

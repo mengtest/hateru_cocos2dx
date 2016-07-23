@@ -12,7 +12,7 @@
 #include "GameEventBaseEntity.h"
 
 /// イベント 特殊技能分岐Entity
-class GameEventTypeIfSkillEntity final: public GameEventBaseEntity<GameEventTypeIfSkillEntity> {
+class GameEventTypeIfSkillEntity final: public GameEventBaseEntity {
 public:
 	
 	/// 参照キャラ

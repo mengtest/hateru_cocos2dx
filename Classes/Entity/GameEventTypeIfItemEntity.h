@@ -12,7 +12,7 @@
 #include "GameEventBaseEntity.h"
 
 /// イベントアイテム分岐Entity
-class GameEventTypeIfItemEntity final: public GameEventBaseEntity<GameEventTypeIfItemEntity> {
+class GameEventTypeIfItemEntity final: public GameEventBaseEntity {
 public:
 	
 	/// 参照キャラ (0:全て)

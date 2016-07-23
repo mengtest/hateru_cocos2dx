@@ -12,7 +12,7 @@
 #include "GameEventBaseEntity.h"
 
 /// イベント 戦闘Entity
-class GameEventTypeBattleEntity final: public GameEventBaseEntity<GameEventTypeBattleEntity> {
+class GameEventTypeBattleEntity final: public GameEventBaseEntity {
 public:
 	
 	/// 結果退避変数Id

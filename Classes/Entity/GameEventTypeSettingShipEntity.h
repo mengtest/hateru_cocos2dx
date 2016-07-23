@@ -12,7 +12,7 @@
 #include "GameEventBaseEntity.h"
 
 /// イベント 船設定Entity
-class GameEventTypeSettingShipEntity final: public GameEventBaseEntity<GameEventTypeSettingShipEntity> {
+class GameEventTypeSettingShipEntity final: public GameEventBaseEntity {
 public:
 	
 	/// 乗り物タイプ

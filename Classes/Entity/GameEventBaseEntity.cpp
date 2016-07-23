@@ -14,8 +14,7 @@
  *
  *  @return バイナリサイズ
  */
-template <class T_ENTITY>
-int GameEventBaseEntity<T_ENTITY>::binarySize() {
+int GameEventBaseEntity::binarySize() {
 	return 0;
 }
 
@@ -24,21 +23,6 @@ int GameEventBaseEntity<T_ENTITY>::binarySize() {
  *
  *  @param data バイナリデータ
  */
-template <class T_ENTITY>
-void GameEventBaseEntity<T_ENTITY>::convertData(const unsigned char *data) {
+void GameEventBaseEntity::convertData(const unsigned char *data) {
 	
-}
-
-/**
- *  バイナリデータよりEntity作成
- *
- *  @param data バイナリデータ
- *
- *  @return Entity
- */
-template <class T_ENTITY>
-T_ENTITY GameEventBaseEntity<T_ENTITY>::createEntity(const unsigned char *data) {
-	auto entity = T_ENTITY();
-	entity.convertData(data);
-	return entity;
 }

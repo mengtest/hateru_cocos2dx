@@ -12,7 +12,7 @@
 #include "GameEventBaseEntity.h"
 
 /// イベント 職業変更Entity
-class GameEventTypeChangeJobEntity final: public GameEventBaseEntity<GameEventTypeChangeJobEntity> {
+class GameEventTypeChangeJobEntity final: public GameEventBaseEntity {
 public:
 	
 private:

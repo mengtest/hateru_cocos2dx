@@ -12,7 +12,7 @@
 #include "GameEventBaseEntity.h"
 
 /// イベント 道具屋Entity
-class GameEventTypeItemShopEntity final: public GameEventBaseEntity<GameEventTypeItemShopEntity> {
+class GameEventTypeItemShopEntity final: public GameEventBaseEntity {
 public:
 	
 	// 売りアイテムID
