@@ -48,6 +48,7 @@ void GameItemEntity::convertData(const unsigned char *data) {
 	conditionTreatment = (ConditionType)data[dataIndex];
 	dataIndex += 1;
 	// ステータス
+	changeStatus.clear();
 	for (auto i = 0;i < 5;i++) {
 		changeStatus.push_back(GameItemStatusEntity::createEntity(&data[dataIndex]));
 		dataIndex += 3;
@@ -59,6 +60,7 @@ void GameItemEntity::convertData(const unsigned char *data) {
 	imageId = (int32_t)data[dataIndex];
 	dataIndex += 1;
 	// 調合
+	mixings.clear();
 	for (auto i = 0;i < 5;i++) {
 		mixings.push_back(GameItemMixEntity::createEntity(&data[dataIndex]));
 		dataIndex += 2;
@@ -66,6 +68,7 @@ void GameItemEntity::convertData(const unsigned char *data) {
 	// ？
 	dataIndex += 1;
 	// 装備可能職業指定
+	equipmentJobs.clear();
 	for (auto i = 0;i < projectIniEntity.counts[ProjectIniEntity::typeJob];i++) {
 		equipmentJobs.push_back(data[dataIndex] == 1);
 		dataIndex += 1;

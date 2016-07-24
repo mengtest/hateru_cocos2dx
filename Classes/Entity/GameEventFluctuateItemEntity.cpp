@@ -9,20 +9,13 @@
 #include "GameEventFluctuateItemEntity.h"
 
 /**
- *  バイナリサイズ取得
- *
- *  @return バイナリサイズ
- */
-int GameEventFluctuateItemEntity::binarySize() {
-	return 2;
-}
-
-/**
  *  バイナリデータよりEntity作成
  *
  *  @param data バイナリデータ
+ *
+ *  @return 使用サイズ
  */
-void GameEventFluctuateItemEntity::convertData(const unsigned char *data) {
+int GameEventFluctuateItemEntity::convertData(const unsigned char *data) {
 	
 	int dataIndex = 0;
 	
@@ -33,4 +26,5 @@ void GameEventFluctuateItemEntity::convertData(const unsigned char *data) {
 	itemId = (int32_t)data[dataIndex];
 	dataIndex += 1;
 	
+	return dataIndex;
 }

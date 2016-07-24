@@ -34,5 +34,18 @@ GameMapEntity GameMapManager::load(const int id) {
 	
 	auto entity = GameMapEntity::createEntity(fileData.getBytes(), namesEntity.names[id]);
 	
+	// イベントリスト名取得
+	namesEntity = NamesManager::load(NamesManager::eventListName(id));
+	
+	// ファイルデータ取得
+	ostr.str("");
+	ostr.clear(stringstream::goodbit);
+	ostr << "EventS" << setfill('0') << setw(3) << id << ".nmp";
+	filePath = FileConst::resGamePath + ostr.str();
+	fileData = FileUtils::getInstance()->getDataFromFile(filePath);
+	
+	entity.convertEventData(fileData.getBytes(), namesEntity.names);
+	
 	return GameMapEntity();
 }
+

@@ -9,20 +9,13 @@
 #include "GameEventSelectYesNoEntity.h"
 
 /**
- *  バイナリサイズ取得
- *
- *  @return バイナリサイズ
- */
-int GameEventSelectYesNoEntity::binarySize() {
-	return 2;
-}
-
-/**
  *  バイナリデータよりEntity作成
  *
  *  @param data バイナリデータ
+ *
+ *  @return 使用サイズ
  */
-void GameEventSelectYesNoEntity::convertData(const unsigned char *data) {
+int GameEventSelectYesNoEntity::convertData(const unsigned char *data) {
 	
 	int dataIndex = 0;
 	
@@ -30,4 +23,5 @@ void GameEventSelectYesNoEntity::convertData(const unsigned char *data) {
 	variableId = (int32_t)data[dataIndex] * 0x100 + (int32_t)data[dataIndex + 1];
 	dataIndex += 2;
 	
+	return dataIndex;
 }

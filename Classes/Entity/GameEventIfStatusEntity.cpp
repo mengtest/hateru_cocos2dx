@@ -9,20 +9,13 @@
 #include "GameEventIfStatusEntity.h"
 
 /**
- *  バイナリサイズ取得
- *
- *  @return バイナリサイズ
- */
-int GameEventIfStatusEntity::binarySize() {
-	return 5;
-}
-
-/**
  *  バイナリデータよりEntity作成
  *
  *  @param data バイナリデータ
+ *
+ *  @return 使用サイズ
  */
-void GameEventIfStatusEntity::convertData(const unsigned char *data) {
+int GameEventIfStatusEntity::convertData(const unsigned char *data) {
 	
 	int dataIndex = 0;
 	
@@ -39,4 +32,5 @@ void GameEventIfStatusEntity::convertData(const unsigned char *data) {
 	value = (int32_t)data[dataIndex] * 0x100 + data[dataIndex + 1];
 	dataIndex += 2;
 	
+	return dataIndex;
 }

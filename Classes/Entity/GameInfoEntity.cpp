@@ -35,6 +35,7 @@ void GameInfoEntity::convertData(const unsigned char *data) {
 	initY = (int32_t)data[dataIndex];
 	dataIndex += 1;
 	// 初期メンバ
+	initMemberIds.clear();
 	for (int i = 0;i < INIT_MEMBER_COUNT;i++) {
 		initMemberIds.push_back((int32_t)data[dataIndex]);
 		dataIndex += 1;

@@ -34,6 +34,15 @@ public:
 	 */
 	static NamesEntity load(const string &fileName);
 	
+	/**
+	 *  イベントリストファイル名を取得する
+	 *
+	 *  @param id イベントID
+	 *
+	 *  @return イベントリストファイル名
+	 */
+	static string eventListName(const int id);
+	
 private:
 	
 	/**

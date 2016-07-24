@@ -9,20 +9,13 @@
 #include "GameEventShowImageEntity.h"
 
 /**
- *  バイナリサイズ取得
- *
- *  @return バイナリサイズ
- */
-int GameEventShowImageEntity::binarySize() {
-	return 2;
-}
-
-/**
  *  バイナリデータよりEntity作成
  *
  *  @param data バイナリデータ
+ *
+ *  @return 使用サイズ
  */
-void GameEventShowImageEntity::convertData(const unsigned char *data) {
+int GameEventShowImageEntity::convertData(const unsigned char *data) {
 	
 	int dataIndex = 0;
 	
@@ -33,4 +26,5 @@ void GameEventShowImageEntity::convertData(const unsigned char *data) {
 	imageId = (int32_t)data[dataIndex];
 	dataIndex += 1;
 	
+	return dataIndex;
 }

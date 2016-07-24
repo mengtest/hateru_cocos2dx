@@ -9,20 +9,13 @@
 #include "GameEventGettingOnOffEntity.h"
 
 /**
- *  バイナリサイズ取得
- *
- *  @return バイナリサイズ
- */
-int GameEventGettingOnOffEntity::binarySize() {
-	return 2;
-}
-
-/**
  *  バイナリデータよりEntity作成
  *
  *  @param data バイナリデータ
+ *
+ *  @return 使用サイズ
  */
-void GameEventGettingOnOffEntity::convertData(const unsigned char *data) {
+int GameEventGettingOnOffEntity::convertData(const unsigned char *data) {
 	
 	int dataIndex = 0;
 	
@@ -33,4 +26,5 @@ void GameEventGettingOnOffEntity::convertData(const unsigned char *data) {
 	isGetOff = data[dataIndex] != 0;
 	dataIndex += 1;
 	
+	return dataIndex;
 }

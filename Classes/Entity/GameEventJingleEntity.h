@@ -19,20 +19,15 @@ public:
 	int32_t soundId;
 	/// 再生が終わるまで待つ
 	bool isWait;
-	
-	/**
-	 *  バイナリサイズ取得
-	 *
-	 *  @return バイナリサイズ
-	 */
-	int binarySize();
-	
+
 	/**
 	 *  バイナリデータよりEntity作成
 	 *
 	 *  @param data バイナリデータ
+	 *
+	 *  @return 使用サイズ
 	 */
-	void convertData(const unsigned char *data);
+	int convertData(const unsigned char *data);
 	
 private:
 };

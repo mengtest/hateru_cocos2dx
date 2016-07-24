@@ -9,20 +9,13 @@
 #include "GameEventFluctuateGoldEntity.h"
 
 /**
- *  バイナリサイズ取得
- *
- *  @return バイナリサイズ
- */
-int GameEventFluctuateGoldEntity::binarySize() {
-	return 3;
-}
-
-/**
  *  バイナリデータよりEntity作成
  *
  *  @param data バイナリデータ
+ *
+ *  @return 使用サイズ
  */
-void GameEventFluctuateGoldEntity::convertData(const unsigned char *data) {
+int GameEventFluctuateGoldEntity::convertData(const unsigned char *data) {
 	
 	int dataIndex = 0;
 	
@@ -33,4 +26,5 @@ void GameEventFluctuateGoldEntity::convertData(const unsigned char *data) {
 	value = (int32_t)data[dataIndex] * 0x100 + (int32_t)data[dataIndex + 1];
 	dataIndex += 2;
 	
+	return dataIndex;
 }

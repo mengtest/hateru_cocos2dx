@@ -27,6 +27,7 @@ void GameCharaEntity::convertData(const unsigned char *data) {
 	initJobId = (int32_t)data[dataIndex];
 	dataIndex += 1;
 	// 画像
+	imageIds.clear();
 	for (auto i = 0;i < 8;i++) {
 		imageIds.push_back((int32_t)data[dataIndex]);
 		dataIndex += 1;
@@ -34,6 +35,7 @@ void GameCharaEntity::convertData(const unsigned char *data) {
 	// 初期所持アイテム
 	auto count = (int)data[dataIndex];
 	dataIndex += 1;
+	initItemIds.clear();
 	for (auto i = 0;i < count;i++) {
 		initItemIds.push_back((int32_t)data[dataIndex]);
 		dataIndex += 1;

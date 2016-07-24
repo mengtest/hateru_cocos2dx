@@ -8,6 +8,9 @@
 
 #include "NamesManager.h"
 
+#include <iostream>
+#include <iomanip>
+
 #include "FileConst.h"
 
 /// マップチップ
@@ -35,4 +38,19 @@ NamesEntity NamesManager::load(const string &fileName) {
 	auto entity = NamesEntity::createEntity(fileData.getBytes(), (size_t)fileData.getSize());
 	
 	return entity;
-}	
+}
+
+
+/**
+ *  イベントリストファイル名を取得する
+ *
+ *  @param eventId イベントID
+ *
+ *  @return イベントリストファイル名
+ */
+string NamesManager::eventListName(const int id) {
+	// ファイルデータ取得
+	ostringstream ostr;
+	ostr << "EventList" << setfill('0') << setw(3) << id << ".nmp";
+	return ostr.str();
+}

@@ -53,7 +53,7 @@ public:
 	/// 自動マップ情報
 	GameMapAutoEntity autoMap;
 	/// イベント情報
-	map<string, GameEventEntity> events;
+	map<int32_t, GameEventEntity> events;
 
 	/**
 	 *  バイナリデータよりEntity作成
@@ -76,9 +76,10 @@ public:
 	/**
 	 *  バイナリデータよりイベントEntity作成
 	 *
-	 *  @param data バイナリデータ
+	 *  @param data  バイナリデータ
+	 *  @param names 名前
 	 */
-	void convertEventData(const unsigned char *data);
+	void convertEventData(const unsigned char *data, const vector<string> names);
 	
 private:
 };

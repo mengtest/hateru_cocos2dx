@@ -21,6 +21,8 @@ void GameMapAutoEntity::convertData(const unsigned char *data) {
 	stratum = (int32_t)data[dataIndex];
 	dataIndex += 1;
 	// チップグループ
+	downChipIds.clear();
+	upChipIds.clear();
 	for (auto i = 0;i < stratum;i++) {
 		// 下チップ
 		downChipIds.push_back((int32_t)data[dataIndex]);
@@ -34,6 +36,7 @@ void GameMapAutoEntity::convertData(const unsigned char *data) {
 		dataIndex += 3;
 	}
 	// 敵情報
+	enemyIds.clear();
 	for (auto i = 0;i < stratum;i++) {
 		for (auto j = 0;j < 5;j++) {
 			enemyIds.push_back((int32_t)data[dataIndex]);
@@ -41,6 +44,7 @@ void GameMapAutoEntity::convertData(const unsigned char *data) {
 		}
 	}
 	// 宝情報
+	itemIds.clear();
 	for (auto i = 0;i < stratum;i++) {
 		for (auto j = 0;j < 5;j++) {
 			itemIds.push_back((int32_t)data[dataIndex]);

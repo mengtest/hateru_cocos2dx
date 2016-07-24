@@ -9,20 +9,13 @@
 #include "GameEventRandomEntity.h"
 
 /**
- *  バイナリサイズ取得
- *
- *  @return バイナリサイズ
- */
-int GameEventRandomEntity::binarySize() {
-	return 4;
-}
-
-/**
  *  バイナリデータよりEntity作成
  *
  *  @param data バイナリデータ
+ *
+ *  @return 使用サイズ
  */
-void GameEventRandomEntity::convertData(const unsigned char *data) {
+int GameEventRandomEntity::convertData(const unsigned char *data) {
 	
 	int dataIndex = 0;
 	
@@ -36,4 +29,5 @@ void GameEventRandomEntity::convertData(const unsigned char *data) {
 	to = (int32_t)data[dataIndex];
 	dataIndex += 1;
 	
+	return dataIndex;
 }

@@ -23,6 +23,7 @@ void NamesEntity::convertData(const unsigned char *data, size_t len) {
 	string inStr = SJISUtil::convertUTF8(data, len);
 	
 	// 分割
+	names.clear();
 	vector<string> line;
 	StringUtil::split(line, inStr, "\r\n");
 	for (auto it = line.begin(); it != line.end(); it++) {

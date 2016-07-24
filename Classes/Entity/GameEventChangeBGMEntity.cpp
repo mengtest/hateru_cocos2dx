@@ -9,20 +9,13 @@
 #include "GameEventChangeBGMEntity.h"
 
 /**
- *  バイナリサイズ取得
- *
- *  @return バイナリサイズ
- */
-int GameEventChangeBGMEntity::binarySize() {
-	return 3;
-}
-
-/**
  *  バイナリデータよりEntity作成
  *
  *  @param data バイナリデータ
+ *
+ *  @return 使用サイズ
  */
-void GameEventChangeBGMEntity::convertData(const unsigned char *data) {
+int GameEventChangeBGMEntity::convertData(const unsigned char *data) {
 	
 	int dataIndex = 0;
 	
@@ -36,4 +29,5 @@ void GameEventChangeBGMEntity::convertData(const unsigned char *data) {
 	fieldType = (SoundFieldType)data[dataIndex];
 	dataIndex += 1;
 	
+	return dataIndex;
 }

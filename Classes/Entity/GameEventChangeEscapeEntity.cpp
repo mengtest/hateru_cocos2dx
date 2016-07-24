@@ -9,20 +9,13 @@
 #include "GameEventChangeEscapeEntity.h"
 
 /**
- *  バイナリサイズ取得
- *
- *  @return バイナリサイズ
- */
-int GameEventChangeEscapeEntity::binarySize() {
-	return 1;
-}
-
-/**
  *  バイナリデータよりEntity作成
  *
  *  @param data バイナリデータ
+ *
+ *  @return 使用サイズ
  */
-void GameEventChangeEscapeEntity::convertData(const unsigned char *data) {
+int GameEventChangeEscapeEntity::convertData(const unsigned char *data) {
 	
 	int dataIndex = 0;
 	
@@ -30,4 +23,5 @@ void GameEventChangeEscapeEntity::convertData(const unsigned char *data) {
 	isValid = data[dataIndex] != 0;
 	dataIndex += 1;
 	
+	return dataIndex;
 }

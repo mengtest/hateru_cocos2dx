@@ -8,21 +8,13 @@
 
 #include "GameEventBaseEntity.h"
 
-
-/**
- *  バイナリサイズ取得
- *
- *  @return バイナリサイズ
- */
-int GameEventBaseEntity::binarySize() {
-	return 0;
-}
-
 /**
  *  バイナリデータよりEntity作成
  *
  *  @param data バイナリデータ
+ *
+ *  @return 使用サイズ
  */
-void GameEventBaseEntity::convertData(const unsigned char *data) {
-	
+int GameEventBaseEntity::convertData(const unsigned char *data) {
+	return 0;
 }

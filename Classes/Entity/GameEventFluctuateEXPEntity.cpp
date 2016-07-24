@@ -9,20 +9,13 @@
 #include "GameEventFluctuateEXPEntity.h"
 
 /**
- *  バイナリサイズ取得
- *
- *  @return バイナリサイズ
- */
-int GameEventFluctuateEXPEntity::binarySize() {
-	return 4;
-}
-
-/**
  *  バイナリデータよりEntity作成
  *
  *  @param data バイナリデータ
+ *
+ *  @return 使用サイズ
  */
-void GameEventFluctuateEXPEntity::convertData(const unsigned char *data) {
+int GameEventFluctuateEXPEntity::convertData(const unsigned char *data) {
 	
 	int dataIndex = 0;
 	
@@ -36,4 +29,5 @@ void GameEventFluctuateEXPEntity::convertData(const unsigned char *data) {
 	value = (int32_t)data[dataIndex] * 0x100 + (int32_t)data[dataIndex + 1];
 	dataIndex += 2;
 	
+	return dataIndex;
 }

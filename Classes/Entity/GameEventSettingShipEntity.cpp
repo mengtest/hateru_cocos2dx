@@ -9,20 +9,13 @@
 #include "GameEventSettingShipEntity.h"
 
 /**
- *  バイナリサイズ取得
- *
- *  @return バイナリサイズ
- */
-int GameEventSettingShipEntity::binarySize() {
-	return 5;
-}
-
-/**
  *  バイナリデータよりEntity作成
  *
  *  @param data バイナリデータ
+ *
+ *  @return 使用サイズ
  */
-void GameEventSettingShipEntity::convertData(const unsigned char *data) {
+int GameEventSettingShipEntity::convertData(const unsigned char *data) {
 	
 	int dataIndex = 0;
 	
@@ -42,4 +35,5 @@ void GameEventSettingShipEntity::convertData(const unsigned char *data) {
 	y = (int32_t)data[dataIndex];
 	dataIndex += 1;
 
+	return dataIndex;
 }

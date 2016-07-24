@@ -9,20 +9,13 @@
 #include "GameEventExchangeUnitEntity.h"
 
 /**
- *  バイナリサイズ取得
- *
- *  @return バイナリサイズ
- */
-int GameEventExchangeUnitEntity::binarySize() {
-	return 3;
-}
-
-/**
  *  バイナリデータよりEntity作成
  *
  *  @param data バイナリデータ
+ *
+ *  @return 使用サイズ
  */
-void GameEventExchangeUnitEntity::convertData(const unsigned char *data) {
+int GameEventExchangeUnitEntity::convertData(const unsigned char *data) {
 	
 	int dataIndex = 0;
 	
@@ -36,4 +29,5 @@ void GameEventExchangeUnitEntity::convertData(const unsigned char *data) {
 	addCharaId = (int32_t)data[dataIndex];
 	dataIndex += 1;
 	
+	return dataIndex;
 }

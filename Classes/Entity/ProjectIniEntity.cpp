@@ -41,6 +41,7 @@ void ProjectIniEntity::convertData(const unsigned char *data, size_t len) {
 	string inStr = StringUtil::copyBuff(data, len);
 	
 	// 分割
+	counts.clear();
 	string paramName = "";
 	vector<string> line;
 	StringUtil::split(line, inStr, "\r\n");

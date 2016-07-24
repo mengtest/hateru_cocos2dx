@@ -9,27 +9,22 @@
 #include "GameEventIfTimeEntity.h"
 
 /**
- *  バイナリサイズ取得
- *
- *  @return バイナリサイズ
- */
-int GameEventIfTimeEntity::binarySize() {
-	return DateTimeTypeWeek + 1;
-}
-
-/**
  *  バイナリデータよりEntity作成
  *
  *  @param data バイナリデータ
+ *
+ *  @return 使用サイズ
  */
-void GameEventIfTimeEntity::convertData(const unsigned char *data) {
+int GameEventIfTimeEntity::convertData(const unsigned char *data) {
 	
 	int dataIndex = 0;
 	
 	/// 日時時間タイプ
+	dateTimeTypes.clear();
 	for (int i = DateTimeTypeMonth;i <= DateTimeTypeWeek;i++) {
 		dateTimeTypes.push_back((DateTimeType)data[dataIndex]);
 		dataIndex += 1;
 	}
 	
+	return dataIndex;
 }

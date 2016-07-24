@@ -45,6 +45,7 @@ void GameSkillEntity::convertData(const unsigned char *data) {
 	attackAttributeType = (AttackAttributeType)data[dataIndex];
 	dataIndex += 1;
 	// 状態変化
+	changeCondition.clear();
 	for (int i = ConditionTypeNone;i <= ConditionTypeParray;i++) {
 		changeCondition.push_back((data[dataIndex] & (1 << (i - 1))) != 0);
 	}

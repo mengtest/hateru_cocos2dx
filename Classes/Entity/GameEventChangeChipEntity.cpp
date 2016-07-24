@@ -9,20 +9,13 @@
 #include "GameEventChangeChipEntity.h"
 
 /**
- *  バイナリサイズ取得
- *
- *  @return バイナリサイズ
- */
-int GameEventChangeChipEntity::binarySize() {
-	return 7;
-}
-
-/**
  *  バイナリデータよりEntity作成
  *
  *  @param data バイナリデータ
+ *
+ *  @return 使用サイズ
  */
-void GameEventChangeChipEntity::convertData(const unsigned char *data) {
+int GameEventChangeChipEntity::convertData(const unsigned char *data) {
 	
 	int dataIndex = 0;
 	
@@ -48,4 +41,5 @@ void GameEventChangeChipEntity::convertData(const unsigned char *data) {
 	isNotPassFlyShip = data[dataIndex] != 0;
 	dataIndex += 1;
 	
+	return dataIndex;
 }

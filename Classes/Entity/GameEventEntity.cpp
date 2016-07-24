@@ -87,6 +87,7 @@ int GameEventEntity::convertData(const unsigned char *data, const string &name) 
 	// 移動タイプ
 	moveType = (EventDetailMoveType)data[dataIndex];
 	dataIndex += 1;
+	detailMoveTypes.clear();
 	if (moveType == EventDetailMoveTypeSet) {
 		// 詳細移動数
 		int moveCount = (int)data[dataIndex];
@@ -107,160 +108,292 @@ int GameEventEntity::convertData(const unsigned char *data, const string &name) 
 	int detailCount = (int)data[dataIndex];
 	dataIndex += 1;
 	// イベント詳細ヘッダ
+	eventTypes.clear();
 	vector<int> detailSizes;
 	for (auto i = 0;i < detailCount;i++) {
 		// タイプ
 		eventTypes.push_back((EventType)data[dataIndex]);
 		dataIndex += 1;
-		// 使用サイズ
+		// 使用サイズ (不正確)
 		detailSizes.push_back((int)data[dataIndex]);
 		dataIndex += 1;
 	}
 	// イベント詳細
+	details.clear();
 	for (auto i = 0;i < detailCount;i++) {
-		GameEventBaseEntity eventEntity;
 		switch (eventTypes[i]) {
-			case EventTypeMessage:
-				eventEntity = GameEventMessageEntity();
+			case EventTypeMessage: {
+				auto eventEntity = GameEventMessageEntity();
+				eventEntity.messageLen = detailSizes[i];
+				dataIndex += eventEntity.convertData(&data[dataIndex]);
+				details.push_back(eventEntity);
 				break;
-			case EventTypeFluctuateHP:
-				eventEntity = GameEventFluctuateHPEntity();
+			}
+			case EventTypeFluctuateHP: {
+				auto eventEntity = GameEventFluctuateHPEntity();
+				dataIndex += eventEntity.convertData(&data[dataIndex]);
+				details.push_back(eventEntity);
 				break;
-			case EventTypeFluctuateMP:
-				eventEntity = GameEventFluctuateMPEntity();
+			}
+			case EventTypeFluctuateMP: {
+				auto eventEntity = GameEventFluctuateMPEntity();
+				dataIndex += eventEntity.convertData(&data[dataIndex]);
+				details.push_back(eventEntity);
 				break;
-			case EventTypeFluctuateGold:
-				eventEntity = GameEventFluctuateGoldEntity();
+			}
+			case EventTypeFluctuateGold: {
+				auto eventEntity = GameEventFluctuateGoldEntity();
+				dataIndex += eventEntity.convertData(&data[dataIndex]);
+				details.push_back(eventEntity);
 				break;
-			case EventTypeFluctuateEXP:
-				eventEntity = GameEventFluctuateEXPEntity();
+			}
+			case EventTypeFluctuateEXP: {
+				auto eventEntity = GameEventFluctuateEXPEntity();
+				dataIndex += eventEntity.convertData(&data[dataIndex]);
+				details.push_back(eventEntity);
 				break;
-			case EventTypeFluctuateItem:
-				eventEntity = GameEventFluctuateItemEntity();
+			}
+			case EventTypeFluctuateItem: {
+				auto eventEntity = GameEventFluctuateItemEntity();
+				dataIndex += eventEntity.convertData(&data[dataIndex]);
+				details.push_back(eventEntity);
 				break;
-			case EventTypeOperateVariable:
-				eventEntity = GameEventOperateVariableEntity();
+			}
+			case EventTypeOperateVariable: {
+				auto eventEntity = GameEventOperateVariableEntity();
+				dataIndex += eventEntity.convertData(&data[dataIndex]);
+				details.push_back(eventEntity);
 				break;
-			case EventTypeChangeBGM:
-				eventEntity = GameEventChangeBGMEntity();
+			}
+			case EventTypeChangeBGM: {
+				auto eventEntity = GameEventChangeBGMEntity();
+				dataIndex += eventEntity.convertData(&data[dataIndex]);
+				details.push_back(eventEntity);
 				break;
-			case EventTypeChangeChip:
-				eventEntity = GameEventChangeChipEntity();
+			}
+			case EventTypeChangeChip: {
+				auto eventEntity = GameEventChangeChipEntity();
+				dataIndex += eventEntity.convertData(&data[dataIndex]);
+				details.push_back(eventEntity);
 				break;
-			case EventTypeChangeUnit:
-				eventEntity = GameEventChangeUnitEntity();
+			}
+			case EventTypeChangeUnit: {
+				auto eventEntity = GameEventChangeUnitEntity();
+				dataIndex += eventEntity.convertData(&data[dataIndex]);
+				details.push_back(eventEntity);
 				break;
-			case EventTypeMoveLocation:
-				eventEntity = GameEventMoveLocationEntity();
+			}
+			case EventTypeMoveLocation: {
+				auto eventEntity = GameEventMoveLocationEntity();
+				dataIndex += eventEntity.convertData(&data[dataIndex]);
+				details.push_back(eventEntity);
 				break;
-			case EventTypeIfVariable:
-				eventEntity = GameEventIfVariableEntity();
+			}
+			case EventTypeIfVariable: {
+				auto eventEntity = GameEventIfVariableEntity();
+				dataIndex += eventEntity.convertData(&data[dataIndex]);
+				details.push_back(eventEntity);
 				break;
-			case EventTypeSave:
-				eventEntity = GameEventSaveEntity();
+			}
+			case EventTypeSave: {
+				auto eventEntity = GameEventSaveEntity();
+				dataIndex += eventEntity.convertData(&data[dataIndex]);
+				details.push_back(eventEntity);
 				break;
-			case EventTypeItemShop:
-				eventEntity = GameEventItemShopEntity();
+			}
+			case EventTypeItemShop: {
+				auto eventEntity = GameEventItemShopEntity();
+				dataIndex += eventEntity.convertData(&data[dataIndex]);
+				details.push_back(eventEntity);
 				break;
-			case EventTypeINN:
-				eventEntity = GameEventINNEntity();
+			}
+			case EventTypeINN: {
+				auto eventEntity = GameEventINNEntity();
+				dataIndex += eventEntity.convertData(&data[dataIndex]);
+				details.push_back(eventEntity);
 				break;
-			case EventTypeCloakroom:
-				eventEntity = GameEventCloakroomEntity();
+			}
+			case EventTypeCloakroom: {
+				auto eventEntity = GameEventCloakroomEntity();
+				dataIndex += eventEntity.convertData(&data[dataIndex]);
+				details.push_back(eventEntity);
 				break;
-			case EventTypeChurch:
-				eventEntity = GameEventChurchEntity();
+			}
+			case EventTypeChurch: {
+				auto eventEntity = GameEventChurchEntity();
+				dataIndex += eventEntity.convertData(&data[dataIndex]);
+				details.push_back(eventEntity);
 				break;
-			case EventTypeBattle:
-				eventEntity = GameEventBattleEntity();
+			}
+			case EventTypeBattle: {
+				auto eventEntity = GameEventBattleEntity();
+				dataIndex += eventEntity.convertData(&data[dataIndex]);
+				details.push_back(eventEntity);
 				break;
-			case EventTypeFluctuateTeleport:
-				eventEntity = GameEventFluctuateTeleportEntity();
+			}
+			case EventTypeFluctuateTeleport: {
+				auto eventEntity = GameEventFluctuateTeleportEntity();
+				dataIndex += eventEntity.convertData(&data[dataIndex]);
+				details.push_back(eventEntity);
 				break;
-			case EventTypeChangeTeleport:
-				eventEntity = GameEventChangeTeleportEntity();
+			}
+			case EventTypeChangeTeleport: {
+				auto eventEntity = GameEventChangeTeleportEntity();
+				dataIndex += eventEntity.convertData(&data[dataIndex]);
+				details.push_back(eventEntity);
 				break;
-			case EventTypeChangeEscape:
-				eventEntity = GameEventChangeEscapeEntity();
+			}
+			case EventTypeChangeEscape: {
+				auto eventEntity = GameEventChangeEscapeEntity();
+				dataIndex += eventEntity.convertData(&data[dataIndex]);
+				details.push_back(eventEntity);
 				break;
-			case EventTypeWipe:
-				eventEntity = GameEventWipeEntity();
+			}
+			case EventTypeWipe: {
+				auto eventEntity = GameEventWipeEntity();
+				dataIndex += eventEntity.convertData(&data[dataIndex]);
+				details.push_back(eventEntity);
 				break;
-			case EventTypeExchangeUnit:
-				eventEntity = GameEventExchangeUnitEntity();
+			}
+			case EventTypeExchangeUnit: {
+				auto eventEntity = GameEventExchangeUnitEntity();
+				dataIndex += eventEntity.convertData(&data[dataIndex]);
+				details.push_back(eventEntity);
 				break;
-			case EventTypeEndIf:
-				eventEntity = GameEventEndIfEntity();
+			}
+			case EventTypeEndIf: {
+				auto eventEntity = GameEventEndIfEntity();
+				dataIndex += eventEntity.convertData(&data[dataIndex]);
+				details.push_back(eventEntity);
 				break;
-			case EventTypeShowImage:
-				eventEntity = GameEventShowImageEntity();
+			}
+			case EventTypeShowImage: {
+				auto eventEntity = GameEventShowImageEntity();
+				dataIndex += eventEntity.convertData(&data[dataIndex]);
+				details.push_back(eventEntity);
 				break;
-			case EventTypeChangeJob:
-				eventEntity = GameEventChangeJobEntity();
+			}
+			case EventTypeChangeJob: {
+				auto eventEntity = GameEventChangeJobEntity();
+				dataIndex += eventEntity.convertData(&data[dataIndex]);
+				details.push_back(eventEntity);
 				break;
-			case EventTypeIfStatus:
-				eventEntity = GameEventIfStatusEntity();
+			}
+			case EventTypeIfStatus: {
+				auto eventEntity = GameEventIfStatusEntity();
+				dataIndex += eventEntity.convertData(&data[dataIndex]);
+				details.push_back(eventEntity);
 				break;
-			case EventTypeIfItem:
-				eventEntity = GameEventIfItemEntity();
+			}
+			case EventTypeIfItem: {
+				auto eventEntity = GameEventIfItemEntity();
+				dataIndex += eventEntity.convertData(&data[dataIndex]);
+				details.push_back(eventEntity);
 				break;
-			case EventTypeIfSkill:
-				eventEntity = GameEventIfSkillEntity();
+			}
+			case EventTypeIfSkill: {
+				auto eventEntity = GameEventIfSkillEntity();
+				dataIndex += eventEntity.convertData(&data[dataIndex]);
+				details.push_back(eventEntity);
 				break;
-			case EventTypeEncountRate:
-				eventEntity = GameEventEncountRateEntity();
+			}
+			case EventTypeEncountRate: {
+				auto eventEntity = GameEventEncountRateEntity();
+				dataIndex += eventEntity.convertData(&data[dataIndex]);
+				details.push_back(eventEntity);
 				break;
-			case EventTypeSaveEscapeLocation:
-				eventEntity = GameEventSaveEscapeLocationEntity();
+			}
+			case EventTypeSaveEscapeLocation: {
+				auto eventEntity = GameEventSaveEscapeLocationEntity();
+				dataIndex += eventEntity.convertData(&data[dataIndex]);
+				details.push_back(eventEntity);
 				break;
-			case EventTypeSettingShip:
-				eventEntity = GameEventSettingShipEntity();
+			}
+			case EventTypeSettingShip: {
+				auto eventEntity = GameEventSettingShipEntity();
+				dataIndex += eventEntity.convertData(&data[dataIndex]);
+				details.push_back(eventEntity);
 				break;
-			case EventTypeExit:
-				eventEntity = GameEventExitEntity();
+			}
+			case EventTypeExit: {
+				auto eventEntity = GameEventExitEntity();
+				dataIndex += eventEntity.convertData(&data[dataIndex]);
+				details.push_back(eventEntity);
 				break;
-			case EventTypeSelectYesNo:
-				eventEntity = GameEventSelectYesNoEntity();
+			}
+			case EventTypeSelectYesNo: {
+				auto eventEntity = GameEventSelectYesNoEntity();
+				dataIndex += eventEntity.convertData(&data[dataIndex]);
+				details.push_back(eventEntity);
 				break;
-			case EventTypeMoveMobUnit:
-				eventEntity = GameEventMoveMobUnitEntity();
+			}
+			case EventTypeMoveMobUnit: {
+				auto eventEntity = GameEventMoveMobUnitEntity();
+				dataIndex += eventEntity.convertData(&data[dataIndex]);
+				details.push_back(eventEntity);
 				break;
-			case EventTypeMoveUnit:
-				eventEntity = GameEventMoveUnitEntity();
+			}
+			case EventTypeMoveUnit: {
+				auto eventEntity = GameEventMoveUnitEntity();
+				dataIndex += eventEntity.convertData(&data[dataIndex]);
+				details.push_back(eventEntity);
 				break;
-			case EventTypeGettingOnOff:
-				eventEntity = GameEventGettingOnOffEntity();
+			}
+			case EventTypeGettingOnOff: {
+				auto eventEntity = GameEventGettingOnOffEntity();
+				dataIndex += eventEntity.convertData(&data[dataIndex]);
+				details.push_back(eventEntity);
 				break;
-			case EventTypeMixShop:
-				eventEntity = GameEventMixShopEntity();
+			}
+			case EventTypeMixShop: {
+				auto eventEntity = GameEventMixShopEntity();
+				dataIndex += eventEntity.convertData(&data[dataIndex]);
+				details.push_back(eventEntity);
 				break;
-			case EventTypeIfTime:
-				eventEntity = GameEventIfTimeEntity();
+			}
+			case EventTypeIfTime: {
+				auto eventEntity = GameEventIfTimeEntity();
+				dataIndex += eventEntity.convertData(&data[dataIndex]);
+				details.push_back(eventEntity);
 				break;
-			case EventTypeBar:
-				eventEntity = GameEventBarEntity();
+			}
+			case EventTypeBar: {
+				auto eventEntity = GameEventBarEntity();
+				dataIndex += eventEntity.convertData(&data[dataIndex]);
+				details.push_back(eventEntity);
 				break;
-			case EventTypeItemBazaar:
-				eventEntity = GameEventItemBazaarEntity();
+			}
+			case EventTypeItemBazaar: {
+				auto eventEntity = GameEventItemBazaarEntity();
+				dataIndex += eventEntity.convertData(&data[dataIndex]);
+				details.push_back(eventEntity);
 				break;
-			case EventTypeBBS:
-				eventEntity = GameEventBBSEntity();
+			}
+			case EventTypeBBS: {
+				auto eventEntity = GameEventBBSEntity();
+				dataIndex += eventEntity.convertData(&data[dataIndex]);
+				details.push_back(eventEntity);
 				break;
-			case EventTypeIfTerminal:
-				eventEntity = GameEventIfTerminalEntity();
+			}
+			case EventTypeIfTerminal: {
+				auto eventEntity = GameEventIfTerminalEntity();
+				dataIndex += eventEntity.convertData(&data[dataIndex]);
+				details.push_back(eventEntity);
 				break;
-			case EventTypeJingle:
-				eventEntity = GameEventJingleEntity();
+			}
+			case EventTypeJingle: {
+				auto eventEntity = GameEventJingleEntity();
+				dataIndex += eventEntity.convertData(&data[dataIndex]);
+				details.push_back(eventEntity);
 				break;
-			case EventTypeRandom:
-				eventEntity = GameEventRandomEntity
-				();
+			}
+			case EventTypeRandom: {
+				auto eventEntity = GameEventRandomEntity();
+				dataIndex += eventEntity.convertData(&data[dataIndex]);
+				details.push_back(eventEntity);
 				break;
+			}
 		}
-		eventEntity.convertData(&data[dataIndex]);
-		details.push_back(eventEntity);
-		// サイズ加算
-		dataIndex += detailSizes[i];
 	}
 	
 	return dataIndex;

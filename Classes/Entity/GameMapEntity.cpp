@@ -64,6 +64,7 @@ void GameMapEntity::convertData(const unsigned char *data, const string &name) {
 	// 戦闘背景
 	battleBackgroundImageId = (int32_t)data[dataIndex];
 	dataIndex += 1;
+	mapChips.clear();
 	if (mapType == MapTypeNormal) {
 		// 通常マップ
 		for (auto y = 0;y < height;y++) {
@@ -95,10 +96,10 @@ GameMapEntity GameMapEntity::createEntity(const unsigned char *data, const strin
 /**
  *  バイナリデータよりEntity作成
  *
- *  @param data バイナリデータ
- *  @param name 名前
+ *  @param data  バイナリデータ
+ *  @param names 名前
  */
-void GameMapEntity::convertEventData(const unsigned char *data) {
+void GameMapEntity::convertEventData(const unsigned char *data, const vector<string> names) {
 	
 	auto dataIndex = 0;
 
@@ -106,7 +107,10 @@ void GameMapEntity::convertEventData(const unsigned char *data) {
 	int count = (int)data[dataIndex];
 	dataIndex += 1;
 	
+	events.clear();
 	for (auto i = 0;i < count;i++) {
-//		events
+		auto entity = GameEventEntity();
+		dataIndex += entity.convertData(&data[dataIndex], names[i]);
+		events[i] = entity;
 	}
 }

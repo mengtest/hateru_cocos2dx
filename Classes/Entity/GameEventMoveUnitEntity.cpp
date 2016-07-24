@@ -9,29 +9,24 @@
 #include "GameEventMoveUnitEntity.h"
 
 /**
- *  バイナリサイズ取得
- *
- *  @return バイナリサイズ
- */
-int GameEventMoveUnitEntity::binarySize() {
-	return (int)moveTypes.size() + 1;
-}
-
-/**
  *  バイナリデータよりEntity作成
  *
  *  @param data バイナリデータ
+ *
+ *  @return 使用サイズ
  */
-void GameEventMoveUnitEntity::convertData(const unsigned char *data) {
+int GameEventMoveUnitEntity::convertData(const unsigned char *data) {
 	
 	int dataIndex = 0;
 	
 	/// 移動
 	int count = (int)data[dataIndex];
 	dataIndex += 1;
+	moveTypes.clear();
 	for (auto i = 0;i < count;i++) {
 		moveTypes.push_back((EventMoveType)data[dataIndex]);
 		dataIndex += 1;
 	}
 	
+	return dataIndex;
 }

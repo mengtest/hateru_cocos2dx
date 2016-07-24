@@ -9,20 +9,13 @@
 #include "GameEventMoveLocationEntity.h"
 
 /**
- *  バイナリサイズ取得
- *
- *  @return バイナリサイズ
- */
-int GameEventMoveLocationEntity::binarySize() {
-	return 3;
-}
-
-/**
  *  バイナリデータよりEntity作成
  *
  *  @param data バイナリデータ
+ *
+ *  @return 使用サイズ
  */
-void GameEventMoveLocationEntity::convertData(const unsigned char *data) {
+int GameEventMoveLocationEntity::convertData(const unsigned char *data) {
 	
 	int dataIndex = 0;
 	
@@ -36,4 +29,5 @@ void GameEventMoveLocationEntity::convertData(const unsigned char *data) {
 	y = (int32_t)data[dataIndex];
 	dataIndex += 1;
 	
+	return dataIndex;
 }

@@ -9,20 +9,13 @@
 #include "GameEventIfTerminalEntity.h"
 
 /**
- *  バイナリサイズ取得
- *
- *  @return バイナリサイズ
- */
-int GameEventIfTerminalEntity::binarySize() {
-	return 1;
-}
-
-/**
  *  バイナリデータよりEntity作成
  *
  *  @param data バイナリデータ
+ *
+ *  @return 使用サイズ
  */
-void GameEventIfTerminalEntity::convertData(const unsigned char *data) {
+int GameEventIfTerminalEntity::convertData(const unsigned char *data) {
 	
 	int dataIndex = 0;
 	
@@ -30,4 +23,5 @@ void GameEventIfTerminalEntity::convertData(const unsigned char *data) {
 	careerType = data[dataIndex];
 	dataIndex += 1;
 	
+	return dataIndex;
 }

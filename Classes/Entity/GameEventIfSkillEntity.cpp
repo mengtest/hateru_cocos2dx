@@ -9,20 +9,13 @@
 #include "GameEventIfSkillEntity.h"
 
 /**
- *  バイナリサイズ取得
- *
- *  @return バイナリサイズ
- */
-int GameEventIfSkillEntity::binarySize() {
-	return 3;
-}
-
-/**
  *  バイナリデータよりEntity作成
  *
  *  @param data バイナリデータ
+ *
+ *  @return 使用サイズ
  */
-void GameEventIfSkillEntity::convertData(const unsigned char *data) {
+int GameEventIfSkillEntity::convertData(const unsigned char *data) {
 	
 	int dataIndex = 0;
 	
@@ -36,4 +29,5 @@ void GameEventIfSkillEntity::convertData(const unsigned char *data) {
 	isLearning = data[dataIndex] != 0;
 	dataIndex += 1;
 	
+	return dataIndex;
 }

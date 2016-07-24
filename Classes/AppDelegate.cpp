@@ -1,9 +1,9 @@
 #include "AppDelegate.h"
 #include "MainScene.h"
 
-#include "GameJobManager.h"
-#include "GameVariableManager.h"
-#include "GameMapChipGroupManager.h"
+//#include "GameJobManager.h"
+//#include "GameVariableManager.h"
+#include "GameMapManager.h"
 
 USING_NS_CC;
 
@@ -84,9 +84,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     // run
     director->runWithScene(scene);
 
-	GameJobManager::load();
-	GameVariableManager::load();
-	GameMapChipGroupManager::load();
+	GameMapManager::load(0);
 	
     return true;
 }

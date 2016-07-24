@@ -9,20 +9,13 @@
 #include "GameEventJingleEntity.h"
 
 /**
- *  バイナリサイズ取得
- *
- *  @return バイナリサイズ
- */
-int GameEventJingleEntity::binarySize() {
-	return 2;
-}
-
-/**
  *  バイナリデータよりEntity作成
  *
  *  @param data バイナリデータ
+ *
+ *  @return 使用サイズ
  */
-void GameEventJingleEntity::convertData(const unsigned char *data) {
+int GameEventJingleEntity::convertData(const unsigned char *data) {
 	
 	int dataIndex = 0;
 	
@@ -33,4 +26,5 @@ void GameEventJingleEntity::convertData(const unsigned char *data) {
 	isWait = data[dataIndex] != 0;
 	dataIndex += 1;
 	
+	return dataIndex;
 }

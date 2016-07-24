@@ -27,6 +27,7 @@ void GameEnemyEntity::convertData(const unsigned char *data) {
 	imageId = (int32_t)data[dataIndex];
 	dataIndex += 1;
 	// ステータス
+	statuses.clear();
 	for (auto i = 0;i < 14;i++) {
 		statuses.push_back((int32_t)data[dataIndex] * 0x100 + (int32_t)data[dataIndex + 1]);
 		dataIndex += 2;
@@ -35,11 +36,13 @@ void GameEnemyEntity::convertData(const unsigned char *data) {
 	item.convertData(&data[dataIndex]);
 	dataIndex += 3;
 	// 攻撃パターン
+	attackPattern.clear();
 	for (auto i = 0;i < 7;i++) {
 		attackPattern.push_back((int32_t)data[dataIndex]);
 		dataIndex += 1;
 	}
 	// 出現座標数
+	encounts.clear();
 	auto count = (int)data[dataIndex];
 	for (auto i = 0;i < count;i++) {
 		encounts.push_back(GameEnemyEncountEntity::createEntity(&data[dataIndex]));

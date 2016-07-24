@@ -12,20 +12,13 @@
 #include "StringUtil.h"
 
 /**
- *  バイナリサイズ取得
- *
- *  @return バイナリサイズ
- */
-int GameEventFluctuateTeleportEntity::binarySize() {
-	return 2 + 3 * 3 + 16;
-}
-
-/**
  *  バイナリデータよりEntity作成
  *
  *  @param data バイナリデータ
+ *
+ *  @return 使用サイズ
  */
-void GameEventFluctuateTeleportEntity::convertData(const unsigned char *data) {
+int GameEventFluctuateTeleportEntity::convertData(const unsigned char *data) {
 	
 	int dataIndex = 0;
 	
@@ -36,6 +29,9 @@ void GameEventFluctuateTeleportEntity::convertData(const unsigned char *data) {
 	mapId = (int32_t)data[dataIndex];
 	dataIndex += 1;
 	// 飛ぶ位置
+	jumpMapIds.clear();
+	jumpXs.clear();
+	jumpYs.clear();
 	for (auto i = (int)MoveTypeWalk;i <= (int)MoveTypeFlyShip;i++) {
 		// マップId
 		jumpMapIds.push_back((int32_t)data[dataIndex]);
@@ -50,4 +46,6 @@ void GameEventFluctuateTeleportEntity::convertData(const unsigned char *data) {
 	// 表示名
 	name = StringUtil::trim(SJISUtil::convertUTF8(&data[dataIndex], 16));
 	dataIndex += 16;
+
+	return dataIndex;
 }

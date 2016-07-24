@@ -9,20 +9,13 @@
 #include "GameEventChangeTeleportEntity.h"
 
 /**
- *  バイナリサイズ取得
- *
- *  @return バイナリサイズ
- */
-int GameEventChangeTeleportEntity::binarySize() {
-	return 1;
-}
-
-/**
  *  バイナリデータよりEntity作成
  *
  *  @param data バイナリデータ
+ *
+ *  @return 使用サイズ
  */
-void GameEventChangeTeleportEntity::convertData(const unsigned char *data) {
+int GameEventChangeTeleportEntity::convertData(const unsigned char *data) {
 	
 	int dataIndex = 0;
 	
@@ -30,4 +23,5 @@ void GameEventChangeTeleportEntity::convertData(const unsigned char *data) {
 	isValid = data[dataIndex] != 0;
 	dataIndex += 1;
 
+	return dataIndex;
 }

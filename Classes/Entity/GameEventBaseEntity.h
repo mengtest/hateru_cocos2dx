@@ -16,18 +16,13 @@ class GameEventBaseEntity: public BaseGameEntity {
 public:
 	
 	/**
-	 *  バイナリサイズ取得
-	 *
-	 *  @return バイナリサイズ
-	 */
-	virtual int binarySize();
-	
-	/**
 	 *  バイナリデータよりEntity作成
 	 *
 	 *  @param data バイナリデータ
+	 *
+	 *  @return 使用サイズ
 	 */
-	virtual void convertData(const unsigned char *data);
+	virtual int convertData(const unsigned char *data);
 	
 private:
 };

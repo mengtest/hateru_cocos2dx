@@ -49,6 +49,7 @@ void GameJobEntity::convertData(const unsigned char *data) {
 	// 会得技能
 	auto count = (int)data[dataIndex];
 	dataIndex += 1;
+	skills.clear();
 	for (auto i = 0; i < count; i++) {
 		skills.push_back(GameJobSkillEntity::createEntity(&data[dataIndex]));
 		dataIndex += 2;
