@@ -16,9 +16,9 @@ class GameEventBattleEntity final: public GameEventBaseEntity {
 public:
 	
 	/// 結果退避変数Id
-	int32_t variableId;
+	int variableId;
 	/// 敵Id
-	vector<int32_t> enemyIds;
+	vector<int> enemyIds;
 	
 	/**
 	 *  バイナリデータよりEntity作成

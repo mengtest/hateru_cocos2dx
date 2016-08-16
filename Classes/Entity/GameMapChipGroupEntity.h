@@ -18,7 +18,7 @@ public:
 	/// 名前
 	string name;
 	/// 画像Id
-	int32_t imageId[MAPCHIP_VALUE_MAX];
+	int imageId[MAPCHIP_VALUE_MAX];
 	
 	/**
 	 *  バイナリデータよりEntity作成

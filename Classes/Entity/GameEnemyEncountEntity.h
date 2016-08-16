@@ -16,15 +16,15 @@ class GameEnemyEncountEntity final: public BaseGameEntity {
 public:
 	
 	/// マップ
-	int32_t mapId;
+	int mapId;
 	/// X
-	int32_t x;
+	int x;
 	/// Y
-	int32_t y;
+	int y;
 	/// 幅
-	int32_t width;
+	int width;
 	/// 高さ
-	int32_t height;
+	int height;
 	
 	/**
 	 *  バイナリデータよりEntity作成

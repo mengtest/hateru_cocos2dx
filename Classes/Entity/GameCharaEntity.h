@@ -18,11 +18,11 @@ public:
 	/// 名前
 	string name;
 	/// 初期職業ID
-	int32_t initJobId;
+	int initJobId;
 	/// 画像
-	vector<int32_t> imageIds;
+	vector<int> imageIds;
 	/// 初期アイテム
-	vector<int32_t> initItemIds;
+	vector<int> initItemIds;
 	
 	/**
 	 *  バイナリデータよりEntity作成

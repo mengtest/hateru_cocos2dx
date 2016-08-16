@@ -18,19 +18,19 @@ void GameEnemyEncountEntity::convertData(const unsigned char *data) {
 	auto dataIndex = 0;
 	
 	// マップ
-	mapId = (int32_t)data[dataIndex];
+	mapId = (int)data[dataIndex];
 	dataIndex += 1;
 	// X
-	x = (int32_t)data[dataIndex];
+	x = (int)data[dataIndex];
 	dataIndex += 1;
 	// Y
-	y = (int32_t)data[dataIndex];
+	y = (int)data[dataIndex];
 	dataIndex += 1;
 	// 幅
-	width = (int32_t)data[dataIndex];
+	width = (int)data[dataIndex];
 	dataIndex += 1;
 	// 高さ
-	height = (int32_t)data[dataIndex];
+	height = (int)data[dataIndex];
 	dataIndex += 1;
 }
 

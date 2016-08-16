@@ -19,10 +19,10 @@
  *
  *  @return 取得データ
  */
-map<int32_t, GameSkillEntity> GameSkillManager::load() {
+map<int, GameSkillEntity> GameSkillManager::load() {
 	
 	auto projectIniEntity = ProjectIniManager::load();
-	auto skills = map<int32_t, GameSkillEntity>();
+	auto skills = map<int, GameSkillEntity>();
 	
 	for (auto i = 0;i < projectIniEntity.counts[ProjectIniEntity::typeSkill];i++) {
 		// ファイルデータ取得

@@ -18,7 +18,7 @@ public:
 	/// 画像使用
 	bool isUseImage;
 	/// キャラID
-	int32_t charaId;
+	int charaId;
 	
 	/**
 	 *  バイナリデータよりEntity作成

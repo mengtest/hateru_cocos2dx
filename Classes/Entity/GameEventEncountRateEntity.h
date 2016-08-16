@@ -16,7 +16,7 @@ class GameEventEncountRateEntity final: public GameEventBaseEntity {
 public:
 	
 	/// 敵出現率
-	int32_t encoundRate;
+	int encoundRate;
 	
 	/**
 	 *  バイナリデータよりEntity作成

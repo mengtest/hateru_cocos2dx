@@ -21,7 +21,7 @@ public:
 	 *
 	 *  @return 取得データ
 	 */
-	static map<int32_t, GameCharaEntity> load();
+	static map<int, GameCharaEntity> load();
 	
 	/**
 	 *  ファイルパス取得

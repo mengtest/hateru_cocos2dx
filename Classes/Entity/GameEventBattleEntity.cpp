@@ -20,7 +20,7 @@ int GameEventBattleEntity::convertData(const unsigned char *data) {
 	int dataIndex = 0;
 	
 	// 結果退避変数Id TODO:本当は2バイトにしないといけない。
-	variableId = (int32_t)data[dataIndex];
+	variableId = (int)data[dataIndex];
 	dataIndex += 1;
 	// 数取得
 	int count = (int)data[dataIndex];
@@ -28,7 +28,7 @@ int GameEventBattleEntity::convertData(const unsigned char *data) {
 	enemyIds.clear();
 	for (auto i = 0;i < count;i++) {
 		// 敵Id
-		enemyIds.push_back((int32_t)data[dataIndex]);
+		enemyIds.push_back((int)data[dataIndex]);
 		dataIndex += 1;
 	}
 	

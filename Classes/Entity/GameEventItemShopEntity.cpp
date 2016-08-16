@@ -25,7 +25,7 @@ int GameEventItemShopEntity::convertData(const unsigned char *data) {
 	itemIds.clear();
 	for (auto i = 0;i < count;i++) {
 		// 売りアイテムId
-		itemIds.push_back((int32_t)data[dataIndex]);
+		itemIds.push_back((int)data[dataIndex]);
 		dataIndex += 1;
 	}
 	

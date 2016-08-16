@@ -22,11 +22,11 @@ public:
 	/// 位置情報群
 	string message;
 	/// 位置情報群
-	int32_t mapIndex;
+	int mapIndex;
 	/// 位置情報群
-	int32_t x;
+	int x;
 	/// 位置情報群
-	int32_t y;
+	int y;
 	/// 位置情報群
 	string otherInfos;
 	

@@ -18,7 +18,7 @@ public:
 	/// 表示/非表示
 	bool isShow;
 	/// 画像Id
-	int32_t imageId;
+	int imageId;
 	
 	/**
 	 *  バイナリデータよりEntity作成

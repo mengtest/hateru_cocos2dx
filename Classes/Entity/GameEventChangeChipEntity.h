@@ -20,11 +20,11 @@ public:
 	/// 上チップ/下チップ
 	bool isUpChip;
 	/// チップID
-	int32_t chipId;
+	int chipId;
 	/// X座標
-	int32_t x;
+	int x;
 	/// Y座標
-	int32_t y;
+	int y;
 	/// 船通行禁止
 	bool isNotPassShip;
 	/// 飛行通行禁止

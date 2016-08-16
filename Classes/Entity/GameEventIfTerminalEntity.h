@@ -16,7 +16,7 @@ class GameEventIfTerminalEntity final: public GameEventBaseEntity {
 public:
 	
 	/// キャリアタイプ
-	int32_t careerType;
+	int careerType;
 	
 	/**
 	 *  バイナリデータよりEntity作成

@@ -30,12 +30,12 @@ public:
 	 *
 	 *  @return 対象データ (なし:nullptr)
 	 */
-	GameSkillEntity *data(const int32_t name);
+	GameSkillEntity *data(const int name);
 
 private:
 	
 	/// スキル
-	map<int32_t, GameSkillEntity> skills;
+	map<int, GameSkillEntity> skills;
 	
 	/**
 	 *  コンストラクタ

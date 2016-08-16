@@ -21,15 +21,15 @@ public:
 	/// 種別
 	SkillType skillType;
 	/// 消費MP
-	int32_t costMP;
+	int costMP;
 	/// 効果範囲
 	EffectRangeType effectRange;
 	/// 効果量
-	int32_t effectValue;
+	int effectValue;
 	/// 成功率
-	int32_t successRate;
+	int successRate;
 	/// 影響ステータス
-	int32_t changeStatus;
+	int changeStatus;
 	/// 攻撃属性
 	AttackAttributeType attackAttributeType;
 	/// 状態変化
@@ -37,13 +37,13 @@ public:
 	/// 変数変化
 	GameVariableChangeEntity changeVariable;
 	/// 効果色
-	int32_t showEffectColor;
+	int showEffectColor;
 	/// 効果初期幅
-	int32_t showEffectInitValue;
+	int showEffectInitValue;
 	/// 効果変化幅
-	int32_t showEffectChangeValue;
+	int showEffectChangeValue;
 	/// 効果動作
-	int32_t showEffectOperations;
+	int showEffectOperations;
 	/// コメント
 	string comment;
 	

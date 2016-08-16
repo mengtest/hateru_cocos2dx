@@ -16,11 +16,11 @@ class LocationGetParamsRequestEntity final: public Ref {
 public:
 	
 	/// マップインデックス
-	int32_t mapIndex;
+	int mapIndex;
 	/// X座標
-	int32_t x;
+	int x;
 	/// Y座標
-	int32_t y;
+	int y;
 	
 	/**
 	 *  シリアライズ

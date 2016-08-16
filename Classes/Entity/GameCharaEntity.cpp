@@ -24,12 +24,12 @@ void GameCharaEntity::convertData(const unsigned char *data) {
 	name = StringUtil::trim(SJISUtil::convertUTF8(&data[dataIndex], 16));
 	dataIndex += 16;
 	// 初期職業
-	initJobId = (int32_t)data[dataIndex];
+	initJobId = (int)data[dataIndex];
 	dataIndex += 1;
 	// 画像
 	imageIds.clear();
 	for (auto i = 0;i < 8;i++) {
-		imageIds.push_back((int32_t)data[dataIndex]);
+		imageIds.push_back((int)data[dataIndex]);
 		dataIndex += 1;
 	}
 	// 初期所持アイテム
@@ -37,7 +37,7 @@ void GameCharaEntity::convertData(const unsigned char *data) {
 	dataIndex += 1;
 	initItemIds.clear();
 	for (auto i = 0;i < count;i++) {
-		initItemIds.push_back((int32_t)data[dataIndex]);
+		initItemIds.push_back((int)data[dataIndex]);
 		dataIndex += 1;
 	}
 }

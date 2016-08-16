@@ -20,7 +20,7 @@ int GameEventIfStatusEntity::convertData(const unsigned char *data) {
 	int dataIndex = 0;
 	
 	/// 参照キャラ
-	unitId = (int32_t)data[dataIndex];
+	unitId = (int)data[dataIndex];
 	dataIndex += 1;
 	/// 参照ステータス
 	statusType = (UnitStatusType)data[dataIndex];
@@ -29,7 +29,7 @@ int GameEventIfStatusEntity::convertData(const unsigned char *data) {
 	formulaType = (IfFormulaType)data[dataIndex];
 	dataIndex += 1;
 	/// 値
-	value = (int32_t)data[dataIndex] * 0x100 + data[dataIndex + 1];
+	value = (int)data[dataIndex] * 0x100 + (int)data[dataIndex + 1];
 	dataIndex += 2;
 	
 	return dataIndex;

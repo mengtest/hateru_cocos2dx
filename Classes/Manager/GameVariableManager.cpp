@@ -17,14 +17,14 @@
  *
  *  @return 取得データ
  */
-map<int32_t, GameVariableEntity> GameVariableManager::load() {
+map<int, GameVariableEntity> GameVariableManager::load() {
 	
 	// 数を取得
 	auto projectIniEntity = ProjectIniManager::load();
 	// 名前リスト取得
 	auto namesEntity = NamesManager::load(NamesManager::typeVariable);
 	
-	auto variables = map<int32_t, GameVariableEntity>();
+	auto variables = map<int, GameVariableEntity>();
 
 	// ファイルデータ取得
 	auto filePath = FileConst::resGamePath + "NumData.nmp";

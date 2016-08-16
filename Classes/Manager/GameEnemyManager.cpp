@@ -19,10 +19,10 @@
  *
  *  @return 取得データ
  */
-map<int32_t, GameEnemyEntity> GameEnemyManager::load() {
+map<int, GameEnemyEntity> GameEnemyManager::load() {
 	
 	auto projectIniEntity = ProjectIniManager::load();
-	auto enemies = map<int32_t, GameEnemyEntity>();
+	auto enemies = map<int, GameEnemyEntity>();
 	
 	for (auto i = 0;i < projectIniEntity.counts[ProjectIniEntity::typeEnemy];i++) {
 		// ファイルデータ取得

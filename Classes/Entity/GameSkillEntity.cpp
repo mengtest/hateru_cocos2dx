@@ -27,19 +27,19 @@ void GameSkillEntity::convertData(const unsigned char *data) {
 	skillType = (SkillType)data[dataIndex];
 	dataIndex += 1;
 	// 消費MP
-	costMP = (int32_t)data[dataIndex] * 0x100 + (int32_t)data[dataIndex + 1];
+	costMP = (int)data[dataIndex] * 0x100 + (int)data[dataIndex + 1];
 	dataIndex += 2;
 	// 効果範囲
 	effectRange = (EffectRangeType)data[dataIndex];
 	dataIndex += 1;
 	// 効果量
-	effectValue = (int32_t)data[dataIndex] * 0x100 + (int32_t)data[dataIndex + 1];
+	effectValue = (int)data[dataIndex] * 0x100 + (int)data[dataIndex + 1];
 	dataIndex += 2;
 	// 成功率
-	successRate = (int32_t)data[dataIndex];
+	successRate = (int)data[dataIndex];
 	dataIndex += 1;
 	// 影響ステータス
-	changeStatus = (int32_t)data[dataIndex];
+	changeStatus = (int)data[dataIndex];
 	dataIndex += 1;
 	// 攻撃属性
 	attackAttributeType = (AttackAttributeType)data[dataIndex];
@@ -54,16 +54,16 @@ void GameSkillEntity::convertData(const unsigned char *data) {
 	changeVariable.convertData(&data[dataIndex]);
 	dataIndex += 4;
 	// 効果色(RGB)
-	showEffectColor = (int32_t)data[dataIndex] + (int32_t)data[dataIndex + 1] * 0x100 + (int32_t)data[dataIndex + 2] * 0x10000;
+	showEffectColor = (int)data[dataIndex] + (int)data[dataIndex + 1] * 0x100 + (int)data[dataIndex + 2] * 0x10000;
 	dataIndex += 3;
 	// 効果初期幅
-	showEffectInitValue = (int32_t)data[dataIndex];
+	showEffectInitValue = (int)data[dataIndex];
 	dataIndex += 1;
 	// 効果幅変化
-	showEffectChangeValue = (int32_t)data[dataIndex];
+	showEffectChangeValue = (int)data[dataIndex];
 	dataIndex += 1;
 	// 効果動作
-	showEffectOperations = (int32_t)data[dataIndex];
+	showEffectOperations = (int)data[dataIndex];
 	dataIndex += 1;
 	// コメント
 	comment = StringUtil::trim(SJISUtil::convertUTF8(&data[dataIndex], 40));

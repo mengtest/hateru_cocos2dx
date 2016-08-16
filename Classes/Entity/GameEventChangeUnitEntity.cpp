@@ -23,7 +23,7 @@ int GameEventChangeUnitEntity::convertData(const unsigned char *data) {
 	isUseImage = data[dataIndex] != 0;
 	dataIndex += 1;
 	// キャラID
-	charaId = (int32_t)data[dataIndex];
+	charaId = (int)data[dataIndex];
 	dataIndex += 1;
 	
 	return dataIndex;

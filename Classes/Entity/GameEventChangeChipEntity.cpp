@@ -26,13 +26,13 @@ int GameEventChangeChipEntity::convertData(const unsigned char *data) {
 	isUpChip = data[dataIndex] != 0;
 	dataIndex += 1;
 	// チップ
-	chipId = (int32_t)data[dataIndex];
+	chipId = (int)data[dataIndex];
 	dataIndex += 1;
 	// X座標
-	x = (int32_t)data[dataIndex];
+	x = (int)data[dataIndex];
 	dataIndex += 1;
 	// Y座標
-	y = (int32_t)data[dataIndex];
+	y = (int)data[dataIndex];
 	dataIndex += 1;
 	// 船通行禁止
 	isNotPassShip = data[dataIndex] != 0;

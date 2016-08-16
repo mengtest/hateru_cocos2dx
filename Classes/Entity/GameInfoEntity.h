@@ -16,31 +16,31 @@ class GameInfoEntity final: public BaseGameEntity {
 public:
 	
 	/// 初期所持金
-	int32_t initMoney;
+	int initMoney;
 	/// 初期所持金
 	string moneyUnit;
 	/// 初期マップID
-	string initMapId;
+	int initMapId;
 	/// 初期X座標
-	int32_t initX;
+	int initX;
 	/// 初期Y座標
-	int32_t initY;
+	int initY;
 	/// 初期メンバーID
-	vector<int32_t> initMemberIds;
+	vector<int> initMemberIds;
 	/// 船キャラID
-	int32_t shipUnitId;
+	int shipUnitId;
 	/// 飛行船キャラID
-	int32_t flyShipUnitId;
+	int flyShipUnitId;
 	/// 船サウンドID
-	int32_t shipSoundId;
+	int shipSoundId;
 	/// 飛行船サウンドID
-	int32_t flyShipSoundId;
+	int flyShipSoundId;
 	/// 宿屋サウンドID
-	int32_t innSoundId;
+	int innSoundId;
 	/// レベルアップサウンドID
-	int32_t levelUpSoundId;
+	int levelUpSoundId;
 	/// 戦闘終了サウンドID
-	int32_t battleEndSoundId;
+	int battleEndSoundId;
 
 	/**
 	 *  バイナリデータよりEntity作成

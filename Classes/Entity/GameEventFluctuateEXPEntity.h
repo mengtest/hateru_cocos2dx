@@ -16,11 +16,11 @@ class GameEventFluctuateEXPEntity final: public GameEventBaseEntity {
 public:
 	
 	/// 対象
-	int32_t target;
+	int target;
 	/// 増減タイプ
 	FluctuateType fluctuateType;
 	/// 値
-	int32_t value;
+	int value;
 	
 	/**
 	 *  バイナリデータよりEntity作成

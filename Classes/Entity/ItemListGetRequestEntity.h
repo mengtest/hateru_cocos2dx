@@ -18,13 +18,13 @@ public:
 	/// 交換タイプ
 	string exchangeType;
 	/// アイテム種類
-	int32_t itemKindIndex;
+	int itemKindIndex;
 	/// 希望アイテム種類
-	int32_t hopeItemKindIndex;
+	int hopeItemKindIndex;
 	/// 取得オフセット
-	int32_t offset;
+	int offset;
 	/// 取得数
-	int32_t count;
+	int count;
 	
 	/**
 	 *  シリアライズ

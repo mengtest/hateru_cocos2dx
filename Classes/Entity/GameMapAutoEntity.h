@@ -16,15 +16,15 @@ class GameMapAutoEntity final: public BaseGameEntity {
 public:
 	
 	/// 階層
-	int32_t stratum;
+	int stratum;
 	/// 下チップID
-	vector<int32_t> downChipIds;
+	vector<int> downChipIds;
 	/// 上チップID
-	vector<int32_t> upChipIds;
+	vector<int> upChipIds;
 	/// 敵情報
-	vector<int32_t> enemyIds;
+	vector<int> enemyIds;
 	/// 宝情報
-	vector<int32_t> itemIds;
+	vector<int> itemIds;
 	
 	/**
 	 *  バイナリデータよりEntity作成

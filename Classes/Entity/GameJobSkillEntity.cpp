@@ -18,10 +18,10 @@ void GameJobSkillEntity::convertData(const unsigned char *data) {
 	auto dataIndex = 0;
 	
 	// 会得レベル
-	level = (int32_t)data[dataIndex];
+	level = (int)data[dataIndex];
 	dataIndex += 1;
 	// 会得スキル
-	skillId = (int32_t)data[dataIndex];
+	skillId = (int)data[dataIndex];
 	dataIndex += 1;
 }
 

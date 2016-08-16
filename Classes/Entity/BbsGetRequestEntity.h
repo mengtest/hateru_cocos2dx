@@ -17,9 +17,9 @@ public:
 	/// 掲示板コード
 	string bbsCode;
 	/// 取得オフセット
-	int32_t offset;
+	int offset;
 	/// 取得カウント
-	int32_t count;
+	int count;
 	
 	/**
 	 *  シリアライズ

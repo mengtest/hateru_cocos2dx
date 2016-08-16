@@ -20,10 +20,10 @@ int GameEventINNEntity::convertData(const unsigned char *data) {
 	int dataIndex = 0;
 	
 	// 値段
-	price  = (int32_t)data[dataIndex];
+	price  = (int)data[dataIndex];
 	dataIndex += 2;
 	// 退避変数Id
-	variableId  = (int32_t)data[dataIndex];
+	variableId  = (int)data[dataIndex];
 	dataIndex += 2;
 	
 	return dataIndex;

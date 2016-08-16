@@ -16,7 +16,7 @@ class GameEventItemShopEntity final: public GameEventBaseEntity {
 public:
 	
 	// 売りアイテムID
-	vector<int32_t> itemIds;
+	vector<int> itemIds;
 	
 	/**
 	 *  バイナリデータよりEntity作成

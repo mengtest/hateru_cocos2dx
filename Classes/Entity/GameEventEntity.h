@@ -21,11 +21,11 @@ public:
 	/// 変数による発火
 	bool isIgnitionVariable;
 	/// 変数
-	int32_t variableId;
+	int variableId;
 	/// 式
 	IfFormulaType formulaType;
 	/// 値
-	int32_t value;
+	int value;
 	/// 開始条件
 	EventInitConditionType initConditionType;
 	/// 移動タイプ
@@ -35,7 +35,7 @@ public:
 	/// キャラ使用
 	bool isUseUnit;
 	/// キャラId
-	int32_t charaId;
+	int charaId;
 	/// イベントタイプ
 	vector<EventType> eventTypes;
 	/// イベント詳細

@@ -32,17 +32,17 @@ bool LocationGetMetaDetailResponseEntity::mapping(picojson::object &object) {
 		return false;
 	}
 	if (object["mapIndex"].is<double>()) {
-		mapIndex = (int32_t)object["mapIndex"].get<double>();
+		mapIndex = (int)object["mapIndex"].get<double>();
 	} else {
 		return false;
 	}
 	if (object["x"].is<double>()) {
-		x = (int32_t)object["x"].get<double>();
+		x = (int)object["x"].get<double>();
 	} else {
 		return false;
 	}
 	if (object["y"].is<double>()) {
-		y = (int32_t)object["y"].get<double>();
+		y = (int)object["y"].get<double>();
 	} else {
 		return false;
 	}

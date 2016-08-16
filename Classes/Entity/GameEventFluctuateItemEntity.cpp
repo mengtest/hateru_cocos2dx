@@ -23,7 +23,7 @@ int GameEventFluctuateItemEntity::convertData(const unsigned char *data) {
 	fluctuateType = (FluctuateType)data[dataIndex];
 	dataIndex += 1;
 	// 値
-	itemId = (int32_t)data[dataIndex];
+	itemId = (int)data[dataIndex];
 	dataIndex += 1;
 	
 	return dataIndex;

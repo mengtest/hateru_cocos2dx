@@ -16,7 +16,7 @@ class GameEventSelectYesNoEntity final: public GameEventBaseEntity {
 public:
 	
 	/// 返却変数Id
-	int32_t variableId;
+	int variableId;
 	
 	/**
 	 *  バイナリデータよりEntity作成

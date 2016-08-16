@@ -21,7 +21,7 @@ void GameItemStatusEntity::convertData(const unsigned char *data) {
 	status = (ItemStatusType)data[dataIndex];
 	dataIndex += 1;
 	// 値
-	value = (int32_t)data[dataIndex] * 0x100 + (int32_t)data[dataIndex + 1];
+	value = (int)data[dataIndex] * 0x100 + (int)data[dataIndex + 1];
 	value -= 30000;
 	dataIndex += 2;
 }

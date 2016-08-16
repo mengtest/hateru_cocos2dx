@@ -17,7 +17,7 @@
  */
 bool ItemInfoGetMetaResponseEntity::mapping(picojson::object &object) {
 	if (object["itemKindIndex"].is<double>()) {
-		itemKindIndex = (int32_t)object["itemKindIndex"].get<double>();
+		itemKindIndex = (int)object["itemKindIndex"].get<double>();
 	} else {
 		return false;
 	}
@@ -27,7 +27,7 @@ bool ItemInfoGetMetaResponseEntity::mapping(picojson::object &object) {
 		return false;
 	}
 	if (object["hopeItemKindIndex"].is<double>()) {
-		hopeItemKindIndex = (int32_t)object["hopeItemKindIndex"].get<double>();
+		hopeItemKindIndex = (int)object["hopeItemKindIndex"].get<double>();
 	} else {
 		return false;
 	}

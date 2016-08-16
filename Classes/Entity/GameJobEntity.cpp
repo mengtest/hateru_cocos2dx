@@ -25,22 +25,22 @@ void GameJobEntity::convertData(const unsigned char *data) {
 	name = StringUtil::trim(SJISUtil::convertUTF8(&data[dataIndex], 16));
 	dataIndex += 16;
 	// 必殺率
-	criticalRate = (int32_t)data[dataIndex];
+	criticalRate = (int)data[dataIndex];
 	dataIndex += 1;
 	// 命中率
-	hitRate = (int32_t)data[dataIndex];
+	hitRate = (int)data[dataIndex];
 	dataIndex += 1;
 	// ステータス
 	for (int i = AddStatusTypeMaxHP; i <= AddStatusTypeEXP; i++) {
 		for (auto lv = 0; lv < MAX_LEVEL; lv++) {
 			if (i == AddStatusTypeEXP) {
-				statuses[i][lv] = (int32_t)data[dataIndex] * 0x100 + (int32_t)data[dataIndex + 1];
+				statuses[i][lv] = (int)data[dataIndex] * 0x100 + (int)data[dataIndex + 1];
 				dataIndex += 2;
 			} else {
 				if (lv == 0) {
-					statuses[i][lv] = (int32_t)data[dataIndex];
+					statuses[i][lv] = (int)data[dataIndex];
 				} else {
-					statuses[i][lv] = statuses[i][lv - 1] + (int32_t)data[dataIndex];
+					statuses[i][lv] = statuses[i][lv - 1] + (int)data[dataIndex];
 				}
 				dataIndex += 1;
 			}

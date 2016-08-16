@@ -21,7 +21,7 @@ GameVariableEntity GameVariableEntity::convertData(const unsigned char *data, co
 	auto entity = GameVariableEntity();
 
 	entity.name = name;
-	entity.initValue = (int32_t)data[0];
+	entity.initValue = (int)data[0];
 	
 	return entity;
 }

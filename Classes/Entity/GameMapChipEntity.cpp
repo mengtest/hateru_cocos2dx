@@ -19,13 +19,13 @@ void GameMapChipEntity::convertData(const unsigned char *data) {
 	auto dataIndex = 0;
 
 	// 下チップ
-	downChipId = (int32_t)data[dataIndex + 2] & 0x3f;
+	downChipId = (int)data[dataIndex + 2] & 0x3f;
 	// 上チップ
-	upChipId = (int32_t)data[dataIndex + 2] / 0x40;
-	upChipId += (((int32_t)data[dataIndex + 1] & 0xf) * 0x4);
+	upChipId = (int)data[dataIndex + 2] / 0x40;
+	upChipId += (((int)data[dataIndex + 1] & 0xf) * 0x4);
 	// イベント
-	eventId = (int32_t)data[dataIndex + 1] / 0x10;
-	eventId += (((int32_t)data[dataIndex] & 0x3) * 0x10);
+	eventId = (int)data[dataIndex + 1] / 0x10;
+	eventId += (((int)data[dataIndex] & 0x3) * 0x10);
 	// 通行禁止
 	isNotPassWalk = (data[dataIndex] & 0x4) != 0;
 	// 船通行禁止

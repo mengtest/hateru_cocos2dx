@@ -16,11 +16,11 @@ class GameEventMoveLocationEntity final: public GameEventBaseEntity {
 public:
 	
 	/// マップID
-	int32_t mapId;
+	int mapId;
 	/// X座標
-	int32_t x;
+	int x;
 	/// Y座標
-	int32_t y;
+	int y;
 	
 	/**
 	 *  バイナリデータよりEntity作成

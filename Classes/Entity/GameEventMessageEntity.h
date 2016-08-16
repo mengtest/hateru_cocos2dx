@@ -18,7 +18,7 @@ public:
 	/// メッセージ
 	string message;
 	/// メッセージ長
-	int32_t messageLen;
+	int messageLen;
 	
 	/**
 	 *  バイナリデータよりEntity作成

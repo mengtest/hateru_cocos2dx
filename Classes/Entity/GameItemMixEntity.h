@@ -16,9 +16,9 @@ class GameItemMixEntity final: public BaseGameEntity {
 public:
 	
 	/// アイテムID
-	int32_t itemId;
+	int itemId;
 	/// 個数
-	int32_t value;
+	int value;
 	
 	/**
 	 *  バイナリデータよりEntity作成

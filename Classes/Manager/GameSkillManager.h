@@ -21,7 +21,7 @@ public:
 	 *
 	 *  @return 取得データ
 	 */
-	static map<int32_t, GameSkillEntity> load();
+	static map<int, GameSkillEntity> load();
 	
 private:
 	

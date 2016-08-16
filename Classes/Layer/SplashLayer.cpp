@@ -10,7 +10,7 @@
 
 #include "TokenGetFetcher.h"
 
-#include "GameCharaManager.h"
+#include "GameMainService.h"
 #include "UnitSprite.h"
 
 /**
@@ -52,10 +52,9 @@ void SplashLayer::initLayer() {
 	
 //	this->set(Color3B(255, 255, 255));
 	
-	auto entites = GameCharaManager::load();
 	
 	// スプラッシュ設定
-	auto unitSprite = UnitSprite::create(entites[1]);
+	auto unitSprite = UnitSprite::create(GameMainService::sharedInstance()->charas[1]);
 	unitSprite->setScale(4);
 	unitSprite->setPosition(Vec2(300,200));
 	addChild(unitSprite);

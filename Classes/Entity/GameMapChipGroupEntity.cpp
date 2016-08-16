@@ -22,7 +22,7 @@ void GameMapChipGroupEntity::convertData(const unsigned char *data, const string
 	this->name = name;
 	// 画像Id
 	for (auto i = 0;i < MAPCHIP_VALUE_MAX;i++) {
-		imageId[i] = (int32_t)data[dataIndex];
+		imageId[i] = (int)data[dataIndex];
 		dataIndex += 1;
 	}
 }

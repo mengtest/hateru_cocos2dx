@@ -18,7 +18,7 @@ public:
 	/// 再生
 	bool play;
 	/// サウンドID
-	int32_t soundId;
+	int soundId;
 	/// マップ/戦闘
 	SoundFieldType fieldType;
 	

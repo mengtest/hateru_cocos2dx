@@ -16,11 +16,11 @@ class GameEventRandomEntity final: public GameEventBaseEntity {
 public:
 	
 	/// 退避変数
-	int32_t variableId;
+	int variableId;
 	/// 範囲From
-	int32_t from;
+	int from;
 	/// 範囲To
-	int32_t to;
+	int to;
 	
 	/**
 	 *  バイナリデータよりEntity作成

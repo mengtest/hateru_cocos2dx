@@ -34,7 +34,7 @@ GameVariableService &GameVariableService::getInstance() {
  *
  *  @return 対象データ (なし:nullptr)
  */
-GameVariableEntity *GameVariableService::data(int32_t id) {
+GameVariableEntity *GameVariableService::data(int id) {
 	if (variables.find(id) == variables.end()) {
 		return nullptr;
 	}

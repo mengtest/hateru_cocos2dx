@@ -20,16 +20,16 @@ int GameEventIfItemEntity::convertData(const unsigned char *data) {
 	int dataIndex = 0;
 	
 	/// 参照キャラ
-	unitId = (int32_t)data[dataIndex];
+	unitId = (int)data[dataIndex];
 	dataIndex += 1;
 	/// 参照ステータス
-	itemId = (int32_t)data[dataIndex];
+	itemId = (int)data[dataIndex];
 	dataIndex += 1;
 	/// 式
 	formulaType = (IfFormulaType)data[dataIndex];
 	dataIndex += 1;
 	/// 値
-	value = (int32_t)data[dataIndex];
+	value = (int)data[dataIndex];
 	dataIndex += 1;
 	
 	return dataIndex;

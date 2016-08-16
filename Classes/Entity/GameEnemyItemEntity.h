@@ -18,9 +18,9 @@ public:
 	/// 獲得フラグ
 	bool isWon;
 	/// 獲得率
-	int32_t rate;
+	int rate;
 	/// 獲得アイテム
-	int32_t itemId;
+	int itemId;
 	
 	/**
 	 *  バイナリデータよりEntity作成

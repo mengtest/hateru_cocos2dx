@@ -23,37 +23,37 @@ public:
 	/// マップタイプ
 	MapType mapType;
 	/// 幅
-	int32_t width;
+	int width;
 	/// 高さ
-	int32_t height;
+	int height;
 	/// 背景画像
-	int32_t backgroundImageId;
+	int backgroundImageId;
 	/// 画面制御
 	MapLoopType mapEndType;
 	/// 上マップチップグループID
-	int32_t upMapChpGpId;
+	int upMapChpGpId;
 	/// 下マップチップグループID
-	int32_t downMapChpGpId;
+	int downMapChpGpId;
 	/// 背景色
-	int32_t backgroundColor;
+	int backgroundColor;
 	/// 出現率
-	int32_t enemyEncountRate;
+	int enemyEncountRate;
 	/// テレポート可不可
 	bool isUseTeleport;
 	/// エスケープ可不可
 	bool isUseEscape;
 	/// サウンド
-	int32_t soundId;
+	int soundId;
 	/// 戦闘音楽
-	int32_t battleSoundId;
+	int battleSoundId;
 	/// 戦闘背景
-	int32_t battleBackgroundImageId;
+	int battleBackgroundImageId;
 	/// マップチップ情報
 	vector<GameMapChipEntity> mapChips;
 	/// 自動マップ情報
 	GameMapAutoEntity autoMap;
 	/// イベント情報
-	map<int32_t, GameEventEntity> events;
+	map<int, GameEventEntity> events;
 
 	/**
 	 *  バイナリデータよりEntity作成

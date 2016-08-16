@@ -16,11 +16,11 @@ class GameMapChipEntity final: public BaseGameEntity {
 public:
 	
 	/// 下チップID
-	int32_t downChipId;
+	int downChipId;
 	/// 上チップID
-	int32_t upChipId;
+	int upChipId;
 	/// イベントId
-	int32_t eventId;
+	int eventId;
 	/// 通行禁止
 	bool isNotPassWalk;
 	/// 船通行禁止

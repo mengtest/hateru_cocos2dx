@@ -20,10 +20,10 @@ int GameEventIfSkillEntity::convertData(const unsigned char *data) {
 	int dataIndex = 0;
 	
 	/// 参照キャラ
-	unitId = (int32_t)data[dataIndex];
+	unitId = (int)data[dataIndex];
 	dataIndex += 1;
 	/// 参照スキル
-	skillId = (int32_t)data[dataIndex];
+	skillId = (int)data[dataIndex];
 	dataIndex += 1;
 	/// 会得
 	isLearning = data[dataIndex] != 0;

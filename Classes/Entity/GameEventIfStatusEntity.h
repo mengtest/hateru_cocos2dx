@@ -16,13 +16,13 @@ class GameEventIfStatusEntity final: public GameEventBaseEntity {
 public:
 	
 	/// 参照キャラ
-	int32_t unitId;
+	int unitId;
 	/// 参照ステータス
 	UnitStatusType statusType;
 	/// 式
 	IfFormulaType formulaType;
 	/// 値
-	int32_t value;
+	int value;
 	
 	/**
 	 *  バイナリデータよりEntity作成

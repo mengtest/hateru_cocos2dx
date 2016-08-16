@@ -16,13 +16,13 @@ class GameEventIfItemEntity final: public GameEventBaseEntity {
 public:
 	
 	/// 参照キャラ (0:全て)
-	int32_t unitId;
+	int unitId;
 	/// 参照アイテム
-	int32_t itemId;
+	int itemId;
 	/// 式
 	IfFormulaType formulaType;
 	/// 値
-	int32_t value;
+	int value;
 	
 	/**
 	 *  バイナリデータよりEntity作成

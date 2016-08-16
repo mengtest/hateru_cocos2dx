@@ -16,7 +16,7 @@ class GameEventJingleEntity final: public GameEventBaseEntity {
 public:
 	
 	/// サウンドId
-	int32_t soundId;
+	int soundId;
 	/// 再生が終わるまで待つ
 	bool isWait;
 

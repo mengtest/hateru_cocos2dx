@@ -73,13 +73,13 @@ int GameEventEntity::convertData(const unsigned char *data, const string &name) 
 	isIgnitionVariable = data[dataIndex] != 0;
 	dataIndex += 1;
 	// 変数Id
-	variableId = (int32_t)data[dataIndex] * 0x100 + (int32_t)data[dataIndex + 1];
+	variableId = (int)data[dataIndex] * 0x100 + (int)data[dataIndex + 1];
 	dataIndex += 2;
 	// 式
 	formulaType = (IfFormulaType)data[dataIndex];
 	dataIndex += 1;
 	// 値
-	value = (int32_t)data[dataIndex];
+	value = (int)data[dataIndex];
 	dataIndex += 1;
 	// 開始条件
 	initConditionType = (EventInitConditionType)data[dataIndex];
@@ -99,10 +99,10 @@ int GameEventEntity::convertData(const unsigned char *data, const string &name) 
 		}
 	}
 	// キャラ使用
-	isUseUnit = (int32_t)data[dataIndex] != 0;
+	isUseUnit = (int)data[dataIndex] != 0;
 	dataIndex += 1;
 	// キャラId
-	charaId = (int32_t)data[dataIndex];
+	charaId = (int)data[dataIndex];
 	dataIndex += 1;
 	// 詳細数
 	int detailCount = (int)data[dataIndex];

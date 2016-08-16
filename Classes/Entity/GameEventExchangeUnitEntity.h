@@ -18,9 +18,9 @@ public:
 	/// 入替タイプ
 	ExchangeUnitType exchangeType;
 	/// 外すキャラId
-	int32_t removeCharaId;
+	int removeCharaId;
 	/// 追加キャラId
-	int32_t addCharaId;
+	int addCharaId;
 	
 	/**
 	 *  バイナリデータよりEntity作成

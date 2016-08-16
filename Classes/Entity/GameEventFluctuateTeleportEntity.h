@@ -20,13 +20,13 @@ public:
 	/// 表示名
 	string name;
 	/// 対象マップId
-	int32_t mapId;
+	int mapId;
 	/// マップId 歩行/船/飛行船
-	vector<int32_t> jumpMapIds;
+	vector<int> jumpMapIds;
 	/// X座標 歩行/船/飛行船
-	vector<int32_t> jumpXs;
+	vector<int> jumpXs;
 	/// Y座標 歩行/船/飛行船
-	vector<int32_t> jumpYs;
+	vector<int> jumpYs;
 	
 	/**
 	 *  バイナリデータよりEntity作成

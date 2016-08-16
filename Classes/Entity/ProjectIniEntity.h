@@ -35,7 +35,7 @@ public:
 	static const string typeSound;
 	
 	/// カウント
-	map<string, int32_t> counts;
+	map<string, int> counts;
 	
 	/**
 	 *  バイナリデータよりEntity作成

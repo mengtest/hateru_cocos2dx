@@ -16,11 +16,11 @@ class ItemSendParamsRequestEntity final: public Ref {
 public:
 	
 	/// アイテム種類
-	int32_t itemKindIndex;
+	int itemKindIndex;
 	/// 所持アイテムコード
 	string itemCode;
 	/// 交換希望アイテム種別
-	int32_t hopeItemKindIndex;
+	int hopeItemKindIndex;
 	/// 交換相手ユーザコード
 	string partnerUserCode;
 	/// 交換パスワード

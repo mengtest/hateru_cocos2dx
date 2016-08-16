@@ -30,12 +30,12 @@ public:
 	 *
 	 *  @return 対象データ (なし:nullptr)
 	 */
-	GameVariableEntity *data(int32_t id);
+	GameVariableEntity *data(int id);
 	
 private:
 
 	/// 変数
-	map<int32_t, GameVariableEntity> variables;
+	map<int, GameVariableEntity> variables;
 	
 	/**
 	 *  コンストラクタ

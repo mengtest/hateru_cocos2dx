@@ -16,9 +16,9 @@ class GameEventIfSkillEntity final: public GameEventBaseEntity {
 public:
 	
 	/// 参照キャラ
-	int32_t unitId;
+	int unitId;
 	/// 参照スキル
-	int32_t skillId;
+	int skillId;
 	/// 会得
 	bool isLearning;
 	

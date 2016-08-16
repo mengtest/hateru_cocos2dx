@@ -16,9 +16,9 @@ class GameJobSkillEntity final: public BaseGameEntity {
 public:
 	
 	/// 会得レベル
-	int32_t level;
+	int level;
 	/// 特殊技能名
-	int32_t skillId;
+	int skillId;
 	
 	/**
 	 *  バイナリデータよりEntity作成

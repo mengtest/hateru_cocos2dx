@@ -17,7 +17,7 @@
  */
 bool ItemCombackMetaResponseEntity::mapping(picojson::object &object) {
 	if (object["itemKindIndex"].is<double>()) {
-		itemKindIndex = (int32_t)object["itemKindIndex"].get<double>();
+		itemKindIndex = (int)object["itemKindIndex"].get<double>();
 	} else {
 		return false;
 	}

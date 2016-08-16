@@ -21,7 +21,7 @@ public:
 	 *
 	 *  @return 取得データ
 	 */
-	static map<int32_t, GameMapChipGroupEntity> load();
+	static map<int, GameMapChipGroupEntity> load();
 	
 private:
 	

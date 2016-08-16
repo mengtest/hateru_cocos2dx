@@ -30,19 +30,19 @@ void GameItemEntity::convertData(const unsigned char *data) {
 	type = (ItemType)data[dataIndex];
 	dataIndex += 1;
 	// 買値
-	purchasePrice = (int32_t)data[dataIndex] * 0x100 + (int32_t)data[dataIndex + 1];
+	purchasePrice = (int)data[dataIndex] * 0x100 + (int)data[dataIndex + 1];
 	dataIndex += 2;
 	// 売値
-	sellingPrice = (int32_t)data[dataIndex] * 0x100 + (int32_t)data[dataIndex + 1];
+	sellingPrice = (int)data[dataIndex] * 0x100 + (int)data[dataIndex + 1];
 	dataIndex += 2;
 	// 調合値
-	preparationPrice = (int32_t)data[dataIndex] * 0x100 + (int32_t)data[dataIndex + 1];
+	preparationPrice = (int)data[dataIndex] * 0x100 + (int)data[dataIndex + 1];
 	dataIndex += 2;
 	// 使用回数
-	useCount = (int32_t)data[dataIndex];
+	useCount = (int)data[dataIndex];
 	dataIndex += 1;
 	// 特殊技能
-	useSkillId = (int32_t)data[dataIndex];
+	useSkillId = (int)data[dataIndex];
 	dataIndex += 1;
 	// 状態治療
 	conditionTreatment = (ConditionType)data[dataIndex];
@@ -57,7 +57,7 @@ void GameItemEntity::convertData(const unsigned char *data) {
 	changeVariable.convertData(&data[dataIndex]);
 	dataIndex += 4;
 	// 画像
-	imageId = (int32_t)data[dataIndex];
+	imageId = (int)data[dataIndex];
 	dataIndex += 1;
 	// 調合
 	mixings.clear();
@@ -74,7 +74,7 @@ void GameItemEntity::convertData(const unsigned char *data) {
 		dataIndex += 1;
 	}
 	// 変更職業
-	changeJobId = (int32_t)data[dataIndex];
+	changeJobId = (int)data[dataIndex];
 	dataIndex += 1;
 	// 出品可否
 	isExhibit = data[dataIndex] == 1;

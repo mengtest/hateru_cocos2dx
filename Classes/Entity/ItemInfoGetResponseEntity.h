@@ -16,11 +16,11 @@ class ItemInfoGetMetaResponseEntity final: public Ref {
 public:
 	
 	/// アイテム種類
-	int32_t itemKindIndex;
+	int itemKindIndex;
 	/// アイテムコード
 	string itemCode;
 	/// 交換希望アイテム種類
-	int32_t hopeItemKindIndex;
+	int hopeItemKindIndex;
 	/// 交換ステータス
 	string exchangeStatus;
 	/// パスワードあり

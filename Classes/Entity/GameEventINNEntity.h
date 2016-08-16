@@ -16,9 +16,9 @@ class GameEventINNEntity final: public GameEventBaseEntity {
 public:
 	
 	/// 値段
-	int32_t price;
+	int price;
 	/// 変数退避Id
-	int32_t variableId;
+	int variableId;
 
 	/**
 	 *  バイナリデータよりEntity作成

@@ -20,13 +20,13 @@ int GameEventMoveLocationEntity::convertData(const unsigned char *data) {
 	int dataIndex = 0;
 	
 	// マップID
-	mapId = (int32_t)data[dataIndex];
+	mapId = (int)data[dataIndex];
 	dataIndex += 1;
 	// X座標
-	x = (int32_t)data[dataIndex];
+	x = (int)data[dataIndex];
 	dataIndex += 1;
 	// Y座標
-	y = (int32_t)data[dataIndex];
+	y = (int)data[dataIndex];
 	dataIndex += 1;
 	
 	return dataIndex;

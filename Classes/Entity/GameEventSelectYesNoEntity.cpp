@@ -20,7 +20,7 @@ int GameEventSelectYesNoEntity::convertData(const unsigned char *data) {
 	int dataIndex = 0;
 	
 	/// 乗り物タイプ
-	variableId = (int32_t)data[dataIndex] * 0x100 + (int32_t)data[dataIndex + 1];
+	variableId = (int)data[dataIndex] * 0x100 + (int)data[dataIndex + 1];
 	dataIndex += 2;
 	
 	return dataIndex;

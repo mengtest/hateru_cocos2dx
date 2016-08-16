@@ -19,10 +19,10 @@
  *
  *  @return 取得データ
  */
-map<int32_t, GameCharaEntity> GameCharaManager::load() {
+map<int, GameCharaEntity> GameCharaManager::load() {
 	
 	auto projectIniEntity = ProjectIniManager::load();
-	auto charas = map<int32_t, GameCharaEntity>();
+	auto charas = map<int, GameCharaEntity>();
 	
 	for (auto i = 0;i < projectIniEntity.counts[ProjectIniEntity::typeUnit];i++) {
 		// ファイルデータ取得

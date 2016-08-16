@@ -16,11 +16,11 @@ class GameVariableChangeEntity final: public BaseGameEntity {
 public:
 	
 	/// 変数Id
-	int32_t variableId;
+	int variableId;
 	/// 式
 	VariableOperateType operateType;
 	/// 値
-	int32_t value;
+	int value;
 
 	/**
 	 *  値の整合性チェック

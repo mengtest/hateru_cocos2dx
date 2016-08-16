@@ -23,10 +23,10 @@ int GameEventExchangeUnitEntity::convertData(const unsigned char *data) {
 	exchangeType = (ExchangeUnitType)data[dataIndex];
 	dataIndex += 1;
 	// 外すキャラId
-	removeCharaId = (int32_t)data[dataIndex];
+	removeCharaId = (int)data[dataIndex];
 	dataIndex += 1;
 	// 追加キャラId
-	addCharaId = (int32_t)data[dataIndex];
+	addCharaId = (int)data[dataIndex];
 	dataIndex += 1;
 	
 	return dataIndex;

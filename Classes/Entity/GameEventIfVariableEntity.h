@@ -16,11 +16,11 @@ class GameEventIfVariableEntity final: public GameEventBaseEntity {
 public:
 	
 	/// 変数ID
-	int32_t variableId;
+	int variableId;
 	/// 式
 	IfFormulaType formulaType;
 	/// 値
-	int32_t value;
+	int value;
 	
 	/**
 	 *  バイナリデータよりEntity作成

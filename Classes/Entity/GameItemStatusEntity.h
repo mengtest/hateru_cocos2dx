@@ -18,7 +18,7 @@ public:
 	/// ステータス種別
 	ItemStatusType status;
 	/// 変化値
-	int32_t value;
+	int value;
 	
 	/**
 	 *  バイナリデータよりEntity作成

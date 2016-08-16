@@ -18,7 +18,7 @@ public:
 	/// 増減タイプ
 	FluctuateType fluctuateType;
 	/// 値
-	int32_t value;
+	int value;
 	
 	/**
 	 *  バイナリデータよりEntity作成

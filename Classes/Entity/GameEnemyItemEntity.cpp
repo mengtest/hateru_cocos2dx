@@ -21,10 +21,10 @@ void GameEnemyItemEntity::convertData(const unsigned char *data) {
 	isWon = (data[dataIndex] == 1);
 	dataIndex += 1;
 	// 獲得率
-	rate = (int32_t)data[dataIndex];
+	rate = (int)data[dataIndex];
 	dataIndex += 1;
 	// 獲得アイテム
-	itemId = (int32_t)data[dataIndex];
+	itemId = (int)data[dataIndex];
 	dataIndex += 1;
 }
 

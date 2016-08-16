@@ -18,7 +18,7 @@ public:
 	/// 増減タイプ
 	FluctuateType fluctuateType;
 	/// アイテムID
-	int32_t itemId;
+	int itemId;
 	
 	/**
 	 *  バイナリデータよりEntity作成

@@ -23,7 +23,7 @@ int GameEventChangeBGMEntity::convertData(const unsigned char *data) {
 	play = data[dataIndex] != 0;
 	dataIndex += 1;
 	// 値
-	soundId = (int32_t)data[dataIndex];
+	soundId = (int)data[dataIndex];
 	dataIndex += 1;
 	// 操作タイプ
 	fieldType = (SoundFieldType)data[dataIndex];

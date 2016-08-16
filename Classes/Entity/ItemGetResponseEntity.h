@@ -16,7 +16,7 @@ class ItemGetMetaResponseEntity final: public Ref {
 public:
 	
 	/// アイテム種類
-	int32_t itemKindIndex;
+	int itemKindIndex;
 	/// 所持アイテムコード
 	string itemCode;
 	

@@ -24,12 +24,12 @@ void GameEnemyEntity::convertData(const unsigned char *data) {
 	name = StringUtil::trim(SJISUtil::convertUTF8(&data[dataIndex], 16));
 	dataIndex += 16;
 	// 画像
-	imageId = (int32_t)data[dataIndex];
+	imageId = (int)data[dataIndex];
 	dataIndex += 1;
 	// ステータス
 	statuses.clear();
 	for (auto i = 0;i < 14;i++) {
-		statuses.push_back((int32_t)data[dataIndex] * 0x100 + (int32_t)data[dataIndex + 1]);
+		statuses.push_back((int)data[dataIndex] * 0x100 + (int)data[dataIndex + 1]);
 		dataIndex += 2;
 	}
 	// 獲得アイテム
@@ -38,7 +38,7 @@ void GameEnemyEntity::convertData(const unsigned char *data) {
 	// 攻撃パターン
 	attackPattern.clear();
 	for (auto i = 0;i < 7;i++) {
-		attackPattern.push_back((int32_t)data[dataIndex]);
+		attackPattern.push_back((int)data[dataIndex]);
 		dataIndex += 1;
 	}
 	// 出現座標数
@@ -49,7 +49,7 @@ void GameEnemyEntity::convertData(const unsigned char *data) {
 		dataIndex += 5;
 	}
 	// 出現場所
-	encountAttribute = (int32_t)data[dataIndex];
+	encountAttribute = (int)data[dataIndex];
 	dataIndex += 1;
 }
 

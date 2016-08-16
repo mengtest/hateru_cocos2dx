@@ -23,7 +23,7 @@ int GameEventShowImageEntity::convertData(const unsigned char *data) {
 	isShow = data[dataIndex] != 0;
 	dataIndex += 1;
 	// 画像Id
-	imageId = (int32_t)data[dataIndex];
+	imageId = (int)data[dataIndex];
 	dataIndex += 1;
 	
 	return dataIndex;

@@ -19,10 +19,10 @@
  *
  *  @return 取得データ
  */
-map<int32_t, GameJobEntity> GameJobManager::load() {
+map<int, GameJobEntity> GameJobManager::load() {
 
 	auto projectIniEntity = ProjectIniManager::load();
-	auto jobs = map<int32_t, GameJobEntity>();
+	auto jobs = map<int, GameJobEntity>();
 	
 	for (auto i = 0;i < projectIniEntity.counts[ProjectIniEntity::typeJob];i++) {
 		// ファイルデータ取得

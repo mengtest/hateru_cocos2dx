@@ -20,7 +20,7 @@ int GameEventEncountRateEntity::convertData(const unsigned char *data) {
 	int dataIndex = 0;
 	
 	/// 敵出現率
-	encoundRate = (int32_t)data[dataIndex];
+	encoundRate = (int)data[dataIndex];
 	dataIndex += 1;
 	
 	return dataIndex;

@@ -16,16 +16,14 @@
 class GameJobEntity final: public BaseGameEntity {
 public:
 	
-	/// ID
-	int32_t id;
 	/// 名前
 	string name;
 	/// 会心率
-	int32_t criticalRate;
+	int criticalRate;
 	/// 命中率
-	int32_t hitRate;
+	int hitRate;
 	/// レベルアップ時のステータス
-	int32_t statuses[AddStatusTypeEXP + 1][MAX_LEVEL];
+	int statuses[AddStatusTypeEXP + 1][MAX_LEVEL];
 	/// 会得スキル情報
 	vector<GameJobSkillEntity> skills;
 	

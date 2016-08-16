@@ -19,10 +19,10 @@
  *
  *  @return 取得データ
  */
-map<int32_t, GameItemEntity> GameItemManager::load() {
+map<int, GameItemEntity> GameItemManager::load() {
 	
 	auto projectIniEntity = ProjectIniManager::load();
-	auto items = map<int32_t, GameItemEntity>();
+	auto items = map<int, GameItemEntity>();
 	
 	for (auto i = 0;i < projectIniEntity.counts[ProjectIniEntity::typeItem];i++) {
 		// ファイルデータ取得

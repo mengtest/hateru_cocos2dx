@@ -20,17 +20,17 @@ public:
 	/// 名前
 	string name;
 	/// 画像
-	int32_t imageId;
+	int imageId;
 	/// ステータス
-	vector<int32_t> statuses;
+	vector<int> statuses;
 	/// 獲得アイテム
 	GameEnemyItemEntity item;
 	/// 攻撃パターン
-	vector<int32_t> attackPattern;
+	vector<int> attackPattern;
 	/// 出現座標
 	vector<GameEnemyEncountEntity> encounts;
 	/// 出現属性
-	int32_t encountAttribute;
+	int encountAttribute;
 	
 	/**
 	 *  バイナリデータよりEntity作成

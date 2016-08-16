@@ -17,8 +17,6 @@ ProjectUtil *ProjectUtil::instance;
  *  コンストラクタ
  */
 ProjectUtil::ProjectUtil() {
-	
-	
 }
 
 /**
@@ -34,7 +32,6 @@ ProjectUtil::~ProjectUtil() {
  *  @return インスタンス
  */
 ProjectUtil *ProjectUtil::sharedInstance() {
-	static ProjectUtil *instance;
 	static once_flag flag;
 	call_once(flag, ProjectUtil::setupInstance);
 	return instance;

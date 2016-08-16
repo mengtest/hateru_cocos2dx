@@ -20,13 +20,13 @@
  *
  *  @return 取得データ
  */
-map<int32_t, GameMapChipGroupEntity> GameMapChipGroupManager::load() {
+map<int, GameMapChipGroupEntity> GameMapChipGroupManager::load() {
 	
 	auto projectIniEntity = ProjectIniManager::load();
 	// 名前リスト取得
 	auto namesEntity = NamesManager::load(NamesManager::typeChipGroup);
 
-	auto chipGroups = map<int32_t, GameMapChipGroupEntity>();
+	auto chipGroups = map<int, GameMapChipGroupEntity>();
 	
 	for (auto i = 0;i < projectIniEntity.counts[ProjectIniEntity::typeChipGroup];i++) {
 		// ファイルデータ取得

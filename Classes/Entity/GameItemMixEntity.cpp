@@ -18,10 +18,10 @@ void GameItemMixEntity::convertData(const unsigned char *data) {
 	auto dataIndex = 0;
 	
 	// アイテムID
-	itemId = (int32_t)data[dataIndex];
+	itemId = (int)data[dataIndex];
 	dataIndex += 1;
 	// 値
-	value = (int32_t)data[dataIndex];
+	value = (int)data[dataIndex];
 	dataIndex += 1;
 }
 

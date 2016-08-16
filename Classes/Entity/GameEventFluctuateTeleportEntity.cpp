@@ -26,7 +26,7 @@ int GameEventFluctuateTeleportEntity::convertData(const unsigned char *data) {
 	isRemove = data[dataIndex] != 0;
 	dataIndex += 1;
 	// 対象マップId
-	mapId = (int32_t)data[dataIndex];
+	mapId = (int)data[dataIndex];
 	dataIndex += 1;
 	// 飛ぶ位置
 	jumpMapIds.clear();
@@ -34,13 +34,13 @@ int GameEventFluctuateTeleportEntity::convertData(const unsigned char *data) {
 	jumpYs.clear();
 	for (auto i = (int)MoveTypeWalk;i <= (int)MoveTypeFlyShip;i++) {
 		// マップId
-		jumpMapIds.push_back((int32_t)data[dataIndex]);
+		jumpMapIds.push_back((int)data[dataIndex]);
 		dataIndex += 1;
 		// X座標
-		jumpXs.push_back((int32_t)data[dataIndex]);
+		jumpXs.push_back((int)data[dataIndex]);
 		dataIndex += 1;
 		// Y座標
-		jumpYs.push_back((int32_t)data[dataIndex]);
+		jumpYs.push_back((int)data[dataIndex]);
 		dataIndex += 1;
 	}
 	// 表示名
