@@ -31,6 +31,15 @@ public:
 	
 private:
 	
+	/**
+	 *  コンストラクタ
+	 */
+	JsonUtil() {}
+	
+	/**
+	 *  デストラクタ
+	 */
+	~JsonUtil() {}
 };
 
 #endif /* JsonUtil_h */

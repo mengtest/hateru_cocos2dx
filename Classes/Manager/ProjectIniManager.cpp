@@ -16,7 +16,7 @@
  *
  *  @param ProjectIniEntity 設定Entity
  */
-void loadProjectIni(ProjectIniEntity &entity) {
+void ProjectIniManager::loadProjectIni(ProjectIniEntity &entity) {
 	// ファイルデータ取得
 	auto filePath = FileConst::resGamePath + "Project.ini";
 	auto fileData = FileUtils::getInstance()->getDataFromFile(filePath);
@@ -34,7 +34,7 @@ ProjectIniEntity ProjectIniManager::load() {
 	static once_flag flag;
 	static ProjectIniEntity entity;
 
-	call_once(flag, loadProjectIni, ref(entity));
+	call_once(flag, ProjectIniManager::loadProjectIni, ref(entity));
 	
 	return entity;
 }

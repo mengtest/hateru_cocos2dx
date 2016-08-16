@@ -23,6 +23,15 @@ public:
 	 */
 	static map<int32_t, GameCharaEntity> load();
 	
+	/**
+	 *  ファイルパス取得
+	 *
+	 *  @param imageId 画像Id
+	 *
+	 *  @return ファイルパス
+	 */
+	static string getImageFilePath(int imageId);
+	
 private:
 	
 	/**

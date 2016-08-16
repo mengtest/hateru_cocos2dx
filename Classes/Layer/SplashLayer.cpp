@@ -10,18 +10,22 @@
 
 #include "TokenGetFetcher.h"
 
+#include "GameCharaManager.h"
+#include "UnitSprite.h"
+
 /**
  *  クラス作成
  *
  *  @return クラス
  */
 SplashLayer *SplashLayer::create() {
-	SplashLayer *layer = new SplashLayer();
+	auto layer = new SplashLayer();
 	if(layer && layer->init()){
 		layer->Layer::autorelease();
+		layer->initLayer();
 		return layer;
 	}else {
-		delete layer;
+		delete layer;	
 		layer = nullptr;
 		return nullptr;
 	}
@@ -45,6 +49,25 @@ SplashLayer::~SplashLayer() {
  *  レイヤー初期化
  */
 void SplashLayer::initLayer() {
+	
+//	this->set(Color3B(255, 255, 255));
+	
+	auto entites = GameCharaManager::load();
+	
+	// スプラッシュ設定
+	auto unitSprite = UnitSprite::create(entites[1]);
+	unitSprite->setScale(4);
+	unitSprite->setPosition(Vec2(300,200));
+	addChild(unitSprite);
+	
+//	auto spriteSplash = Sprite::create("game/Chara/000.png");
+//	spriteSplash->setScale(4);
+//	spriteSplash->setPosition(Vec2(300,200));
+//	auto frame = SpriteFrameCache::getInstance()->getSpriteFrameByName("004.png");
+//	spriteSplash->setSpriteFrame(frame);
+//
+//	this->addChild(spriteSplash);
+	
 	
 }
 

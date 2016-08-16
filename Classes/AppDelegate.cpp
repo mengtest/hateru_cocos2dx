@@ -1,9 +1,5 @@
 #include "AppDelegate.h"
-#include "MainScene.h"
-
-//#include "GameJobManager.h"
-//#include "GameVariableManager.h"
-#include "GameMapManager.h"
+#include "SplashScene.h"
 
 USING_NS_CC;
 
@@ -52,7 +48,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     }
 
     // turn on display FPS
-    director->setDisplayStats(true);
+    director->setDisplayStats(false);
 
     // set FPS. the default value is 1.0/60 if you don't call this
     director->setAnimationInterval(1.0 / 60);
@@ -78,13 +74,15 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
     register_all_packages();
 
+	// Spriteのチラつきを抑える
+	director->setDepthTest(false);
+	director->setProjection(Director::Projection::_2D);
+
     // create a scene. it's an autorelease object
-	auto scene = MainScene::sharedInstance();
+	auto scene = SplashScene::sharedInstance();
 
     // run
     director->runWithScene(scene);
-
-	GameMapManager::load(0);
 	
     return true;
 }

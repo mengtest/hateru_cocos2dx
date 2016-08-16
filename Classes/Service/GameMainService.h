@@ -23,10 +23,12 @@ public:
 	 */
 	static GameMainService &getInstance();
 	
-private:
+	/**
+	 *  デストラクタ
+	 */
+	~GameMainService();
 	
-	/// ゲーム情報
-	GameInfoEntity gameInfo;
+private:
 	
 	/**
 	 *  コンストラクタ

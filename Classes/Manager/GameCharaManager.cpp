@@ -38,3 +38,17 @@ map<int32_t, GameCharaEntity> GameCharaManager::load() {
 	
 	return charas;
 }
+
+/**
+ *  ファイルパス取得
+ *
+ *  @param imageId 画像Id
+ *
+ *  @return ファイルパス
+ */
+string GameCharaManager::getImageFilePath(int imageId) {
+	ostringstream ostr;
+	ostr << setfill('0') << setw(3) << imageId << ".png";
+//	ostr << "Chara/Chara" << setfill('0') << setw(3) << imageId << ".png";
+	return ostr.str();
+}

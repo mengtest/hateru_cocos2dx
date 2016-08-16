@@ -40,7 +40,7 @@ private:
 	 *
 	 *  @param ProjectIniEntity 設定Entity
 	 */
-//	void loadProjectIni(ProjectIniEntity &entity);
+	static void loadProjectIni(ProjectIniEntity &entity);
 
 };
 

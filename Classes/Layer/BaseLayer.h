@@ -12,6 +12,7 @@
 #include "cocos2d.h"
 
 USING_NS_CC;
+using namespace std;
 
 /// レイヤーの基底クラス
 class BaseLayer: public Layer, public EventListener {

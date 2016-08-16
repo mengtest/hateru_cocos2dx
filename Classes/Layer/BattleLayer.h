@@ -1,38 +1,39 @@
 //
-//  SplashLayer.h
+//  BattleLayer.h
 //  hateru
 //
-//  Created by HaraKazunari on 2016/03/16.
+//  Created by HaraKazunari on 2016/08/10.
 //
 //
 
-#ifndef SplashLayer_h
-#define SplashLayer_h
+#ifndef BattleLayer_h
+#define BattleLayer_h
 
 #include "BaseLayer.h"
 
-/// スプラッシュレイヤー
-class SplashLayer final: public BaseLayer {
+/// バトルレイヤー
+class BattleLayer final: public BaseLayer {
 public:
-
+	
 	/**
 	 *  コンストラクタ
 	 */
-	SplashLayer();
+	BattleLayer();
 	
 	/**
 	 *  デストラクタ
 	 */
-	~SplashLayer();
+	~BattleLayer();
+	
+	
+private:
 	
 	/**
 	 *  クラス作成
 	 *
 	 *  @return クラス
 	 */
-	static SplashLayer *create();
-	
-private:
+	static BattleLayer *create();
 	
 	/**
 	 *  レイヤー初期化
@@ -46,4 +47,4 @@ private:
 	
 };
 
-#endif /* SplashLayer_h */
+#endif /* BattleLayer_h */

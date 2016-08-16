@@ -110,7 +110,6 @@ void BaseLayer::onTouchEnded(Touch *pTouch, Event *pEvent) {
 	
 }
 
-
 #pragma mark - EventListener
 
 /**

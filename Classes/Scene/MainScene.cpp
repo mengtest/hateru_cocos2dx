@@ -8,19 +8,27 @@
 
 #include "MainScene.h"
 
-/** メインシーンインスタンス */
-static MainScene *mainSceneInstance = NULL;
+#include <mutex>
+
+/// メインシーンインスタンス
+MainScene *MainScene::mainSceneInstance = nullptr;
 
 /**
  *  インスタンスシェア
  *
  *  @return インスタンス
  */
-MainScene* MainScene::sharedInstance() {
-	if (mainSceneInstance == NULL){
-		mainSceneInstance = (MainScene*)MainScene::create();
-	}
+MainScene *MainScene::sharedInstance() {
+	static once_flag flag;
+	call_once(flag, setupInstance);
 	return mainSceneInstance;
+}
+
+/**
+ *  インスタンス設定
+ */
+void MainScene::setupInstance() {
+	mainSceneInstance = (MainScene *)create();
 }
 
 /**
@@ -40,6 +48,24 @@ MainScene::~MainScene() {
  */
 void MainScene::startGame() {
 	this->scheduleUpdate();
+}
+
+// 初期化
+void MainScene::initMode(
+						 MainSceneGameMode mode,
+						 int updateFlag
+						 )
+{
+	// モード退避
+	gameModeBefore = gameMode;
+	gameMode = mode;
+	
+	switch(mode){
+		case MainSceneGameModeSplash:
+			break;
+		default:
+			break;
+	}
 }
 
 /**

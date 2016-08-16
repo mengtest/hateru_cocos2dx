@@ -1,20 +1,20 @@
 //
-//  TitleLayer.cpp
+//  BattleLayer.cpp
 //  hateru
 //
-//  Created by HaraKazunari on 2016/03/16.
+//  Created by HaraKazunari on 2016/08/10.
 //
 //
 
-#include "TitleLayer.h"
+#include "BattleLayer.h"
 
 /**
  *  クラス作成
  *
  *  @return クラス
  */
-TitleLayer *TitleLayer::create() {
-	auto layer = new TitleLayer();
+BattleLayer *BattleLayer::create() {
+	auto layer = new BattleLayer();
 	if(layer && layer->init()){
 		layer->Layer::autorelease();
 		return layer;
@@ -28,27 +28,27 @@ TitleLayer *TitleLayer::create() {
 /**
  *  コンストラクタ
  */
-TitleLayer::TitleLayer() {
+BattleLayer::BattleLayer() {
 	
 }
 
 /**
  *  デストラクタ
  */
-TitleLayer::~TitleLayer() {
+BattleLayer::~BattleLayer() {
 	
 }
 
 /**
  *  レイヤー初期化
  */
-void TitleLayer::initLayer() {
+void BattleLayer::initLayer() {
 	
 }
 
 /**
  *  レイヤーメイン処理
  */
-void TitleLayer::layerMain() {
+void BattleLayer::layerMain() {
 	
 }

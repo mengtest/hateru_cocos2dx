@@ -12,6 +12,19 @@
 #include "cocos2d.h"
 
 USING_NS_CC;
+using namespace std;
+
+/** ゲームステータス */
+typedef enum {
+	MainSceneGameModeSplash		=	0,	/// スプラッシュ画面
+	MainSceneGameModeTitle,				/// タイトル画面
+	MainSceneGameModeSelectStage,		/// ステージ選択画面
+	MainSceneGameModeGame,				/// ゲーム画面
+	MainSceneGameModeMenu,				/// メニュー画面
+	MainSceneGameModeRanking,			/// ランキング画面
+	MainSceneGameModeConfig,			/// 設定画面
+	MainSceneGameModeOperateConfig,		/// 操作設定画面
+} MainSceneGameMode;
 
 class MainScene: public Scene {
 	
@@ -27,7 +40,7 @@ public:
 	 *
 	 *  @return インスタンス
 	 */
-	static MainScene* sharedInstance();
+	static MainScene *sharedInstance();
 	
 	/**
 	 *  ゲームスタート
@@ -41,10 +54,31 @@ public:
 
 private:
 	
+	/// インスタンス
+	static MainScene *mainSceneInstance;
+	
+	/// ゲームモード
+	MainSceneGameMode gameMode;
+	
+	/// 前回のゲームモード
+	MainSceneGameMode gameModeBefore;
+	
 	/**
 	 *  コンストラクタ
 	 */
 	MainScene();
+	
+	/**
+	 *  インスタンス設定
+	 */
+	static void setupInstance();
+
+	/**
+	 *  モード初期化
+	 *
+	 *  @param mode モード
+	 */
+	void initMode(MainSceneGameMode mode, int updateFlag);
 	
 	/**
 	 *  更新処理

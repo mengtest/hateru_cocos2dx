@@ -1,38 +1,39 @@
 //
-//  SplashLayer.h
+//  MapLayer.h
 //  hateru
 //
-//  Created by HaraKazunari on 2016/03/16.
+//  Created by HaraKazunari on 2016/08/10.
 //
 //
 
-#ifndef SplashLayer_h
-#define SplashLayer_h
+#ifndef MapLayer_h
+#define MapLayer_h
 
 #include "BaseLayer.h"
 
-/// スプラッシュレイヤー
-class SplashLayer final: public BaseLayer {
+/// マップレイヤー
+class MapLayer final: public BaseLayer {
 public:
-
+	
 	/**
 	 *  コンストラクタ
 	 */
-	SplashLayer();
+	MapLayer();
 	
 	/**
 	 *  デストラクタ
 	 */
-	~SplashLayer();
+	~MapLayer();
+	
+	
+private:
 	
 	/**
 	 *  クラス作成
 	 *
 	 *  @return クラス
 	 */
-	static SplashLayer *create();
-	
-private:
+	static MapLayer *create();
 	
 	/**
 	 *  レイヤー初期化
@@ -46,4 +47,4 @@ private:
 	
 };
 
-#endif /* SplashLayer_h */
+#endif /* MapLayer_h */

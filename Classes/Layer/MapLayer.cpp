@@ -1,20 +1,20 @@
 //
-//  TitleLayer.cpp
+//  MapLayer.cpp
 //  hateru
 //
-//  Created by HaraKazunari on 2016/03/16.
+//  Created by HaraKazunari on 2016/08/10.
 //
 //
 
-#include "TitleLayer.h"
+#include "MapLayer.h"
 
 /**
  *  クラス作成
  *
  *  @return クラス
  */
-TitleLayer *TitleLayer::create() {
-	auto layer = new TitleLayer();
+MapLayer *MapLayer::create() {
+	auto layer = new MapLayer();
 	if(layer && layer->init()){
 		layer->Layer::autorelease();
 		return layer;
@@ -28,27 +28,27 @@ TitleLayer *TitleLayer::create() {
 /**
  *  コンストラクタ
  */
-TitleLayer::TitleLayer() {
+MapLayer::MapLayer() {
 	
 }
 
 /**
  *  デストラクタ
  */
-TitleLayer::~TitleLayer() {
+MapLayer::~MapLayer() {
 	
 }
 
 /**
  *  レイヤー初期化
  */
-void TitleLayer::initLayer() {
+void MapLayer::initLayer() {
 	
 }
 
 /**
  *  レイヤーメイン処理
  */
-void TitleLayer::layerMain() {
+void MapLayer::layerMain() {
 	
 }
