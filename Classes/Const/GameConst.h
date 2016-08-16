@@ -9,6 +9,17 @@
 #ifndef GameConst_h
 #define GameConst_h
 
+/// パーティ数
+#define MAX_PARTY			3
+/// 最大装備数
+#define MAX_UNIT_STATUS		5
+/// 最大スキル数
+#define MAX_UNIT_SKILL		24
+/// 最大アイテム数
+#define MAX_UNIT_ITEM		16
+
+#pragma mark - ユニット
+
 /// ステータスタイプ
 typedef enum {
 	UnitStatusTypeLv = 0,		/// LV

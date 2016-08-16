@@ -11,6 +11,7 @@
 #include <mutex>
 
 #include "GameInfoManager.h"
+#include "GameMapManager.h"
 #include "GameMapChipGroupManager.h"
 #include "GameEnemyManager.h"
 #include "GameCharaManager.h"
@@ -61,6 +62,9 @@ void GameMainService::setupInstance() {
 	
 	instance->Ref::autorelease();
 
+	// 初期化
+	instance->mapId = -1;
+	
 	// ゲーム情報取得
 	instance->loadAll();
 }
@@ -87,6 +91,109 @@ void GameMainService::loadAll() {
 	skills = GameSkillManager::load();
 	/// 変数情報
 	variables = GameVariableManager::load();
+}
+
+#pragma mark - Getter
+
+/**
+ *  ゲーム情報取得
+ *
+ *  @return ゲーム情報
+ */
+GameInfoEntity *GameMainService::getGameInfo() {
+	return &gameInfo;
+}
+
+/**
+ *  マップ取得
+ *
+ *  @param id ID
+ *
+ *  @return マップ
+ */
+GameMapEntity *GameMainService::getMap(const int id) {
+	if (mapId != id) {
+		mapId = id;
+		gameMap = GameMapManager::load(id);
+	}
+	return &gameMap;
+}
+
+/**
+ *  マップチップグループ取得
+ *
+ *  @param id ID
+ *
+ *  @return マップチップグループ
+ */
+GameMapChipGroupEntity *GameMainService::getMapChipGroup(const int id) {
+	return &mapChipGroups[id];
+}
+
+/**
+ *  敵情報取得
+ *
+ *  @param id ID
+ *
+ *  @return 敵情報
+ */
+GameEnemyEntity *GameMainService::getEnemy(const int id) {
+	return &enemies[id];
+}
+
+/**
+ *  キャラ情報取得
+ *
+ *  @param id ID
+ *
+ *  @return キャラ情報
+ */
+GameCharaEntity *GameMainService::getChara(const int id) {
+	return &charas[id];
+}
+
+/**
+ *  アイテム情報取得
+ *
+ *  @param id ID
+ *
+ *  @return アイテム情報
+ */
+GameItemEntity *GameMainService::getItem(const int id) {
+	return &items[id];
+}
+
+/**
+ *  職種情報取得
+ *
+ *  @param id ID
+ *
+ *  @return 職種情報
+ */
+GameJobEntity *GameMainService::getJob(const int id) {
+	return &jobs[id];
+}
+
+/**
+ *  スキル情報取得
+ *
+ *  @param id ID
+ *
+ *  @return スキル情報
+ */
+GameSkillEntity *GameMainService::getSkill(const int id) {
+	return &skills[id];
+}
+
+/**
+ *  変数情報取得
+ *
+ *  @param id ID
+ *
+ *  @return 変数情報
+ */
+GameVariableEntity *GameMainService::getVariable(const int id) {
+	return &variables[id];
 }
 
 
