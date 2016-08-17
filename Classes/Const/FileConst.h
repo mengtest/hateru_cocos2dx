@@ -9,28 +9,7 @@
 #ifndef FileConst_h
 #define FileConst_h
 
-#include <stdio.h>
-
-using namespace std;
-
-/// ファイル関連定数クラス
-class FileConst final {
-public:
-	
-	/// リソースゲームパス
-	static const string resGamePath;
-	
-private:
-	
-	/**
-	 *  コンストラクタ
-	 */
-	FileConst() {}
-	
-	/**
-	 *  デストラクタ
-	 */
-	~FileConst() {}
-};
+/// リソースゲームパス
+#define RES_GAME_PATH "game/"
 
 #endif /* FileConst_h */

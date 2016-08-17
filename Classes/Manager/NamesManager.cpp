@@ -32,7 +32,7 @@ const string NamesManager::typeVariable = "NumList.nmp";
 NamesEntity NamesManager::load(const string &fileName) {
 	
 	// ファイルデータ取得
-	auto filePath = FileConst::resGamePath + fileName;
+	auto filePath = RES_GAME_PATH + fileName;
 	auto fileData = FileUtils::getInstance()->getDataFromFile(filePath);
 	
 	auto entity = NamesEntity::createEntity(fileData.getBytes(), (size_t)fileData.getSize());

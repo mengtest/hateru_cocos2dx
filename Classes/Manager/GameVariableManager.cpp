@@ -27,7 +27,7 @@ map<int, GameVariableEntity> GameVariableManager::load() {
 	auto variables = map<int, GameVariableEntity>();
 
 	// ファイルデータ取得
-	auto filePath = FileConst::resGamePath + "NumData.nmp";
+	auto filePath = RES_GAME_PATH"NumData.nmp";
 	auto fileData = FileUtils::getInstance()->getDataFromFile(filePath);
 	unsigned char *data = fileData.getBytes();
 

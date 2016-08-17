@@ -29,7 +29,7 @@ GameMapEntity GameMapManager::load(const int id) {
 	// ファイルデータ取得
 	ostringstream ostr;
 	ostr << "MapS" << setfill('0') << setw(3) << id << ".nmp";
-	auto filePath = FileConst::resGamePath + ostr.str();
+	auto filePath = RES_GAME_PATH + ostr.str();
 	auto fileData = FileUtils::getInstance()->getDataFromFile(filePath);
 	
 	auto entity = GameMapEntity::createEntity(fileData.getBytes(), namesEntity.names[id]);
@@ -41,7 +41,7 @@ GameMapEntity GameMapManager::load(const int id) {
 	ostr.str("");
 	ostr.clear(stringstream::goodbit);
 	ostr << "EventS" << setfill('0') << setw(3) << id << ".nmp";
-	filePath = FileConst::resGamePath + ostr.str();
+	filePath = RES_GAME_PATH + ostr.str();
 	fileData = FileUtils::getInstance()->getDataFromFile(filePath);
 	
 	entity.convertEventData(fileData.getBytes(), namesEntity.names);

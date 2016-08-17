@@ -28,7 +28,7 @@ map<int, GameItemEntity> GameItemManager::load() {
 		// ファイルデータ取得
 		ostringstream ostr;
 		ostr << "Item" << setfill('0') << setw(3) << i << ".nmp";
-		auto filePath = FileConst::resGamePath + ostr.str();
+		auto filePath = RES_GAME_PATH + ostr.str();
 		auto fileData = FileUtils::getInstance()->getDataFromFile(filePath);
 		
 		auto entity = GameItemEntity::createEntity(fileData.getBytes());

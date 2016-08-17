@@ -7,6 +7,3 @@
 //
 
 #include "FileConst.h"
-
-/// リソースゲームパス
-const string FileConst::resGamePath = "game/";

@@ -28,7 +28,7 @@ map<int, GameJobEntity> GameJobManager::load() {
 		// ファイルデータ取得
 		ostringstream ostr;
 		ostr << "Job" << setfill('0') << setw(3) << i << ".nmp";
-		auto filePath = FileConst::resGamePath + ostr.str();
+		auto filePath = RES_GAME_PATH + ostr.str();
 		auto fileData = FileUtils::getInstance()->getDataFromFile(filePath);
 		
 		auto entity = GameJobEntity::createEntity(fileData.getBytes());
