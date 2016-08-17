@@ -1,13 +1,13 @@
 //
-//  PlayerItemEntity.h
+//  PlayerMapEntity.h
 //  hateru
 //
-//  Created by HaraKazunari on 2016/08/16.
+//  Created by HaraKazunari on 2016/08/18.
 //
 //
 
-#ifndef PlayerItemEntity_h
-#define PlayerItemEntity_h
+#ifndef PlayerMapEntity_h
+#define PlayerMapEntity_h
 
 #include "cocos2d.h"
 
@@ -16,16 +16,16 @@
 USING_NS_CC;
 using namespace std;
 
-/// プレイヤーアイテムEntity
-class PlayerItemEntity final: public Ref {
+/// プレイヤーマップEntity
+class PlayerMapEntity final: public Ref {
 public:
 	
-	/// アイテムID
+	/// マップID
 	int id;
-	/// 使用回数
-	int useCount;
-	/// アイテムID
-	string itemId;
+	/// X座標
+	int x;
+	/// Y座標
+	int y;
 	
 	/**
 	 *  シリアライズ
@@ -47,4 +47,4 @@ private:
 	
 };
 
-#endif /* PlayerItemEntity_h */
+#endif /* PlayerMapEntity_h */

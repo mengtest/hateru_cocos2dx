@@ -11,6 +11,10 @@
 
 #include "cocos2d.h"
 
+#include "picojson.h"
+
+#include "PlayerMapEntity.h"
+
 USING_NS_CC;
 using namespace std;
 
@@ -22,12 +26,24 @@ public:
 	string name;
 	/// マップId
 	int mapId;
-	/// 設置マップId
-	vector<int> mapIds;
-	/// 設置マップX
-	vector<int> mapXs;
-	/// 設置マップY
-	vector<int> mapYs;
+	/// 設置マップ
+	vector<PlayerMapEntity> maps;
+	
+	/**
+	 *  シリアライズ
+	 *
+	 *  @param object JSONオブジェクト
+	 */
+	void serialize(picojson::object &object);
+	
+	/**
+	 *  マッピング
+	 *
+	 *  @param object JSONオブジェクト
+	 *
+	 *  @return マッピング可否
+	 */
+	bool mapping(picojson::object &object);
 	
 private:
 	

@@ -11,9 +11,10 @@
 
 #include "cocos2d.h"
 
+#include "picojson.h"
+
 #include "GameConst.h"
 #include "PlayerItemEntity.h"
-#include "PlayerTeleportEntity.h"
 
 USING_NS_CC;
 using namespace std;
@@ -39,19 +40,21 @@ public:
 	/// アイテム
 	vector<PlayerItemEntity> items;
 
-	/// テレポート情報
-	vector<PlayerTeleportEntity> teleports;
-
-	/// エスケープマップ情報
-	int escapeMapId;
-	/// エスケープX情報
-	int escapeMapX;
-	/// エスケープY情報
-	int escapeMapY;
+	/**
+	 *  シリアライズ
+	 *
+	 *  @param object JSONオブジェクト
+	 */
+	void serialize(picojson::object &object);
 	
-	/// 預かり所
-	vector<PlayerItemEntity> cloakrooms;
-	
+	/**
+	 *  マッピング
+	 *
+	 *  @param object JSONオブジェクト
+	 *
+	 *  @return マッピング可否
+	 */
+	bool mapping(picojson::object &object);
 	
 private:
 	
