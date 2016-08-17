@@ -8,6 +8,8 @@
 
 #include "ItemListGetMyResponseEntity.h"
 
+#include "LogConst.h"
+
 /**
  *  マッピング
  *
@@ -19,11 +21,12 @@ bool ItemListGetMyMetaResponseEntity::mapping(picojson::object &object) {
 	if (object["items"].is<picojson::array>()) {
 		picojson::array array = object["items"].get<picojson::array>();
 		for (picojson::array::iterator it = array.begin(); it != array.end(); it++) {
-			auto item = new ItemInfoGetMetaResponseEntity();
-			item->mapping(it->get<picojson::object>());
-			items.push_back(*item);
+			ItemInfoGetMetaResponseEntity item;
+			item.mapping(it->get<picojson::object>());
+			items.push_back(item);
 		}
 	} else {
+		log(JSON_BAD_MAPPING_ERROR, "items");
 		return false;
 	}
 	return true;

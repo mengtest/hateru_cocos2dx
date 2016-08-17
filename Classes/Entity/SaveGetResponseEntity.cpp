@@ -8,6 +8,8 @@
 
 #include "SaveGetResponseEntity.h"
 
+#include "LogConst.h"
+
 /**
  *  マッピング
  *
@@ -19,6 +21,7 @@ bool SaveGetMetaResponseEntity::mapping(picojson::object &object) {
 	if (object["saveData"].is<string>()) {
 		saveData = object["saveData"].get<string>();
 	} else {
+		log(JSON_BAD_MAPPING_ERROR, "saveData");
 		return false;
 	}
 	return true;

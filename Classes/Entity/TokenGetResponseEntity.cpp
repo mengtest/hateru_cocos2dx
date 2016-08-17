@@ -8,6 +8,8 @@
 
 #include "TokenGetResponseEntity.h"
 
+#include "LogConst.h"
+
 /**
  *  マッピング
  *
@@ -19,6 +21,7 @@ bool TokenGetMetaResponseEntity::mapping(picojson::object &object) {
 	if (object["accessToken"].is<string>()) {
 		accessToken = object["accessToken"].get<string>();
 	} else {
+		log(JSON_BAD_MAPPING_ERROR, "accessToken");
 		return false;
 	}
 	return true;

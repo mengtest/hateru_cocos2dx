@@ -8,6 +8,8 @@
 
 #include "UserCodeGetResponseEntity.h"
 
+#include "LogConst.h"
+
 /**
  *  マッピング
  *
@@ -19,6 +21,7 @@ bool UserCodeGetMetaResponseEntity::mapping(picojson::object &object) {
 	if (object["userCode"].is<string>()) {
 		userCode = object["userCode"].get<string>();
 	} else {
+		log(JSON_BAD_MAPPING_ERROR, "userCode");
 		return false;
 	}
 	return true;

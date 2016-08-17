@@ -8,6 +8,8 @@
 
 #include "LocationGetResponseEntity.h"
 
+#include "LogConst.h"
+
 /**
  *  マッピング
  *
@@ -19,36 +21,43 @@ bool LocationGetMetaDetailResponseEntity::mapping(picojson::object &object) {
 	if (object["userCode"].is<string>()) {
 		userCode = object["userCode"].get<string>();
 	} else {
+		log(JSON_BAD_MAPPING_ERROR, "userCode");
 		return false;
 	}
 	if (object["userName"].is<string>()) {
 		userName = object["userName"].get<string>();
 	} else {
+		log(JSON_BAD_MAPPING_ERROR, "userName");
 		return false;
 	}
 	if (object["message"].is<string>()) {
 		message = object["message"].get<string>();
 	} else {
+		log(JSON_BAD_MAPPING_ERROR, "message");
 		return false;
 	}
 	if (object["mapIndex"].is<double>()) {
 		mapIndex = (int)object["mapIndex"].get<double>();
 	} else {
+		log(JSON_BAD_MAPPING_ERROR, "mapIndex");
 		return false;
 	}
 	if (object["x"].is<double>()) {
 		x = (int)object["x"].get<double>();
 	} else {
+		log(JSON_BAD_MAPPING_ERROR, "x");
 		return false;
 	}
 	if (object["y"].is<double>()) {
 		y = (int)object["y"].get<double>();
 	} else {
+		log(JSON_BAD_MAPPING_ERROR, "y");
 		return false;
 	}
 	if (object["otherInfos"].is<string>()) {
 		otherInfos = object["otherInfos"].get<string>();
 	} else {
+		log(JSON_BAD_MAPPING_ERROR, "otherInfos");
 		return false;
 	}
 	return true;

@@ -8,6 +8,8 @@
 
 #include "ItemSendResponseEntity.h"
 
+#include "LogConst.h"
+
 /**
  *  マッピング
  *
@@ -19,6 +21,7 @@ bool ItemSendMetaResponseEntity::mapping(picojson::object &object) {
 	if (object["exchangeToken"].is<string>()) {
 		exchangeToken = object["exchangeToken"].get<string>();
 	} else {
+		log(JSON_BAD_MAPPING_ERROR, "exchangeToken");
 		return false;
 	}
 	return true;

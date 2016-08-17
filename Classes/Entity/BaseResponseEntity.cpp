@@ -8,6 +8,8 @@
 
 #include "BaseResponseEntity.h"
 
+#include "LogConst.h"
+
 /**
  *  マッピング
  *
@@ -20,11 +22,13 @@ bool BaseResponseEntity<T_META>::mapping(picojson::object &object) {
 	if (object["status"].is<picojson::object>()) {
 		status.mapping(object["status"].get<picojson::object>());
 	} else {
+		log(JSON_BAD_MAPPING_ERROR, "status");
 		return false;
 	}
 	if (object["meta"].is<picojson::object>()) {
 		meta.mapping(object["meta"].get<picojson::object>());
 	} else {
+		log(JSON_BAD_MAPPING_ERROR, "meta");
 		return false;
 	}
 	return true;
@@ -41,6 +45,7 @@ bool BaseStatusResponseEntity::mapping(picojson::object &object) {
 	if (object["code"].is<double>()) {
 		code = (int)object["code"].get<double>();
 	} else {
+		log(JSON_BAD_MAPPING_ERROR, "code");
 		return false;
 	}
 	if (object["message"].is<string>()) {
