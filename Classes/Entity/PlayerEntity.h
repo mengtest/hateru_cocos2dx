@@ -43,6 +43,16 @@ public:
 	vector<PlayerItemEntity> cloakrooms;
 	
 	/**
+	 *  コンストラクタ
+	 */
+	PlayerEntity();
+	
+	/**
+	 *  デストラクタ
+	 */
+	~PlayerEntity();
+	
+	/**
 	 *  シリアライズ
 	 *
 	 *  @param object JSONオブジェクト

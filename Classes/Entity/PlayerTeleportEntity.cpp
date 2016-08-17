@@ -11,6 +11,21 @@
 #include "LogConst.h"
 
 /**
+ *  コンストラクタ
+ */
+PlayerTeleportEntity::PlayerTeleportEntity() {
+	name = "";
+	mapId = 0;
+	maps.clear();
+}
+
+/**
+ *  デストラクタ
+ */
+PlayerTeleportEntity::~PlayerTeleportEntity() {
+}
+
+/**
  *  シリアライズ
  *
  *  @param object JSONオブジェクト

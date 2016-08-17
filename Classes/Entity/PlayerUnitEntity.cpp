@@ -11,6 +11,26 @@
 #include "LogConst.h"
 
 /**
+ *  コンストラクタ
+ */
+PlayerUnitEntity::PlayerUnitEntity() {
+	id = "";
+	name = "";
+	unitType = 0;
+	config = 0;
+	statuses.clear();
+	equipments.clear();
+	skills.clear();
+	items.clear();
+}
+
+/**
+ *  デストラクタ
+ */
+PlayerUnitEntity::~PlayerUnitEntity() {
+}
+
+/**
  *  シリアライズ
  *
  *  @param object JSONオブジェクト

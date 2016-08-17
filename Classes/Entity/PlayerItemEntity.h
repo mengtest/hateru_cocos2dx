@@ -28,6 +28,16 @@ public:
 	string itemId;
 	
 	/**
+	 *  コンストラクタ
+	 */
+	PlayerItemEntity();
+	
+	/**
+	 *  デストラクタ
+	 */
+	~PlayerItemEntity();
+
+	/**
 	 *  シリアライズ
 	 *
 	 *  @param object JSONオブジェクト

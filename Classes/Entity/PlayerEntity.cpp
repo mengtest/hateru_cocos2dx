@@ -11,6 +11,22 @@
 #include "LogConst.h"
 
 /**
+ *  コンストラクタ
+ */
+PlayerEntity::PlayerEntity() {
+	money = 0;
+	units.clear();
+	teleports.clear();
+	cloakrooms.clear();
+}
+
+/**
+ *  デストラクタ
+ */
+PlayerEntity::~PlayerEntity() {
+}
+
+/**
  *  シリアライズ
  *
  *  @param object JSONオブジェクト

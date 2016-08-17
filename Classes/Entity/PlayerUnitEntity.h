@@ -41,6 +41,16 @@ public:
 	vector<PlayerItemEntity> items;
 
 	/**
+	 *  コンストラクタ
+	 */
+	PlayerUnitEntity();
+	
+	/**
+	 *  デストラクタ
+	 */
+	~PlayerUnitEntity();
+
+	/**
 	 *  シリアライズ
 	 *
 	 *  @param object JSONオブジェクト

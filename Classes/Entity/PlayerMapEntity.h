@@ -28,6 +28,16 @@ public:
 	int y;
 	
 	/**
+	 *  コンストラクタ
+	 */
+	PlayerMapEntity();
+	
+	/**
+	 *  デストラクタ
+	 */
+	~PlayerMapEntity();
+
+	/**
 	 *  シリアライズ
 	 *
 	 *  @param object JSONオブジェクト

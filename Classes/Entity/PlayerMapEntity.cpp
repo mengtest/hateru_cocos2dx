@@ -11,6 +11,21 @@
 #include "LogConst.h"
 
 /**
+ *  コンストラクタ
+ */
+PlayerMapEntity::PlayerMapEntity() {
+	id = 0;
+	x = 0;
+	y = 0;
+}
+
+/**
+ *  デストラクタ
+ */
+PlayerMapEntity::~PlayerMapEntity() {
+}
+
+/**
  *  シリアライズ
  *
  *  @param object JSONオブジェクト

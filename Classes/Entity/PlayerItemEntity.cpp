@@ -11,6 +11,21 @@
 #include "LogConst.h"
 
 /**
+ *  コンストラクタ
+ */
+PlayerItemEntity::PlayerItemEntity() {
+	id = 0;
+	useCount = 0;
+	itemId = "";
+}
+
+/**
+ *  デストラクタ
+ */
+PlayerItemEntity::~PlayerItemEntity() {
+}
+
+/**
  *  シリアライズ
  *
  *  @param object JSONオブジェクト

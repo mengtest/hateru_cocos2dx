@@ -30,6 +30,16 @@ public:
 	vector<PlayerMapEntity> maps;
 	
 	/**
+	 *  コンストラクタ
+	 */
+	PlayerTeleportEntity();
+	
+	/**
+	 *  デストラクタ
+	 */
+	~PlayerTeleportEntity();
+
+	/**
 	 *  シリアライズ
 	 *
 	 *  @param object JSONオブジェクト
