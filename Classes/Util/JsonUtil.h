@@ -29,6 +29,15 @@ public:
 	 */
 	static void jsonParse(picojson::value *jsonValue, string *error, network::HttpResponse *response);
 	
+	/**
+	 *  JSONパース
+	 *
+	 *  @param jsonValue  JSON値
+	 *  @param error      エラー
+	 *  @param jsonString JSON文字列
+	 */
+	static void jsonParse(picojson::value *jsonValue, string *error, string *jsonString);
+	
 private:
 	
 	/**

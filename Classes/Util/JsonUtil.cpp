@@ -33,3 +33,25 @@ void JsonUtil::jsonParse(picojson::value *jsonValue, string *error, network::Htt
 	free(jsonBuff);
 }
 
+/**
+ *  JSONパース
+ *
+ *  @param jsonValue  JSON値
+ *  @param error      エラー
+ *  @param jsonString JSON文字列
+ */
+void JsonUtil::jsonParse(picojson::value *jsonValue, string *error, string *jsonString) {
+	
+	// データ取得
+	string::size_type jsonSize = strlen(jsonString->c_str());
+	char *jsonBuff = (char*)malloc(jsonSize + 1);
+	memset(jsonBuff,0x00,jsonSize + 1);
+	memcpy(jsonBuff,jsonString->c_str(),jsonSize);
+	
+	// JSON
+	picojson::parse(*jsonValue, jsonBuff, jsonBuff + jsonSize, error);
+	
+	// 解放
+	free(jsonBuff);
+
+}

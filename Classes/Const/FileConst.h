@@ -12,4 +12,7 @@
 /// リソースゲームパス
 #define RES_GAME_PATH "game/"
 
+/// データ保存ファイル名
+#define SAVE_FILE_NAME "save.txt"
+
 #endif /* FileConst_h */
