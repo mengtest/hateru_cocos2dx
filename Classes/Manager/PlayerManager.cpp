@@ -55,7 +55,7 @@ PlayerEntity PlayerManager::load() {
  *
  *  @param entity プレイヤー情報
  */
-void PlayerManager::save(PlayerEntity &entity) {
+void PlayerManager::save(PlayerEncryptEntity &entity) {
 	
 	// パス取得
 	auto path = FileUtils::getInstance()->getWritablePath();
@@ -67,3 +67,4 @@ void PlayerManager::save(PlayerEntity &entity) {
 	
 	FileUtils::getInstance()->writeStringToFile(val.serialize(), path + SAVE_FILE_NAME);
 }
+

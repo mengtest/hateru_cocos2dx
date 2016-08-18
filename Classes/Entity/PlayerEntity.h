@@ -24,6 +24,9 @@ using namespace std;
 class PlayerEntity: public Ref {
 public:
 	
+	/// 有効フラグ
+	bool isValid;
+	
 	/// 所持金
 	int money;
 	

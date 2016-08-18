@@ -10,7 +10,7 @@
 #define PlayerManager_h
 
 #include "BaseManager.h"
-#include "PlayerEntity.h"
+#include "PlayerEncryptEntity.h"
 
 /// プレイヤーマネージャ
 class PlayerManager final: BaseManager {
@@ -28,7 +28,7 @@ public:
 	 *
 	 *  @param entity プレイヤー情報
 	 */
-	static void save(PlayerEntity &entity);
+	static void save(PlayerEncryptEntity &entity);
 	
 private:
 	

@@ -14,6 +14,7 @@
  *  コンストラクタ
  */
 PlayerEntity::PlayerEntity() {
+	isValid = false;
 	money = 0;
 	units.clear();
 	teleports.clear();
