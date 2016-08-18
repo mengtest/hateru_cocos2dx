@@ -8,6 +8,10 @@
 
 #include "EncryptUtil.h"
 
+#include <iostream>
+#include <iomanip>
+#include "openssl/md5.h"
+
 #include "EncryptConst.h"
 
 
@@ -19,11 +23,14 @@
  *  @return ハッシュ値
  */
 string EncryptUtil::hash(const string &inStr) {
-	
-	
-	
-	return "";
-	
+	unsigned char md5[MD5_DIGEST_LENGTH];
+	MD5((unsigned char*)(inStr.c_str()), inStr.length(), md5);
+	string result = "";
+	ostringstream ostr;
+	for (auto i = 0; i < MD5_DIGEST_LENGTH; i++) {
+		result += StringUtils::format("%02x", md5[i]);
+	}
+	return result;
 }
 
 /**

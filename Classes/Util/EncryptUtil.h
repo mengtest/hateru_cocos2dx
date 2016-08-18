@@ -9,8 +9,9 @@
 #ifndef EncryptUtil_h
 #define EncryptUtil_h
 
-#include <stdio.h>
+#include "cocos2d.h"
 
+USING_NS_CC;
 using namespace std;
 
 /// 暗号化ユーティリティ
