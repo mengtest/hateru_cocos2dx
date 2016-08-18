@@ -39,6 +39,15 @@ public:
 	 */
 	void serialize(picojson::object &object);
 
+	/**
+	 *  コンストラクタ
+	 */
+	BaseStatusRequestEntity();
+	
+	/**
+	 *  デストラクタ
+	 */
+	~BaseStatusRequestEntity();
 };
 
 /// ベースリクエストEntity

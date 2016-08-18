@@ -32,3 +32,17 @@ bool ItemGetMetaResponseEntity::mapping(picojson::object &object) {
 	}
 	return true;
 }
+
+/**
+ *  コンストラクタ
+ */
+ItemGetMetaResponseEntity::ItemGetMetaResponseEntity() {
+	itemKindIndex = 0;
+	itemCode = "";
+}
+
+/**
+ *  デストラクタ
+ */
+ItemGetMetaResponseEntity::~ItemGetMetaResponseEntity() {
+}

@@ -30,11 +30,30 @@ public:
 	 *  @param object JSONオブジェクト
 	 */
 	void serialize(picojson::object &object);
+	
+	/**
+	 *  コンストラクタ
+	 */
+	BbsWriteParamsRequestEntity();
+	
+	/**
+	 *  デストラクタ
+	 */
+	~BbsWriteParamsRequestEntity();
 };
 
 /// 掲示板書き込みリクエストEntity
 class BbsWriteRequestEntity final: public BaseRequestEntity<BbsWriteParamsRequestEntity> {
 public:
+	/**
+	 *  コンストラクタ
+	 */
+	BbsWriteRequestEntity() {}
+	
+	/**
+	 *  デストラクタ
+	 */
+	~BbsWriteRequestEntity() {}
 };
 
 #endif /* BbsWriteRequestEntity_h */

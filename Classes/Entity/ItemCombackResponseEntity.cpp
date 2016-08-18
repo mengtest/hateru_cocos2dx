@@ -32,3 +32,17 @@ bool ItemCombackMetaResponseEntity::mapping(picojson::object &object) {
 	}
 	return true;
 }
+
+/**
+ *  コンストラクタ
+ */
+ItemCombackMetaResponseEntity::ItemCombackMetaResponseEntity() {
+	itemKindIndex = 0;
+	itemCode = "";
+}
+
+/**
+ *  デストラクタ
+ */
+ItemCombackMetaResponseEntity::~ItemCombackMetaResponseEntity() {
+}

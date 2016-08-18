@@ -23,11 +23,30 @@ public:
 	 *  @return マッピング可否
 	 */
 	bool mapping(picojson::object &object);
+	
+	/**
+	 *  コンストラクタ
+	 */
+	LocationSendMetaResponseEntity() {}
+	
+	/**
+	 *  デストラクタ
+	 */
+	~LocationSendMetaResponseEntity() {}
 };
 
 /// 位置情報送信レスポンスEntity
 class LocationSendResponseEntity final: public BaseResponseEntity<LocationSendMetaResponseEntity> {
 public:
+	/**
+	 *  コンストラクタ
+	 */
+	LocationSendResponseEntity() {}
+	
+	/**
+	 *  デストラクタ
+	 */
+	~LocationSendResponseEntity() {}
 };
 
 #endif /* LocationSendResponseEntity_h */

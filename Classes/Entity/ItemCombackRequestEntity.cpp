@@ -16,3 +16,16 @@
 void ItemCombackParamsRequestEntity::serialize(picojson::object &object) {
 	object.insert(make_pair("exchangeToken", picojson::value(exchangeToken)));
 }
+
+/**
+ *  コンストラクタ
+ */
+ItemCombackParamsRequestEntity::ItemCombackParamsRequestEntity() {
+	exchangeToken = "";
+}
+
+/**
+ *  デストラクタ
+ */
+ItemCombackParamsRequestEntity::~ItemCombackParamsRequestEntity() {
+}

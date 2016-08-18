@@ -20,3 +20,20 @@ void ItemSendParamsRequestEntity::serialize(picojson::object &object) {
 	object.insert(make_pair("partnerUserCode", picojson::value(partnerUserCode)));
 	object.insert(make_pair("password", picojson::value(password)));
 }
+
+/**
+ *  コンストラクタ
+ */
+ItemSendParamsRequestEntity::ItemSendParamsRequestEntity() {
+	itemKindIndex = 0;
+	itemCode = "";
+	hopeItemKindIndex = 0;
+	partnerUserCode = "";
+	password = "";
+}
+
+/**
+ *  デストラクタ
+ */
+ItemSendParamsRequestEntity::~ItemSendParamsRequestEntity() {
+}

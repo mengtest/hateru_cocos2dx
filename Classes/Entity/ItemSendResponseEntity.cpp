@@ -26,3 +26,16 @@ bool ItemSendMetaResponseEntity::mapping(picojson::object &object) {
 	}
 	return true;
 }
+
+/**
+ *  コンストラクタ
+ */
+ItemSendMetaResponseEntity::ItemSendMetaResponseEntity() {
+	exchangeToken = "";
+}
+
+/**
+ *  デストラクタ
+ */
+ItemSendMetaResponseEntity::~ItemSendMetaResponseEntity() {
+}

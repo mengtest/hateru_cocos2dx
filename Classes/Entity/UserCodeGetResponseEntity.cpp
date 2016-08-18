@@ -26,3 +26,17 @@ bool UserCodeGetMetaResponseEntity::mapping(picojson::object &object) {
 	}
 	return true;
 }
+
+/**
+ *  コンストラクタ
+ */
+UserCodeGetMetaResponseEntity::UserCodeGetMetaResponseEntity() {
+	userCode = "";
+}
+
+/**
+ *  デストラクタ
+ */
+UserCodeGetMetaResponseEntity::~UserCodeGetMetaResponseEntity() {
+	
+}

@@ -27,10 +27,30 @@ public:
 	 *  @return マッピング可否
 	 */
 	bool mapping(picojson::object &object);
+	
+	/**
+	 *  コンストラクタ
+	 */
+	UserCodeGetMetaResponseEntity();
+	
+	/**
+	 *  デストラクタ
+	 */
+	~UserCodeGetMetaResponseEntity();
 };
 
 /// トークン取得レスポンスEntity
 class UserCodeGetResponseEntity final: public BaseResponseEntity<UserCodeGetMetaResponseEntity> {
 public:
+	/**
+	 *  コンストラクタ
+	 */
+	UserCodeGetResponseEntity() {}
+	
+	/**
+	 *  デストラクタ
+	 */
+	~UserCodeGetResponseEntity() {}
 };
+
 #endif /* UserCodeGetResponseEntity_h */

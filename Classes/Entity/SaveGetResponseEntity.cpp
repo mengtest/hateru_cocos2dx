@@ -26,3 +26,17 @@ bool SaveGetMetaResponseEntity::mapping(picojson::object &object) {
 	}
 	return true;
 }
+
+/**
+ *  コンストラクタ
+ */
+SaveGetMetaResponseEntity::SaveGetMetaResponseEntity() {
+	saveData = "";
+}
+
+/**
+ *  デストラクタ
+ */
+SaveGetMetaResponseEntity::~SaveGetMetaResponseEntity() {
+}
+

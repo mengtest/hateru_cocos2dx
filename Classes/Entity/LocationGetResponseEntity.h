@@ -38,6 +38,16 @@ public:
 	 *  @return マッピング可否
 	 */
 	bool mapping(picojson::object &object);
+	
+	/**
+	 *  コンストラクタ
+	 */
+	LocationGetMetaDetailResponseEntity();
+	
+	/**
+	 *  デストラクタ
+	 */
+	~LocationGetMetaDetailResponseEntity();
 };
 
 /// 位置情報取得メタレスポンスEntity
@@ -55,11 +65,30 @@ public:
 	 *  @return マッピング可否
 	 */
 	bool mapping(picojson::object &object);
+	
+	/**
+	 *  コンストラクタ
+	 */
+	LocationGetMetaResponseEntity() {}
+	
+	/**
+	 *  デストラクタ
+	 */
+	~LocationGetMetaResponseEntity() {}
 };
 
 /// 位置情報取得レスポンスEntity
 class LocationGetResponseEntity final: public BaseResponseEntity<LocationGetMetaResponseEntity> {
 public:
+	/**
+	 *  コンストラクタ
+	 */
+	LocationGetResponseEntity() {}
+	
+	/**
+	 *  デストラクタ
+	 */
+	~LocationGetResponseEntity() {}
 };
 
 #endif /* LocationGetResponseEntity_h */

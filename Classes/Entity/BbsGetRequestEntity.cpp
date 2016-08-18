@@ -18,3 +18,18 @@ void BbsGetParamsRequestEntity::serialize(picojson::object &object) {
 	object.insert(make_pair("offset", picojson::value((double)offset)));
 	object.insert(make_pair("count", picojson::value((double)count)));
 }
+
+/**
+ *  コンストラクタ
+ */
+BbsGetParamsRequestEntity::BbsGetParamsRequestEntity() {
+	bbsCode = "";
+	offset = 0;
+	count = 0;
+}
+
+/**
+ *  デストラクタ
+ */
+BbsGetParamsRequestEntity::~BbsGetParamsRequestEntity() {
+}

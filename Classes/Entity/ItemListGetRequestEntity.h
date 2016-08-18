@@ -32,11 +32,30 @@ public:
 	 *  @param object JSONオブジェクト
 	 */
 	void serialize(picojson::object &object);
+	
+	/**
+	 *  コンストラクタ
+	 */
+	ItemListGetParamsRequestEntity();
+	
+	/**
+	 *  デストラクタ
+	 */
+	~ItemListGetParamsRequestEntity();
 };
 
 /// マイアイテム情報取得リクエストEntity
 class ItemListGetRequestEntity final: public BaseRequestEntity<ItemListGetParamsRequestEntity> {
 public:
+	/**
+	 *  コンストラクタ
+	 */
+	ItemListGetRequestEntity() {}
+	
+	/**
+	 *  デストラクタ
+	 */
+	~ItemListGetRequestEntity() {}
 };
 
 #endif /* ItemListGetRequestEntity_h */

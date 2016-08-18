@@ -28,11 +28,30 @@ public:
 	 *  @param object JSONオブジェクト
 	 */
 	void serialize(picojson::object &object);
+	
+	/**
+	 *  コンストラクタ
+	 */
+	LocationGetParamsRequestEntity();
+	
+	/**
+	 *  デストラクタ
+	 */
+	~LocationGetParamsRequestEntity();
 };
 
 /// 位置情報取得リクエストEntity
 class LocationGetRequestEntity final: public BaseRequestEntity<LocationGetParamsRequestEntity> {
 public:
+	/**
+	 *  コンストラクタ
+	 */
+	LocationGetRequestEntity() {}
+	
+	/**
+	 *  デストラクタ
+	 */
+	~LocationGetRequestEntity() {}
 };
 
 #endif /* LocationGetRequestEntity_h */

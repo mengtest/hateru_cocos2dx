@@ -21,11 +21,30 @@ public:
 	 *  @param object JSONオブジェクト
 	 */
 	void serialize(picojson::object &object);
+	
+	/**
+	 *  コンストラクタ
+	 */
+	ProfileDeleteParamsRequestEntity() {}
+	
+	/**
+	 *  デストラクタ
+	 */
+	~ProfileDeleteParamsRequestEntity() {}
 };
 
 /// プロフィール削除リクエストEntity
 class ProfileDeleteRequestEntity final: public BaseRequestEntity<ProfileDeleteParamsRequestEntity> {
 public:
+	/**
+	 *  コンストラクタ
+	 */
+	ProfileDeleteRequestEntity() {}
+	
+	/**
+	 *  デストラクタ
+	 */
+	~ProfileDeleteRequestEntity() {}
 };
 
 #endif /* ProfileDeleteRequestEntity_h */

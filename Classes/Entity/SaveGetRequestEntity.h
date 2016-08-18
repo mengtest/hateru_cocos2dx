@@ -24,11 +24,30 @@ public:
 	 *  @param object JSONオブジェクト
 	 */
 	void serialize(picojson::object &object);
+	
+	/**
+	 *  コンストラクタ
+	 */
+	SaveGetParamsRequestEntity();
+	
+	/**
+	 *  デストラクタ
+	 */
+	~SaveGetParamsRequestEntity();
 };
 
 /// セーブデータ取得リクエストEntity
 class SaveGetRequestEntity final: public BaseRequestEntity<SaveGetParamsRequestEntity> {
 public:
+	/**
+	 *  コンストラクタ
+	 */
+	SaveGetRequestEntity() {}
+	
+	/**
+	 *  デストラクタ
+	 */
+	~SaveGetRequestEntity() {}
 };
 
 #endif /* SaveGetRequestEntity_h */

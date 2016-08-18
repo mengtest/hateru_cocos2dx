@@ -64,6 +64,25 @@ bool LocationGetMetaDetailResponseEntity::mapping(picojson::object &object) {
 }
 
 /**
+ *  コンストラクタ
+ */
+LocationGetMetaDetailResponseEntity::LocationGetMetaDetailResponseEntity() {
+	userCode = "";
+	userName = "";
+	message = "";
+	mapIndex = 0;
+	x = 0;
+	y = 0;
+	otherInfos = "";
+}
+
+/**
+ *  デストラクタ
+ */
+LocationGetMetaDetailResponseEntity::~LocationGetMetaDetailResponseEntity() {
+}
+
+/**
  *  マッピング
  *
  *  @param object JSONオブジェクト

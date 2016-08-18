@@ -26,3 +26,17 @@ bool TokenGetMetaResponseEntity::mapping(picojson::object &object) {
 	}
 	return true;
 }
+
+/**
+ *  コンストラクタ
+ */
+TokenGetMetaResponseEntity::TokenGetMetaResponseEntity() {
+	accessToken = "";
+}
+
+/**
+ *  デストラクタ
+ */
+TokenGetMetaResponseEntity::~TokenGetMetaResponseEntity() {
+	
+}

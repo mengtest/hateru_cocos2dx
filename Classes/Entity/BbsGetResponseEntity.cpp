@@ -58,6 +58,24 @@ bool BbsGetDetailResponseEntity::mapping(picojson::object &object) {
 }
 
 /**
+ *  コンストラクタ
+ */
+BbsGetDetailResponseEntity::BbsGetDetailResponseEntity() {
+	userCode = "";
+	userName = "";
+	messageCode = "";
+	messageType = "";
+	messageData = "";
+	createAt = "";
+}
+
+/**
+ *  デストラクタ
+ */
+BbsGetDetailResponseEntity::~BbsGetDetailResponseEntity() {
+}
+
+/**
  *  マッピング
  *
  *  @param object JSONオブジェクト
@@ -65,6 +83,12 @@ bool BbsGetDetailResponseEntity::mapping(picojson::object &object) {
  *  @return マッピング可否
  */
 bool BbsGetMetaResponseEntity::mapping(picojson::object &object) {
+	if (object["bbsCode"].is<string>()) {
+		bbsCode = object["bbsCode"].get<string>();
+	} else {
+		log(JSON_BAD_MAPPING_ERROR, "bbsCode");
+		return false;
+	}
 	if (object["messages"].is<picojson::array>()) {
 		messages.clear();
 		auto locationArray = object["messages"].get<picojson::array>();
@@ -82,4 +106,18 @@ bool BbsGetMetaResponseEntity::mapping(picojson::object &object) {
 		return false;
 	}
 	return true;
+}
+
+/**
+ *  コンストラクタ
+ */
+BbsGetMetaResponseEntity::BbsGetMetaResponseEntity() {
+	bbsCode = "";
+	messages.clear();
+}
+
+/**
+ *  デストラクタ
+ */
+BbsGetMetaResponseEntity::~BbsGetMetaResponseEntity() {
 }

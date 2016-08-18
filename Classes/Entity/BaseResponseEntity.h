@@ -32,6 +32,16 @@ public:
 	 *  @return マッピング可否
 	 */
 	bool mapping(picojson::object &object);
+	
+	/**
+	 *  コンストラクタ
+	 */
+	BaseStatusResponseEntity();
+	
+	/**
+	 *  デストラクタ
+	 */
+	~BaseStatusResponseEntity();
 };
 
 /// ベースレスポンスEntity

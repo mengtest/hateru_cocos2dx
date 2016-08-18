@@ -16,3 +16,17 @@
 void SaveSendParamsRequestEntity::serialize(picojson::object &object) {
 	object.insert(make_pair("saveData", picojson::value(saveData)));
 }
+
+/**
+ *  コンストラクタ
+ */
+SaveSendParamsRequestEntity::SaveSendParamsRequestEntity() {
+	saveData = "";
+}
+
+/**
+ *  デストラクタ
+ */
+SaveSendParamsRequestEntity::~SaveSendParamsRequestEntity() {
+}
+

@@ -21,7 +21,7 @@ bool ItemInfoGetMetaResponseEntity::mapping(picojson::object &object) {
 	if (object["itemKindIndex"].is<double>()) {
 		itemKindIndex = (int)object["itemKindIndex"].get<double>();
 	} else {
-		log(JSON_BAD_MAPPING_ERROR, "monitemKindIndexey");
+		log(JSON_BAD_MAPPING_ERROR, "itemKindIndex");
 		return false;
 	}
 	if (object["itemCode"].is<string>()) {
@@ -49,4 +49,21 @@ bool ItemInfoGetMetaResponseEntity::mapping(picojson::object &object) {
 		return false;
 	}
 	return true;
+}
+
+/**
+ *  コンストラクタ
+ */
+ItemInfoGetMetaResponseEntity::ItemInfoGetMetaResponseEntity() {
+	itemKindIndex = 0;
+	itemCode = "";
+	hopeItemKindIndex = 0;
+	exchangeStatus = "";
+	hasPassowrd = "";
+}
+
+/**
+ *  デストラクタ
+ */
+ItemInfoGetMetaResponseEntity::~ItemInfoGetMetaResponseEntity() {
 }

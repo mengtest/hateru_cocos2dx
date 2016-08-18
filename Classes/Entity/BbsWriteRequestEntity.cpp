@@ -19,3 +19,19 @@ void BbsWriteParamsRequestEntity::serialize(picojson::object &object) {
 	object.insert(make_pair("messageType", picojson::value(messageType)));
 	object.insert(make_pair("messageData", picojson::value(messageData)));
 }
+
+/**
+ *  コンストラクタ
+ */
+BbsWriteParamsRequestEntity::BbsWriteParamsRequestEntity() {
+	bbsCode = "";
+	messageCode = "";
+	messageType = "";
+	messageData = "";
+}
+
+/**
+ *  デストラクタ
+ */
+BbsWriteParamsRequestEntity::~BbsWriteParamsRequestEntity() {
+}

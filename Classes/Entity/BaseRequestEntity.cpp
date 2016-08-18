@@ -38,3 +38,22 @@ void BaseStatusRequestEntity::serialize(picojson::object &object) {
 	object.insert(make_pair("userName", picojson::value(userName)));
 	object.insert(make_pair("accessToken", picojson::value(accessToken)));
 }
+
+/**
+ *  コンストラクタ
+ */
+BaseStatusRequestEntity::BaseStatusRequestEntity() {
+	appToken = "";
+	appVersion = "";
+	platform = "";
+	userCode = "";
+	userName = "";
+	accessToken = "";
+}
+
+/**
+ *  デストラクタ
+ */
+BaseStatusRequestEntity::~BaseStatusRequestEntity() {
+	
+}

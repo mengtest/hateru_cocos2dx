@@ -26,11 +26,30 @@ public:
 	 *  @return マッピング可否
 	 */
 	bool mapping(picojson::object &object);
+	
+	/**
+	 *  コンストラクタ
+	 */
+	SaveSendMetaResponseEntity();
+	
+	/**
+	 *  デストラクタ
+	 */
+	~SaveSendMetaResponseEntity();
 };
 
 /// セーブデータ送信レスポンスEntity
 class SaveSendResponseEntity final: public BaseResponseEntity<SaveSendMetaResponseEntity> {
 public:
+	/**
+	 *  コンストラクタ
+	 */
+	SaveSendResponseEntity() {}
+	
+	/**
+	 *  デストラクタ
+	 */
+	~SaveSendResponseEntity() {}
 };
 
 #endif /* SaveSendResponseEntity_h */

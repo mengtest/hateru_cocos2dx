@@ -16,3 +16,17 @@
 void ProfileSendParamsRequestEntity::serialize(picojson::object &object) {
 	object.insert(make_pair("profileData", picojson::value(profileData)));
 }
+
+/**
+ *  コンストラクタ
+ */
+ProfileSendParamsRequestEntity::ProfileSendParamsRequestEntity() {
+	profileData = "";
+}
+
+/**
+ *  デストラクタ
+ */
+ProfileSendParamsRequestEntity::~ProfileSendParamsRequestEntity() {
+}
+

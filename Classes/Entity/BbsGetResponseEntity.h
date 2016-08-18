@@ -36,6 +36,16 @@ public:
 	 *  @return マッピング可否
 	 */
 	bool mapping(picojson::object &object);
+	
+	/**
+	 *  コンストラクタ
+	 */
+	BbsGetDetailResponseEntity();
+	
+	/**
+	 *  デストラクタ
+	 */
+	~BbsGetDetailResponseEntity();
 };
 
 /// 掲示板取得メタレスポンスEntity
@@ -55,11 +65,30 @@ public:
 	 *  @return マッピング可否
 	 */
 	bool mapping(picojson::object &object);
+	
+	/**
+	 *  コンストラクタ
+	 */
+	BbsGetMetaResponseEntity();
+	
+	/**
+	 *  デストラクタ
+	 */
+	~BbsGetMetaResponseEntity();
 };
 
 /// 掲示板取得レスポンスEntity
 class BbsGetResponseEntity final: public BaseResponseEntity<BbsGetMetaResponseEntity> {
 public:
+	/**
+	 *  コンストラクタ
+	 */
+	BbsGetResponseEntity() {}
+	
+	/**
+	 *  デストラクタ
+	 */
+	~BbsGetResponseEntity() {}
 };
 
 #endif /* BbsGetResponseEntity_h */

@@ -30,11 +30,30 @@ public:
 	 *  @return マッピング可否
 	 */
 	bool mapping(picojson::object &object);
+	
+	/**
+	 *  コンストラクタ
+	 */
+	CharaGetMetaResponseEntity();
+	
+	/**
+	 *  デストラクタ
+	 */
+	~CharaGetMetaResponseEntity();
 };
 
 /// キャラ取得レスポンスEntity
 class CharaGetResponseEntity final: public BaseResponseEntity<CharaGetMetaResponseEntity> {
 public:
+	/**
+	 *  コンストラクタ
+	 */
+	CharaGetResponseEntity() {}
+	
+	/**
+	 *  デストラクタ
+	 */
+	~CharaGetResponseEntity() {}
 };
 
 #endif /* CharaGetResponseEntity_h */

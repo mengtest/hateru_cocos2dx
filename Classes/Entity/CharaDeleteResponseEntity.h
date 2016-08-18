@@ -23,11 +23,30 @@ public:
 	 *  @return マッピング可否
 	 */
 	bool mapping(picojson::object &object);
+	
+	/**
+	 *  コンストラクタ
+	 */
+	CharaDeleteMetaResponseEntity() {}
+	
+	/**
+	 *  デストラクタ
+	 */
+	~CharaDeleteMetaResponseEntity() {}
 };
 
 /// キャラ削除レスポンスEntity
 class CharaDeleteResponseEntity final: public BaseResponseEntity<CharaDeleteMetaResponseEntity> {
 public:
+	/**
+	 *  コンストラクタ
+	 */
+	CharaDeleteResponseEntity() {}
+	
+	/**
+	 *  デストラクタ
+	 */
+	~CharaDeleteResponseEntity() {}
 };
 
 #endif /* CharaDeleteResponseEntity_h */

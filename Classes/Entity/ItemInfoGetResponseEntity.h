@@ -34,11 +34,30 @@ public:
 	 *  @return マッピング可否
 	 */
 	bool mapping(picojson::object &object);
+	
+	/**
+	 *  コンストラクタ
+	 */
+	ItemInfoGetMetaResponseEntity();
+	
+	/**
+	 *  デストラクタ
+	 */
+	~ItemInfoGetMetaResponseEntity();
 };
 
 /// アイテム情報取得レスポンスEntity
 class ItemInfoGetResponseEntity final: public BaseResponseEntity<ItemInfoGetMetaResponseEntity> {
 public:
+	/**
+	 *  コンストラクタ
+	 */
+	ItemInfoGetResponseEntity() {}
+	
+	/**
+	 *  デストラクタ
+	 */
+	~ItemInfoGetResponseEntity() {}
 };
 
 #endif /* ItemInfoGetResponseEntity_h */

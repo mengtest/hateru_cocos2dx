@@ -20,3 +20,20 @@ void LocationSendParamsRequestEntity::serialize(picojson::object &object) {
 	object.insert(make_pair("y", picojson::value((double)y)));
 	object.insert(make_pair("otherInfos", picojson::value(otherInfos)));
 }
+
+/**
+ *  コンストラクタ
+ */
+LocationSendParamsRequestEntity::LocationSendParamsRequestEntity() {
+	message = "";
+	mapIndex = 0;
+	x = 0;
+	y = 0;
+	otherInfos = "";
+}
+
+/**
+ *  デストラクタ
+ */
+LocationSendParamsRequestEntity::~LocationSendParamsRequestEntity() {
+}

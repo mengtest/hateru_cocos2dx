@@ -53,3 +53,18 @@ bool BaseStatusResponseEntity::mapping(picojson::object &object) {
 	}
 	return true;
 }
+
+/**
+ *  コンストラクタ
+ */
+BaseStatusResponseEntity::BaseStatusResponseEntity() {
+	code = 0;
+	message = "";
+}
+
+/**
+ *  デストラクタ
+ */
+BaseStatusResponseEntity::~BaseStatusResponseEntity() {
+	
+}

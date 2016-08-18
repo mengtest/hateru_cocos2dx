@@ -18,3 +18,18 @@ void ItemGetParamsRequestEntity::serialize(picojson::object &object) {
 	object.insert(make_pair("exchangeToken", picojson::value(exchangeToken)));
 	object.insert(make_pair("password", picojson::value(password)));
 }
+
+/**
+ *  コンストラクタ
+ */
+ItemGetParamsRequestEntity::ItemGetParamsRequestEntity() {
+	userCode = "";
+	exchangeToken = "";
+	password = "";
+}
+
+/**
+ *  デストラクタ
+ */
+ItemGetParamsRequestEntity::~ItemGetParamsRequestEntity() {
+}

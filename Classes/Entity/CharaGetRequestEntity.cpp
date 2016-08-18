@@ -16,3 +16,16 @@
 void CharaGetParamsRequestEntity::serialize(picojson::object &object) {
 	object.insert(make_pair("userCode", picojson::value(userCode)));
 }
+
+/**
+ *  コンストラクタ
+ */
+CharaGetParamsRequestEntity::CharaGetParamsRequestEntity() {
+	userCode = "";
+}
+
+/**
+ *  デストラクタ
+ */
+CharaGetParamsRequestEntity::~CharaGetParamsRequestEntity() {
+}

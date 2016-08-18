@@ -23,11 +23,30 @@ public:
 	 *  @return マッピング可否
 	 */
 	bool mapping(picojson::object &object);
+	
+	/**
+	 *  コンストラクタ
+	 */
+	CharaSendMetaResponseEntity() {}
+	
+	/**
+	 *  デストラクタ
+	 */
+	~CharaSendMetaResponseEntity() {}
 };
 
 /// キャラ送信レスポンスEntity
 class CharaSendResponseEntity final: public BaseResponseEntity<CharaSendMetaResponseEntity> {
 public:
+	/**
+	 *  コンストラクタ
+	 */
+	CharaSendResponseEntity() {}
+	
+	/**
+	 *  デストラクタ
+	 */
+	~CharaSendResponseEntity() {}
 };
 
 #endif /* CharaSendResponseEntity_h */

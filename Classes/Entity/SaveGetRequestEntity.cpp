@@ -16,3 +16,17 @@
 void SaveGetParamsRequestEntity::serialize(picojson::object &object) {
 	object.insert(make_pair("saveToken", picojson::value(saveToken)));
 }
+
+/**
+ *  コンストラクタ
+ */
+SaveGetParamsRequestEntity::SaveGetParamsRequestEntity() {
+	saveToken = "";
+}
+
+/**
+ *  デストラクタ
+ */
+SaveGetParamsRequestEntity::~SaveGetParamsRequestEntity() {
+}
+

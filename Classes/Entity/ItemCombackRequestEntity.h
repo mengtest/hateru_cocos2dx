@@ -24,11 +24,30 @@ public:
 	 *  @param object JSONオブジェクト
 	 */
 	void serialize(picojson::object &object);
+	
+	/**
+	 *  コンストラクタ
+	 */
+	ItemCombackParamsRequestEntity();
+	
+	/**
+	 *  デストラクタ
+	 */
+	~ItemCombackParamsRequestEntity();
 };
 
 /// アイテム削除リクエストEntity
 class ItemCombackRequestEntity final: public BaseRequestEntity<ItemCombackParamsRequestEntity> {
 public:
+	/**
+	 *  コンストラクタ
+	 */
+	ItemCombackRequestEntity() {}
+	
+	/**
+	 *  デストラクタ
+	 */
+	~ItemCombackRequestEntity() {}
 };
 
 #endif /* ItemCombackRequestEntity_h */

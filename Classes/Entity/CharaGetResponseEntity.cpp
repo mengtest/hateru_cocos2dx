@@ -38,3 +38,19 @@ bool CharaGetMetaResponseEntity::mapping(picojson::object &object) {
 	}
 	return true;
 }
+
+/**
+ *  コンストラクタ
+ */
+CharaGetMetaResponseEntity::CharaGetMetaResponseEntity() {
+	userCode = "";
+	userName = "";
+	statusData = "";
+}
+
+/**
+ *  デストラクタ
+ */
+CharaGetMetaResponseEntity::~CharaGetMetaResponseEntity() {
+}
+
