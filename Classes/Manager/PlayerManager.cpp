@@ -13,6 +13,7 @@
 #include "LogConst.h"
 #include "FileConst.h"
 #include "JsonUtil.h"
+#include "PlayerEncryptEntity.h"
 
 /**
  *  読み込み
@@ -42,12 +43,13 @@ PlayerEntity PlayerManager::load() {
 	}
 	
 	// マッピング
-	auto isSuccess = entity.mapping(jsonValue.get<picojson::object>());
+	PlayerEncryptEntity encryptEntity;
+	auto isSuccess = encryptEntity.mapping(jsonValue.get<picojson::object>());
 	if (!isSuccess) {
 		return PlayerEntity();
 	}
 	
-	return entity;
+	return encryptEntity.toPlayerEntity();
 }
 
 /**
@@ -55,14 +57,18 @@ PlayerEntity PlayerManager::load() {
  *
  *  @param entity プレイヤー情報
  */
-void PlayerManager::save(PlayerEncryptEntity &entity) {
+void PlayerManager::save(PlayerEntity &entity) {
 	
 	// パス取得
 	auto path = FileUtils::getInstance()->getWritablePath();
 
+	// 暗号化
+	PlayerEncryptEntity encryptEntity;
+	encryptEntity.setPlayerEntity(entity);
+	
 	// JSONにシリアライズ
 	picojson::object object;
-	entity.serialize(object);
+	encryptEntity.serialize(object);
 	picojson::value val(object);
 	
 	FileUtils::getInstance()->writeStringToFile(val.serialize(), path + SAVE_FILE_NAME);

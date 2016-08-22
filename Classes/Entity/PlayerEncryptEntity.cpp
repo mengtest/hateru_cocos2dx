@@ -38,11 +38,11 @@ void PlayerEncryptEntity::setPlayerEntity(PlayerEntity &playerEntity) {
 	playerEntity.serialize(object);
 	picojson::value val(object);
 
-	// 値を設定
-	data = val.serialize();
-	
 	// チェックデジット取得
-	checkDigit = EncryptUtil::hash(data);
+	checkDigit = EncryptUtil::hash(val.serialize());
+	
+	// 暗号化
+	data = EncryptUtil::encrypt(val.serialize());
 }
 
 /**
