@@ -11,9 +11,10 @@
 #include <iostream>
 #include <iomanip>
 #include "openssl/md5.h"
+#include "openssl/evp.h"
 
 #include "EncryptConst.h"
-
+#include "Base64Util.h"
 
 /**
  *  ハッシュ化
@@ -41,7 +42,24 @@ string EncryptUtil::hash(const string &inStr) {
  *  @return 暗号化文字列
  */
 string EncryptUtil::encrypt(const string &inStr) {
-	return "";
+	
+	// AES128で暗号化 (AES256はAndoridで難があるらしい)
+	int encryptLen = 0;
+	int paddingLen = 0;
+	vector<unsigned char> encrypt(inStr.length() + EVP_MAX_BLOCK_LENGTH);
+	EVP_CIPHER_CTX context;
+	EVP_EncryptInit(&context, EVP_aes_128_ecb(), (unsigned char*)SAVE_DATA_ENCRYPT_KEY, nullptr);
+	EVP_EncryptUpdate(&context, encrypt.data(), &encryptLen, (unsigned char*)inStr.c_str(), (int)inStr.length());
+	EVP_EncryptFinal(&context, encrypt.data() + encryptLen, &paddingLen);
+	EVP_CIPHER_CTX_cleanup(&context);
+
+	// Base64エンコード
+	auto retStr = Base64Util::encode(encrypt.data(), encryptLen + paddingLen);
+	
+	// メモリ解放
+	EVP_cleanup();
+	
+	return retStr;
 }
 
 /**
@@ -52,5 +70,29 @@ string EncryptUtil::encrypt(const string &inStr) {
  *  @return 復号化文字列
  */
 string EncryptUtil::decrypt(const string &inStr) {
-	return "";
+	
+	// Base64デコード
+	vector<unsigned char> buff;
+	auto isSuccess = Base64Util::decode(inStr, buff);
+	if (!isSuccess) {
+		return "";
+	}
+	
+	// 復号化
+	int decryptLen = 0;
+	int paddingLen = 0;
+	vector<unsigned char> decrypt(buff.size());
+	EVP_CIPHER_CTX context;
+	EVP_DecryptInit(&context, EVP_aes_128_ecb(), (unsigned char*)SAVE_DATA_ENCRYPT_KEY, nullptr);
+	EVP_DecryptUpdate(&context, decrypt.data(), &decryptLen, buff.data(), (int)buff.size());
+	EVP_DecryptFinal(&context, decrypt.data() + decryptLen, &paddingLen);
+	EVP_CIPHER_CTX_cleanup(&context);
+
+	// 復号化したデータを文字列に変換
+	string retStr((char *)decrypt.data(), decryptLen + paddingLen);
+	
+	// メモリ解放
+	EVP_cleanup();
+	
+	return retStr;
 }
