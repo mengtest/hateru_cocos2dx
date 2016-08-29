@@ -20,10 +20,6 @@ using namespace std;
 class PlayerProfileEntity final: public Ref {
 public:
 	
-	/// ユーザID
-	string id;
-	/// ユーザ名
-	string name;
 	/// 性別
 	int gender;
 	/// 年齢
@@ -34,9 +30,6 @@ public:
 	int blood;
 	/// 星座
 	int constellation;
-	
-	/// セーブトークン
-	string saveToken;
 	
 	/**
 	 *  コンストラクタ

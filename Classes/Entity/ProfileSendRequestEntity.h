@@ -11,6 +11,8 @@
 
 #include "BaseRequestEntity.h"
 
+#include "PlayerProfileEntity.h"
+
 /// プロフィール送信パラメータリクエストEntity
 class ProfileSendParamsRequestEntity final: public Ref {
 public:
@@ -24,6 +26,13 @@ public:
 	 *  @param object JSONオブジェクト
 	 */
 	void serialize(picojson::object &object);
+	
+	/**
+	 *  プロフィールEntityより設定
+	 *
+	 *  @param profileEntity プロフィールEntity
+	 */
+	void fromPlayerProfileEntity(PlayerProfileEntity &profileEntity);
 	
 	/**
 	 *  コンストラクタ

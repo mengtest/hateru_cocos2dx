@@ -15,6 +15,9 @@
  */
 PlayerEntity::PlayerEntity() {
 	isValid = false;
+	id = "";
+	name = "";
+	saveToken = "";
 	money = 0;
 	units.clear();
 	teleports.clear();
@@ -33,6 +36,9 @@ PlayerEntity::~PlayerEntity() {
  *  @param object JSONオブジェクト
  */
 void PlayerEntity::serialize(picojson::object &object) {
+	object.insert(make_pair("id", picojson::value(id)));
+	object.insert(make_pair("name", picojson::value(name)));
+	object.insert(make_pair("saveToken", picojson::value(saveToken)));
 	picojson::object profileObj;
 	profile.serialize(profileObj);
 	object.insert(make_pair("profile", picojson::value(profileObj)));
@@ -74,6 +80,24 @@ void PlayerEntity::serialize(picojson::object &object) {
  *  @return マッピング可否
  */
 bool PlayerEntity::mapping(picojson::object &object) {
+	if (object["id"].is<string>()) {
+		id = object["id"].get<string>();
+	} else {
+		log(JSON_BAD_MAPPING_ERROR, "id");
+		return false;
+	}
+	if (object["name"].is<string>()) {
+		name = object["name"].get<string>();
+	} else {
+		log(JSON_BAD_MAPPING_ERROR, "name");
+		return false;
+	}
+	if (object["saveToken"].is<string>()) {
+		saveToken = object["saveToken"].get<string>();
+	} else {
+		log(JSON_BAD_MAPPING_ERROR, "saveToken");
+		return false;
+	}
 	if (object["profile"].is<picojson::object>()) {
 		auto profileObj = object["profile"].get<picojson::object>();
 		auto isSuccess = profile.mapping(profileObj);

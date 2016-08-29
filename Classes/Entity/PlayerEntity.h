@@ -28,6 +28,14 @@ public:
 	/// 有効フラグ
 	bool isValid;
 	
+	/// ユーザID
+	string id;
+	/// ユーザ名
+	string name;
+	
+	/// セーブトークン
+	string saveToken;
+	
 	/// プロフィールEntity
 	PlayerProfileEntity profile;
 	
