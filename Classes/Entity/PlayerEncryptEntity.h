@@ -22,6 +22,9 @@ using namespace std;
 class PlayerEncryptEntity: public Ref {
 public:
 	
+	/// 有効フラグ
+	bool isValid;
+	
 	/// データ
 	string data;
 	

@@ -12,6 +12,7 @@
 #include "BaseManager.h"
 
 #include "PlayerEntity.h"
+#include "PlayerEncryptEntity.h"
 
 /// プレイヤーマネージャ
 class PlayerManager final: BaseManager {
@@ -23,7 +24,14 @@ public:
 	 *  @return 取得データ
 	 */
 	static PlayerEntity load();
-	
+
+	/**
+	 *  暗号化データを読み込み
+	 *
+	 *  @return 取得データ
+	 */
+	static PlayerEncryptEntity loadEncrypt();
+
 	/**
 	 *  保存
 	 *

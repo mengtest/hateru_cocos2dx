@@ -17,6 +17,8 @@ public:
 	
 	/// セーブデータ
 	string saveData;
+	/// チェックデジット
+	string checkDigit;
 	
 	/**
 	 *  シリアライズ
@@ -24,6 +26,13 @@ public:
 	 *  @param object JSONオブジェクト
 	 */
 	void serialize(picojson::object &object);
+	
+	/**
+	 *  セーブデータを読み込んで設定する
+	 *
+	 *  @return 読み込み可否
+	 */
+	bool loadAndSetting();
 	
 	/**
 	 *  コンストラクタ

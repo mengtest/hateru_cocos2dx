@@ -16,6 +16,7 @@
  *  コンストラクタ
  */
 PlayerEncryptEntity::PlayerEncryptEntity() {
+	isValid = false;
 	data = "";
 	checkDigit = "";
 }

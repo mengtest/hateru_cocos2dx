@@ -35,6 +35,9 @@ public:
 	/// 星座
 	int constellation;
 	
+	/// セーブトークン
+	string saveToken;
+	
 	/**
 	 *  コンストラクタ
 	 */

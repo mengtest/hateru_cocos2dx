@@ -21,6 +21,7 @@ PlayerProfileEntity::PlayerProfileEntity() {
 	address = 0;
 	blood = 0;
 	constellation = 0;
+	saveToken = "";
 }
 
 /**
@@ -42,6 +43,7 @@ void PlayerProfileEntity::serialize(picojson::object &object) {
 	object.insert(make_pair("address", picojson::value((double)address)));
 	object.insert(make_pair("blood", picojson::value((double)blood)));
 	object.insert(make_pair("constellation", picojson::value((double)constellation)));
+	object.insert(make_pair("saveToken", picojson::value(saveToken)));
 }
 
 /**
@@ -92,6 +94,12 @@ bool PlayerProfileEntity::mapping(picojson::object &object) {
 		constellation = (int)object["constellation"].get<double>();
 	} else {
 		log(JSON_BAD_MAPPING_ERROR, "constellation");
+		return false;
+	}
+	if (object["saveToken"].is<string>()) {
+		saveToken = object["saveToken"].get<string>();
+	} else {
+		log(JSON_BAD_MAPPING_ERROR, "saveToken");
 		return false;
 	}
 	return true;

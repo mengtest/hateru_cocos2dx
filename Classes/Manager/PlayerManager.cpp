@@ -22,7 +22,24 @@
  */
 PlayerEntity PlayerManager::load() {
 
-	PlayerEntity entity;
+	// マッピング
+	PlayerEncryptEntity encryptEntity = loadEncrypt();
+	if (!encryptEntity.isValid) {
+		return PlayerEntity();
+	}
+	
+	return encryptEntity.toPlayerEntity();
+}
+
+
+/**
+ *  暗号化データを読み込み
+ *
+ *  @return 取得データ
+ */
+PlayerEncryptEntity PlayerManager::loadEncrypt() {
+	
+	PlayerEncryptEntity encryptEntity;
 	
 	// パス取得
 	auto path = FileUtils::getInstance()->getWritablePath();
@@ -30,26 +47,28 @@ PlayerEntity PlayerManager::load() {
 	// 文字列として読み込む
 	auto saveData = FileUtils::getInstance()->getStringFromFile(path + SAVE_FILE_NAME);
 	if (saveData.empty()) {
-		return entity;
+		return encryptEntity;
 	}
-
+	
 	// JSON変換
 	string error;
 	picojson::value jsonValue;
 	JsonUtil::jsonParse(&jsonValue, &error, &saveData);
 	if(!error.empty()){
 		log(JSON_PARSE_ERROR, error.c_str());
-		return entity;
+		return encryptEntity;
 	}
 	
 	// マッピング
-	PlayerEncryptEntity encryptEntity;
 	auto isSuccess = encryptEntity.mapping(jsonValue.get<picojson::object>());
 	if (!isSuccess) {
-		return PlayerEntity();
+		return PlayerEncryptEntity();
 	}
-	
-	return encryptEntity.toPlayerEntity();
+
+	// 有効フラグON
+	encryptEntity.isValid = true;
+
+	return encryptEntity;
 }
 
 /**

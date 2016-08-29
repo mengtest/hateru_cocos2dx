@@ -11,12 +11,16 @@
 
 #include "BaseResponseEntity.h"
 
+#include "PlayerEntity.h"
+
 /// マイアイテム情報取得メタレスポンスEntity
 class SaveGetMetaResponseEntity final: public Ref {
 public:
 	
 	/// セーブデータ
 	string saveData;
+	/// チェックデジット
+	string checkDigit;
 	
 	/**
 	 *  マッピング
@@ -26,6 +30,13 @@ public:
 	 *  @return マッピング可否
 	 */
 	bool mapping(picojson::object &object);
+	
+	/**
+	 *  プレイヤーEntityに変換
+	 *
+	 *  @return プレイヤーEntity
+	 */
+	PlayerEntity toPlayerEntity();
 	
 	/**
 	 *  コンストラクタ

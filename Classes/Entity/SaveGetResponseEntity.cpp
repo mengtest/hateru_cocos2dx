@@ -9,6 +9,7 @@
 #include "SaveGetResponseEntity.h"
 
 #include "LogConst.h"
+#include "PlayerEncryptEntity.h"
 
 /**
  *  マッピング
@@ -24,7 +25,27 @@ bool SaveGetMetaResponseEntity::mapping(picojson::object &object) {
 		log(JSON_BAD_MAPPING_ERROR, "saveData");
 		return false;
 	}
+	if (object["checkDigit"].is<string>()) {
+		checkDigit = object["checkDigit"].get<string>();
+	} else {
+		log(JSON_BAD_MAPPING_ERROR, "checkDigit");
+		return false;
+	}
 	return true;
+}
+
+/**
+ *  プレイヤーEntityに変換
+ *
+ *  @return プレイヤーEntity
+ */
+PlayerEntity SaveGetMetaResponseEntity::toPlayerEntity() {
+
+	PlayerEncryptEntity encryptEntity;
+	encryptEntity.data = saveData;
+	encryptEntity.checkDigit = saveData;
+
+	return encryptEntity.toPlayerEntity();
 }
 
 /**
@@ -32,6 +53,7 @@ bool SaveGetMetaResponseEntity::mapping(picojson::object &object) {
  */
 SaveGetMetaResponseEntity::SaveGetMetaResponseEntity() {
 	saveData = "";
+	checkDigit = "";
 }
 
 /**
