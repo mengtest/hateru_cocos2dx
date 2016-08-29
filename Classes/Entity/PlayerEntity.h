@@ -16,6 +16,7 @@
 #include "PlayerUnitEntity.h"
 #include "PlayerTeleportEntity.h"
 #include "PlayerMapEntity.h"
+#include "PlayerProfileEntity.h"
 
 USING_NS_CC;
 using namespace std;
@@ -26,6 +27,9 @@ public:
 	
 	/// 有効フラグ
 	bool isValid;
+	
+	/// プロフィールEntity
+	PlayerProfileEntity profile;
 	
 	/// 所持金
 	int money;

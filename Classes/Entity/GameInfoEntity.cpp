@@ -11,6 +11,31 @@
 #include "SJISUtil.h"
 
 /**
+ *  コンストラクタ
+ */
+GameInfoEntity::GameInfoEntity() {
+	initMoney = 0;
+	moneyUnit = "";
+	initMapId = 0;
+	initX = 0;
+	initY = 0;
+	initMemberIds.clear();
+	shipUnitId = 0;
+	flyShipUnitId = 0;
+	shipSoundId = 0;
+	flyShipSoundId = 0;
+	innSoundId = 0;
+	levelUpSoundId = 0;
+	battleEndSoundId = 0;
+}
+
+/**
+ *  デストラクタ
+ */
+GameInfoEntity::~GameInfoEntity() {
+}
+
+/**
  *  バイナリデータよりEntity作成
  *
  *  @param data バイナリデータ
@@ -75,3 +100,4 @@ GameInfoEntity GameInfoEntity::createEntity(const unsigned char *data) {
 	entity.convertData(data);
 	return entity;
 }
+

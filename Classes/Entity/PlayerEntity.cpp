@@ -33,6 +33,9 @@ PlayerEntity::~PlayerEntity() {
  *  @param object JSONオブジェクト
  */
 void PlayerEntity::serialize(picojson::object &object) {
+	picojson::object profileObj;
+	profile.serialize(profileObj);
+	object.insert(make_pair("profile", picojson::value(profileObj)));
 	object.insert(make_pair("money", picojson::value((double)money)));
 	picojson::array unitList;
 	for (auto it = units.begin(); it != units.end(); it++) {
@@ -71,6 +74,13 @@ void PlayerEntity::serialize(picojson::object &object) {
  *  @return マッピング可否
  */
 bool PlayerEntity::mapping(picojson::object &object) {
+	if (object["profile"].is<picojson::object>()) {
+		auto profileObj = object["profile"].get<picojson::object>();
+		auto isSuccess = profile.mapping(profileObj);
+		if (!isSuccess) {
+			return false;
+		}
+	}
 	if (object["money"].is<double>()) {
 		money = (int)object["money"].get<double>();
 	} else {
@@ -95,7 +105,10 @@ bool PlayerEntity::mapping(picojson::object &object) {
 	}
 	if (object["location"].is<picojson::object>()) {
 		auto loc = object["location"].get<picojson::object>();
-		location.mapping(loc);
+		auto isSuccess = location.mapping(loc);
+		if (!isSuccess) {
+			return false;
+		}
 	} else {
 		log(JSON_BAD_MAPPING_ERROR, "location");
 		return false;
@@ -118,7 +131,10 @@ bool PlayerEntity::mapping(picojson::object &object) {
 	}
 	if (object["escapeLocation"].is<picojson::object>()) {
 		auto loc = object["escapeLocation"].get<picojson::object>();
-		escapeLocation.mapping(loc);
+		auto isSuccess = escapeLocation.mapping(loc);
+		if (!isSuccess) {
+			return false;
+		}
 	} else {
 		log(JSON_BAD_MAPPING_ERROR, "escapeLocation");
 		return false;

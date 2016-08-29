@@ -11,6 +11,8 @@
 
 #include "BaseGameEntity.h"
 
+#include "PlayerEntity.h"
+
 /// ゲームEntity
 class GameInfoEntity final: public BaseGameEntity {
 public:
@@ -41,7 +43,17 @@ public:
 	int levelUpSoundId;
 	/// 戦闘終了サウンドID
 	int battleEndSoundId;
-
+	
+	/**
+	 *  コンストラクタ
+	 */
+	GameInfoEntity();
+	
+	/**
+	 *  デストラクタ
+	 */
+	~GameInfoEntity();
+	
 	/**
 	 *  バイナリデータよりEntity作成
 	 *
