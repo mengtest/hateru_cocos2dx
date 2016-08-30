@@ -9,6 +9,45 @@
 #include "PlayerEntity.h"
 
 #include "LogConst.h"
+#include "GameConst.h"
+#include "GameMainService.h"
+
+/**
+ *  キャラ追加
+ *
+ *  @param unitId ユニットID
+ */
+void PlayerEntity::addUnit(int unitId) {
+	
+	// ユニット情報取得
+	auto charaEntity = GameMainService::sharedInstance()->getChara(unitId);
+	// 職業情報取得
+	auto jobEntity = GameMainService::sharedInstance()->getJob(charaEntity->initJobId);
+	
+	PlayerUnitEntity unitEntity;
+	
+	// 職業情報からステータス設定
+	unitEntity.unitId = unitId;
+	unitEntity.statuses[UnitStatusTypeJob] = charaEntity->initJobId;
+	for (int i = AddStatusTypeMaxHP;i <= AddStatusTypeSpeed;i++) {
+		unitEntity.statuses[UnitStatusTypeMaxHP + i] = jobEntity->statuses[i][0];
+	}
+	unitEntity.statuses[UnitStatusTypeHP] = unitEntity.statuses[UnitStatusTypeMaxHP];
+	unitEntity.statuses[UnitStatusTypeMP] = unitEntity.statuses[UnitStatusTypeMaxMP];
+	// アイテム追加
+	for (auto it = charaEntity->initItemIds.begin();it != charaEntity->initItemIds.end();it++) {
+		// TODO:アイテム追加
+	}
+	// スキル反映
+	for (auto it = jobEntity->skills.begin();it != jobEntity->skills.end();it++) {
+		if (it->level != 0) {
+			continue;
+		}
+		// TODO:スキル追加
+	}
+	units.push_back(unitEntity);
+}
+
 
 /**
  *  コンストラクタ

@@ -58,6 +58,13 @@ public:
 	vector<PlayerItemEntity> cloakrooms;
 	
 	/**
+	 *  キャラ追加
+	 *
+	 *  @param unitId ユニットID
+	 */
+	void addUnit(int unitId);
+	
+	/**
 	 *  コンストラクタ
 	 */
 	PlayerEntity();

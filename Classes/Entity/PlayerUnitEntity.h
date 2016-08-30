@@ -28,7 +28,7 @@ public:
 	/// 名前
 	string name;
 	/// 種類
-	int unitType;
+	int unitId;
 	/// 状態
 	int config;
 	/// ステータス

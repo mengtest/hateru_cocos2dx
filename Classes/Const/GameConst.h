@@ -54,6 +54,15 @@ typedef enum {
 	UnitStatusTypeDirection,	/// 方向(ステータス分岐用)
 } UnitStatusType;
 
+/// 装備タイプ
+typedef enum {
+	EquipmentTypeWeapon = 0,	/// 武器
+	EquipmentTypeArmar,			/// 防具
+	EquipmentTypeShield,		/// 盾
+	EquipmentTypeHelm,			/// 兜
+	EquipmentTypeAccessory,		/// 装飾品
+} EquipmentType;
+
 /// 状態治療
 typedef enum {
 	ConditionTypeNone = 0,		/// なし

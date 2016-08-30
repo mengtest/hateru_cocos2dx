@@ -16,10 +16,16 @@
 PlayerUnitEntity::PlayerUnitEntity() {
 	id = "";
 	name = "";
-	unitType = 0;
+	unitId = 0;
 	config = 0;
 	statuses.clear();
+	for (int i = UnitStatusTypeLv;i <= UnitStatusTypeDirection;i++) {
+		statuses.push_back(0);
+	}
 	equipments.clear();
+	for (int i = EquipmentTypeWeapon;i <= EquipmentTypeAccessory;i++) {
+		equipments.push_back(-1);
+	}
 	skills.clear();
 	items.clear();
 }
@@ -38,7 +44,7 @@ PlayerUnitEntity::~PlayerUnitEntity() {
 void PlayerUnitEntity::serialize(picojson::object &object) {
 	object.insert(make_pair("id", picojson::value(id)));
 	object.insert(make_pair("name", picojson::value(name)));
-	object.insert(make_pair("unitType", picojson::value((double)unitType)));
+	object.insert(make_pair("unitId", picojson::value((double)unitId)));
 	object.insert(make_pair("config", picojson::value((double)config)));
 	picojson::array statuseList;
 	for (auto it = statuses.begin(); it != statuses.end(); it++) {
@@ -84,10 +90,10 @@ bool PlayerUnitEntity::mapping(picojson::object &object) {
 		log(JSON_BAD_MAPPING_ERROR, "name");
 		return false;
 	}
-	if (object["unitType"].is<double>()) {
-		unitType = (int)object["unitType"].get<double>();
+	if (object["unitId"].is<double>()) {
+		unitId = (int)object["unitId"].get<double>();
 	} else {
-		log(JSON_BAD_MAPPING_ERROR, "unitType");
+		log(JSON_BAD_MAPPING_ERROR, "unitId");
 		return false;
 	}
 	if (object["config"].is<double>()) {
