@@ -28,6 +28,17 @@ public:
 	string itemId;
 	
 	/**
+	 *  アイテムEntity作成
+	 *
+	 *  @param id       ID
+	 *  @param useCount 使用回数
+	 *  @param itemId   アイテムID
+	 *
+	 *  @return PlayerItemEntity
+	 */
+	static PlayerItemEntity create(int id, int useCount, string itemId);
+	
+	/**
 	 *  コンストラクタ
 	 */
 	PlayerItemEntity();

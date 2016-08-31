@@ -58,11 +58,61 @@ public:
 	vector<PlayerItemEntity> cloakrooms;
 	
 	/**
-	 *  キャラ追加
+	 *  ユニット追加
 	 *
 	 *  @param unitId ユニットID
 	 */
 	void addUnit(int unitId);
+	
+	/**
+	 *  持ちアイテムがフルか？
+	 *
+	 *  @return true: フル、false: まだまだ
+	 */
+	bool isFullItem();
+	
+	/**
+	 *  アイテム追加
+	 *
+	 *  @param id       追加アイテムID
+	 *  @param useCount 使用回数
+	 *  @param itemId   アイテムID
+	 *
+	 *  @return true: フル、false: まだまだ
+	 */
+	bool addItem(int id, int useCount, string itemId);
+	
+	/**
+	 *  アイテム削除
+	 *
+	 *  @param id 削除アイテムID
+	 *
+	 *  @return true: あった、false: なかった
+	 */
+	bool removeItem(int id);
+	
+	/**
+	 *  預かり所追加
+	 *
+	 *  @param id       追加アイテムID
+	 *  @param useCount 使用回数
+	 *  @param itemId   アイテムID
+	 */
+	void addCloakrooms(int id, int useCount, string itemId);
+	
+	/**
+	 *  預かり所削除
+	 *
+	 *  @param id 削除アイテムID
+	 *
+	 *  @return true: あった、false: なかった
+	 */
+	bool removeCloakrooms(int id);
+	
+	/**
+	 *  預かり所をソート
+	 */
+	void sortCloakrooms();
 	
 	/**
 	 *  コンストラクタ

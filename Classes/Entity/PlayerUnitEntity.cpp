@@ -10,7 +10,7 @@
 
 #include "LogConst.h"
 #include "GameConst.h"
-#include "UUIDUtil.h"
+#include "GameMainService.h"
 
 #pragma mark - アイテム
 
@@ -39,17 +39,119 @@ bool PlayerUnitEntity::addItem(int id, int useCount, string itemId) {
 		return true;
 	}
 	
-	PlayerItemEntity itemEntity;
-	itemEntity.id = id;
-	itemEntity.useCount = useCount;
-	if (itemId.empty()) {
-		itemEntity.itemId = UUIDUtil::create();
-	} else {
-		itemEntity.itemId = itemId;
-	}
+	auto itemEntity = PlayerItemEntity::create(id, useCount, itemId);
 	items.push_back(itemEntity);
 	
 	return false;
+}
+
+/**
+ *  アイテム削除
+ *
+ *  @param id 削除アイテムID
+ *
+ *  @return true: あった、false: なかった
+ */
+bool PlayerUnitEntity::removeItem(int id) {
+	
+	// 検索
+	auto it = find_if(begin(items), end(items),
+						 [id] (PlayerItemEntity itemEntity) {
+							 return itemEntity.id == id;
+						 });
+	if (it == end(items)) {
+		return false;
+	}
+	
+	// 装備位置を調整
+	updateEquipmentsIndex((int)(it - items.begin()));
+	
+	// 削除
+	items.erase(it);
+	
+	return true;
+}
+
+/**
+ *  アイテムをソート
+ */
+void PlayerUnitEntity::sortItem() {
+
+	// 退避
+	auto itemsBackup = items;
+	
+	items.clear();
+	
+	// 地図
+	for (auto it = itemsBackup.begin();it != itemsBackup.end();it++) {
+		auto itemEntity = GameMainService::sharedInstance()->getItem(it->id);
+		if (itemEntity->type == ItemTypeMap){
+			// アイテム追加
+			items.push_back(*it);
+			// 初期化
+			it->id = 0;
+		}
+	}
+	
+	// 装備品
+	for (int i = EquipmentTypeWeapon;i <= EquipmentTypeAccessory;i++) {
+		auto index = equipments[i];
+		if (index < 0) {
+			continue;
+		}
+		items.push_back(itemsBackup[index]);
+		// 位置を再設定
+		equipments[i] = (int)items.size() - 1;
+		// 初期化
+		itemsBackup[index].id = 0;
+	}
+	
+	// 武器、鎧、盾、兜、装飾品、回復、種の順
+	for (int type = ItemTypeWeapon;type <= ItemTypeSeed;type++) {
+		for (auto it = itemsBackup.begin();it != itemsBackup.end();it++) {
+			if (it->id == 0) {
+				continue;
+			}
+			auto itemEntity = GameMainService::sharedInstance()->getItem(it->id);
+			if (itemEntity->type == type) {
+				// アイテム追加
+				items.push_back(*it);
+				// 初期化
+				it->id = 0;
+			}
+		}
+	}
+	
+}
+
+/**
+ *  装備位置を調整する
+ *
+ *  @param removeIndex 削除位置
+ */
+void PlayerUnitEntity::updateEquipmentsIndex(int removeIndex) {
+
+	auto isRemoveEquipment = false;
+	
+	for (int i = EquipmentTypeWeapon;i <= EquipmentTypeAccessory;i++) {
+		if (equipments[i] < 0) {
+			continue;
+		}
+		if (equipments[i] == removeIndex) {
+			// 装備を捨てた
+			equipments[i] = -1;
+			// フラグON
+			isRemoveEquipment = true;
+		} else if (equipments[i] > removeIndex) {
+			// 装備品より後のものを削除した
+			equipments[i]--;
+		}
+	}
+	
+	// TODO:ステータスを再調整
+	if (isRemoveEquipment) {
+		
+	}
 }
 
 #pragma mark - スキル

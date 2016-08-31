@@ -9,6 +9,30 @@
 #include "PlayerItemEntity.h"
 
 #include "LogConst.h"
+#include "UUIDUtil.h"
+
+/**
+ *  アイテムEntity作成
+ *
+ *  @param id       ID
+ *  @param useCount 使用回数
+ *  @param itemId   アイテムID
+ *
+ *  @return PlayerItemEntity
+ */
+PlayerItemEntity PlayerItemEntity::create(int id, int useCount, string itemId) {
+	
+	PlayerItemEntity itemEntity;
+	itemEntity.id = id;
+	itemEntity.useCount = useCount;
+	if (itemId.empty()) {
+		itemEntity.itemId = UUIDUtil::create();
+	} else {
+		itemEntity.itemId = itemId;
+	}
+
+	return itemEntity;
+}
 
 /**
  *  コンストラクタ

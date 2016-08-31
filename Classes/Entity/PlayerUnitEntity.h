@@ -59,6 +59,27 @@ public:
 	bool addItem(int id, int useCount, string itemId);
 	
 	/**
+	 *  アイテム削除
+	 *
+	 *  @param id 削除アイテムID
+	 *
+	 *  @return true: あった、false: なかった
+	 */
+	bool removeItem(int id);
+	
+	/**
+	 *  アイテムをソート
+	 */
+	void sortItem();
+	
+	/**
+	 *  装備位置を調整する
+	 *
+	 *  @param removeIndex 削除位置
+	 */
+	void updateEquipmentsIndex(int removeIndex);
+	
+	/**
 	 *  持ちスキルがフルか？
 	 *
 	 *  @return true: フル、false: まだまだ

@@ -12,8 +12,10 @@
 #include "GameConst.h"
 #include "GameMainService.h"
 
+#pragma mark - ユニット
+
 /**
- *  キャラ追加
+ *  ユニット追加
  *
  *  @param unitId ユニットID
  */
@@ -47,6 +49,123 @@ void PlayerEntity::addUnit(int unitId) {
 		unitEntity.addSkill(it->skillId);
 	}
 	units.push_back(unitEntity);
+}
+
+#pragma mark - アイテム
+
+/**
+ *  持ちアイテムがフルか？
+ *
+ *  @return true: フル、false: まだまだ
+ */
+bool PlayerEntity::isFullItem() {
+	
+	for (auto it = units.begin();it != units.end();it++) {
+		if (it->isFullItem()) {
+			continue;
+		}
+		return false;
+	}
+	
+	return true;
+}
+
+/**
+ *  アイテム追加
+ *
+ *  @param id       追加アイテムID
+ *  @param useCount 使用回数
+ *  @param itemId   アイテムID
+ *
+ *  @return true: フル、false: まだまだ
+ */
+bool PlayerEntity::addItem(int id, int useCount, string itemId) {
+
+	for (auto it = units.begin();it != units.end();it++) {
+		if (it->isFullItem()) {
+			continue;
+		}
+		it->addItem(id, useCount, itemId);
+		return false;
+	}
+	
+	return true;
+}
+
+/**
+ *  アイテム削除
+ *
+ *  @param id 削除アイテムID
+ *
+ *  @return true: あった、false: なかった
+ */
+bool PlayerEntity::removeItem(int id) {
+	
+	for (auto it = units.begin();it != units.end();it++) {
+		auto isSuccess = it->removeItem(id);
+		if (isSuccess) {
+			return true;
+		}
+	}
+	
+	return false;
+}
+
+#pragma mark - 預かり所
+
+/**
+ *  預かり所追加
+ *
+ *  @param id       追加アイテムID
+ *  @param useCount 使用回数
+ *  @param itemId   アイテムID
+ */
+void PlayerEntity::addCloakrooms(int id, int useCount, string itemId) {
+	auto itemEntity = PlayerItemEntity::create(id, useCount, itemId);
+	cloakrooms.push_back(itemEntity);
+}
+
+/**
+ *  預かり所削除
+ *
+ *  @param id 削除アイテムID
+ *
+ *  @return true: あった、false: なかった
+ */
+bool PlayerEntity::removeCloakrooms(int id) {
+	// 検索
+	auto it = find_if(begin(cloakrooms), end(cloakrooms),
+						 [id] (PlayerItemEntity itemEntity) {
+							 return itemEntity.id == id;
+						 });
+	if (it == end(cloakrooms)) {
+		return false;
+	}
+	
+	// 削除
+	cloakrooms.erase(it);
+	
+	return true;
+}
+
+/**
+ *  預かり所をソート
+ */
+void PlayerEntity::sortCloakrooms() {
+	
+	// 退避
+	auto itemsBackup = cloakrooms;
+	
+	cloakrooms.clear();
+	
+	for (int type = ItemTypeNormal;type <= ItemTypeSkill;type++) {
+		for (auto it = itemsBackup.begin();it != itemsBackup.end();it++) {
+			auto itemEntity = GameMainService::sharedInstance()->getItem(it->id);
+			if (itemEntity->type == type) {
+				cloakrooms.push_back(*it);
+			}
+		}
+	}
 }
 
 #pragma mark - 初期化
