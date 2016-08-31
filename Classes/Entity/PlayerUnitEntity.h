@@ -56,7 +56,7 @@ public:
 	 *
 	 *  @return true: フル、false: まだまだ
 	 */
-	bool addItem(int id, int useCount, string itemId);
+	bool addItem(const int id, const int useCount, const string itemId);
 	
 	/**
 	 *  アイテム削除
@@ -65,7 +65,7 @@ public:
 	 *
 	 *  @return true: あった、false: なかった
 	 */
-	bool removeItem(int id);
+	bool removeItem(const int id);
 	
 	/**
 	 *  アイテムをソート
@@ -77,7 +77,7 @@ public:
 	 *
 	 *  @param removeIndex 削除位置
 	 */
-	void updateEquipmentsIndex(int removeIndex);
+	void updateEquipmentsIndex(const int removeIndex);
 	
 	/**
 	 *  持ちスキルがフルか？
@@ -93,7 +93,7 @@ public:
 	 *
 	 *  @return true: フル、false: まだまだ
 	 */
-	bool addSkill(int id);
+	bool addSkill(const int id);
 
 	/**
 	 *  コンストラクタ

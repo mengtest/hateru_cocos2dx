@@ -21,6 +21,16 @@ public:
 	int value;
 	
 	/**
+	 *  コンストラクタ
+	 */
+	GameItemStatusEntity();
+	
+	/**
+	 *  デストラクタ
+	 */
+	~GameItemStatusEntity();
+	
+	/**
 	 *  バイナリデータよりEntity作成
 	 *
 	 *  @param data バイナリデータ

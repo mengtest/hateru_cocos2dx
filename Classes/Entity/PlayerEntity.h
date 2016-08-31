@@ -18,6 +18,8 @@
 #include "PlayerMapEntity.h"
 #include "PlayerProfileEntity.h"
 
+class GameMainService;
+
 USING_NS_CC;
 using namespace std;
 
@@ -62,7 +64,7 @@ public:
 	 *
 	 *  @param unitId ユニットID
 	 */
-	void addUnit(int unitId);
+	void addUnit(const int unitId);
 	
 	/**
 	 *  持ちアイテムがフルか？
@@ -80,7 +82,7 @@ public:
 	 *
 	 *  @return true: フル、false: まだまだ
 	 */
-	bool addItem(int id, int useCount, string itemId);
+	bool addItem(const int id, const int useCount, const string itemId);
 	
 	/**
 	 *  アイテム削除
@@ -89,7 +91,14 @@ public:
 	 *
 	 *  @return true: あった、false: なかった
 	 */
-	bool removeItem(int id);
+	bool removeItem(const int id);
+	
+	/**
+	 *  現在のアイテムで調合できる一覧を取得する
+	 *
+	 *  @return アイテムIDリスト
+	 */
+	vector<int> validMixings();
 	
 	/**
 	 *  預かり所追加
@@ -98,7 +107,7 @@ public:
 	 *  @param useCount 使用回数
 	 *  @param itemId   アイテムID
 	 */
-	void addCloakrooms(int id, int useCount, string itemId);
+	void addCloakrooms(const int id, const int useCount, const string itemId);
 	
 	/**
 	 *  預かり所削除
@@ -107,7 +116,7 @@ public:
 	 *
 	 *  @return true: あった、false: なかった
 	 */
-	bool removeCloakrooms(int id);
+	bool removeCloakrooms(const int id);
 	
 	/**
 	 *  預かり所をソート
@@ -141,6 +150,9 @@ public:
 	bool mapping(picojson::object &object);
 	
 private:
+	
+	/// ゲームサービス
+	GameMainService *service;
 	
 };
 

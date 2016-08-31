@@ -32,7 +32,7 @@ bool PlayerUnitEntity::isFullItem() {
  *
  *  @return true: フル、false: まだまだ
  */
-bool PlayerUnitEntity::addItem(int id, int useCount, string itemId) {
+bool PlayerUnitEntity::addItem(const int id, const int useCount, const string itemId) {
 	
 	// フルチェック
 	if (isFullItem()) {
@@ -52,7 +52,7 @@ bool PlayerUnitEntity::addItem(int id, int useCount, string itemId) {
  *
  *  @return true: あった、false: なかった
  */
-bool PlayerUnitEntity::removeItem(int id) {
+bool PlayerUnitEntity::removeItem(const int id) {
 	
 	// 検索
 	auto it = find_if(begin(items), end(items),
@@ -129,7 +129,7 @@ void PlayerUnitEntity::sortItem() {
  *
  *  @param removeIndex 削除位置
  */
-void PlayerUnitEntity::updateEquipmentsIndex(int removeIndex) {
+void PlayerUnitEntity::updateEquipmentsIndex(const int removeIndex) {
 
 	auto isRemoveEquipment = false;
 	
@@ -172,7 +172,7 @@ bool PlayerUnitEntity::isFullSkill() {
  *
  *  @return true: フル、false: まだまだ
  */
-bool PlayerUnitEntity::addSkill(int id) {
+bool PlayerUnitEntity::addSkill(const int id) {
 	
 	// フルチェック
 	if (isFullSkill()) {

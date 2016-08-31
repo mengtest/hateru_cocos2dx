@@ -36,7 +36,7 @@ public:
 	 *
 	 *  @return PlayerItemEntity
 	 */
-	static PlayerItemEntity create(int id, int useCount, string itemId);
+	static PlayerItemEntity create(const int id, const int useCount, const string itemId);
 	
 	/**
 	 *  コンストラクタ

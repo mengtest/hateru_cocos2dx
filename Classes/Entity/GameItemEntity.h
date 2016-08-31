@@ -52,6 +52,25 @@ public:
 	GameVariableChangeEntity changeVariable;
 	
 	/**
+	 *  アイテム数が調合に規定数に達しているか？
+	 *
+	 *  @param itemCounts アイテムカウント
+	 *
+	 *  @return true: 達している、 false: 達してない
+	 */
+	bool isValidMixings(map<int, int> itemCounts);
+	
+	/**
+	 *  コンストラクタ
+	 */
+	GameItemEntity();
+	
+	/**
+	 *  デストラクタ
+	 */
+	~GameItemEntity();
+	
+	/**
 	 *  バイナリデータよりEntity作成
 	 *
 	 *  @param data バイナリデータ

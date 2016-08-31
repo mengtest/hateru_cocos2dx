@@ -8,6 +8,22 @@
 
 #include "GameItemStatusEntity.h"
 
+
+/**
+ *  コンストラクタ
+ */
+GameItemStatusEntity::GameItemStatusEntity() {
+	status = ItemStatusTypeHP;
+	value = 0;
+}
+
+/**
+ *  デストラクタ
+ */
+GameItemStatusEntity::~GameItemStatusEntity() {
+	
+}
+
 /**
  *  バイナリデータよりEntity作成
  *

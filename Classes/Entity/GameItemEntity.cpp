@@ -14,6 +14,52 @@
 #include "StringUtil.h"
 
 /**
+ *  アイテム数が調合に規定数に達しているか？
+ *
+ *  @param itemCounts アイテムカウント
+ *
+ *  @return true: 達している、 false: 達してない
+ */
+bool GameItemEntity::isValidMixings(map<int, int> itemCounts) {
+
+	for (auto it = mixings.begin();it != mixings.end();it++) {
+		if (itemCounts[it->itemId] < it->value) {
+			// 数が達していない
+			return false;
+		}
+	}
+
+	return true;
+}
+
+/**
+ *  コンストラクタ
+ */
+GameItemEntity::GameItemEntity() {
+	name = "";
+	type = ItemTypeNormal;
+	purchasePrice = 0;
+	sellingPrice = 0;
+	preparationPrice = 0;
+	useCount = 0;
+	useSkillId = 0;
+	conditionTreatment = ConditionTypeNone;
+	changeStatus.clear();
+	imageId = 0;
+	mixings.clear();
+	equipmentJobs.clear();
+	changeJobId = 0;
+	comment = "";
+	isExhibit = false;
+}
+
+/**
+ *  デストラクタ
+ */
+GameItemEntity::~GameItemEntity() {
+}
+
+/**
  *  バイナリデータよりEntity作成
  *
  *  @param data バイナリデータ
@@ -62,7 +108,10 @@ void GameItemEntity::convertData(const unsigned char *data) {
 	// 調合
 	mixings.clear();
 	for (auto i = 0;i < 5;i++) {
-		mixings.push_back(GameItemMixEntity::createEntity(&data[dataIndex]));
+		auto itemMixEntity = GameItemMixEntity::createEntity(&data[dataIndex]);
+		if (itemMixEntity.itemId != 0) {
+			mixings.push_back(itemMixEntity);
+		}
 		dataIndex += 2;
 	}
 	// ？

@@ -19,12 +19,12 @@
  *
  *  @param unitId ユニットID
  */
-void PlayerEntity::addUnit(int unitId) {
+void PlayerEntity::addUnit(const int unitId) {
 	
 	// ユニット情報取得
-	auto charaEntity = GameMainService::sharedInstance()->getChara(unitId);
+	auto charaEntity = service->getChara(unitId);
 	// 職業情報取得
-	auto jobEntity = GameMainService::sharedInstance()->getJob(charaEntity->initJobId);
+	auto jobEntity = service->getJob(charaEntity->initJobId);
 	
 	PlayerUnitEntity unitEntity;
 	
@@ -38,7 +38,7 @@ void PlayerEntity::addUnit(int unitId) {
 	unitEntity.statuses[UnitStatusTypeMP] = unitEntity.statuses[UnitStatusTypeMaxMP];
 	// アイテム追加
 	for (auto it = charaEntity->initItemIds.begin();it != charaEntity->initItemIds.end();it++) {
-		auto itemEntity = GameMainService::sharedInstance()->getItem(*it);
+		auto itemEntity = service->getItem(*it);
 		unitEntity.addItem(*it, itemEntity->useCount, "");
 	}
 	// スキル反映
@@ -79,7 +79,7 @@ bool PlayerEntity::isFullItem() {
  *
  *  @return true: フル、false: まだまだ
  */
-bool PlayerEntity::addItem(int id, int useCount, string itemId) {
+bool PlayerEntity::addItem(const int id, const int useCount, const string itemId) {
 
 	for (auto it = units.begin();it != units.end();it++) {
 		if (it->isFullItem()) {
@@ -99,7 +99,7 @@ bool PlayerEntity::addItem(int id, int useCount, string itemId) {
  *
  *  @return true: あった、false: なかった
  */
-bool PlayerEntity::removeItem(int id) {
+bool PlayerEntity::removeItem(const int id) {
 	
 	for (auto it = units.begin();it != units.end();it++) {
 		auto isSuccess = it->removeItem(id);
@@ -111,6 +111,45 @@ bool PlayerEntity::removeItem(int id) {
 	return false;
 }
 
+#pragma mark - アイテム調合
+
+/**
+ *  現在のアイテムで調合できる一覧を取得する
+ *
+ *  @return アイテムIDリスト
+ */
+vector<int> PlayerEntity::validMixings() {
+	
+	// 初期化
+	map<int, int> itemCount;
+	for (int i = 1;i <= service->getItemCount();i++) {
+		itemCount[i] = 0;
+	}
+	
+	// 持ちアイテム数を集計する
+	for (auto unitIt = units.begin();unitIt != units.end();unitIt++) {
+		for (auto itemIt = unitIt->items.begin();itemIt != unitIt->items.end();itemIt++) {
+			itemCount[itemIt->id] += 1;
+		}
+	}
+	
+	// 預かり所アイテム数を集計する
+	for (auto itemIt = cloakrooms.begin();itemIt != cloakrooms.end();itemIt++) {
+		itemCount[itemIt->id] += 1;
+	}
+	
+	vector<int> mixings;
+	for (int i = 1;i <= service->getItemCount();i++) {
+		auto itemEntity = service->getItem(i);
+		if (itemEntity->isValidMixings(itemCount)) {
+			// 条件に達しているので追加
+			mixings.push_back(i);
+		}
+	}
+	
+	return mixings;
+}
+
 #pragma mark - 預かり所
 
 /**
@@ -120,7 +159,7 @@ bool PlayerEntity::removeItem(int id) {
  *  @param useCount 使用回数
  *  @param itemId   アイテムID
  */
-void PlayerEntity::addCloakrooms(int id, int useCount, string itemId) {
+void PlayerEntity::addCloakrooms(const int id, const int useCount, const string itemId) {
 	auto itemEntity = PlayerItemEntity::create(id, useCount, itemId);
 	cloakrooms.push_back(itemEntity);
 }
@@ -132,7 +171,7 @@ void PlayerEntity::addCloakrooms(int id, int useCount, string itemId) {
  *
  *  @return true: あった、false: なかった
  */
-bool PlayerEntity::removeCloakrooms(int id) {
+bool PlayerEntity::removeCloakrooms(const int id) {
 	// 検索
 	auto it = find_if(begin(cloakrooms), end(cloakrooms),
 						 [id] (PlayerItemEntity itemEntity) {
@@ -160,7 +199,7 @@ void PlayerEntity::sortCloakrooms() {
 	
 	for (int type = ItemTypeNormal;type <= ItemTypeSkill;type++) {
 		for (auto it = itemsBackup.begin();it != itemsBackup.end();it++) {
-			auto itemEntity = GameMainService::sharedInstance()->getItem(it->id);
+			auto itemEntity = service->getItem(it->id);
 			if (itemEntity->type == type) {
 				cloakrooms.push_back(*it);
 			}
@@ -182,6 +221,8 @@ PlayerEntity::PlayerEntity() {
 	units.clear();
 	teleports.clear();
 	cloakrooms.clear();
+	
+	service = GameMainService::sharedInstance();
 }
 
 /**

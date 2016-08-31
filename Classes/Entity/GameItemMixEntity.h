@@ -21,6 +21,16 @@ public:
 	int value;
 	
 	/**
+	 *  コンストラクタ
+	 */
+	GameItemMixEntity();
+	
+	/**
+	 *  デストラクタ
+	 */
+	~GameItemMixEntity();
+	
+	/**
 	 *  バイナリデータよりEntity作成
 	 *
 	 *  @param data バイナリデータ

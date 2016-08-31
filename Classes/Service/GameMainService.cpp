@@ -164,6 +164,15 @@ GameItemEntity *GameMainService::getItem(const int id) {
 }
 
 /**
+ *  アイテム数を取得
+ *
+ *  @return アイテム数
+ */
+int GameMainService::getItemCount() {
+	return (int)items.size();
+}
+
+/**
  *  職種情報取得
  *
  *  @param id ID

@@ -20,7 +20,7 @@
  *
  *  @return PlayerItemEntity
  */
-PlayerItemEntity PlayerItemEntity::create(int id, int useCount, string itemId) {
+PlayerItemEntity PlayerItemEntity::create(const int id, const int useCount, const string itemId) {
 	
 	PlayerItemEntity itemEntity;
 	itemEntity.id = id;

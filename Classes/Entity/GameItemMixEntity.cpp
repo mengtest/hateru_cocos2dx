@@ -9,6 +9,20 @@
 #include "GameItemMixEntity.h"
 
 /**
+ *  コンストラクタ
+ */
+GameItemMixEntity::GameItemMixEntity() {
+	itemId = 0;
+	value = 0;
+}
+
+/**
+ *  デストラクタ
+ */
+GameItemMixEntity::~GameItemMixEntity() {
+}
+
+/**
  *  バイナリデータよりEntity作成
  *
  *  @param data      バイナリデータ

@@ -87,6 +87,13 @@ public:
 	 *  @return アイテム情報
 	 */
 	GameItemEntity *getItem(const int id);
+	
+	/**
+	 *  アイテム数を取得
+	 *
+	 *  @return アイテム数
+	 */
+	int getItemCount();
 
 	/**
 	 *  職種情報取得
