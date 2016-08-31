@@ -36,18 +36,20 @@ void PlayerEntity::addUnit(int unitId) {
 	unitEntity.statuses[UnitStatusTypeMP] = unitEntity.statuses[UnitStatusTypeMaxMP];
 	// アイテム追加
 	for (auto it = charaEntity->initItemIds.begin();it != charaEntity->initItemIds.end();it++) {
-		// TODO:アイテム追加
+		auto itemEntity = GameMainService::sharedInstance()->getItem(*it);
+		unitEntity.addItem(*it, itemEntity->useCount, "");
 	}
 	// スキル反映
 	for (auto it = jobEntity->skills.begin();it != jobEntity->skills.end();it++) {
 		if (it->level != 0) {
 			continue;
 		}
-		// TODO:スキル追加
+		unitEntity.addSkill(it->skillId);
 	}
 	units.push_back(unitEntity);
 }
 
+#pragma mark - 初期化
 
 /**
  *  コンストラクタ
@@ -68,6 +70,8 @@ PlayerEntity::PlayerEntity() {
  */
 PlayerEntity::~PlayerEntity() {
 }
+
+#pragma mark - JSON
 
 /**
  *  シリアライズ

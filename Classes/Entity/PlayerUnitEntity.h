@@ -41,6 +41,40 @@ public:
 	vector<PlayerItemEntity> items;
 
 	/**
+	 *  持ちアイテムがフルか？
+	 *
+	 *  @return true: フル、false: まだまだ
+	 */
+	bool isFullItem();
+	
+	/**
+	 *  アイテム追加
+	 *
+	 *  @param id       追加アイテムID
+	 *  @param useCount 使用回数
+	 *  @param itemId   アイテムID
+	 *
+	 *  @return true: フル、false: まだまだ
+	 */
+	bool addItem(int id, int useCount, string itemId);
+	
+	/**
+	 *  持ちスキルがフルか？
+	 *
+	 *  @return true: フル、false: まだまだ
+	 */
+	bool isFullSkill();
+
+	/**
+	 *  スキル追加
+	 *
+	 *  @param id       追加スキルID
+	 *
+	 *  @return true: フル、false: まだまだ
+	 */
+	bool addSkill(int id);
+
+	/**
 	 *  コンストラクタ
 	 */
 	PlayerUnitEntity();

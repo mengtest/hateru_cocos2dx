@@ -9,6 +9,80 @@
 #include "PlayerUnitEntity.h"
 
 #include "LogConst.h"
+#include "GameConst.h"
+#include "UUIDUtil.h"
+
+#pragma mark - アイテム
+
+/**
+ *  持ちアイテムがフルか？
+ *
+ *  @return true: フル、false: まだまだ
+ */
+bool PlayerUnitEntity::isFullItem() {
+	return items.size() >= MAX_UNIT_ITEM;
+}
+
+/**
+ *  アイテム追加
+ *
+ *  @param id       追加アイテムID
+ *  @param useCount 使用回数
+ *  @param itemId   アイテムID
+ *
+ *  @return true: フル、false: まだまだ
+ */
+bool PlayerUnitEntity::addItem(int id, int useCount, string itemId) {
+	
+	// フルチェック
+	if (isFullItem()) {
+		return true;
+	}
+	
+	PlayerItemEntity itemEntity;
+	itemEntity.id = id;
+	itemEntity.useCount = useCount;
+	if (itemId.empty()) {
+		itemEntity.itemId = UUIDUtil::create();
+	} else {
+		itemEntity.itemId = itemId;
+	}
+	items.push_back(itemEntity);
+	
+	return false;
+}
+
+#pragma mark - スキル
+
+/**
+ *  持ちスキルがフルか？
+ *
+ *  @return true: フル、false: まだまだ
+ */
+bool PlayerUnitEntity::isFullSkill() {
+	return skills.size() >= MAX_UNIT_SKILL;
+}
+
+/**
+ *  スキル追加
+ *
+ *  @param id       追加スキルID
+ *
+ *  @return true: フル、false: まだまだ
+ */
+bool PlayerUnitEntity::addSkill(int id) {
+	
+	// フルチェック
+	if (isFullSkill()) {
+		return true;
+	}
+	
+	skills.push_back(id);
+	
+	return false;
+}
+
+#pragma mark - 初期化
 
 /**
  *  コンストラクタ
@@ -35,6 +109,8 @@ PlayerUnitEntity::PlayerUnitEntity() {
  */
 PlayerUnitEntity::~PlayerUnitEntity() {
 }
+
+#pragma mark - JSON
 
 /**
  *  シリアライズ
