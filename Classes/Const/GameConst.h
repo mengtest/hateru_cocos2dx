@@ -22,239 +22,390 @@
 
 /// ステータスタイプ
 typedef enum {
-	UnitStatusTypeLv = 0,		/// LV
-	UnitStatusTypeJob,			/// 職業
-	UnitStatusTypeHP,			/// HP
-	UnitStatusTypeMP,			/// MP
-	UnitStatusTypeMaxHP,		/// 最大HP
-	UnitStatusTypeMaxMP,		/// 最大MP
-	UnitStatusTypeAttack,		/// 攻撃力
-	UnitStatusTypeMental,		/// 精神力
-	UnitStatusTypeDefence,		/// 防御力
-	UnitStatusTypeSpeed,		/// 機敏さ
-	UnitStatusTypeEXP,			/// 経験値
-	UnitStatusTypeFame,			/// 名声
-	UnitStatusTypeMoral,		/// 道徳心
-	UnitStatusTypeHPEq,			/// 装備後HP
-	UnitStatusTypeMPEq,			/// 装備後MP
-	UnitStatusTypeAttackEq,		/// 装備後攻撃力
-	UnitStatusTypeMentalEq,		/// 装備後精神力
-	UnitStatusTypeDefenceEq,	/// 装備後防御力
-	UnitStatusTypeSpeedEq,		/// 装備後機敏さ
-	UnitStatusTypeFireEq,		/// 装備後炎耐性
-	UnitStatusTypeIceEq,		/// 装備後氷耐性
-	UnitStatusTypeThunderEq,	/// 装備後雷耐性
-	UnitStatusTypePoisonEq,		/// 装備後毒耐性
-	UnitStatusTypeNextEXP,		/// 次のレベルまでの経験値
-	UnitStatusTypeFameEq,		/// 装備後名声
-	UnitStatusTypeMoralEq,		/// 装備後道徳心
-	UnitStatusTypeHitRate,		/// 命中率
-	UnitStatusTypeCriticalRate,	/// 必殺率
-	UnitStatusTypeMoney,		/// 所持金(ステータス分岐用)
-	UnitStatusTypeDirection,	/// 方向(ステータス分岐用)
+	/// LV
+	UnitStatusTypeLv = 0,
+	/// 職業
+	UnitStatusTypeJob,
+	/// HP
+	UnitStatusTypeHP,
+	/// MP
+	UnitStatusTypeMP,
+	/// 最大HP
+	UnitStatusTypeMaxHP,
+	/// 最大MP
+	UnitStatusTypeMaxMP,
+	/// 攻撃力
+	UnitStatusTypeAttack,
+	/// 精神力
+	UnitStatusTypeMental,
+	/// 防御力
+	UnitStatusTypeDefence,
+	/// 機敏さ
+	UnitStatusTypeSpeed,
+	/// 経験値
+	UnitStatusTypeEXP,
+	/// 名声
+	UnitStatusTypeFame,
+	/// 道徳心
+	UnitStatusTypeMoral,
+	/// 装備後HP
+	UnitStatusTypeHPEq,
+	/// 装備後MP
+	UnitStatusTypeMPEq,
+	/// 装備後攻撃力
+	UnitStatusTypeAttackEq,
+	/// 装備後精神力
+	UnitStatusTypeMentalEq,
+	/// 装備後防御力
+	UnitStatusTypeDefenceEq,
+	/// 装備後機敏さ
+	UnitStatusTypeSpeedEq,
+	/// 装備後炎耐性
+	UnitStatusTypeFireEq,
+	/// 装備後氷耐性
+	UnitStatusTypeIceEq,
+	/// 装備後雷耐性
+	UnitStatusTypeThunderEq,
+	/// 装備後毒耐性
+	UnitStatusTypePoisonEq,
+	/// 次のレベルまでの経験値
+	UnitStatusTypeNextEXP,
+	/// 装備後名声
+	UnitStatusTypeFameEq,
+	/// 装備後道徳心
+	UnitStatusTypeMoralEq,
+	/// 命中率
+	UnitStatusTypeHitRate,
+	/// 必殺率
+	UnitStatusTypeCriticalRate,
+	/// 所持金(ステータス分岐用)
+	UnitStatusTypeMoney,
+	/// 方向(ステータス分岐用)
+	UnitStatusTypeDirection,
 } UnitStatusType;
 
 /// 装備タイプ
 typedef enum {
-	EquipmentTypeWeapon = 0,	/// 武器
-	EquipmentTypeArmar,			/// 防具
-	EquipmentTypeShield,		/// 盾
-	EquipmentTypeHelm,			/// 兜
-	EquipmentTypeAccessory,		/// 装飾品
+	/// 武器
+	EquipmentTypeWeapon = 0,
+	/// 防具
+	EquipmentTypeArmar,
+	/// 盾
+	EquipmentTypeShield,
+	/// 兜
+	EquipmentTypeHelm,
+	/// 装飾品
+	EquipmentTypeAccessory,
 } EquipmentType;
 
 /// 状態治療
 typedef enum {
-	ConditionTypeNone = 0,		/// なし
-	ConditionTypeDie,			/// 戦闘不能
-	ConditionTypePoison,		/// 毒
-	ConditionTypeDarkness,		/// 暗闇
-	ConditionTypeSilence,		/// 沈黙
-	ConditionTypeConfusion,		/// 混乱
-	ConditionTypeSleep,			/// 睡眠
-	ConditionTypeParray,		/// 麻痺
+	/// なし
+	ConditionTypeNone = 0,
+	/// 戦闘不能
+	ConditionTypeDie,
+	/// 毒
+	ConditionTypePoison,
+	/// 暗闇
+	ConditionTypeDarkness,
+	/// 沈黙
+	ConditionTypeSilence,
+	/// 混乱
+	ConditionTypeConfusion,
+	/// 睡眠
+	ConditionTypeSleep,
+	/// 麻痺
+	ConditionTypeParray,
 } ConditionType;
 
 /// 攻撃属性
 typedef enum {
-	AttackAttributeTypeNone = 0,	/// なし
-	AttackAttributeTypeBlow,		/// 打撃
-	AttackAttributeTypeFire,		/// 炎
-	AttackAttributeTypeIce,			/// 氷
-	AttackAttributeTypeThunder,		/// 雷
-	AttackAttributeTypePoison,		/// 毒
+	/// なし
+	AttackAttributeTypeNone = 0,
+	/// 打撃
+	AttackAttributeTypeBlow,
+	/// 炎
+	AttackAttributeTypeFire,
+	/// 氷
+	AttackAttributeTypeIce,
+	/// 雷
+	AttackAttributeTypeThunder,
+	/// 毒
+	AttackAttributeTypePoison,
 } AttackAttributeType;
 
 #pragma mark - マップ
 
 /// マップタイプ
 typedef enum {
-	MapTypeNormal = 0,				/// 通常
-	MapTypeAuto						/// 自動
+	/// 通常
+	MapTypeNormal = 0,
+	/// 自動
+	MapTypeAuto
 } MapType;
 
 /// 地図端制御タイプ
 typedef enum {
-	MapLoopTypeNone = 0,			/// 制御なし
-	MapLoopTypeFixtation,			/// 固定
-	MapLoopTypeLoop,				/// ループ
+	/// 制御なし
+	MapLoopTypeNone = 0,
+	/// 固定
+	MapLoopTypeFixtation,
+	/// ループ
+	MapLoopTypeLoop,
 } MapLoopType;
 
 /// 移動タイプ
 typedef enum {
-	MoveTypeWalk = 0,				/// 歩行
-	MoveTypeShip,					/// 船
-	MoveTypeFlyShip,				/// 飛行船
+	/// 歩行
+	MoveTypeWalk = 0,
+	/// 船
+	MoveTypeShip,
+	/// 飛行船
+	MoveTypeFlyShip,
 } MoveType;
 
 /// 乗り物タイプ
 typedef enum {
-	VehicleTypeShip = 0,			/// 船
-	VehicleTypeFlyShip,				/// 飛行船
+	/// 船
+	VehicleTypeShip = 0,
+	/// 飛行船
+	VehicleTypeFlyShip,
 } VehicleType;
 
 #pragma mark - 自動マップ
 
 /// 下チップタイプ
 typedef enum {
-	AutoMapDownChipTypeFloor = 1,		/// 床
-	AutoMapDownChipTypeWallShadow,		/// 壁(影有)
-	AutoMapDownChipTypeWall,			/// 壁(影無)
+	/// 床
+	AutoMapDownChipTypeFloor = 1,
+	/// 壁(影有)
+	AutoMapDownChipTypeWallShadow,
+	/// 壁(影無)
+	AutoMapDownChipTypeWall,
 } AutoMapDownChipType;
 
 /// 上チップタイプ
 typedef enum {
-	AutoMapUpChipTypeBelowStairs = 1,	/// 下階段
-	AutoMapUpChipTypeAboveStairs,		/// 上階段
-	AutoMapUpChipTypeChest,				/// 宝箱
+	/// 下階段
+	AutoMapUpChipTypeBelowStairs = 1,
+	/// 上階段
+	AutoMapUpChipTypeAboveStairs,
+	/// 宝箱
+	AutoMapUpChipTypeChest,
 } AutoMapUpChipType;
 
 /// イベントタイプ
 typedef enum {
-	AutoMapEventTypeBelowStairs = 1,	/// 下階段
-	AutoMapEventTypeAboveStairs,		/// 上階段
-	AutoMapEventTypeChest,				/// 宝箱
+	/// 下階段
+	AutoMapEventTypeBelowStairs = 1,
+	/// 上階段
+	AutoMapEventTypeAboveStairs,
+	/// 宝箱
+	AutoMapEventTypeChest,
 } AutoMapEventType;
 
 #pragma mark - イベント
 
 /// イベントタイプ
 typedef enum {
-	EventTypeMessage = 0,				///	メッセージ表示
-	EventTypeFluctuateHP	,			///	HP増減
-	EventTypeFluctuateMP	,			///	MP増減
-	EventTypeFluctuateGold	,			///	所持金増減
-	EventTypeFluctuateEXP	,			///	経験値増減
-	EventTypeFluctuateItem	,			///	アイテム増減
-	EventTypeOperateVariable,			///	変数操作
-	EventTypeChangeBGM		,			///	BGM変更
-	EventTypeChangeChip		,			///	マップチップ変更
-	EventTypeChangeUnit		,			///	キャラ変更
-	EventTypeMoveLocation	,			///	場所移動
-	EventTypeIfVariable		,			///	変数分岐
-	EventTypeSave			,			///	セーブ
-	EventTypeItemShop		,			///	道具屋
-	EventTypeINN			,			///	宿屋
-	EventTypeCloakroom		,			///	預り所
-	EventTypeChurch			,			///	教会
-	EventTypeBattle			,			///	戦闘
-	EventTypeFluctuateTeleport,			///	テレポート位置増減
-	EventTypeChangeTeleport	,			///	テレポート禁止変更
-	EventTypeChangeEscape	,			///	エスケープ禁止変更
-	EventTypeWipe			,			///	ワイプ
-	EventTypeExchangeUnit	,			///	メンバー入替
-	EventTypeEndIf			,			///	変数分岐終了
-	EventTypeShowImage		,			///	画像表示
-	EventTypeChangeJob		,			///	職業変更
-	EventTypeIfStatus		,			///	ステータス分岐
-	EventTypeIfItem			,			///	アイテム分岐
-	EventTypeIfSkill		,			///	特殊技能分岐
-	EventTypeEncountRate	,			///	敵出現率
-	EventTypeSaveEscapeLocation,		///	エスケープで戻る位置を保存
-	EventTypeSettingShip	,			///	船設定
-	EventTypeExit			,			///	イベント終了
-	EventTypeSelectYesNo	,			///	YESNO選択
-	EventTypeMoveMobUnit	,			///	キャラ移動
-	EventTypeMoveUnit		,			///	主人公移動
-	EventTypeGettingOnOff	,			///	船乗降り
-	EventTypeMixShop		,			///	調合屋
-	EventTypeIfTime			,			///	リアルタイム分岐
-	EventTypeBar			,			///	酒場
-	EventTypeItemBazaar		,			///	バザー
-	EventTypeBBS			,			///	掲示板
-	EventTypeIfTerminal		,			///	機種判別
-	EventTypeJingle			,			///	ジングル
-	EventTypeRandom			,			///	乱数
+	///	メッセージ表示
+	EventTypeMessage = 0,
+	///	HP増減
+	EventTypeFluctuateHP	,
+	///	MP増減
+	EventTypeFluctuateMP	,
+	///	所持金増減
+	EventTypeFluctuateGold	,
+	///	経験値増減
+	EventTypeFluctuateEXP	,
+	///	アイテム増減
+	EventTypeFluctuateItem	,
+	///	変数操作
+	EventTypeOperateVariable,
+	///	BGM変更
+	EventTypeChangeBGM		,
+	///	マップチップ変更
+	EventTypeChangeChip		,
+	///	キャラ変更
+	EventTypeChangeUnit		,
+	///	場所移動
+	EventTypeMoveLocation	,
+	///	変数分岐
+	EventTypeIfVariable		,
+	///	セーブ
+	EventTypeSave			,
+	///	道具屋
+	EventTypeItemShop		,
+	///	宿屋
+	EventTypeINN			,
+	///	預り所
+	EventTypeCloakroom		,
+	///	教会
+	EventTypeChurch			,
+	///	戦闘
+	EventTypeBattle			,
+	///	テレポート位置増減
+	EventTypeFluctuateTeleport,
+	///	テレポート禁止変更
+	EventTypeChangeTeleport	,
+	///	エスケープ禁止変更
+	EventTypeChangeEscape	,
+	///	ワイプ
+	EventTypeWipe			,
+	///	メンバー入替
+	EventTypeExchangeUnit	,
+	///	変数分岐終了
+	EventTypeEndIf			,
+	///	画像表示
+	EventTypeShowImage		,
+	///	職業変更
+	EventTypeChangeJob		,
+	///	ステータス分岐
+	EventTypeIfStatus		,
+	///	アイテム分岐
+	EventTypeIfItem			,
+	///	特殊技能分岐
+	EventTypeIfSkill		,
+	///	敵出現率
+	EventTypeEncountRate	,
+	///	エスケープで戻る位置を保存
+	EventTypeSaveEscapeLocation,
+	///	船設定
+	EventTypeSettingShip	,
+	///	イベント終了
+	EventTypeExit			,
+	///	YESNO選択
+	EventTypeSelectYesNo	,
+	///	キャラ移動
+	EventTypeMoveMobUnit	,
+	///	主人公移動
+	EventTypeMoveUnit		,
+	///	船乗降り
+	EventTypeGettingOnOff	,
+	///	調合屋
+	EventTypeMixShop		,
+	///	リアルタイム分岐
+	EventTypeIfTime			,
+	///	酒場
+	EventTypeBar			,
+	///	バザー
+	EventTypeItemBazaar		,
+	///	掲示板
+	EventTypeBBS			,
+	///	機種判別
+	EventTypeIfTerminal		,
+	///	ジングル
+	EventTypeJingle			,
+	///	乱数
+	EventTypeRandom			,
 } EventType;
 
 /// 増減タイプ
 typedef enum {
-	FluctuateTypeIncrease = 0,			/// 増
-	FluctuateTypeDecline				/// 減
+	/// 増
+	FluctuateTypeIncrease = 0,
+	/// 減
+	FluctuateTypeDecline
 } FluctuateType;
 
 /// サウンドフィールドタイプ
 typedef enum {
-	SoundFieldTypeMap = 0,				/// マップ
-	SoundFieldTypeBattle,				/// 戦闘
+	/// マップ
+	SoundFieldTypeMap = 0,
+	/// 戦闘
+	SoundFieldTypeBattle,
 } SoundFieldType;
 
 /// 分岐式
 typedef enum {
-	IfFormulaTypeEqual = 0,				/// ＝
-	IfFormulaTypeNotEqual,				/// ≠
-	IfFormulaTypeLessThan,				/// ＜
-	IfFormulaTypeGreaterThan,			/// ＞
-	IfFormulaTypeLessThanEqual,			/// ≦
-	IfFormulaTypeGreaterThanEqual,		/// ≧
+	/// ＝
+	IfFormulaTypeEqual = 0,
+	/// ≠
+	IfFormulaTypeNotEqual,
+	/// ＜
+	IfFormulaTypeLessThan,
+	/// ＞
+	IfFormulaTypeGreaterThan,
+	/// ≦
+	IfFormulaTypeLessThanEqual,
+	/// ≧
+	IfFormulaTypeGreaterThanEqual,
 } IfFormulaType;
 
 /// メンバーチェンジタイプ
 typedef enum {
-	ExchangeUnitTypeRemove = 0,			/// 外す
-	ExchangeUnitTypeAdd,				/// 追加
-	ExchangeUnitTypeShift,				/// 入替
+	/// 外す
+	ExchangeUnitTypeRemove = 0,
+	/// 追加
+	ExchangeUnitTypeAdd,
+	/// 入替
+	ExchangeUnitTypeShift,
 } ExchangeUnitType;
 
 /// イベント移動タイプ
 typedef enum {
-	EventMoveTypeMoveUp = 0,			/// 上移動
-	EventMoveTypeMoveRight,				/// 右移動
-	EventMoveTypeMoveDown,				/// 下移動
-	EventMoveTypeMoveLeft,				/// 左移動
-	EventMoveTypeFaceUp,				/// 上向き
-	EventMoveTypeFaceRight,				/// 右向き
-	EventMoveTypeFaceDown,				/// 下向き
-	EventMoveTypeFaceLeft,				/// 左向き
-	EventMoveTypeLoop,					/// ループ
-	EventMoveTypeMoveCount,				/// 移動頻度
+	/// 上移動
+	EventMoveTypeMoveUp = 0,
+	/// 右移動
+	EventMoveTypeMoveRight,
+	/// 下移動
+	EventMoveTypeMoveDown,
+	/// 左移動
+	EventMoveTypeMoveLeft,
+	/// 上向き
+	EventMoveTypeFaceUp,
+	/// 右向き
+	EventMoveTypeFaceRight,
+	/// 下向き
+	EventMoveTypeFaceDown,
+	/// 左向き
+	EventMoveTypeFaceLeft,
+	/// ループ
+	EventMoveTypeLoop,
+	/// 移動頻度
+	EventMoveTypeMoveCount,
 } EventMoveType;
 
 /// 日時タイプ
 typedef enum {
-	DateTimeTypeMonth = 0,				/// 月
-	DateTimeTypeDay,					/// 日
-	DateTimeTypeHour,					/// 時
-	DateTimeTypeMinute,					/// 分
-	DateTimeTypeSecond,					/// 秒
-	DateTimeTypeWeek,					/// 週
+	/// 月
+	DateTimeTypeMonth = 0,
+	/// 日
+	DateTimeTypeDay,
+	/// 時
+	DateTimeTypeHour,
+	/// 分
+	DateTimeTypeMinute,
+	/// 秒
+	DateTimeTypeSecond,
+	/// 週
+	DateTimeTypeWeek,
 } DateTimeType;
 
 /// イベント開始タイプ
 typedef enum {
-	EventInitConditionTypeKey = 0,		/// キー
-	EventInitConditionTypeLeave,		/// 離れたら
-	EventInitConditionTypeTouch,		/// 触れたら
-	EventInitConditionTypeAuto,			/// 自動
+	/// キー
+	EventInitConditionTypeKey = 0,
+	/// 離れたら
+	EventInitConditionTypeLeave,
+	/// 触れたら
+	EventInitConditionTypeTouch,
+	/// 自動
+	EventInitConditionTypeAuto,			
 } EventInitConditionType;
 
 /// イベント詳細移動タイプ
 typedef enum {
-	EventDetailMoveTypeNoMove = 0,		/// 動かない
-	EventDetailMoveTypeRandom,			/// ランダム
-	EventDetailMoveTypeNear,			/// 主人公に近づく
-	EventDetailMoveTypeFar,				/// 主人公から離れる
-	EventDetailMoveTypeSet,				/// 詳細設定
+	/// 動かない
+	EventDetailMoveTypeNoMove = 0,
+	/// ランダム
+	EventDetailMoveTypeRandom,
+	/// 主人公に近づく
+	EventDetailMoveTypeNear,
+	/// 主人公から離れる
+	EventDetailMoveTypeFar,
+	/// 詳細設定
+	EventDetailMoveTypeSet,
 } EventDetailMoveType;
 
 
@@ -265,77 +416,122 @@ typedef enum {
 
 /// レベルアップ時のステータスタイプ
 typedef enum {
-	AddStatusTypeMaxHP = 0,			/// 最大HP
-	AddStatusTypeMaxMP,				/// 最大MP
-	AddStatusTypeAttack,			/// 攻撃力
-	AddStatusTypeMental,			/// 精神力
-	AddStatusTypeDefence,			/// 防御力
-	AddStatusTypeSpeed,				/// スピード
-	AddStatusTypeEXP,				/// レベルアップ経験値
+	/// 最大HP
+	AddStatusTypeMaxHP = 0,
+	/// 最大MP
+	AddStatusTypeMaxMP,
+	/// 攻撃力
+	AddStatusTypeAttack,
+	/// 精神力
+	AddStatusTypeMental,
+	/// 防御力
+	AddStatusTypeDefence,
+	/// スピード
+	AddStatusTypeSpeed,
+	/// レベルアップ経験値
+	AddStatusTypeEXP,
 } AddStatusType;
 
 #pragma mark - アイテム
 
 /// アイテム種別
 typedef enum {
-	ItemTypeNormal	=	0,			/// 通常
-	ItemTypeWeapon,					/// 武器
-	ItemTypeArmar,					/// 鎧
-	ItemTypeShield,					/// 盾
-	ItemTypeHelm,					/// 兜
-	ItemTypeAccess,					/// 装飾品
-	ItemTypeRecovery,				/// 回復
-	ItemTypeSeed,					/// 種
-	ItemTypeMap,					/// 地図
-	ItemTypeJob,					/// 職業変更
-	ItemTypeSkill,					/// 特技追加
+	/// 通常
+	ItemTypeNormal	=	0,
+	/// 武器
+	ItemTypeWeapon,
+	/// 鎧
+	ItemTypeArmar,
+	/// 盾
+	ItemTypeShield,
+	/// 兜
+	ItemTypeHelm,
+	/// 装飾品
+	ItemTypeAccess,
+	/// 回復
+	ItemTypeRecovery,
+	/// 種
+	ItemTypeSeed,
+	/// 地図
+	ItemTypeMap,
+	/// 職業変更
+	ItemTypeJob,
+	/// 特技追加
+	ItemTypeSkill,
 } ItemType;
 
 /// アイテムステータス種別
 typedef enum {
-	ItemStatusTypeNothing = 0,		/// 影響なし
-	ItemStatusTypeHP,				/// 最大HPに影響
-	ItemStatusTypeMP,				/// 最大MPに影響
-	ItemStatusTypeAttack,			/// 攻撃力に影響
-	ItemStatusTypeMental,			/// 精神力に影響
-	ItemStatusTypeDefence,			/// 防御力に影響
-	ItemStatusTypeSpeed,			/// 機敏性に影響
-	ItemStatusTypeFire,				/// 炎耐性に影響
-	ItemStatusTypeIce,				/// 氷耐性に影響
-	ItemStatusTypeThunder,			/// 雷耐性に影響
-	ItemStatusTypePoison,			/// 毒耐性に影響
-	ItemStatusTypeHitCount,			/// ヒット回数
-	ItemStatusTypeFame,				/// 名声
-	ItemStatusTypeMoral,			/// 道徳心
-	ItemStatusTypeHitRate,			/// 命中率
-	ItemStatusTypeCriticalRate,		/// 必殺率
+	/// 影響なし
+	ItemStatusTypeNothing = 0,
+	/// 最大HPに影響
+	ItemStatusTypeHP,
+	/// 最大MPに影響
+	ItemStatusTypeMP,
+	/// 攻撃力に影響
+	ItemStatusTypeAttack,
+	/// 精神力に影響
+	ItemStatusTypeMental,
+	/// 防御力に影響
+	ItemStatusTypeDefence,
+	/// 機敏性に影響
+	ItemStatusTypeSpeed,
+	/// 炎耐性に影響
+	ItemStatusTypeFire,
+	/// 氷耐性に影響
+	ItemStatusTypeIce,
+	/// 雷耐性に影響
+	ItemStatusTypeThunder,
+	/// 毒耐性に影響
+	ItemStatusTypePoison,
+	/// ヒット回数
+	ItemStatusTypeHitCount,
+	/// 名声
+	ItemStatusTypeFame,
+	/// 道徳心
+	ItemStatusTypeMoral,
+	/// 命中率
+	ItemStatusTypeHitRate,
+	/// 必殺率
+	ItemStatusTypeCriticalRate,
 } ItemStatusType;
 
-#pragma mark - 特殊技能
+#pragma mark - スキル
 
 /// 特殊技能種別
 typedef enum {
-	SkillTypeAttack		=	0,		/// 攻撃
-	SkillTypeRecvary,				/// 回復
-	SkillTypeTeleport,				/// テレポート
-	SkillTypeEscape,				/// エスケープ
-	SkillTypeMap,					/// 地図
+	/// 攻撃
+	SkillTypeAttack		=	0,
+	/// 回復
+	SkillTypeRecvary,
+	/// テレポート
+	SkillTypeTeleport,
+	/// エスケープ
+	SkillTypeEscape,
+	/// 地図
+	SkillTypeMap,
 } SkillType;
 
 /// 効果範囲
 typedef enum {
-	EffectRangeTypeUser	=	0,		/// 使用者
-	EffectRangeTypeSingle,			/// 単体
-	EffectRangeTypeAll,				/// 全員
+	/// 使用者
+	EffectRangeTypeUser	=	0,
+	/// 単体
+	EffectRangeTypeSingle,
+	/// 全員
+	EffectRangeTypeAll,
 } EffectRangeType;
 
 #pragma mark - 変数
 
 /// 変数変化増減タイプ
 typedef enum {
-	VariableOperateTypeAssignment = 0,	///	代入
-	VariableOperateTypeIncrease,		///	増
-	VariableOperateTypeDecline,			///	減
+	///	代入
+	VariableOperateTypeAssignment = 0,
+	///	増
+	VariableOperateTypeIncrease,
+	///	減
+	VariableOperateTypeDecline,
 } VariableOperateType;
 
 #pragma mark - サウンド
@@ -345,5 +541,14 @@ typedef enum {
 
 /// マップチップ最大数
 #define MAPCHIP_VALUE_MAX 63
+
+#pragma mark - バトル
+
+/// バトル
+typedef enum {
+	BattleStatusTypeMaxHP = 0,
+	
+} BattleStatusType;
+
 
 #endif /* GameConst_h */
