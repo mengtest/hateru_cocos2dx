@@ -275,7 +275,7 @@ PlayerUnitEntity::PlayerUnitEntity() {
 	id = "";
 	name = "";
 	unitId = 0;
-	config = 0;
+	condition = 0;
 	statuses.clear();
 	for (int i = UnitStatusTypeLv;i <= UnitStatusTypeDirection;i++) {
 		statuses.push_back(0);
@@ -305,7 +305,7 @@ void PlayerUnitEntity::serialize(picojson::object &object) {
 	object.insert(make_pair("id", picojson::value(id)));
 	object.insert(make_pair("name", picojson::value(name)));
 	object.insert(make_pair("unitId", picojson::value((double)unitId)));
-	object.insert(make_pair("config", picojson::value((double)config)));
+	object.insert(make_pair("condition", picojson::value((double)condition)));
 	picojson::array statuseList;
 	for (auto it = statuses.begin(); it != statuses.end(); it++) {
 		statuseList.push_back(picojson::value((double)*it));
@@ -356,10 +356,10 @@ bool PlayerUnitEntity::mapping(picojson::object &object) {
 		log(JSON_BAD_MAPPING_ERROR, "unitId");
 		return false;
 	}
-	if (object["config"].is<double>()) {
-		config = (int)object["config"].get<double>();
+	if (object["condition"].is<double>()) {
+		condition = (int)object["condition"].get<double>();
 	} else {
-		log(JSON_BAD_MAPPING_ERROR, "money");
+		log(JSON_BAD_MAPPING_ERROR, "condition");
 		return false;
 	}
 	if (object["statuses"].is<picojson::array>()) {

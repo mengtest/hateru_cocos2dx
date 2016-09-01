@@ -30,7 +30,7 @@ public:
 	/// 種類
 	int unitId;
 	/// 状態
-	int config;
+	int condition;
 	/// ステータス
 	vector<int> statuses;
 	/// 装備

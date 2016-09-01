@@ -546,8 +546,52 @@ typedef enum {
 
 /// バトル
 typedef enum {
+	/// 最大HP
 	BattleStatusTypeMaxHP = 0,
-	
+	/// 最大MP
+	BattleStatusTypeMaxMP,
+	/// 移動中の攻撃力
+	BattleStatusTypeMaxAttack,
+	/// 移動中の精神力
+	BattleStatusTypeMaxMental,
+	/// 移動中の防御力
+	BattleStatusTypeMaxDefence,
+	/// 移動中の機敏さ
+	BattleStatusTypeMaxSpeed,
+	/// HP
+	BattleStatusTypeHP,
+	/// MP
+	BattleStatusTypeMP,
+	/// 攻撃力
+	BattleStatusTypeAttack,
+	/// 精神力
+	BattleStatusTypeMental,
+	/// 防御力
+	BattleStatusTypeDefence,
+	/// 機敏さ
+	BattleStatusTypeSpeed,
+	/// 炎耐性
+	BattleStatusTypeFire,
+	/// 氷耐性
+	BattleStatusTypeIce,
+	/// 雷耐性
+	BattleStatusTypeThunder,
+	/// 毒耐性
+	BattleStatusTypePoison,
+	/// 金
+	BattleStatusTypeMoney,
+	/// 経験値
+	BattleStatusTypeEXP,
+	/// 命中率
+	BattleStatusTypeHitRate,
+	/// 必殺率
+	BattleStatusTypeCriticalRate,
+	/// 状態
+	BattleStatusTypeCondition,
+	/// ヒット
+	BattleStatusTypeHit,
+	/// バトルステータスMAX
+	BattleStatusTypeMax,
 } BattleStatusType;
 
 
