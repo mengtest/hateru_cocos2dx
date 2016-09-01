@@ -195,6 +195,15 @@ GameSkillEntity *GameMainService::getSkill(const int id) {
 }
 
 /**
+ *  スキル数を取得
+ *
+ *  @return スキル数
+ */
+int GameMainService::getSkillCount() {
+	return (int)skills.size();
+}
+
+/**
  *  変数情報取得
  *
  *  @param id ID

@@ -103,7 +103,7 @@ public:
 	 *  @return 職種情報
 	 */
 	GameJobEntity *getJob(const int id);
-
+	
 	/**
 	 *  スキル情報取得
 	 *
@@ -113,6 +113,13 @@ public:
 	 */
 	GameSkillEntity *getSkill(const int id);
 
+	/**
+	 *  スキル数を取得
+	 *
+	 *  @return スキル数
+	 */
+	int getSkillCount();
+	
 	/**
 	 *  変数情報取得
 	 *

@@ -99,6 +99,18 @@ public:
 	 *  @return true: フル、false: まだまだ
 	 */
 	bool addSkill(const int id);
+	
+	/**
+	 *  スキルをソート
+	 */
+	void sortSkill();
+	
+	/**
+	 *  テレポートスキルを所持しているか？
+	 *
+	 *  @return true: 所持している、false: していない
+	 */
+	bool hasSkillTeleport();
 
 	/**
 	 *  コンストラクタ

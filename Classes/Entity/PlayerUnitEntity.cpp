@@ -229,6 +229,43 @@ bool PlayerUnitEntity::addSkill(const int id) {
 	return false;
 }
 
+/**
+ *  スキルをソート
+ */
+void PlayerUnitEntity::sortSkill() {
+	
+	auto skillsBackup = skills;
+	
+	auto maxId = GameMainService::sharedInstance()->getSkillCount();
+	
+	skills.clear();
+	for (auto it = skillsBackup.begin();it != skillsBackup.end();it++) {
+		for (int id = 1;id <= maxId;id++) {
+			if (*it == id) {
+				skills.push_back(*it);
+			}
+		}
+	}
+}
+
+/**
+ *  テレポートスキルを所持しているか？
+ *
+ *  @return true: 所持している、false: していない
+ */
+bool PlayerUnitEntity::hasSkillTeleport() {
+	// 検索
+	auto it = find_if(begin(skills), end(skills),
+						 [] (int skillId) {
+							 auto skillEntity = GameMainService::sharedInstance()->getSkill(skillId);
+							 return skillEntity->skillType == SkillTypeTeleport;
+						 });
+	if (it == end(skills)) {
+		return false;
+	}
+	return true;
+}
+
 #pragma mark - 初期化
 
 /**
