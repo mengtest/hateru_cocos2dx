@@ -39,7 +39,7 @@ bool PlayerUnitEntity::addItem(const int id, const int useCount, const string it
 		return true;
 	}
 	
-	auto itemEntity = PlayerItemEntity::create(id, useCount, itemId);
+	auto itemEntity = PlayerItemEntity::createEntity(id, useCount, itemId);
 	items.push_back(itemEntity);
 	
 	return false;
@@ -150,7 +150,52 @@ void PlayerUnitEntity::updateEquipmentsIndex(const int removeIndex) {
 	
 	// TODO:ステータスを再調整
 	if (isRemoveEquipment) {
-		
+		updateEquippedStatus();
+	}
+}
+
+/**
+ *  装備後ステータスの更新
+ */
+void PlayerUnitEntity::updateEquippedStatus() {
+
+	// HPから機敏さまで
+	for (int i = 0;i < 6;i++) {
+		statuses[UnitStatusTypeHPEq + i] = statuses[UnitStatusTypeMaxHP + 1];
+	}
+	// 名声から道徳心
+	for (int i = 0;i < 2;i++) {
+		statuses[UnitStatusTypeFameEq + i] = statuses[UnitStatusTypeFame + 1];
+	}
+	// 炎属性から毒属性を初期化
+	for (int i = 0;i < 4;i++) {
+		statuses[UnitStatusTypeFireEq + i] = 0;
+	}
+	// 命中率、必殺率
+	auto jobEntity = GameMainService::sharedInstance()->getJob(statuses[UnitStatusTypeJob]);
+	statuses[UnitStatusTypeHitRate] = jobEntity->hitRate;
+	statuses[UnitStatusTypeCriticalRate] = jobEntity->criticalRate;
+
+	// ステータス振り分け
+	for (int i = EquipmentTypeWeapon;i <= EquipmentTypeAccessory;i++) {
+		if (equipments[i] < 0) {
+			continue;
+		}
+		// アイテム情報取得
+		auto itemEntity = GameMainService::sharedInstance()->getItem(items[equipments[i]].id);
+		for (auto it = itemEntity->changeStatus.begin();it != itemEntity->changeStatus.end();it++) {
+			if (it->status == ItemStatusTypeNothing) {
+				continue;
+			}
+			if (it->status >= ItemStatusTypeHP && it->status <= ItemStatusTypePoison) {
+				// HPから毒属性
+				statuses[UnitStatusTypeHPEq + (it->status - ItemStatusTypeHP)] += it->value;
+			} else if (it->status >= ItemStatusTypeFame && it->status <= ItemStatusTypeCriticalRate) {
+				// 名声から必殺率
+				statuses[UnitStatusTypeFameEq + (it->status - ItemStatusTypeFame)] += it->value;
+			}
+			
+		}
 	}
 }
 

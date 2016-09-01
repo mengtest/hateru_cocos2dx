@@ -13,6 +13,8 @@
 
 #include "picojson.h"
 
+class PlayerUnitEntity;
+
 USING_NS_CC;
 using namespace std;
 
@@ -36,7 +38,16 @@ public:
 	 *
 	 *  @return PlayerItemEntity
 	 */
-	static PlayerItemEntity create(const int id, const int useCount, const string itemId);
+	static PlayerItemEntity createEntity(const int id, const int useCount, const string itemId);
+	
+	/**
+	 *  装備可能か
+	 *
+	 *  @param unitEntity ユニットEntity
+	 *
+	 *  @return true: 装備可能、false: 装備不可
+	 */
+	bool isCanEquipped(const PlayerUnitEntity &unitEntity);
 	
 	/**
 	 *  コンストラクタ

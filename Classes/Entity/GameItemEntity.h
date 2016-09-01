@@ -40,6 +40,8 @@ public:
 	int imageId;
 	/// 調合<GameItemMixEntity>
 	vector<GameItemMixEntity> mixings;
+	/// 装備可能
+	bool isCanEquipped;
 	/// 装備可能職業
 	vector<bool> equipmentJobs;
 	/// 変更職業

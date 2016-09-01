@@ -80,6 +80,11 @@ public:
 	void updateEquipmentsIndex(const int removeIndex);
 	
 	/**
+	 *  装備後ステータスの更新
+	 */
+	void updateEquippedStatus();
+	
+	/**
 	 *  持ちスキルがフルか？
 	 *
 	 *  @return true: フル、false: まだまだ

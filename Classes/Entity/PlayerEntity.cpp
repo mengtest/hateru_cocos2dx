@@ -160,7 +160,7 @@ vector<int> PlayerEntity::validMixings() {
  *  @param itemId   アイテムID
  */
 void PlayerEntity::addCloakrooms(const int id, const int useCount, const string itemId) {
-	auto itemEntity = PlayerItemEntity::create(id, useCount, itemId);
+	auto itemEntity = PlayerItemEntity::createEntity(id, useCount, itemId);
 	cloakrooms.push_back(itemEntity);
 }
 

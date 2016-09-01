@@ -47,6 +47,7 @@ GameItemEntity::GameItemEntity() {
 	changeStatus.clear();
 	imageId = 0;
 	mixings.clear();
+	isCanEquipped = false;
 	equipmentJobs.clear();
 	changeJobId = 0;
 	comment = "";
@@ -114,7 +115,8 @@ void GameItemEntity::convertData(const unsigned char *data) {
 		}
 		dataIndex += 2;
 	}
-	// ？
+	// 装備可能
+	isCanEquipped = (data[dataIndex] == 1);
 	dataIndex += 1;
 	// 装備可能職業指定
 	equipmentJobs.clear();
