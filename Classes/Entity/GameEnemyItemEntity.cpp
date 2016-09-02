@@ -9,6 +9,21 @@
 #include "GameEnemyItemEntity.h"
 
 /**
+ *  コンストラクタ
+ */
+GameEnemyItemEntity::GameEnemyItemEntity() {
+	isWon = false;
+	rate = 0;
+	itemId = 0;
+}
+
+/**
+ *  デストラクタ
+ */
+GameEnemyItemEntity::~GameEnemyItemEntity() {
+}
+
+/**
  *  バイナリデータよりEntity作成
  *
  *  @param data バイナリデータ

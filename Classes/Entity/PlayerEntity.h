@@ -50,6 +50,9 @@ public:
 	/// 現在位置
 	PlayerMapEntity location;
 	
+	/// 移動タイプ
+	MoveType moveType;
+	
 	/// テレポート情報
 	vector<PlayerTeleportEntity> teleports;
 	

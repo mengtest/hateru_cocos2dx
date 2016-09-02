@@ -8,6 +8,38 @@
 
 #include "GameEnemyEncountEntity.h"
 
+#include "PlayerMapEntity.h"
+
+/**
+ *  範囲チェック
+ *
+ *  @param locationEntity プレイヤー位置Entity
+ *
+ *  @return true: 範囲内、false: 範囲外
+ */
+bool GameEnemyEncountEntity::isInRange(const PlayerMapEntity &mapEntity) {
+	return  (mapId == mapEntity.id &&
+			 x <= mapEntity.x && mapEntity.x < x + width &&
+			 y <= mapEntity.y && mapEntity.y < y + height);
+}
+
+/**
+ *  コンストラクタ
+ */
+GameEnemyEncountEntity::GameEnemyEncountEntity() {
+	mapId = 0;
+	x = 0;
+	y = 0;
+	width = 0;
+	height = 0;
+}
+
+/**
+ *  デストラクタ
+ */
+GameEnemyEncountEntity::~GameEnemyEncountEntity() {
+}
+
 /**
  *  バイナリデータよりEntity作成
  *

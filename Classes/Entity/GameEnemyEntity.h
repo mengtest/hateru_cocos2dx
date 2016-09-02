@@ -13,6 +13,8 @@
 #include "GameEnemyItemEntity.h"
 #include "GameEnemyEncountEntity.h"
 
+class PlayerEntity;
+
 /// 敵Entity
 class GameEnemyEntity final: public BaseGameEntity {
 public:
@@ -30,7 +32,26 @@ public:
 	/// 出現座標
 	vector<GameEnemyEncountEntity> encounts;
 	/// 出現属性
-	int encountAttribute;
+	vector<bool> isEncountType;
+	
+	/**
+	 *  遭遇チェック
+	 *
+	 *  @param playerEntity プレイヤーEntity
+	 *
+	 *  @return true: 遭遇、false: 遭遇なし
+	 */
+	bool isEncount(const PlayerEntity &playerEntity);
+	
+	/**
+	 *  コンストラクタ
+	 */
+	GameEnemyEntity();
+	
+	/**
+	 *  デストラクタ
+	 */
+	~GameEnemyEntity();
 	
 	/**
 	 *  バイナリデータよりEntity作成

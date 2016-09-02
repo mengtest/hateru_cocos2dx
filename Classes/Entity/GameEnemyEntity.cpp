@@ -8,8 +8,55 @@
 
 #include "GameEnemyEntity.h"
 
+#include "GameConst.h"
 #include "SJISUtil.h"
 #include "StringUtil.h"
+#include "PlayerEntity.h"
+
+/**
+ *  遭遇チェック
+ *
+ *  @param playerEntity プレイヤーEntity
+ *
+ *  @return true: 遭遇、false: 遭遇なし
+ */
+bool GameEnemyEntity::isEncount(const PlayerEntity &playerEntity) {
+
+	// 属性チェック
+	if (!isEncountType[playerEntity.moveType]) {
+		return false;
+	}
+	
+	// 範囲チェック
+	for (auto it = encounts.begin();it != encounts.end();it++) {
+		if (it->isInRange(playerEntity.location)) {
+			return true;
+		}
+	}
+	return false;
+}
+
+/**
+ *  コンストラクタ
+ */
+GameEnemyEntity::GameEnemyEntity() {
+	name = "";
+	imageId = 0;
+	statuses.clear();
+	attackPattern.clear();
+	encounts.clear();
+	isEncountType.clear();
+	for (int i = MoveTypeWalk;i <= MoveTypeFlyShip;i++) {
+		isEncountType.push_back(false);
+	}
+}
+
+/**
+ *  デストラクタ
+ */
+GameEnemyEntity::~GameEnemyEntity() {
+	
+}
 
 /**
  *  バイナリデータよりEntity作成
@@ -49,7 +96,9 @@ void GameEnemyEntity::convertData(const unsigned char *data) {
 		dataIndex += 5;
 	}
 	// 出現場所
-	encountAttribute = (int)data[dataIndex];
+	for (int i = MoveTypeWalk;i <= MoveTypeFlyShip;i++) {
+		isEncountType[i] = (data[dataIndex] & (1 << i));
+	}
 	dataIndex += 1;
 }
 

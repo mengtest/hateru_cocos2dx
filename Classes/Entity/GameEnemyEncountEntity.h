@@ -11,6 +11,8 @@
 
 #include "BaseGameEntity.h"
 
+class PlayerMapEntity;
+
 /// 敵 遭遇Entity
 class GameEnemyEncountEntity final: public BaseGameEntity {
 public:
@@ -25,6 +27,25 @@ public:
 	int width;
 	/// 高さ
 	int height;
+	
+	/**
+	 *  範囲チェック
+	 *
+	 *  @param mapEntity プレイヤー位置Entity
+	 *
+	 *  @return true: 範囲内、false: 範囲外
+	 */
+	bool isInRange(const PlayerMapEntity &mapEntity);
+	
+	/**
+	 *  コンストラクタ
+	 */
+	GameEnemyEncountEntity();
+	
+	/**
+	 *  デストラクタ
+	 */
+	~GameEnemyEncountEntity();
 	
 	/**
 	 *  バイナリデータよりEntity作成

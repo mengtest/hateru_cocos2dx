@@ -23,6 +23,16 @@ public:
 	int itemId;
 	
 	/**
+	 *  コンストラクタ
+	 */
+	GameEnemyItemEntity();
+	
+	/**
+	 *  デストラクタ
+	 */
+	~GameEnemyItemEntity();
+	
+	/**
 	 *  バイナリデータよりEntity作成
 	 *
 	 *  @param data バイナリデータ
