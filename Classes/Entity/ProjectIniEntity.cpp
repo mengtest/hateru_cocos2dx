@@ -29,6 +29,21 @@ const string ProjectIniEntity::typeVariable = "[NumList]";
 /// サウンド
 const string ProjectIniEntity::typeSound = "[SoundList]";
 
+
+/**
+ *  コンストラクタ
+ */
+ProjectIniEntity::ProjectIniEntity() {
+	counts.clear();
+}
+
+/**
+ *  デストラクタ
+ */
+ProjectIniEntity::~ProjectIniEntity() {
+	
+}
+
 /**
  *  バイナリデータよりEntity作成
  *

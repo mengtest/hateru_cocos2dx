@@ -55,6 +55,31 @@
 #include "GameEventRandomEntity.h"
 
 /**
+ *  コンストラクタ
+ */
+GameEventEntity::GameEventEntity() {
+	name = "";
+	isIgnitionVariable = false;
+	variableId = 0;
+	formulaType = IfFormulaTypeEqual;
+	value = 0;
+	initConditionType = EventInitConditionTypeKey;
+	moveType = EventDetailMoveTypeNoMove;
+	detailMoveTypes.clear();
+	isUseUnit = false;
+	charaId = 0;
+	eventTypes.clear();
+	details.clear();
+}
+
+/**
+ *  デストラクタ
+ */
+GameEventEntity::~GameEventEntity() {
+	
+}
+
+/**
  *  バイナリデータよりEntity作成
  *
  *  @param data バイナリデータ

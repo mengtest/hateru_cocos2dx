@@ -11,6 +11,21 @@
 #include "SJISUtil.h"
 #include "StringUtil.h"
 
+
+/**
+ *  コンストラクタ
+ */
+NamesEntity::NamesEntity() {
+	names.clear();
+}
+
+/**
+ *  デストラクタ
+ */
+NamesEntity::~NamesEntity() {
+	
+}
+
 /**
  *  バイナリデータよりEntity作成
  *

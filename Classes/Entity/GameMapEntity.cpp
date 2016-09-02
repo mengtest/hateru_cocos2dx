@@ -8,6 +8,37 @@
 
 #include "GameMapEntity.h"
 
+
+/**
+ *  コンストラクタ
+ */
+GameMapEntity::GameMapEntity() {
+	name = "";
+	mapType = MapTypeNormal;
+	width = 0;
+	height = 0;
+	backgroundImageId = 0;
+	mapEndType = MapLoopTypeNone;
+	upMapChpGpId = 0;
+	downMapChpGpId = 0;
+	backgroundColor = 0;
+	enemyEncountRate = 0;
+	isUseTeleport = false;
+	isUseEscape = false;
+	soundId = 0;
+	battleSoundId = 0;
+	battleBackgroundImageId = 0;
+	mapChips.clear();
+	events.clear();
+}
+
+/**
+ *  デストラクタ
+ */
+GameMapEntity::~GameMapEntity() {
+
+}
+
 /**
  *  バイナリデータよりEntity作成
  *

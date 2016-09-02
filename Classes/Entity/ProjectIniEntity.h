@@ -38,6 +38,16 @@ public:
 	map<string, int> counts;
 	
 	/**
+	 *  コンストラクタ
+	 */
+	ProjectIniEntity();
+	
+	/**
+	 *  デストラクタ
+	 */
+	~ProjectIniEntity();
+	
+	/**
 	 *  バイナリデータよりEntity作成
 	 *
 	 *  @param data バイナリデータ

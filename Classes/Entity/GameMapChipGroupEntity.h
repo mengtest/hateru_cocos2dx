@@ -21,6 +21,16 @@ public:
 	int imageId[MAPCHIP_VALUE_MAX];
 	
 	/**
+	 *  コンストラクタ
+	 */
+	GameMapChipGroupEntity();
+	
+	/**
+	 *  デストラクタ
+	 */
+	~GameMapChipGroupEntity();
+	
+	/**
 	 *  バイナリデータよりEntity作成
 	 *
 	 *  @param data バイナリデータ

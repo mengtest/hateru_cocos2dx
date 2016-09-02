@@ -8,6 +8,22 @@
 
 #include "GameMapChipGroupEntity.h"
 
+
+/**
+ *  コンストラクタ
+ */
+GameMapChipGroupEntity::GameMapChipGroupEntity() {
+	name = "";
+	memset(imageId, 0x00, sizeof(imageId));
+}
+
+/**
+ *  デストラクタ
+ */
+GameMapChipGroupEntity::~GameMapChipGroupEntity() {
+	
+}
+
 /**
  *  バイナリデータよりEntity作成
  *

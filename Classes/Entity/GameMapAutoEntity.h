@@ -27,6 +27,16 @@ public:
 	vector<int> itemIds;
 	
 	/**
+	 *  コンストラクタ
+	 */
+	GameMapAutoEntity();
+	
+	/**
+	 *  デストラクタ
+	 */
+	~GameMapAutoEntity();
+	
+	/**
 	 *  バイナリデータよりEntity作成
 	 *
 	 *  @param data バイナリデータ

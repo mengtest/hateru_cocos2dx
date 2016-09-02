@@ -42,6 +42,16 @@ public:
 	vector<GameEventBaseEntity> details;
 	
 	/**
+	 *  コンストラクタ
+	 */
+	GameEventEntity();
+	
+	/**
+	 *  デストラクタ
+	 */
+	~GameEventEntity();
+	
+	/**
 	 *  バイナリデータよりEntity作成
 	 *
 	 *  @param data バイナリデータ

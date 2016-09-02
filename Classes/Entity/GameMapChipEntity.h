@@ -31,6 +31,16 @@ public:
 	bool isUpChipClear;
 	
 	/**
+	 *  コンストラクタ
+	 */
+	GameMapChipEntity();
+	
+	/**
+	 *  デストラクタ
+	 */
+	~GameMapChipEntity();
+	
+	/**
 	 *  バイナリデータよりEntity作成
 	 *
 	 *  @param data バイナリデータ

@@ -8,6 +8,25 @@
 
 #include "GameMapChipEntity.h"
 
+/**
+ *  コンストラクタ
+ */
+GameMapChipEntity::GameMapChipEntity() {
+	downChipId = 0;
+	upChipId = 0;
+	eventId = 0;
+	isNotPassWalk = false;
+	isNotPassShip = false;
+	isNotPassFlyShip = false;
+	isUpChipClear = false;
+}
+
+/**
+ *  デストラクタ
+ */
+GameMapChipEntity::~GameMapChipEntity() {
+	
+}
 
 /**
  *  バイナリデータよりEntity作成

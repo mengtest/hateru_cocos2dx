@@ -56,6 +56,16 @@ public:
 	map<int, GameEventEntity> events;
 
 	/**
+	 *  コンストラクタ
+	 */
+	GameMapEntity();
+	
+	/**
+	 *  デストラクタ
+	 */
+	~GameMapEntity();
+	
+	/**
 	 *  バイナリデータよりEntity作成
 	 *
 	 *  @param data バイナリデータ

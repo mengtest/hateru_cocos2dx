@@ -9,6 +9,24 @@
 #include "GameMapAutoEntity.h"
 
 /**
+ *  コンストラクタ
+ */
+GameMapAutoEntity::GameMapAutoEntity() {
+	stratum = 0;
+	downChipIds.clear();
+	upChipIds.clear();
+	enemyIds.clear();
+	itemIds.clear();
+}
+
+/**
+ *  デストラクタ
+ */
+GameMapAutoEntity::~GameMapAutoEntity() {
+	
+}
+
+/**
  *  バイナリデータよりEntity作成
  *
  *  @param data バイナリデータ

@@ -19,6 +19,16 @@ public:
 	vector<string> names;
 
 	/**
+	 *  コンストラクタ
+	 */
+	NamesEntity();
+	
+	/**
+	 *  デストラクタ
+	 */
+	~NamesEntity();
+	
+	/**
 	 *  バイナリデータよりEntity作成
 	 *
 	 *  @param data バイナリデータ
