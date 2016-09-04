@@ -63,6 +63,13 @@ public:
 	bool isValidMixings(map<int, int> itemCounts);
 	
 	/**
+	 *  ヒット回数取得
+	 *
+	 *  @return ヒット回数
+	 */
+	int hitCount();
+	
+	/**
 	 *  コンストラクタ
 	 */
 	GameItemEntity();

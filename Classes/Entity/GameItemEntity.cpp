@@ -33,6 +33,21 @@ bool GameItemEntity::isValidMixings(map<int, int> itemCounts) {
 }
 
 /**
+ *  ヒット回数取得
+ *
+ *  @return ヒット回数
+ */
+int GameItemEntity::hitCount() {
+	int hitCount = 0;
+	for (auto it = changeStatus.begin();it != changeStatus.end();it++) {
+		if (it->status == ItemStatusTypeHitCount && hitCount < it->value) {
+			hitCount = it->value;
+		}
+	}
+	return hitCount;
+}
+
+/**
  *  コンストラクタ
  */
 GameItemEntity::GameItemEntity() {

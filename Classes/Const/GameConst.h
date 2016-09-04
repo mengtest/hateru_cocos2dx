@@ -408,6 +408,39 @@ typedef enum {
 	EventDetailMoveTypeSet,
 } EventDetailMoveType;
 
+#pragma mark - 敵
+
+/// 敵ステータスタイプ
+typedef enum {
+	/// 最大HP
+	EnemyStatusTypeMaxHP,
+	/// 最大MP
+	EnemyStatusTypeMaxMP,
+	/// 攻撃力
+	EnemyStatusTypeAttack,
+	/// 精神力
+	EnemyStatusTypeMental,
+	/// 防御力
+	EnemyStatusTypeDefence,
+	/// 機敏さ
+	EnemyStatusTypeSpeed,
+	/// 装備後炎耐性
+	EnemyStatusTypeFire,
+	/// 装備後氷耐性
+	EnemyStatusTypeIce,
+	/// 装備後雷耐性
+	EnemyStatusTypeThunder,
+	/// 装備後毒耐性
+	EnemyStatusTypePoison,
+	/// 所持金
+	EnemyStatusTypeMoney,
+	/// 経験値
+	EnemyStatusTypeEXP,
+	/// 命中率
+	EnemyStatusTypeHitRate,
+	/// 必殺率
+	EnemyStatusTypeCriticalRate,
+} EnemyStatusType;
 
 #pragma mark - 職業
 

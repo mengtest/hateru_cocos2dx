@@ -266,6 +266,36 @@ bool PlayerUnitEntity::hasSkillTeleport() {
 	return true;
 }
 
+#pragma mark - バトル
+
+/**
+ *  バトルステータスに変換
+ *
+ *  @return バトルステータス
+ */
+vector<int> PlayerUnitEntity::battleStatuses() {
+	
+	vector<int> battleStatuses;
+	for (int i = 0;i <= BattleStatusTypeMax;i++) {
+		if (i <= BattleStatusTypeMaxSpeed) {
+			battleStatuses.push_back(statuses[UnitStatusTypeHPEq + i]);
+		} else if (i <= BattleStatusTypeMP) {
+			battleStatuses.push_back(statuses[UnitStatusTypeHP + (i - BattleStatusTypeHP)]);
+		} else if (i <= BattleStatusTypePoison) {
+			battleStatuses.push_back(statuses[UnitStatusTypeAttackEq + (i - BattleStatusTypeAttack)]);
+		} else if (i < BattleStatusTypeCondition) {
+			battleStatuses.push_back(statuses[UnitStatusTypeHitRate + (i - BattleStatusTypeHitRate)]);
+		} else {
+			battleStatuses.push_back(0);
+		}
+	}
+	if (battleStatuses[BattleStatusTypeHP] <= 0) {
+		battleStatuses[BattleStatusTypeMaxHP] = 0;
+		battleStatuses[BattleStatusTypeCondition] |= ConditionTypeDie;
+	}
+	return battleStatuses;
+}
+
 #pragma mark - 初期化
 
 /**

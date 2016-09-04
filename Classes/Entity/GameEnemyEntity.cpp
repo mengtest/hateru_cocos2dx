@@ -36,6 +36,30 @@ bool GameEnemyEntity::isEncount(const PlayerEntity &playerEntity) {
 	return false;
 }
 
+
+/**
+ *  バトルステータス取得
+ *
+ *  @return バトルステータス
+ */
+vector<int> GameEnemyEntity::battleStatues() {
+	
+	vector<int> battleStatuses;
+	
+	for (int i = 0;i < BattleStatusTypeMax;i++) {
+		if (i <= BattleStatusTypeMaxSpeed) {
+			battleStatuses.push_back(statuses[i]);
+		} else if (i <= BattleStatusTypeMP) {
+			battleStatuses.push_back(statuses[EnemyStatusTypeMaxHP + (i - BattleStatusTypeHP)]);
+		} else if (i < BattleStatusTypeCondition) {
+			battleStatuses.push_back(statuses[EnemyStatusTypeAttack + (i - BattleStatusTypeAttack)]);
+		} else {
+			battleStatuses.push_back(0);
+		}
+	}
+	return battleStatuses;
+}
+
 /**
  *  コンストラクタ
  */

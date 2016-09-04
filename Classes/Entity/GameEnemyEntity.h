@@ -44,6 +44,13 @@ public:
 	bool isEncount(const PlayerEntity &playerEntity);
 	
 	/**
+	 *  バトルステータス取得
+	 *
+	 *  @return バトルステータス
+	 */
+	vector<int> battleStatues();
+	
+	/**
 	 *  コンストラクタ
 	 */
 	GameEnemyEntity();

@@ -113,6 +113,13 @@ public:
 	bool hasSkillTeleport();
 
 	/**
+	 *  バトルステータスに変換
+	 *
+	 *  @return バトルステータス
+	 */
+	vector<int> battleStatuses();
+
+	/**
 	 *  コンストラクタ
 	 */
 	PlayerUnitEntity();
