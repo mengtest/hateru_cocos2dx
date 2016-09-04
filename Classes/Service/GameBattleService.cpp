@@ -56,14 +56,25 @@ void GameBattleService::setupInstance() {
 
 /**
  *  セットアップ
+ *
+ *  @param isEvent イベントバトル
+ *  @param enemies 敵
  */
-void GameBattleService::setup() {
+void GameBattleService::setup(const bool isEvent, vector<GameEnemyEntity> &enemies) {
 	
 	unitNames.clear();
 	unitStatuses.clear();
+	exp = 0;
+	money = 0;
 	
 	// プレイヤーステータス設定
 	setupPlayerStatus();
+	
+	// 敵キャラステータス設定
+	for (auto it = enemies.begin();it != enemies.end();it++) {
+		unitNames.push_back(it->name);
+		unitStatuses.push_back(it->battleStatues());
+	}
 }
 
 /**

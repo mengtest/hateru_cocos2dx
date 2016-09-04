@@ -14,6 +14,7 @@
 #include "GameMapManager.h"
 #include "GameMapChipGroupManager.h"
 #include "GameEnemyManager.h"
+#include "GameEnemyEntity.h"
 #include "GameCharaManager.h"
 #include "GameItemManager.h"
 #include "GameJobManager.h"
@@ -139,6 +140,24 @@ GameMapChipGroupEntity *GameMainService::getMapChipGroup(const int id) {
  */
 GameEnemyEntity *GameMainService::getEnemy(const int id) {
 	return &enemies[id];
+}
+
+/**
+ *  遭遇敵情報取得
+ *
+ *  @param playerEntity プレイヤー情報
+ *
+ *  @return 遭遇敵情報
+ */
+vector<GameEnemyEntity> GameMainService::encoundEnemies(const PlayerEntity &playerEntity) {
+
+	vector<GameEnemyEntity> encountEnemies;
+	for (auto it = enemies.begin();it != enemies.end();it++) {
+		if (it->second.isEncount(playerEntity)) {
+			encountEnemies.push_back(it->second);
+		}
+	}
+	return encountEnemies;
 }
 
 /**

@@ -8,6 +8,8 @@
 
 #include "GameMapService.h"
 
+#include "GameMainService.h"
+
 /// インスタンス
 GameMapService *GameMapService::instance;
 
@@ -55,4 +57,29 @@ void GameMapService::setupInstance() {
  */
 void GameMapService::setup() {
 
+}
+
+/**
+ *  遭遇敵情報取得
+ *
+ *  @param playerEntity プレイヤー情報
+ *
+ *  @return 遭遇敵情報
+ */
+vector<GameEnemyEntity> GameMapService::encoundEnemies() {
+	return GameMainService::sharedInstance()->encoundEnemies(playerEntity);
+}
+
+/**
+ *  敵に遭遇か
+ *
+ *  @return true: 遭遇、false: いない
+ */
+bool GameMapService::isEncount() {
+	// レート
+	if (mapEntity.enemyEncountRate <= (rand() % 100)) {
+		return false;
+	}
+	// 敵
+	return encoundEnemies().size() > 0;
 }

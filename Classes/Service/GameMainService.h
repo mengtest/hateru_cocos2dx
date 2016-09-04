@@ -71,6 +71,15 @@ public:
 	GameEnemyEntity *getEnemy(const int id);
 	
 	/**
+	 *  遭遇敵情報取得
+	 *
+	 *  @param playerEntity プレイヤー情報
+	 *
+	 *  @return 遭遇敵情報
+	 */
+	vector<GameEnemyEntity> encoundEnemies(const PlayerEntity &playerEntity);
+	
+	/**
 	 *  キャラ情報取得
 	 *
 	 *  @param id ID

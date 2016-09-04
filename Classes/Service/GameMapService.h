@@ -12,6 +12,8 @@
 #include "BaseService.h"
 
 #include "PlayerEntity.h"
+#include "GameMapEntity.h"
+#include "GameEnemyEntity.h"
 
 /// ゲームマップサービス
 class GameMapService final: BaseService {
@@ -19,6 +21,9 @@ public:
 	
 	/// プレイヤーEntity
 	PlayerEntity playerEntity;
+	
+	/// マップEntity
+	GameMapEntity mapEntity;
 	
 	/**
 	 *  デストラクタ
@@ -54,6 +59,20 @@ private:
 	 *  インスタンスセットアップ
 	 */
 	static void setupInstance();
+	
+	/**
+	 *  遭遇敵情報取得
+	 *
+	 *  @return 遭遇敵情報
+	 */
+	vector<GameEnemyEntity> encoundEnemies();
+	
+	/**
+	 *  敵に遭遇か
+	 *
+	 *  @return true: 遭遇、false: いない
+	 */
+	bool isEncount();
 	
 };
 
