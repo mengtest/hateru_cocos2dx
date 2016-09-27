@@ -53,10 +53,23 @@ void GameMapService::setupInstance() {
 }
 
 /**
- *  セットアップ
+ *  ニューゲーム
  */
-void GameMapService::setup() {
+void GameMapService::newGame() {
 
+	auto service = GameMainService::sharedInstance();
+	auto gameInfo = service->getGameInfo();
+	
+	// プレイヤーEntity初期化
+	playerEntity.initialize();
+	// お金
+	playerEntity.money = gameInfo->initMoney;
+	// メンバー
+	for (auto it = gameInfo->initMemberIds.begin(); it != gameInfo->initMemberIds.end(); it++) {
+		playerEntity.addUnit(*it);
+	}
+	// 変数
+	playerEntity.variables = service->getVariableInitValues();
 }
 
 /**

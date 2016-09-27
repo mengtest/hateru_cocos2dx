@@ -138,6 +138,13 @@ public:
 	 */
 	GameVariableEntity *getVariable(const int id);
 
+	/**
+	 *  変数の初期取得
+	 *
+	 *  @return 変数の初期情報
+	 */
+	map<int, int> getVariableInitValues();
+	
 private:
 	
 	/// インスタンス

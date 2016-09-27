@@ -62,6 +62,14 @@ public:
 	/// 預かり所
 	vector<PlayerItemEntity> cloakrooms;
 	
+	/// 変数群
+	map<int, int> variables;
+	
+	/**
+	 *  初期化
+	 */
+	void initialize();
+	
 	/**
 	 *  ユニット追加
 	 *

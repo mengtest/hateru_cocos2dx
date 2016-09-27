@@ -233,4 +233,20 @@ GameVariableEntity *GameMainService::getVariable(const int id) {
 	return &variables[id];
 }
 
+/**
+ *  変数の初期取得
+ *
+ *  @return 変数の初期情報
+ */
+map<int, int> GameMainService::getVariableInitValues() {
+	
+	map<int, int> initValues;
+
+	for (auto it = variables.begin(); it != variables.end(); it++) {
+		initValues[it->first] = it->second.initValue;
+	}
+	
+	return initValues;
+}
+
 

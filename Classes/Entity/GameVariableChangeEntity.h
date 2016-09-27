@@ -23,11 +23,9 @@ public:
 	int value;
 
 	/**
-	 *  値の整合性チェック
-	 *
-	 *  @return 生合成チェック可否
+	 *  演算実行
 	 */
-	bool isValid();
+	void calculation();
 	
 	/**
 	 *  バイナリデータよりEntity作成

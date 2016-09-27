@@ -12,6 +12,22 @@
 #include "GameConst.h"
 #include "GameMainService.h"
 
+
+/**
+ *  初期化
+ */
+void PlayerEntity::initialize() {
+	isValid = false;
+	id = "";
+	name = "";
+	saveToken = "";
+	money = 0;
+	units.clear();
+	teleports.clear();
+	cloakrooms.clear();
+	variables.clear();
+}
+
 #pragma mark - ユニット
 
 /**
@@ -213,15 +229,7 @@ void PlayerEntity::sortCloakrooms() {
  *  コンストラクタ
  */
 PlayerEntity::PlayerEntity() {
-	isValid = false;
-	id = "";
-	name = "";
-	saveToken = "";
-	money = 0;
-	units.clear();
-	teleports.clear();
-	cloakrooms.clear();
-	
+	initialize();
 	service = GameMainService::sharedInstance();
 }
 
@@ -273,6 +281,14 @@ void PlayerEntity::serialize(picojson::object &object) {
 		cloakroomList.push_back(picojson::value(object));
 	}
 	object.insert(make_pair("cloakrooms", picojson::value(cloakroomList)));
+	picojson::array variableList;
+	for (auto it = variables.begin(); it != variables.end(); it++) {
+		picojson::object object;
+		object.insert(make_pair("id", picojson::value((double)it->first)));
+		object.insert(make_pair("value", picojson::value((double)it->second)));
+		variableList.push_back(picojson::value(object));
+	}
+	object.insert(make_pair("variables", picojson::value(variableList)));
 }
 
 /**
@@ -380,6 +396,31 @@ bool PlayerEntity::mapping(picojson::object &object) {
 		}
 	} else {
 		log(JSON_BAD_MAPPING_ERROR, "cloakrooms");
+		return false;
+	}
+	if (object["variables"].is<picojson::array>()) {
+		variables.clear();
+		auto variableList = object["variables"].get<picojson::array>();
+		for (picojson::array::iterator it = variableList.begin(); it != variableList.end(); it++) {
+			picojson::object &variable = it->get<picojson::object>();
+			int id = 0;
+			int value = 0;
+			if (variable["id"].is<double>()) {
+				id = (int)variable["id"].get<double>();
+			} else {
+				log(JSON_BAD_MAPPING_ERROR, "variable_id");
+				return false;
+			}
+			if (variable["value"].is<double>()) {
+				money = (int)variable["value"].get<double>();
+			} else {
+				log(JSON_BAD_MAPPING_ERROR, "variable_value");
+				return false;
+			}
+			variables[id] = value;
+		}
+	} else {
+		log(JSON_BAD_MAPPING_ERROR, "variables");
 		return false;
 	}
 	return true;

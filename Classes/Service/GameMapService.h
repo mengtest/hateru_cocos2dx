@@ -38,9 +38,9 @@ public:
 	static GameMapService *sharedInstance();
 	
 	/**
-	 *  セットアップ
+	 *  ニューゲーム
 	 */
-	void setup();
+	void newGame();
 	
 private:
 	

@@ -9,13 +9,10 @@
 #include "GameVariableChangeEntity.h"
 
 /**
- *  値の整合性チェック
- *
- *  @return 生合成チェック可否
+ *  演算実行
  */
-bool GameVariableChangeEntity::isValid() {
+void GameVariableChangeEntity::calculation() {
 	
-	return true;
 }
 
 /**
