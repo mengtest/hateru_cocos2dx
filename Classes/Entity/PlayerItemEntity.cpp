@@ -10,7 +10,7 @@
 
 #include "LogConst.h"
 #include "UUIDUtil.h"
-#include "GameMainService.h"
+#include "GameDataService.h"
 #include "PlayerUnitEntity.h"
 
 /**
@@ -45,9 +45,9 @@ PlayerItemEntity PlayerItemEntity::createEntity(const int id, const int useCount
  */
 bool PlayerItemEntity::isCanEquipped(const PlayerUnitEntity &unitEntity) {
 	// アイテム情報取得
-	auto itemEntity = GameMainService::sharedInstance()->getItem(id);
+	auto itemEntity = GameDataService::sharedInstance()->items[id];
 	// 装備可能　＆　職業別に装備可能
-	return itemEntity->isCanEquipped && itemEntity->equipmentJobs[unitEntity.statuses[UnitStatusTypeJob] - 1];
+	return itemEntity.isCanEquipped && itemEntity.equipmentJobs[unitEntity.statuses[UnitStatusTypeJob] - 1];
 }
 
 /**

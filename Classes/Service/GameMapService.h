@@ -42,6 +42,11 @@ public:
 	 */
 	void newGame();
 	
+	/**
+	 *  コンティニューゲーム
+	 */
+	void continueGame();
+	
 private:
 	
 	/// インスタンス

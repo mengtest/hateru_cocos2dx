@@ -18,7 +18,7 @@
 #include "PlayerMapEntity.h"
 #include "PlayerProfileEntity.h"
 
-class GameMainService;
+class GameDataService;
 
 USING_NS_CC;
 using namespace std;
@@ -163,7 +163,7 @@ public:
 private:
 	
 	/// ゲームサービス
-	GameMainService *service;
+	GameDataService *service;
 	
 };
 

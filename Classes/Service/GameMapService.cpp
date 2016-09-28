@@ -8,7 +8,8 @@
 
 #include "GameMapService.h"
 
-#include "GameMainService.h"
+#include "GameDataService.h"
+#include "PlayerManager.h"
 
 /// インスタンス
 GameMapService *GameMapService::instance;
@@ -52,25 +53,46 @@ void GameMapService::setupInstance() {
 	instance->Ref::autorelease();
 }
 
+#pragma mark - 初期化
+
 /**
  *  ニューゲーム
  */
 void GameMapService::newGame() {
 
-	auto service = GameMainService::sharedInstance();
-	auto gameInfo = service->getGameInfo();
+	auto service = GameDataService::sharedInstance();
 	
 	// プレイヤーEntity初期化
 	playerEntity.initialize();
 	// お金
-	playerEntity.money = gameInfo->initMoney;
+	playerEntity.money = service->gameInfo.initMoney;
 	// メンバー
-	for (auto it = gameInfo->initMemberIds.begin(); it != gameInfo->initMemberIds.end(); it++) {
+	for (auto it = service->gameInfo.initMemberIds.begin(); it != service->gameInfo.initMemberIds.end(); it++) {
 		playerEntity.addUnit(*it);
 	}
+	// 初期位置
+	playerEntity.location.id = service->gameInfo.initMapId;
+	playerEntity.location.x = service->gameInfo.initX;
+	playerEntity.location.y = service->gameInfo.initY;
+	// 移動タイプ
+	playerEntity.moveType = MoveTypeWalk;
 	// 変数
 	playerEntity.variables = service->getVariableInitValues();
 }
+
+/**
+ *  コンティニューゲーム
+ */
+void GameMapService::continueGame() {
+	
+	// プレイヤーEntity初期化
+	playerEntity.initialize();
+	
+	// 読み込み
+	playerEntity = PlayerManager::load();
+}
+
+#pragma mark - 敵
 
 /**
  *  遭遇敵情報取得
@@ -80,7 +102,7 @@ void GameMapService::newGame() {
  *  @return 遭遇敵情報
  */
 vector<GameEnemyEntity> GameMapService::encoundEnemies() {
-	return GameMainService::sharedInstance()->encoundEnemies(playerEntity);
+	return GameDataService::sharedInstance()->encoundEnemies(playerEntity);
 }
 
 /**

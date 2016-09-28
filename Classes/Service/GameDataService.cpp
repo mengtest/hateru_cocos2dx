@@ -1,12 +1,12 @@
 //
-//  GameMainService.cpp
+//  GameDataService.cpp
 //  hateru
 //
 //  Created by HaraKazunari on 2016/06/04.
 //
 //
 
-#include "GameMainService.h"
+#include "GameDataService.h"
 
 #include <mutex>
 
@@ -22,20 +22,20 @@
 #include "GameVariableManager.h"
 
 /// インスタンス
-GameMainService *GameMainService::instance;
+GameDataService *GameDataService::instance;
 
 #pragma mark - 初期化
 
 /**
  *  コンストラクタ
  */
-GameMainService::GameMainService() {
+GameDataService::GameDataService() {
 }
 
 /**
  *  デストラクタ
  */
-GameMainService::~GameMainService() {
+GameDataService::~GameDataService() {
 	instance = nullptr;
 }
 
@@ -44,17 +44,17 @@ GameMainService::~GameMainService() {
  *
  *  @return インスタンス
  */
-GameMainService *GameMainService::sharedInstance() {
+GameDataService *GameDataService::sharedInstance() {
 	static once_flag flag;
-	call_once(flag, GameMainService::setupInstance);
+	call_once(flag, GameDataService::setupInstance);
 	return instance;
 }
 
 /**
  *  インスタンスセットアップ
  */
-void GameMainService::setupInstance() {
-	instance = new GameMainService();
+void GameDataService::setupInstance() {
+	instance = new GameDataService();
 	if (instance == nullptr) {
 		delete instance;
 		instance = nullptr;
@@ -75,7 +75,7 @@ void GameMainService::setupInstance() {
 /**
  *  全ての情報を取得する
  */
-void GameMainService::loadAll() {
+void GameDataService::loadAll() {
 	// ゲーム情報
 	gameInfo = GameInfoManager::load();
 	// マップチップグループ情報
@@ -97,49 +97,18 @@ void GameMainService::loadAll() {
 #pragma mark - Getter
 
 /**
- *  ゲーム情報取得
- *
- *  @return ゲーム情報
- */
-GameInfoEntity *GameMainService::getGameInfo() {
-	return &gameInfo;
-}
-
-/**
  *  マップ取得
  *
  *  @param id ID
  *
  *  @return マップ
  */
-GameMapEntity *GameMainService::getMap(const int id) {
+GameMapEntity *GameDataService::getMap(const int id) {
 	if (mapId != id) {
 		mapId = id;
 		gameMap = GameMapManager::load(id);
 	}
 	return &gameMap;
-}
-
-/**
- *  マップチップグループ取得
- *
- *  @param id ID
- *
- *  @return マップチップグループ
- */
-GameMapChipGroupEntity *GameMainService::getMapChipGroup(const int id) {
-	return &mapChipGroups[id];
-}
-
-/**
- *  敵情報取得
- *
- *  @param id ID
- *
- *  @return 敵情報
- */
-GameEnemyEntity *GameMainService::getEnemy(const int id) {
-	return &enemies[id];
 }
 
 /**
@@ -149,7 +118,7 @@ GameEnemyEntity *GameMainService::getEnemy(const int id) {
  *
  *  @return 遭遇敵情報
  */
-vector<GameEnemyEntity> GameMainService::encoundEnemies(const PlayerEntity &playerEntity) {
+vector<GameEnemyEntity> GameDataService::encoundEnemies(const PlayerEntity &playerEntity) {
 
 	vector<GameEnemyEntity> encountEnemies;
 	for (auto it = enemies.begin();it != enemies.end();it++) {
@@ -161,84 +130,11 @@ vector<GameEnemyEntity> GameMainService::encoundEnemies(const PlayerEntity &play
 }
 
 /**
- *  キャラ情報取得
- *
- *  @param id ID
- *
- *  @return キャラ情報
- */
-GameCharaEntity *GameMainService::getChara(const int id) {
-	return &charas[id];
-}
-
-/**
- *  アイテム情報取得
- *
- *  @param id ID
- *
- *  @return アイテム情報
- */
-GameItemEntity *GameMainService::getItem(const int id) {
-	return &items[id];
-}
-
-/**
- *  アイテム数を取得
- *
- *  @return アイテム数
- */
-int GameMainService::getItemCount() {
-	return (int)items.size();
-}
-
-/**
- *  職種情報取得
- *
- *  @param id ID
- *
- *  @return 職種情報
- */
-GameJobEntity *GameMainService::getJob(const int id) {
-	return &jobs[id];
-}
-
-/**
- *  スキル情報取得
- *
- *  @param id ID
- *
- *  @return スキル情報
- */
-GameSkillEntity *GameMainService::getSkill(const int id) {
-	return &skills[id];
-}
-
-/**
- *  スキル数を取得
- *
- *  @return スキル数
- */
-int GameMainService::getSkillCount() {
-	return (int)skills.size();
-}
-
-/**
- *  変数情報取得
- *
- *  @param id ID
- *
- *  @return 変数情報
- */
-GameVariableEntity *GameMainService::getVariable(const int id) {
-	return &variables[id];
-}
-
-/**
  *  変数の初期取得
  *
  *  @return 変数の初期情報
  */
-map<int, int> GameMainService::getVariableInitValues() {
+map<int, int> GameDataService::getVariableInitValues() {
 	
 	map<int, int> initValues;
 

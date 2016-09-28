@@ -10,7 +10,7 @@
 
 #include "LogConst.h"
 #include "GameConst.h"
-#include "GameMainService.h"
+#include "GameDataService.h"
 
 
 /**
@@ -38,27 +38,27 @@ void PlayerEntity::initialize() {
 void PlayerEntity::addUnit(const int unitId) {
 	
 	// ユニット情報取得
-	auto charaEntity = service->getChara(unitId);
+	auto charaEntity = service->charas[unitId];
 	// 職業情報取得
-	auto jobEntity = service->getJob(charaEntity->initJobId);
+	auto jobEntity = service->jobs[charaEntity.initJobId];
 	
 	PlayerUnitEntity unitEntity;
 	
 	// 職業情報からステータス設定
 	unitEntity.unitId = unitId;
-	unitEntity.statuses[UnitStatusTypeJob] = charaEntity->initJobId;
+	unitEntity.statuses[UnitStatusTypeJob] = charaEntity.initJobId;
 	for (int i = AddStatusTypeMaxHP;i <= AddStatusTypeSpeed;i++) {
-		unitEntity.statuses[UnitStatusTypeMaxHP + i] = jobEntity->statuses[i][0];
+		unitEntity.statuses[UnitStatusTypeMaxHP + i] = jobEntity.statuses[i][0];
 	}
 	unitEntity.statuses[UnitStatusTypeHP] = unitEntity.statuses[UnitStatusTypeMaxHP];
 	unitEntity.statuses[UnitStatusTypeMP] = unitEntity.statuses[UnitStatusTypeMaxMP];
 	// アイテム追加
-	for (auto it = charaEntity->initItemIds.begin();it != charaEntity->initItemIds.end();it++) {
-		auto itemEntity = service->getItem(*it);
-		unitEntity.addItem(*it, itemEntity->useCount, "");
+	for (auto it = charaEntity.initItemIds.begin();it != charaEntity.initItemIds.end();it++) {
+		auto itemEntity = service->items[*it];
+		unitEntity.addItem(*it, itemEntity.useCount, "");
 	}
 	// スキル反映
-	for (auto it = jobEntity->skills.begin();it != jobEntity->skills.end();it++) {
+	for (auto it = jobEntity.skills.begin();it != jobEntity.skills.end();it++) {
 		if (it->level != 0) {
 			continue;
 		}
@@ -138,7 +138,7 @@ vector<int> PlayerEntity::validMixings() {
 	
 	// 初期化
 	map<int, int> itemCount;
-	for (int i = 1;i <= service->getItemCount();i++) {
+	for (int i = 1;i <= service->items.size();i++) {
 		itemCount[i] = 0;
 	}
 	
@@ -155,9 +155,9 @@ vector<int> PlayerEntity::validMixings() {
 	}
 	
 	vector<int> mixings;
-	for (int i = 1;i <= service->getItemCount();i++) {
-		auto itemEntity = service->getItem(i);
-		if (itemEntity->isValidMixings(itemCount)) {
+	for (int i = 1;i <= service->items.size();i++) {
+		auto itemEntity = service->items[i];
+		if (itemEntity.isValidMixings(itemCount)) {
 			// 条件に達しているので追加
 			mixings.push_back(i);
 		}
@@ -215,8 +215,8 @@ void PlayerEntity::sortCloakrooms() {
 	
 	for (int type = ItemTypeNormal;type <= ItemTypeSkill;type++) {
 		for (auto it = itemsBackup.begin();it != itemsBackup.end();it++) {
-			auto itemEntity = service->getItem(it->id);
-			if (itemEntity->type == type) {
+			auto itemEntity = service->items[it->id];
+			if (itemEntity.type == type) {
 				cloakrooms.push_back(*it);
 			}
 		}
@@ -230,7 +230,7 @@ void PlayerEntity::sortCloakrooms() {
  */
 PlayerEntity::PlayerEntity() {
 	initialize();
-	service = GameMainService::sharedInstance();
+	service = GameDataService::sharedInstance();
 }
 
 /**

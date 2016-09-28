@@ -8,7 +8,7 @@
 
 #include "GameBattleService.h"
 
-#include "GameMainService.h"
+#include "GameDataService.h"
 #include "GameMapService.h"
 
 /// インスタンス
@@ -94,9 +94,9 @@ void GameBattleService::setupPlayerStatus() {
 			if (*itemIt < 0) {
 				continue;
 			}
-			auto itemEntity = GameMainService::sharedInstance()->getItem(*itemIt);
-			if (statuses[BattleStatusTypeHit] < itemEntity->hitCount()) {
-				statuses[BattleStatusTypeHit] = itemEntity->hitCount();
+			auto itemEntity = GameDataService::sharedInstance()->items[*itemIt];
+			if (statuses[BattleStatusTypeHit] < itemEntity.hitCount()) {
+				statuses[BattleStatusTypeHit] = itemEntity.hitCount();
 			}
 		}
 		

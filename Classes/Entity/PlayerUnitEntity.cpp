@@ -10,7 +10,7 @@
 
 #include "LogConst.h"
 #include "GameConst.h"
-#include "GameMainService.h"
+#include "GameDataService.h"
 
 #pragma mark - アイテム
 
@@ -84,8 +84,8 @@ void PlayerUnitEntity::sortItem() {
 	
 	// 地図
 	for (auto it = itemsBackup.begin();it != itemsBackup.end();it++) {
-		auto itemEntity = GameMainService::sharedInstance()->getItem(it->id);
-		if (itemEntity->type == ItemTypeMap){
+		auto itemEntity = GameDataService::sharedInstance()->items[it->id];
+		if (itemEntity.type == ItemTypeMap){
 			// アイテム追加
 			items.push_back(*it);
 			// 初期化
@@ -112,8 +112,8 @@ void PlayerUnitEntity::sortItem() {
 			if (it->id == 0) {
 				continue;
 			}
-			auto itemEntity = GameMainService::sharedInstance()->getItem(it->id);
-			if (itemEntity->type == type) {
+			auto itemEntity = GameDataService::sharedInstance()->items[it->id];
+			if (itemEntity.type == type) {
 				// アイテム追加
 				items.push_back(*it);
 				// 初期化
@@ -172,9 +172,9 @@ void PlayerUnitEntity::updateEquippedStatus() {
 		statuses[UnitStatusTypeFireEq + i] = 0;
 	}
 	// 命中率、必殺率
-	auto jobEntity = GameMainService::sharedInstance()->getJob(statuses[UnitStatusTypeJob]);
-	statuses[UnitStatusTypeHitRate] = jobEntity->hitRate;
-	statuses[UnitStatusTypeCriticalRate] = jobEntity->criticalRate;
+	auto jobEntity = GameDataService::sharedInstance()->jobs[statuses[UnitStatusTypeJob]];
+	statuses[UnitStatusTypeHitRate] = jobEntity.hitRate;
+	statuses[UnitStatusTypeCriticalRate] = jobEntity.criticalRate;
 
 	// ステータス振り分け
 	for (int i = EquipmentTypeWeapon;i <= EquipmentTypeAccessory;i++) {
@@ -182,8 +182,8 @@ void PlayerUnitEntity::updateEquippedStatus() {
 			continue;
 		}
 		// アイテム情報取得
-		auto itemEntity = GameMainService::sharedInstance()->getItem(items[equipments[i]].id);
-		for (auto it = itemEntity->changeStatus.begin();it != itemEntity->changeStatus.end();it++) {
+		auto itemEntity = GameDataService::sharedInstance()->items[items[equipments[i]].id];
+		for (auto it = itemEntity.changeStatus.begin();it != itemEntity.changeStatus.end();it++) {
 			if (it->status == ItemStatusTypeNothing) {
 				continue;
 			}
@@ -236,7 +236,7 @@ void PlayerUnitEntity::sortSkill() {
 	
 	auto skillsBackup = skills;
 	
-	auto maxId = GameMainService::sharedInstance()->getSkillCount();
+	auto maxId = GameDataService::sharedInstance()->skills.size();
 	
 	skills.clear();
 	for (auto it = skillsBackup.begin();it != skillsBackup.end();it++) {
@@ -257,8 +257,8 @@ bool PlayerUnitEntity::hasSkillTeleport() {
 	// 検索
 	auto it = find_if(begin(skills), end(skills),
 						 [] (int skillId) {
-							 auto skillEntity = GameMainService::sharedInstance()->getSkill(skillId);
-							 return skillEntity->skillType == SkillTypeTeleport;
+							 auto skillEntity = GameDataService::sharedInstance()->skills[skillId];
+							 return skillEntity.skillType == SkillTypeTeleport;
 						 });
 	if (it == end(skills)) {
 		return false;
