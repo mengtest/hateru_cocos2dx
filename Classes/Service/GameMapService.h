@@ -23,7 +23,7 @@ public:
 	PlayerEntity playerEntity;
 	
 	/// マップEntity
-	GameMapEntity mapEntity;
+	GameMapEntity *mapEntity;
 	
 	/**
 	 *  デストラクタ

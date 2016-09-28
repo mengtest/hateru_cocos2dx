@@ -68,7 +68,9 @@ void GameMapService::newGame() {
 	playerEntity.money = service->gameInfo.initMoney;
 	// メンバー
 	for (auto it = service->gameInfo.initMemberIds.begin(); it != service->gameInfo.initMemberIds.end(); it++) {
-		playerEntity.addUnit(*it);
+		if (*it != 0) {
+			playerEntity.addUnit(*it);
+		}
 	}
 	// 初期位置
 	playerEntity.location.id = service->gameInfo.initMapId;
@@ -78,6 +80,9 @@ void GameMapService::newGame() {
 	playerEntity.moveType = MoveTypeWalk;
 	// 変数
 	playerEntity.variables = service->getVariableInitValues();
+	
+	// マップ取得
+	mapEntity = service->getMap(playerEntity.location.id);
 }
 
 /**
@@ -90,6 +95,9 @@ void GameMapService::continueGame() {
 	
 	// 読み込み
 	playerEntity = PlayerManager::load();
+
+	// マップ取得
+	mapEntity = GameDataService::sharedInstance()->getMap(playerEntity.location.id);
 }
 
 #pragma mark - 敵
@@ -112,7 +120,7 @@ vector<GameEnemyEntity> GameMapService::encoundEnemies() {
  */
 bool GameMapService::isEncount() {
 	// レート
-	if (mapEntity.enemyEncountRate <= (rand() % 100)) {
+	if (mapEntity->enemyEncountRate <= (rand() % 100)) {
 		return false;
 	}
 	// 敵
