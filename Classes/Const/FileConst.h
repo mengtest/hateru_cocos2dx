@@ -15,4 +15,7 @@
 /// データ保存ファイル名
 #define SAVE_FILE_NAME "save.txt"
 
+/// 画像ファイル名
+#define GAME_IMAGES_FILE_NAME "GameImages.plist"
+
 #endif /* FileConst_h */

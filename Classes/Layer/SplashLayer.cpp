@@ -54,7 +54,7 @@ void SplashLayer::initLayer() {
 	
 	
 	// スプラッシュ設定
-	auto unitSprite = UnitSprite::create(GameDataService::sharedInstance()->charas[1]);
+	auto unitSprite = UnitSprite::create(GameDataService::sharedInstance()->charas[5]);
 	unitSprite->setScale(4);
 	unitSprite->setPosition(Vec2(300,200));
 	addChild(unitSprite);

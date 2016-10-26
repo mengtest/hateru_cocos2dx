@@ -10,6 +10,8 @@
 #include "SplashLayer.h"
 #include <mutex>
 
+#include "FileConst.h"
+
 /// インスタンス
 SplashScene *SplashScene::instance;
 
@@ -19,7 +21,7 @@ SplashScene *SplashScene::instance;
 SplashScene::SplashScene() {
 	
 	// キャッシュ
-	SpriteFrameCache::getInstance()->addSpriteFramesWithFile("Images.plist");
+	SpriteFrameCache::getInstance()->addSpriteFramesWithFile(GAME_IMAGES_FILE_NAME);
 	
 	auto layer = SplashLayer::create();
 	this->addChild(layer);
