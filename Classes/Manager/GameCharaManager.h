@@ -30,7 +30,7 @@ public:
 	 *
 	 *  @return ファイルパス
 	 */
-	static string getImageFilePath(int imageId);
+	static string getImageFilePath(const int imageId);
 	
 private:
 	

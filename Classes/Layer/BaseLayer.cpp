@@ -130,4 +130,21 @@ EventListener* BaseLayer::clone() {
 	return this;
 }
 
+#pragma mark - 背景色
+
+/**
+ *  背景色設定
+ *
+ *  @param color カラー情報
+ */
+void BaseLayer::setBackgroundColor(const Color4B color) {
+	if (backgroundColor != nullptr) {
+		backgroundColor->removeFromParent();
+		backgroundColor = nullptr;
+	}
+	Size size = Director::getInstance()->getVisibleSize();
+	backgroundColor = LayerColor::create(color, size.width, size.height);
+	this->addChild(backgroundColor, 0);
+}
+
 

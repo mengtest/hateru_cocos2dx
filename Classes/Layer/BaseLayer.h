@@ -111,9 +111,17 @@ public:
 	 */
 	virtual EventListener* clone() override;
 	
+	/**
+	 *  背景色設定
+	 *
+	 *  @param color カラー情報
+	 */
+	void setBackgroundColor(const Color4B color);
+	
 private:
 	
-	
+	/// 背景用
+	LayerColor *backgroundColor;
 };
 
 #endif /* BaseLayer_h */

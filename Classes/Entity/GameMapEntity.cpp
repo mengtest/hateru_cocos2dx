@@ -19,8 +19,10 @@ GameMapEntity::GameMapEntity() {
 	height = 0;
 	backgroundImageId = 0;
 	mapEndType = MapLoopTypeNone;
-	upMapChpGpId = 0;
-	downMapChpGpId = 0;
+	upMapChipGpId = 0;
+	memset(upMapChips, 0x00, sizeof(upMapChips));
+	downMapChipGpId = 0;
+	memset(downMapChips, 0x00, sizeof(downMapChips));
 	backgroundColor = 0;
 	enemyEncountRate = 0;
 	isUseTeleport = false;
@@ -67,14 +69,21 @@ void GameMapEntity::convertData(const unsigned char *data, const string &name) {
 	mapEndType = (MapLoopType)data[dataIndex];
 	dataIndex += 1;
 	// 下マップチップ
-	downMapChpGpId = (int)data[dataIndex];
+	downMapChipGpId = (int)data[dataIndex];
 	dataIndex += 1;
-	// 読み飛ばし
-	dataIndex += MAPCHIP_VALUE_MAX;
+	// 下チップ
+	for (auto i = 0;i < MAPCHIP_VALUE_MAX;i++) {
+		downMapChips[i] = (int)data[dataIndex];
+		dataIndex += 1;
+	}
 	// 上マップチップ
-	upMapChpGpId = (int)data[dataIndex];
+	upMapChipGpId = (int)data[dataIndex];
 	dataIndex += 1;
-	// 読み飛ばし
+	// 上チップ
+	for (auto i = 0;i < MAPCHIP_VALUE_MAX;i++) {
+		upMapChips[i] = (int)data[dataIndex];
+		dataIndex += 1;
+	}
 	dataIndex += MAPCHIP_VALUE_MAX;
 	// 色の書込み
 	backgroundColor = (int)data[dataIndex] * 0x10000 + (int)data[dataIndex + 1] * 0x100 + (int)data[dataIndex + 2];

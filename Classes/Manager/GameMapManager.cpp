@@ -51,3 +51,15 @@ GameMapEntity GameMapManager::load(const int id) {
 	return entity;
 }
 
+/**
+ *  ファイルパス取得
+ *
+ *  @param imageId 画像Id
+ *
+ *  @return ファイルパス
+ */
+string GameMapManager::getImageFilePath(const int imageId) {
+	ostringstream ostr;
+	ostr << "Chip" << setfill('0') << setw(3) << imageId << ".png";
+	return ostr.str();
+}

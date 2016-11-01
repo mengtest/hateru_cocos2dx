@@ -7,11 +7,26 @@
 //
 
 #include "MainScene.h"
+#include "MapLayer.h"
 
 #include <mutex>
 
 /// メインシーンインスタンス
 MainScene *MainScene::mainSceneInstance = nullptr;
+
+/**
+ *  コンストラクタ
+ */
+MainScene::MainScene() {
+	auto layer = MapLayer::create();
+	this->addChild(layer);
+}
+
+/**
+ *  デストラクタ
+ */
+MainScene::~MainScene() {
+}
 
 /**
  *  インスタンスシェア
@@ -29,18 +44,6 @@ MainScene *MainScene::sharedInstance() {
  */
 void MainScene::setupInstance() {
 	mainSceneInstance = (MainScene *)create();
-}
-
-/**
- *  コンストラクタ
- */
-MainScene::MainScene() {
-}
-
-/**
- *  デストラクタ
- */
-MainScene::~MainScene() {
 }
 
 /**

@@ -46,7 +46,7 @@ map<int, GameCharaEntity> GameCharaManager::load() {
  *
  *  @return ファイルパス
  */
-string GameCharaManager::getImageFilePath(int imageId) {
+string GameCharaManager::getImageFilePath(const int imageId) {
 	ostringstream ostr;
 	ostr << "Chara" << setfill('0') << setw(3) << imageId << ".png";
 	return ostr.str();

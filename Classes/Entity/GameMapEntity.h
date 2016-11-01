@@ -31,9 +31,11 @@ public:
 	/// 画面制御
 	MapLoopType mapEndType;
 	/// 上マップチップグループID
-	int upMapChpGpId;
+	int upMapChips[MAPCHIP_VALUE_MAX];
+	int upMapChipGpId;
 	/// 下マップチップグループID
-	int downMapChpGpId;
+	int downMapChips[MAPCHIP_VALUE_MAX];
+	int downMapChipGpId;
 	/// 背景色
 	int backgroundColor;
 	/// 出現率

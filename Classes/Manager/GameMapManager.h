@@ -25,6 +25,15 @@ public:
 	 */
 	static GameMapEntity load(const int id);
 	
+	/**
+	 *  ファイルパス取得
+	 *
+	 *  @param imageId 画像Id
+	 *
+	 *  @return ファイルパス
+	 */
+	static string getImageFilePath(const int imageId);
+	
 private:
 	
 	/**
