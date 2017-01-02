@@ -29,6 +29,9 @@ BaseLayer::BaseLayer() {
 	touchListener->onTouchEnded = CC_CALLBACK_2(BaseLayer::onTouchEnded, this);
 	this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(touchListener, this);
 
+	// 初期化
+	backgroundColor = nullptr;
+	
 	// キーパッドを有効にする
 //	setKeypadEnabled(true);
 }

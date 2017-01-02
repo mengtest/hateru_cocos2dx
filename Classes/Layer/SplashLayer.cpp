@@ -50,24 +50,13 @@ SplashLayer::~SplashLayer() {
  */
 void SplashLayer::initLayer() {
 	
-//	this->set(Color3B(255, 255, 255));
-	
+	setBackgroundColor(Color4B(255, 255, 255, 255));
 	
 	// スプラッシュ設定
 	auto unitSprite = UnitSprite::create(GameDataService::sharedInstance()->charas[5]);
 	unitSprite->setScale(4);
-	unitSprite->setPosition(Vec2(300,200));
+	unitSprite->setPosition(Vec2(0, 0));
 	addChild(unitSprite);
-	
-//	auto spriteSplash = Sprite::create("game/Chara/000.png");
-//	spriteSplash->setScale(4);
-//	spriteSplash->setPosition(Vec2(300,200));
-//	auto frame = SpriteFrameCache::getInstance()->getSpriteFrameByName("004.png");
-//	spriteSplash->setSpriteFrame(frame);
-//
-//	this->addChild(spriteSplash);
-	
-	
 }
 
 /**

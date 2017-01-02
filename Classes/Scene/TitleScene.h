@@ -9,13 +9,10 @@
 #ifndef TitleScene_h
 #define TitleScene_h
 
-#include "cocos2d.h"
-
-USING_NS_CC;
-using namespace std;
+#include "BaseScene.h"
 
 /// タイトルシーン
-class TitleScene final: public Scene {
+class TitleScene final: public BaseScene {
 public:
 	
 	/**
@@ -55,7 +52,7 @@ private:
 	 *
 	 *  @param delta デルタ
 	 */
-	void update(float delta);
+	void update(float delta) override;
 };
 
 

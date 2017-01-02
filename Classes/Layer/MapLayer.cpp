@@ -157,6 +157,7 @@ void MapLayer::setupNormalMap(const GameMapEntity *mapEntity) {
 void MapLayer::setupAutoMap(const GameMapEntity *mapEntity) {
 
 	
+	
 }
 
 /**

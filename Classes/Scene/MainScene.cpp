@@ -53,7 +53,12 @@ void MainScene::startGame() {
 	this->scheduleUpdate();
 }
 
-// 初期化
+/**
+ 初期化
+
+ @param mode ゲームモード
+ @param updateFlag 更新フラグ
+ */
 void MainScene::initMode(
 						 MainSceneGameMode mode,
 						 int updateFlag

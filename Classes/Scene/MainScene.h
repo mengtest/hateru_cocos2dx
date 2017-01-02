@@ -9,10 +9,7 @@
 #ifndef MainScene_h
 #define MainScene_h
 
-#include "cocos2d.h"
-
-USING_NS_CC;
-using namespace std;
+#include "BaseScene.h"
 
 /** ゲームステータス */
 typedef enum {
@@ -26,7 +23,7 @@ typedef enum {
 	MainSceneGameModeOperateConfig,		/// 操作設定画面
 } MainSceneGameMode;
 
-class MainScene: public Scene {
+class MainScene: public BaseScene {
 	
 public:
 
@@ -85,7 +82,7 @@ private:
 	 *
 	 *  @param delta デルタ
 	 */
-	virtual void update(float delta);
+	void update(float delta) override;
 
 };
 

@@ -9,13 +9,10 @@
 #ifndef SplashScene_h
 #define SplashScene_h
 
-#include "cocos2d.h"
-
-USING_NS_CC;
-using namespace std;
+#include "BaseScene.h"
 
 /// スプラッシュシーン
-class SplashScene final: public Scene {
+class SplashScene final: public BaseScene {
 public:
 	
 	/**
@@ -55,7 +52,7 @@ private:
 	 *
 	 *  @param delta デルタ
 	 */
-	void update(float delta);
+	void update(float delta) override;
 };
 
 #endif /* SplashScene_h */
