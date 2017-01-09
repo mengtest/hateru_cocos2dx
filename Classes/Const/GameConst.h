@@ -575,6 +575,9 @@ typedef enum {
 /// マップチップ最大数
 #define MAPCHIP_VALUE_MAX 63
 
+// 1マスのドット数
+#define MAP_ONEPANEL_DOT 28
+
 #pragma mark - バトル
 
 /// バトル
@@ -626,6 +629,10 @@ typedef enum {
 	/// バトルステータスMAX
 	BattleStatusTypeMax,
 } BattleStatusType;
+
+
+/// スプライト倍率
+#define SPRITE_SCALE		4.0
 
 
 #endif /* GameConst_h */

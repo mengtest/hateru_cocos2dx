@@ -1,13 +1,13 @@
 //
-//  MapLayer.h
+//  MapUpperLayer.h
 //  hateru
 //
-//  Created by HaraKazunari on 2016/08/10.
+//  Created by HaraKazunari on 2017/01/09.
 //
 //
 
-#ifndef MapLayer_h
-#define MapLayer_h
+#ifndef MapUpperLayer_h
+#define MapUpperLayer_h
 
 #include "BaseLayer.h"
 
@@ -15,33 +15,33 @@ class GameMapEntity;
 class GameMapChipEntity;
 class GameMapAutoEntity;
 
-/// マップレイヤー
-class MapLayer final: public BaseLayer {
+/// マップ上レイヤー
+class MapUpperLayer final: public BaseLayer {
 public:
 	
 	/**
 	 *  コンストラクタ
 	 */
-	MapLayer();
+	MapUpperLayer();
 	
 	/**
 	 *  デストラクタ
 	 */
-	~MapLayer();
+	~MapUpperLayer();
 	
 	/**
 	 *  クラス作成
 	 *
 	 *  @return クラス
 	 */
-	static MapLayer *create();
+	static MapUpperLayer *create();
 	
 	/**
 	 *  セットアップ
 	 *
 	 *  @param mapEntity マップEntity
 	 */
-	void setupMapLayer(const GameMapEntity *mapEntity);
+	void setupMapUpperLayer(const GameMapEntity *mapEntity);
 	
 	/**
 	 *  ユニットのポジション設定
@@ -56,11 +56,9 @@ private:
 	int width;
 	/// 高さ
 	int height;
-
-	/// ダウンチップ
-	Sprite **downChips;
-	/// アップチップ
-	Sprite **upChips;
+	
+	/// チップ
+	Sprite **chips;
 	
 	/// 画面のセンターX座標
 	float centerX;
@@ -78,20 +76,6 @@ private:
 	virtual void layerMain() override;
 	
 	/**
-	 *  通常マップセットアップ
-	 *
-	 *  @param mapEntity マップEntity
-	 */
-	void setupNormalMap(const GameMapEntity *mapEntity);
-	
-	/**
-	 *  自動マップセットアップ
-	 *
-	 *  @param mapEntity マップEntity
-	 */
-	void setupAutoMap(const GameMapEntity *mapEntity);
-	
-	/**
 	 *  SpriteFrame取得
 	 *
 	 *  @param imageId 画像ID
@@ -99,11 +83,11 @@ private:
 	 *  @return SpriteFrame
 	 */
 	SpriteFrame *getSpriteFrame(const int imageId);
-										  
+	
 	/**
 	 *  スプライト情報解放
 	 */
 	void freeSprites();
 };
 
-#endif /* MapLayer_h */
+#endif /* MapUpperLayer_h */

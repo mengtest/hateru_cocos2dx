@@ -12,6 +12,9 @@
 
 #include "FileConst.h"
 
+#include "MapLayer.h"
+#include "GameMapService.h"
+
 /// インスタンス
 SplashScene *SplashScene::instance;
 
@@ -23,7 +26,14 @@ SplashScene::SplashScene() {
 	// キャッシュ
 	SpriteFrameCache::getInstance()->addSpriteFramesWithFile(GAME_IMAGES_FILE_NAME);
 	
-	auto layer = SplashLayer::create();
+	auto service = GameMapService::sharedInstance();
+	service->newGame();
+	
+	auto layer = MapLayer::create();
+	layer->setupMapLayer(service->mapEntity);
+	layer->setUnitPosition(Point(60, 0));
+	
+//	auto layer = SplashLayer::create();
 	this->addChild(layer);
 }
 

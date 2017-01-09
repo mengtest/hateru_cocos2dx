@@ -11,9 +11,6 @@
 #include "GameMapEntity.h"
 #include "GameMapManager.h"
 
-// 1マスのドット数
-#define MAP_ONEPANEL_DOT 32
-
 /**
  *  クラス作成
  *
@@ -35,7 +32,15 @@ MapLayer *MapLayer::create() {
  *  コンストラクタ
  */
 MapLayer::MapLayer() {
+	downChips = nullptr;
+	upChips = nullptr;
+	width = 0;
+	height = 0;
 	
+	auto glview = Director::getInstance()->getOpenGLView();
+	auto size = glview->getDesignResolutionSize();
+	centerX = size.width / 2;
+	centerY = size.height / 2;
 }
 
 /**
@@ -68,7 +73,7 @@ void MapLayer::setupMapLayer(const GameMapEntity *mapEntity) {
 	memset(upChips, 0x00, size);
 	
 	// 背景色設定
-	setBackgroundColor(Color4B((mapEntity->backgroundColor >> 4) & 0xff, (mapEntity->backgroundColor >> 2) & 0xff, mapEntity->backgroundColor & 0xff, 0xff));
+	setBackgroundColor(Color4B((mapEntity->backgroundColor >> 16) & 0xff, (mapEntity->backgroundColor >> 8) & 0xff, mapEntity->backgroundColor & 0xff, 0xff));
 	
 	if (mapEntity->mapType == MapTypeNormal) {
 		// 通常
@@ -79,34 +84,31 @@ void MapLayer::setupMapLayer(const GameMapEntity *mapEntity) {
 	}
 	
 	// 初期ポジション設定
-	setPosition(Point(0,0), Point(0,0));
+	setUnitPosition(Point(0, 0));
 }
 
 /**
- *  ポジション設定
+ *  ユニットのポジション設定
  *
  *  @param position ポジション
- *  @param center   センターポジション
  */
-void MapLayer::setPosition(Point position, Point center) {
-
+void MapLayer::setUnitPosition(Point position) {
 	// ポジション移動
 	for(auto j = 0;j < height;j++){
 		for(auto i = 0;i < width;i++){
 			int mapIndex = j * width + i;
 			// 座標計算
-			Point point = Point(center.x + (i * MAP_ONEPANEL_DOT) - _position.x + (MAP_ONEPANEL_DOT / 2),
-							  center.y + _position.y - (j * MAP_ONEPANEL_DOT) - (MAP_ONEPANEL_DOT / 2));
+			Point point = Point(centerX + (i * MAP_ONEPANEL_DOT) - position.x + (MAP_ONEPANEL_DOT / 2),
+							  centerY + position.y - (j * MAP_ONEPANEL_DOT) - (MAP_ONEPANEL_DOT / 2));
 			
 			// 下チップ
 			if(downChips[mapIndex] != nullptr){
 				downChips[mapIndex]->setPosition(point);
 			}
 			// 上チップ
-			if(downChips[mapIndex] != nullptr){
-				downChips[mapIndex]->setPosition(point);
+			if(upChips[mapIndex] != nullptr){
+				upChips[mapIndex]->setPosition(point);
 			}
-			
 		}
 	}
 }
@@ -134,16 +136,25 @@ void MapLayer::layerMain() {
  *  @param mapEntity マップEntity
  */
 void MapLayer::setupNormalMap(const GameMapEntity *mapEntity) {
-	// 画像読み込み
 	int index = 0;
 	for (auto it = mapEntity->mapChips.begin();it != mapEntity->mapChips.end();it++) {
 		// 下チップ
 		if (it->downChipId != 0) {
-			downChips[index] = Sprite::createWithSpriteFrame(getSpriteFrame(mapEntity->downMapChips[it->downChipId - 1]));
+			int mapChipIndex =  mapEntity->downMapChips[it->downChipId - 1];
+			if (mapChipIndex != 255) {
+				downChips[index] = Sprite::createWithSpriteFrame(getSpriteFrame(mapChipIndex));
+				downChips[index]->setScale(SPRITE_SCALE);
+				addChild(downChips[index], 0);
+			}
 		}
 		// 上チップ
-		if (it->upChipId != 0) {
-			upChips[index] = Sprite::createWithSpriteFrame(getSpriteFrame(mapEntity->upMapChips[it->upChipId - 1]));
+		if (it->upChipId != 0 && !it->isUpChipClear) {
+			int mapChipIndex = mapEntity->upMapChips[it->upChipId - 1];
+			if (mapChipIndex != 255) {
+				upChips[index] = Sprite::createWithSpriteFrame(getSpriteFrame(mapChipIndex));
+				upChips[index]->setScale(SPRITE_SCALE);
+				addChild(upChips[index], 1);
+			}
 		}
 		index += 1;
 	}

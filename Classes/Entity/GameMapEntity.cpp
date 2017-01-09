@@ -84,7 +84,6 @@ void GameMapEntity::convertData(const unsigned char *data, const string &name) {
 		upMapChips[i] = (int)data[dataIndex];
 		dataIndex += 1;
 	}
-	dataIndex += MAPCHIP_VALUE_MAX;
 	// 色の書込み
 	backgroundColor = (int)data[dataIndex] * 0x10000 + (int)data[dataIndex + 1] * 0x100 + (int)data[dataIndex + 2];
 	dataIndex += 3;

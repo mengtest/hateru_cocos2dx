@@ -8,6 +8,7 @@
 
 #include "MainScene.h"
 #include "MapLayer.h"
+#include "GameMapService.h"
 
 #include <mutex>
 
@@ -18,7 +19,11 @@ MainScene *MainScene::mainSceneInstance = nullptr;
  *  コンストラクタ
  */
 MainScene::MainScene() {
+
 	auto layer = MapLayer::create();
+	layer->setupMapLayer(GameMapService::sharedInstance()->mapEntity);
+	layer->setUnitPosition(Point(60, 0));
+	
 	this->addChild(layer);
 }
 

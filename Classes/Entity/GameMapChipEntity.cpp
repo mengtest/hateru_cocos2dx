@@ -35,24 +35,22 @@ GameMapChipEntity::~GameMapChipEntity() {
  */
 void GameMapChipEntity::convertData(const unsigned char *data) {
 	
-	auto dataIndex = 0;
+	int mapData = (data[0] << 16) | (data[1] << 8) | data[2];
 
 	// 下チップ
-	downChipId = (int)data[dataIndex + 2] & 0x3f;
+	downChipId = mapData & 0x3f;
 	// 上チップ
-	upChipId = (int)data[dataIndex + 2] / 0x40;
-	upChipId += (((int)data[dataIndex + 1] & 0xf) * 0x4);
+	upChipId = (mapData >> 6) & 0x3f;
 	// イベント
-	eventId = (int)data[dataIndex + 1] / 0x10;
-	eventId += (((int)data[dataIndex] & 0x3) * 0x10);
+	eventId = (mapData >> 12) & 0x3f;
 	// 通行禁止
-	isNotPassWalk = (data[dataIndex] & 0x4) != 0;
+	isNotPassWalk = ((mapData >> 18) & 0x1) != 0;
 	// 船通行禁止
-	isNotPassShip = (data[dataIndex] & 0x8) != 0;
+	isNotPassShip = ((mapData >> 19) & 0x1) != 0;
 	// 飛行通行禁止
-	isNotPassFlyShip = (data[dataIndex] & 0x10) != 0;
+	isNotPassFlyShip = ((mapData >> 20) & 0x1) != 0;
 	// 透過情報
-	isUpChipClear = (data[dataIndex] & 0x20) != 0;
+	isUpChipClear = ((mapData >> 21) & 0x7) != 0;
 }
 
 /**
