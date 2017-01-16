@@ -40,6 +40,8 @@ public:
 	vector<EventType> eventTypes;
 	/// イベント詳細
 	vector<GameEventBaseEntity> details;
+	/// 終了フラグ
+	bool isEnd;
 	
 	/**
 	 *  コンストラクタ

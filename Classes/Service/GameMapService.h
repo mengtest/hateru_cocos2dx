@@ -52,9 +52,6 @@ private:
 	/// インスタンス
 	static GameMapService *instance;
 	
-	/// ステータス
-	vector<vector<int>> statuses;
-	
 	/**
 	 *  コンストラクタ
 	 */

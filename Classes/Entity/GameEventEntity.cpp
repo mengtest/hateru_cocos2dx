@@ -70,6 +70,7 @@ GameEventEntity::GameEventEntity() {
 	charaId = 0;
 	eventTypes.clear();
 	details.clear();
+	isEnd = false;
 }
 
 /**
