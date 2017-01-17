@@ -8,14 +8,25 @@
 
 #include "GameEventService.h"
 
+#include "PlayerEntity.h"
+#include "PlayerUnitEntity.h"
+#include "GameEventEntity.h"
+#include "GameEventMessageEntity.h"
+#include "GameEventFluctuateHPEntity.h"
+#include "GameEventFluctuateMPEntity.h"
+#include "GameEventFluctuateGoldEntity.h"
+
 #pragma mark - 初期化
 
 /**
  *  コンストラクタ
- *  @param events イベント
+ *
+ *  @param playerEntity プレイヤーデータ
+ *  @param events       イベント群
  */
-GameEventService::GameEventService(map<int, GameEventEntity> &events) {
+GameEventService::GameEventService(PlayerEntity *playerEntity, map<int, GameEventEntity> &events) {
 	// 退避
+	this->playerEntity = playerEntity;
 	this->events = events;
 	// 初期化
 	executeEventIndex = -1;
@@ -35,23 +46,42 @@ GameEventService::~GameEventService() {
  */
 void GameEventService::executeEvents() {
 	
+	bool isLoopEnd = false;
+	
 	GameEventEntity *eventEntity = &events[executeEventIndex];
 	while(true) {
 
 		switch(eventEntity->eventTypes[executeEventDetailIndex]) {
-			case EventTypeMessage:
+			case EventTypeMessage: {
+				// 文章表示
+				GameEventMessageEntity *entity = (GameEventMessageEntity *)eventEntity->details[executeEventDetailIndex];
+				showMessage(entity->message);
+				isLoopEnd = true;
 				break;
-			case EventTypeFluctuateHP:
+			}
+			case EventTypeFluctuateHP: {
+				// ＨＰ増減
+				fluctuateHP(eventEntity->details[executeEventDetailIndex]);
 				break;
-			case EventTypeFluctuateMP:
+			}
+			case EventTypeFluctuateMP: {
+				// ＭＰ増減
+				fluctuateMP(eventEntity->details[executeEventDetailIndex]);
 				break;
-			case EventTypeFluctuateGold:
+			}
+			case EventTypeFluctuateGold: {
+				// 所持金増減
+				fluctuateGold(eventEntity->details[executeEventDetailIndex]);
 				break;
+			}
 			case EventTypeFluctuateEXP:
+				// 経験値増減
 				break;
 			case EventTypeFluctuateItem:
+				// アイテム増減
 				break;
 			case EventTypeOperateVariable:
+				// 変数操作
 				break;
 			case EventTypeChangeBGM:
 				break;
@@ -129,6 +159,8 @@ void GameEventService::executeEvents() {
 				break;
 			case EventTypeRandom:
 				break;
+			default:
+				break;
 		}
 		
 		
@@ -178,4 +210,66 @@ void GameEventService::runEvent(int eventIndex) {
 	}
 }
 
+#pragma mark - メッセージ
+
+/**
+ *  メッセージ表示
+ *
+ *  @param message メッセージ
+ */
+void GameEventService::showMessage(string message) {
+	
+	
+}
+
+#pragma mark - ステータス増減
+
+/**
+ *  HP増減
+ *
+ *  @param entity イベント詳細Entity
+ */
+void GameEventService::fluctuateHP(GameEventBaseEntity *entity) {
+	GameEventFluctuateHPEntity *detailEntity = (GameEventFluctuateHPEntity *)entity;
+	int value = detailEntity->value * (detailEntity->fluctuateType == FluctuateTypeIncrease ? 1 : -1);
+	if (detailEntity->target == EventTargetTypeAll) {
+		for (auto it = playerEntity->units.begin();it != playerEntity->units.end();it++) {
+			it->fluctuateStatus(UnitStatusTypeMaxHP, UnitStatusTypeHP, value);
+		}
+	} else {
+		int target = detailEntity->target - 1;
+		if (target < playerEntity->units.size()) {
+			playerEntity->units[target].fluctuateStatus(UnitStatusTypeMaxHP, UnitStatusTypeHP, value);
+		}
+	}
+}
+
+/**
+ *  MP増減
+ *
+ *  @param entity イベント詳細Entity
+ */
+void GameEventService::fluctuateMP(GameEventBaseEntity *entity) {
+	GameEventFluctuateMPEntity *detailEntity = (GameEventFluctuateMPEntity *)entity;
+	int value = detailEntity->value * (detailEntity->fluctuateType == FluctuateTypeIncrease ? 1 : -1);
+	if (detailEntity->target == EventTargetTypeAll) {
+		for (auto it = playerEntity->units.begin();it != playerEntity->units.end();it++) {
+			it->fluctuateStatus(UnitStatusTypeMaxMP, UnitStatusTypeMP, value);
+		}
+	} else {
+		int target = detailEntity->target - 1;
+		if (target < playerEntity->units.size()) {
+			playerEntity->units[target].fluctuateStatus(UnitStatusTypeMaxMP, UnitStatusTypeMP, value);
+		}
+	}
+}
+
+/**
+ *  所持金増減
+ *
+ *  @param entity イベント詳細Entity
+ */
+void GameEventService::fluctuateGold(GameEventBaseEntity *entity) {
+	GameEventFluctuateGoldEntity *detailEntity = (GameEventFluctuateGoldEntity *)entity;
+}
 

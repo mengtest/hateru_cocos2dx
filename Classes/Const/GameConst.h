@@ -300,6 +300,9 @@ typedef enum {
 	EventTypeRandom			,
 } EventType;
 
+/// イベントターゲットタイプ　全て
+#define EventTargetTypeAll	0
+
 /// 増減タイプ
 typedef enum {
 	/// 増

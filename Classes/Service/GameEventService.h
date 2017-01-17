@@ -11,17 +11,21 @@
 
 #include "BaseService.h"
 
-#include "GameEventEntity.h"
+class PlayerEntity;
+class GameEventEntity;
+class GameEventBaseEntity;
 
 /// ゲームイベントサービス
-class GameEventService final: BaseService {
+class GameEventService final: public BaseService {
 public:
 	
 	/**
 	 *  コンストラクタ
-	 *  @param events イベント
+	 *
+	 *  @param playerEntity プレイヤーデータ
+	 *  @param events       イベント群
 	 */
-	GameEventService(map<int, GameEventEntity> &events);
+	GameEventService(PlayerEntity *playerEntity, map<int, GameEventEntity> &events);
 
 	/**
 	 *  デストラクタ
@@ -35,12 +39,15 @@ public:
 
 	/**
 	 *  イベント指定実行
+	 *
 	 *  @param eventIndex イベントインデックス
 	 */
 	void executeEvent(int eventIndex);
 
 private:
 	
+	/// プレイヤー情報
+	PlayerEntity *playerEntity;
 	/// イベント情報
 	map<int, GameEventEntity> events;
 	
@@ -58,9 +65,43 @@ private:
 
 	/**
 	 *  イベント指定開始
+	 *
 	 *  @param eventIndex イベントインデックス
 	 */
 	void runEvent(int eventIndex);
+	
+#pragma mark - メッセージ
+	
+	/**
+	 *  メッセージ表示
+	 *
+	 *  @param message メッセージ
+	 */
+	void showMessage(string message);
+	
+#pragma mark - ステータス増減
+
+	/**
+	 *  HP増減
+	 *
+	 *  @param entity イベント詳細Entity
+	 */
+	void fluctuateHP(GameEventBaseEntity *entity);
+
+	/**
+	 *  MP増減
+	 *
+	 *  @param entity イベント詳細Entity
+	 */
+	void fluctuateMP(GameEventBaseEntity *entity);
+	
+	/**
+	 *  所持金増減
+	 *
+	 *  @param entity イベント詳細Entity
+	 */
+	void fluctuateGold(GameEventBaseEntity *entity);
 };
+
 
 #endif /* GameEventService_h */

@@ -39,7 +39,7 @@ public:
 	/// イベントタイプ
 	vector<EventType> eventTypes;
 	/// イベント詳細
-	vector<GameEventBaseEntity> details;
+	vector<GameEventBaseEntity *> details;
 	/// 終了フラグ
 	bool isEnd;
 	

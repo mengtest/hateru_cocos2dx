@@ -41,6 +41,19 @@ public:
 	vector<PlayerItemEntity> items;
 
 	/**
+	 *  ステータス増減
+	 *
+	 *  @param maxStatusType    最大ステータスタイプ
+	 *  @param changeStatusType 変更ステータスタイプ
+	 *  @param value            変化値
+	 *
+	 *  @return 実際の増減値
+	 */
+	int fluctuateStatus(int maxStatusType, int changeStatusType, int value);
+	
+#pragma mark - アイテム
+	
+	/**
 	 *  持ちアイテムがフルか？
 	 *
 	 *  @return true: フル、false: まだまだ
@@ -84,6 +97,8 @@ public:
 	 */
 	void updateEquippedStatus();
 	
+#pragma mark - スキル
+	
 	/**
 	 *  持ちスキルがフルか？
 	 *
@@ -112,12 +127,16 @@ public:
 	 */
 	bool hasSkillTeleport();
 
+#pragma mark - バトル
+	
 	/**
 	 *  バトルステータスに変換
 	 *
 	 *  @return バトルステータス
 	 */
 	vector<int> battleStatuses();
+
+#pragma mark - 初期化
 
 	/**
 	 *  コンストラクタ

@@ -12,6 +12,30 @@
 #include "GameConst.h"
 #include "GameDataService.h"
 
+#pragma mark - ステータス
+
+/**
+ *  ステータス増減
+ *
+ *  @param maxStatusType    最大ステータスタイプ
+ *  @param changeStatusType 変更ステータスタイプ
+ *  @param value            変化値
+ *
+ *  @return 実際の増減値
+ */
+int PlayerUnitEntity::fluctuateStatus(int maxStatusType, int changeStatusType, int value) {
+	
+	int statusBackup = statuses[changeStatusType];
+	statuses[changeStatusType] += value;
+	if (statuses[changeStatusType] < 0) {
+		statuses[changeStatusType] = 0;
+	} else if (maxStatusType >= 0 && statuses[changeStatusType] > statuses[maxStatusType]) {
+		statuses[changeStatusType] = statuses[maxStatusType];
+	}
+	
+	return statuses[changeStatusType] - statusBackup;
+}
+
 #pragma mark - アイテム
 
 /**
