@@ -42,6 +42,8 @@ public:
 	vector<GameEventBaseEntity *> details;
 	/// 終了フラグ
 	bool isEnd;
+	/// 作業ステータス
+	EventWorkStatus workStatus;
 	
 	/**
 	 *  コンストラクタ

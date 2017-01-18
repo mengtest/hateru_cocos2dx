@@ -223,6 +223,10 @@ void PlayerEntity::sortCloakrooms() {
 	}
 }
 
+#pragma mark - 変数操作
+
+
+
 #pragma mark - 初期化
 
 /**

@@ -411,6 +411,18 @@ typedef enum {
 	EventDetailMoveTypeSet,
 } EventDetailMoveType;
 
+/// イベント作業ステータスタイプ
+typedef enum {
+	// マップ上に存在しない
+	EventWorkStatusNoMap = 0,
+	// 無効
+	EventWorkStatusInvalid,
+	// 有効
+	EventWorkStatusValid,
+	// 実行
+	EventWorkStatusExecute,
+} EventWorkStatus;
+
 #pragma mark - 敵
 
 /// 敵ステータスタイプ

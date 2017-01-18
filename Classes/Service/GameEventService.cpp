@@ -15,6 +15,11 @@
 #include "GameEventFluctuateHPEntity.h"
 #include "GameEventFluctuateMPEntity.h"
 #include "GameEventFluctuateGoldEntity.h"
+#include "GameEventFluctuateItemEntity.h"
+#include "GameEventOperateVariableEntity.h"
+
+#include "GameDataService.h"
+#include "UUIDUtil.h"
 
 #pragma mark - 初期化
 
@@ -71,7 +76,7 @@ void GameEventService::executeEvents() {
 			}
 			case EventTypeFluctuateGold: {
 				// 所持金増減
-				fluctuateGold(eventEntity->details[executeEventDetailIndex]);
+				isLoopEnd = fluctuateGold(eventEntity->details[executeEventDetailIndex]);
 				break;
 			}
 			case EventTypeFluctuateEXP:
@@ -79,9 +84,11 @@ void GameEventService::executeEvents() {
 				break;
 			case EventTypeFluctuateItem:
 				// アイテム増減
+				isLoopEnd = fluctuateItem(eventEntity->details[executeEventDetailIndex]);
 				break;
 			case EventTypeOperateVariable:
 				// 変数操作
+				operateVariable(eventEntity->details[executeEventDetailIndex]);
 				break;
 			case EventTypeChangeBGM:
 				break;
@@ -225,23 +232,35 @@ void GameEventService::showMessage(string message) {
 #pragma mark - ステータス増減
 
 /**
+ *  ステータス増減
+ *
+ *  @param target           ターゲット
+ *  @param maxStatusType    最大ステータスタイプ
+ *  @param changeStatusType 変化ステータスタイプ
+ *  @param value            値
+ */
+void GameEventService::fluctuateStatus(int target, int maxStatusType, int changeStatusType, int value) {
+	if (target == EventTargetTypeAll) {
+		for (auto it = playerEntity->units.begin();it != playerEntity->units.end();it++) {
+			it->fluctuateStatus(maxStatusType, changeStatusType, value);
+		}
+	} else {
+		target -= 1;
+		if (target < playerEntity->units.size()) {
+			playerEntity->units[target].fluctuateStatus(maxStatusType, changeStatusType, value);
+		}
+	}
+}
+
+/**
  *  HP増減
  *
  *  @param entity イベント詳細Entity
  */
 void GameEventService::fluctuateHP(GameEventBaseEntity *entity) {
-	GameEventFluctuateHPEntity *detailEntity = (GameEventFluctuateHPEntity *)entity;
+	GameEventFluctuateMPEntity *detailEntity = (GameEventFluctuateMPEntity *)entity;
 	int value = detailEntity->value * (detailEntity->fluctuateType == FluctuateTypeIncrease ? 1 : -1);
-	if (detailEntity->target == EventTargetTypeAll) {
-		for (auto it = playerEntity->units.begin();it != playerEntity->units.end();it++) {
-			it->fluctuateStatus(UnitStatusTypeMaxHP, UnitStatusTypeHP, value);
-		}
-	} else {
-		int target = detailEntity->target - 1;
-		if (target < playerEntity->units.size()) {
-			playerEntity->units[target].fluctuateStatus(UnitStatusTypeMaxHP, UnitStatusTypeHP, value);
-		}
-	}
+	fluctuateStatus(detailEntity->target, UnitStatusTypeMaxHP, UnitStatusTypeHP, value);
 }
 
 /**
@@ -252,24 +271,138 @@ void GameEventService::fluctuateHP(GameEventBaseEntity *entity) {
 void GameEventService::fluctuateMP(GameEventBaseEntity *entity) {
 	GameEventFluctuateMPEntity *detailEntity = (GameEventFluctuateMPEntity *)entity;
 	int value = detailEntity->value * (detailEntity->fluctuateType == FluctuateTypeIncrease ? 1 : -1);
-	if (detailEntity->target == EventTargetTypeAll) {
-		for (auto it = playerEntity->units.begin();it != playerEntity->units.end();it++) {
-			it->fluctuateStatus(UnitStatusTypeMaxMP, UnitStatusTypeMP, value);
-		}
-	} else {
-		int target = detailEntity->target - 1;
-		if (target < playerEntity->units.size()) {
-			playerEntity->units[target].fluctuateStatus(UnitStatusTypeMaxMP, UnitStatusTypeMP, value);
-		}
-	}
+	fluctuateStatus(detailEntity->target, UnitStatusTypeMaxMP, UnitStatusTypeMP, value);
 }
 
 /**
  *  所持金増減
  *
  *  @param entity イベント詳細Entity
+ * 
+ *  @return 終了フラグ
  */
-void GameEventService::fluctuateGold(GameEventBaseEntity *entity) {
+bool GameEventService::fluctuateGold(GameEventBaseEntity *entity) {
 	GameEventFluctuateGoldEntity *detailEntity = (GameEventFluctuateGoldEntity *)entity;
+	int value = detailEntity->value * (detailEntity->fluctuateType == FluctuateTypeIncrease ? 1 : -1);
+	playerEntity->money += value;
+	if (playerEntity->money <= 0) {
+		playerEntity->money = 0;
+	}
+	if (value > 0) {
+		// +の場合はメッセージを表示
+		showMessage(StringUtils::format("%d%sを手に入れた！", value, GameDataService::sharedInstance()->gameInfo.moneyUnit.c_str()));
+		return true;
+	}
+	return false;
 }
+
+/**
+ *  アイテム増減
+ *
+ *  @param entity イベント詳細Entity
+ *
+ *  @return 終了フラグ
+ */
+bool GameEventService::fluctuateItem(GameEventBaseEntity *entity) {
+	GameEventFluctuateItemEntity *detailEntity = (GameEventFluctuateItemEntity *)entity;
+	GameItemEntity itemEntity = GameDataService::sharedInstance()->items[detailEntity->itemId];
+	
+	if (detailEntity->fluctuateType == FluctuateTypeIncrease) {
+		// アイテム増イベント
+		switch (executeEventCount1) {
+			case 0: {
+				// メッセージのみ
+				showMessage(StringUtils::format("%sを手に入れた！", itemEntity.name.c_str()));
+				executeEventCount1 += 1;
+				break;
+			}
+			case 1: {
+				// 実際アイテムを追加する
+				auto isFull = playerEntity->addItem(detailEntity->itemId, itemEntity.useCount, "");
+				if (isFull) {
+					showMessage("荷物がいっぱいです\nどれを捨てますか？");
+					executeEventCount1 += 1;
+				} else {
+					// 次のイベントへ
+					executeEventDetailIndex += 1;
+				}
+				break;
+			}
+			case 2: {
+				// TODO:キャラ選択メニュー表示
+				
+				executeEventCount1 += 1;
+				break;
+			}
+			case 3: {
+				// TODO:キャラ選択
+				
+				break;
+			}
+			case 4: {
+				// TODO:捨てるアイテムを選択
+				
+				break;
+			}
+			case 5: {
+				// TODO:捨てる確認
+				
+				break;
+			}
+		}
+
+		// イベントを前に戻す
+		executeEventDetailIndex -= 1;
+
+		return true;
+	}
+	
+	// アイテム減イベント
+	auto isExist = playerEntity->removeItem(detailEntity->itemId);
+	if (isExist) {
+		showMessage(StringUtils::format("%sを手渡した", itemEntity.name.c_str()));
+		return true;
+	}
+	return false;
+}
+
+#pragma mark - 変数操作
+
+/**
+ *  変数操作
+ *
+ *  @param entity イベント詳細Entity
+ */
+void GameEventService::operateVariable(GameEventBaseEntity *entity) {
+	GameEventOperateVariableEntity *detailEntity = (GameEventOperateVariableEntity *)entity;
+	
+	switch (detailEntity->operateType) {
+		case VariableOperateTypeAssignment:
+			playerEntity->variables[detailEntity->variableId] = detailEntity->value;
+			break;
+		case VariableOperateTypeIncrease:
+			playerEntity->variables[detailEntity->variableId] += detailEntity->value;
+			break;
+		case VariableOperateTypeDecline:
+			playerEntity->variables[detailEntity->variableId] -= detailEntity->value;
+			break;
+	}
+	playerEntity->variables[detailEntity->variableId] &= 0xff;
+	
+	// イベント
+	for (auto it = events.begin();it != events.end();it++) {
+		// 有効ではない
+		if (it->second.workStatus == EventWorkStatusNoMap) {
+			continue;
+		}
+		it->second.workStatus = EventWorkStatusInvalid;
+		// 変数チェック
+		if (it->second.isIgnitionVariable) {
+			// TODO: SubSetNum
+		}
+		// ステータス設定
+		
+	}
+}
+
 

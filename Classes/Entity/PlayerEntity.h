@@ -70,12 +70,16 @@ public:
 	 */
 	void initialize();
 	
+#pragma mark - ユニット
+	
 	/**
 	 *  ユニット追加
 	 *
 	 *  @param unitId ユニットID
 	 */
 	void addUnit(const int unitId);
+	
+#pragma mark - アイテム
 	
 	/**
 	 *  持ちアイテムがフルか？
@@ -104,12 +108,16 @@ public:
 	 */
 	bool removeItem(const int id);
 	
+#pragma mark - アイテム調合
+	
 	/**
 	 *  現在のアイテムで調合できる一覧を取得する
 	 *
 	 *  @return アイテムIDリスト
 	 */
 	vector<int> validMixings();
+	
+#pragma mark - 預かり所
 	
 	/**
 	 *  預かり所追加
@@ -134,6 +142,8 @@ public:
 	 */
 	void sortCloakrooms();
 	
+#pragma mark - 初期化
+
 	/**
 	 *  コンストラクタ
 	 */

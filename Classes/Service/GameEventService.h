@@ -82,6 +82,16 @@ private:
 #pragma mark - ステータス増減
 
 	/**
+	 *  ステータス増減
+	 *
+	 *  @param target           ターゲット
+	 *  @param maxStatusType    最大ステータスタイプ
+	 *  @param changeStatusType 変化ステータスタイプ
+	 *  @param value            値
+	 */
+	void fluctuateStatus(int target, int maxStatusType, int changeStatusType, int value);
+
+	/**
 	 *  HP増減
 	 *
 	 *  @param entity イベント詳細Entity
@@ -94,13 +104,33 @@ private:
 	 *  @param entity イベント詳細Entity
 	 */
 	void fluctuateMP(GameEventBaseEntity *entity);
-	
+
 	/**
 	 *  所持金増減
 	 *
 	 *  @param entity イベント詳細Entity
+	 *
+	 *  @return 終了フラグ
 	 */
-	void fluctuateGold(GameEventBaseEntity *entity);
+	bool fluctuateGold(GameEventBaseEntity *entity);
+	
+	/**
+	 *  アイテム増減
+	 *
+	 *  @param entity イベント詳細Entity
+	 *
+	 *  @return 終了フラグ
+	 */
+	bool fluctuateItem(GameEventBaseEntity *entity);
+	
+#pragma mark - 変数操作
+
+	/**
+	 *  変数操作
+	 *
+	 *  @param entity イベント詳細Entity
+	 */
+	void operateVariable(GameEventBaseEntity *entity);
 };
 
 

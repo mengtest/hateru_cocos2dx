@@ -71,6 +71,7 @@ GameEventEntity::GameEventEntity() {
 	eventTypes.clear();
 	details.clear();
 	isEnd = false;
+	workStatus = EventWorkStatusNoMap;
 }
 
 /**
